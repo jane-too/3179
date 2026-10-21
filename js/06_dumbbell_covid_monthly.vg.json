@@ -3,7 +3,7 @@
   "background": "#F7F4EE",
   "width": 699,
   "height": {
-    "step": 74
+    "step": 100
   },
   "padding": 5,
   "title": {
@@ -36,7 +36,7 @@
       "title": null,
       "axis": {
         "labelFont": "Archivo",
-        "labelFontSize": 15,
+        "labelFontSize": 16,
         "labelColor": "#2E2A24",
         "labelPadding": 56,
         "domain": false,
@@ -71,7 +71,7 @@
       "mark": {
         "type": "rule",
         "color": "#9A948A",
-        "strokeWidth": 2.5,
+        "strokeWidth": 3,
         "strokeCap": "round"
       },
       "encoding": {
@@ -128,7 +128,7 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 210,
+        "size": 300,
         "opacity": 1,
         "strokeWidth": 0
       },
@@ -239,7 +239,7 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 292,
+        "size": 416,
         "opacity": 1,
         "stroke": "#F7F4EE",
         "strokeWidth": 1.5
@@ -354,8 +354,8 @@
         "strokeWidth": 1,
         "xOffset": 6,
         "x2Offset": 292.96,
-        "yOffset": 0,
-        "y2Offset": 46
+        "yOffset": 0.0,
+        "y2Offset": 62.2
       },
       "encoding": {
         "x": {
@@ -413,8 +413,8 @@
         "cornerRadius": 2,
         "xOffset": 292.96,
         "x2Offset": 553.96,
-        "yOffset": 19.5,
-        "y2Offset": 72.5
+        "yOffset": 35.7,
+        "y2Offset": 88.7
       },
       "encoding": {
         "x": {
@@ -474,7 +474,7 @@
         "color": "#2E2A24",
         "lineHeight": 18,
         "dx": 306.96,
-        "dy": 30.5,
+        "dy": 46.7,
         "text": [
           "In March, the market and the city centre",
           "fell together, three points apart."
@@ -520,8 +520,8 @@
         "strokeWidth": 1,
         "xOffset": 6,
         "x2Offset": 402.4,
-        "yOffset": 0,
-        "y2Offset": 40
+        "yOffset": 0.0,
+        "y2Offset": 54.1
       },
       "encoding": {
         "x": {
@@ -579,8 +579,8 @@
         "cornerRadius": 2,
         "xOffset": 402.4,
         "x2Offset": 598.4,
-        "yOffset": 13.5,
-        "y2Offset": 66.5
+        "yOffset": 27.6,
+        "y2Offset": 80.6
       },
       "encoding": {
         "x": {
@@ -640,7 +640,7 @@
         "color": "#2E2A24",
         "lineHeight": 18,
         "dx": 416.4,
-        "dy": 24.5,
+        "dy": 38.6,
         "text": [
           "By May, the gap had widened",
           "to twenty-eight points."

@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "background": "#F7F4EE",
   "width": 1046,
-  "height": 295,
+  "height": 564,
   "padding": 5,
   "title": {
     "text": "DRAFT — Merchandise fills half the market, and groceries and eateries share the rest",
@@ -81,7 +81,7 @@
       "as": "share_pct"
     },
     {
-      "calculate": "datum.panel * 17",
+      "calculate": "datum.panel * 13",
       "as": "panel_x"
     },
     {
@@ -98,11 +98,11 @@
       "as": "filled"
     },
     {
-      "calculate": "datum.panel_x + datum.unit % 15",
+      "calculate": "datum.panel_x + datum.unit % 10",
       "as": "x"
     },
     {
-      "calculate": "floor(datum.unit / 15)",
+      "calculate": "floor(datum.unit / 10)",
       "as": "y"
     }
   ],
@@ -115,7 +115,7 @@
       "scale": {
         "domain": [
           -0.5,
-          48.5
+          35.5
         ]
       }
     },
@@ -126,7 +126,7 @@
       "title": null,
       "scale": {
         "domain": [
-          13.6,
+          18.1,
           -0.5
         ]
       }
@@ -136,7 +136,7 @@
     {
       "mark": {
         "type": "square",
-        "size": 289,
+        "size": 568,
         "opacity": 1
       },
       "encoding": {
@@ -171,6 +171,39 @@
       "transform": [
         {
           "filter": "datum.unit == 0"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "fill": "#FCFBF8",
+        "stroke": "#DFD9CC",
+        "strokeWidth": 1,
+        "cornerRadius": 2,
+        "xOffset": -12,
+        "x2Offset": 274,
+        "yOffset": 24,
+        "y2Offset": 109
+      },
+      "encoding": {
+        "x": {
+          "field": "panel_x",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "panel_x"
+        },
+        "y": {
+          "datum": 14
+        },
+        "y2": {
+          "datum": 14
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.unit == 0"
         },
         {
           "calculate": "datum.trade == 'Grocery' ? 'Groceries' : datum.trade",
@@ -181,8 +214,8 @@
         "type": "text",
         "align": "left",
         "baseline": "top",
-        "dx": -9,
-        "dy": 22,
+        "dx": 3,
+        "dy": 36,
         "font": "Archivo",
         "fontSize": 16,
         "fontWeight": 600,
@@ -194,7 +227,7 @@
           "type": "quantitative"
         },
         "y": {
-          "datum": 9
+          "datum": 14
         },
         "text": {
           "field": "heading",
@@ -216,8 +249,8 @@
         "type": "text",
         "align": "left",
         "baseline": "top",
-        "dx": -9,
-        "dy": 47,
+        "dx": 3,
+        "dy": 61,
         "font": "Archivo",
         "fontSize": 14.5,
         "fontWeight": 400,
@@ -230,7 +263,7 @@
           "type": "quantitative"
         },
         "y": {
-          "datum": 9
+          "datum": 14
         },
         "text": {
           "field": "line1",

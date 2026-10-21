@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "background": "#F7F4EE",
   "padding": 5,
-  "width": 840,
-  "height": 500,
+  "width": 1044,
+  "height": 520,
   "title": {
     "text": "DRAFT — No single country supplies more than an eighth of Australia's market crowd",
     "subtitle": [
@@ -225,358 +225,13 @@
       "data": {
         "values": [
           {
-            "x": 0
-          }
-        ]
-      },
-      "mark": {
-        "type": "rect",
-        "fill": "#FCFBF8",
-        "stroke": "#DFD9CC",
-        "strokeWidth": 1,
-        "cornerRadius": 2,
-        "x": 740.0,
-        "x2": 957.0,
-        "y": 6.0,
-        "y2": 76.0
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "x": 0
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "top",
-        "font": "Archivo",
-        "fontSize": 12.5,
-        "color": "#2E2A24",
-        "lineHeight": 17,
-        "x": 754.0,
-        "y": 18.0,
-        "text": [
-          "Taiwan has the highest rate of any",
-          "origin: 67.7% of Taiwanese visitors",
-          "went to a market."
-        ]
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "x": 884.0,
-            "y": 288.7639471896804,
+            "x": 818.80239807961,
+            "y": 160.73658620133858,
             "o": 0
           },
           {
-            "x": 921.6180264051599,
-            "y": 288.7639471896804,
-            "o": 1
-          }
-        ]
-      },
-      "mark": {
-        "type": "point",
-        "shape": "circle",
-        "filled": false,
-        "stroke": "#9A948A",
-        "strokeWidth": 1,
-        "size": 1700.4120513754697,
-        "x": 960.0,
-        "y": 289.3819735948402
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "x": 960.0,
-            "y": 268.7639471896804,
-            "o": 0
-          },
-          {
-            "x": 997.6180264051599,
-            "y": 268.7639471896804,
-            "o": 1
-          }
-        ]
-      },
-      "mark": {
-        "type": "line",
-        "stroke": "#A39C8E",
-        "strokeWidth": 1,
-        "x": 1002.6180264051599,
-        "y": 288.7639471896804
-      },
-      "encoding": {
-        "x": {
-          "field": "x",
-          "type": "quantitative",
-          "scale": null,
-          "axis": null
-        },
-        "y": {
-          "field": "y",
-          "type": "quantitative",
-          "scale": null,
-          "axis": null
-        },
-        "order": {
-          "field": "o",
-          "type": "quantitative"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "t": "455,000"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "font": "Archivo",
-        "fontSize": 11,
-        "color": "#6B675F",
-        "align": "left",
-        "baseline": "middle",
-        "x": 1002.6180264051599,
-        "y": 268.7639471896804,
-        "size": 990.5589280691876
-      },
-      "encoding": {
-        "text": {
-          "field": "t"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "x": 884.0,
-            "y": 298.5268538581033,
-            "o": 0
-          },
-          {
-            "x": 921.6180264051599,
-            "y": 308.7639471896804,
-            "o": 1
-          }
-        ]
-      },
-      "mark": {
-        "type": "point",
-        "shape": "circle",
-        "filled": false,
-        "stroke": "#9A948A",
-        "strokeWidth": 1,
-        "size": 990.5589280691876,
-        "x": 960.0,
-        "y": 294.26342692905166
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "x": 960.0,
-            "y": 278.5268538581033,
-            "o": 0
-          },
-          {
-            "x": 997.6180264051599,
-            "y": 288.7639471896804,
-            "o": 1
-          }
-        ]
-      },
-      "mark": {
-        "type": "line",
-        "stroke": "#A39C8E",
-        "strokeWidth": 1,
-        "x": 1002.6180264051599,
-        "y": 308.7639471896804
-      },
-      "encoding": {
-        "x": {
-          "field": "x",
-          "type": "quantitative",
-          "scale": null,
-          "axis": null
-        },
-        "y": {
-          "field": "y",
-          "type": "quantitative",
-          "scale": null,
-          "axis": null
-        },
-        "order": {
-          "field": "o",
-          "type": "quantitative"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "t": "200,000"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "font": "Archivo",
-        "fontSize": 11,
-        "color": "#6B675F",
-        "align": "left",
-        "baseline": "middle",
-        "x": 1002.6180264051599,
-        "y": 288.7639471896804,
-        "size": 292.3111202914206
-      },
-      "encoding": {
-        "text": {
-          "field": "t"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "x": 884.0,
-            "y": 312.90289146401005,
-            "o": 0
-          },
-          {
-            "x": 921.6180264051599,
-            "y": 328.7639471896804,
-            "o": 1
-          }
-        ]
-      },
-      "mark": {
-        "type": "point",
-        "shape": "circle",
-        "filled": false,
-        "stroke": "#9A948A",
-        "strokeWidth": 1,
-        "size": 292.3111202914206,
-        "x": 960.0,
-        "y": 301.451445732005
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "x": 960.0,
-            "y": 292.90289146401005,
-            "o": 0
-          },
-          {
-            "x": 997.6180264051599,
-            "y": 308.7639471896804,
-            "o": 1
-          }
-        ]
-      },
-      "mark": {
-        "type": "line",
-        "stroke": "#A39C8E",
-        "strokeWidth": 1,
-        "x": 1002.6180264051599,
-        "y": 328.7639471896804
-      },
-      "encoding": {
-        "x": {
-          "field": "x",
-          "type": "quantitative",
-          "scale": null,
-          "axis": null
-        },
-        "y": {
-          "field": "y",
-          "type": "quantitative",
-          "scale": null,
-          "axis": null
-        },
-        "order": {
-          "field": "o",
-          "type": "quantitative"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "t": "50,000"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "font": "Archivo",
-        "fontSize": 11,
-        "color": "#6B675F",
-        "align": "left",
-        "baseline": "middle",
-        "x": 1002.6180264051599,
-        "y": 308.7639471896804
-      },
-      "encoding": {
-        "text": {
-          "field": "t"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "t": 0
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "font": "Archivo",
-        "fontSize": 13,
-        "fontWeight": 600,
-        "color": "#6B675F",
-        "align": "left",
-        "baseline": "top",
-        "x": 939.3819735948401,
-        "y": 329.0,
-        "lineHeight": 16.5,
-        "text": [
-          "Visitors who went",
-          "to a market"
-        ]
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "x": 660.6662710024567,
-            "y": 169.68598559831543,
-            "o": 0
-          },
-          {
-            "x": 790.0,
-            "y": 76.0,
+            "x": 980.0,
+            "y": 68.0,
             "o": 1
           }
         ]
@@ -609,13 +264,13 @@
       "data": {
         "values": [
           {
-            "x": 601.0,
-            "y": 118.3844718719117,
+            "x": 747.5,
+            "y": 100.9,
             "o": 0
           },
           {
-            "x": 601.0,
-            "y": 106.3844718719117,
+            "x": 747.5,
+            "y": 88.9,
             "o": 1
           }
         ]
@@ -660,8 +315,8 @@
         "color": "#2E2A24",
         "align": "center",
         "baseline": "bottom",
-        "x": 601.0,
-        "y": 103.3844718719117
+        "x": 747.5,
+        "y": 85.9
       },
       "encoding": {
         "text": {
@@ -673,13 +328,13 @@
       "data": {
         "values": [
           {
-            "x": 381.0,
-            "y": 74.75640870508903,
+            "x": 474.5,
+            "y": 46.8,
             "o": 0
           },
           {
-            "x": 381.0,
-            "y": 62.75640870508903,
+            "x": 474.5,
+            "y": 34.8,
             "o": 1
           }
         ]
@@ -724,8 +379,8 @@
         "color": "#2E2A24",
         "align": "center",
         "baseline": "bottom",
-        "x": 381.0,
-        "y": 59.75640870508903
+        "x": 474.5,
+        "y": 31.8
       },
       "encoding": {
         "text": {
@@ -737,13 +392,13 @@
       "data": {
         "values": [
           {
-            "x": 157.8412644335476,
-            "y": 132.0,
+            "x": 201.3,
+            "y": 112.5,
             "o": 0
           },
           {
-            "x": 147.84126443354756,
-            "y": 132.0,
+            "x": 191.3,
+            "y": 112.5,
             "o": 1
           }
         ]
@@ -788,8 +443,8 @@
         "color": "#2E2A24",
         "align": "right",
         "baseline": "middle",
-        "x": 144.84126443354756,
-        "y": 132.0
+        "x": 188.3,
+        "y": 112.5
       },
       "encoding": {
         "text": {
@@ -801,13 +456,13 @@
       "data": {
         "values": [
           {
-            "x": 205.0,
-            "y": 74.609273518374,
+            "x": 255.0,
+            "y": 44.1,
             "o": 0
           },
           {
-            "x": 205.0,
-            "y": 64.609273518374,
+            "x": 255.0,
+            "y": 34.1,
             "o": 1
           }
         ]
@@ -852,8 +507,8 @@
         "color": "#2E2A24",
         "align": "center",
         "baseline": "bottom",
-        "x": 205.0,
-        "y": 61.609273518373996
+        "x": 255.0,
+        "y": 31.1
       },
       "encoding": {
         "text": {
@@ -865,13 +520,13 @@
       "data": {
         "values": [
           {
-            "x": 747.6555050101135,
-            "y": 381.0,
+            "x": 924.2,
+            "y": 422.5,
             "o": 0
           },
           {
-            "x": 757.6555050101135,
-            "y": 381.0,
+            "x": 934.2,
+            "y": 422.5,
             "o": 1
           }
         ]
@@ -916,8 +571,8 @@
         "color": "#2E2A24",
         "align": "left",
         "baseline": "middle",
-        "x": 760.6555050101135,
-        "y": 381.0
+        "x": 937.2,
+        "y": 422.5
       },
       "encoding": {
         "text": {
@@ -936,18 +591,338 @@
       "mark": {
         "type": "text",
         "font": "Archivo",
-        "fontSize": 12.5,
+        "fontSize": 12,
         "fontWeight": 600,
         "color": "#2E2A24",
         "align": "left",
         "baseline": "middle",
-        "x": 668.933063974399,
-        "y": 180.0
+        "x": 827.4,
+        "y": 168.5
       },
       "encoding": {
         "text": {
           "field": "t"
         }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "a": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "fill": "#FCFBF8",
+        "stroke": "#DFD9CC",
+        "strokeWidth": 1,
+        "cornerRadius": 2,
+        "x": 829.0,
+        "x2": 1044.0,
+        "y": 0.0,
+        "y2": 68.0
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "a": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "fontWeight": 400,
+        "color": "#2E2A24",
+        "align": "left",
+        "baseline": "top",
+        "x": 842.0,
+        "y": 12.0,
+        "text": [
+          "Taiwan has the highest rate of any",
+          "origin: 67.7% of Taiwanese visitors",
+          "went to a market."
+        ],
+        "lineHeight": 17
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "a": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": false,
+        "stroke": "#9A948A",
+        "strokeWidth": 1,
+        "size": 1700.4120513754697,
+        "x": 914.0,
+        "y": 539.3819735948401
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 914.0,
+            "y": 518.7639471896804,
+            "o": 0
+          },
+          {
+            "x": 951.6180264051599,
+            "y": 518.7639471896804,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#A39C8E",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "order": {
+          "field": "o",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "455,000"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "color": "#6B675F",
+        "align": "left",
+        "baseline": "middle",
+        "x": 956.6,
+        "y": 518.8
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "a": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": false,
+        "stroke": "#9A948A",
+        "strokeWidth": 1,
+        "size": 990.5589280691876,
+        "x": 914.0,
+        "y": 544.2634269290517
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 914.0,
+            "y": 528.5268538581033,
+            "o": 0
+          },
+          {
+            "x": 951.6180264051599,
+            "y": 538.7639471896804,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#A39C8E",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "order": {
+          "field": "o",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "200,000"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "color": "#6B675F",
+        "align": "left",
+        "baseline": "middle",
+        "x": 956.6,
+        "y": 538.8
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "a": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": false,
+        "stroke": "#9A948A",
+        "strokeWidth": 1,
+        "size": 292.3111202914206,
+        "x": 914.0,
+        "y": 551.451445732005
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 914.0,
+            "y": 542.90289146401,
+            "o": 0
+          },
+          {
+            "x": 951.6180264051599,
+            "y": 558.7639471896804,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#A39C8E",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "order": {
+          "field": "o",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "50,000"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 11,
+        "fontWeight": 400,
+        "color": "#6B675F",
+        "align": "left",
+        "baseline": "middle",
+        "x": 956.6,
+        "y": 558.8
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "a": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 13,
+        "fontWeight": 600,
+        "color": "#6B675F",
+        "align": "left",
+        "baseline": "top",
+        "x": 893.4,
+        "y": 581.0,
+        "text": [
+          "Visitors who went",
+          "to a market"
+        ],
+        "lineHeight": 16.5
       }
     }
   ],
