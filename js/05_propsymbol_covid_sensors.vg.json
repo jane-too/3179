@@ -1,0 +1,1552 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#F7F4EE",
+  "width": "container",
+  "height": 600,
+  "title": {
+    "text": [
+      "DRAFT — Around Queen Victoria Market half the crowd stayed on average,",
+      "against only a third across the rest of the city centre"
+    ],
+    "subtitle": [
+      "DRAFT — People counted by the City of Melbourne's pedestrian sensors, March to June 2020, as a share of the same months",
+      "of 2019. The larger and more solid the circle, the more of its 2019 crowd remained."
+    ],
+    "anchor": "start",
+    "font": "Fraunces",
+    "fontSize": 20,
+    "fontWeight": 600,
+    "color": "#1A1A17",
+    "subtitleFont": "Archivo",
+    "subtitleFontSize": 13.5,
+    "subtitleColor": "#6B675F",
+    "subtitleLineHeight": 18,
+    "offset": 34,
+    "lineHeight": 26
+  },
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "anchor": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "opacity": 0,
+        "size": 1
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 144.9285
+        },
+        "latitude": {
+          "datum": -37.81
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/melbourne_cbd_blocks_d3.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "blocks"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#E8E4DC",
+        "stroke": "#F7F4EE",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "data/sensors_covid_change_2020_vs_2019.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "counts_2019": "number",
+            "counts_2020": "number",
+            "pct_change": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "mappable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.mappable == 1 && datum.group != 'QVM area'"
+        },
+        {
+          "calculate": "100 + datum.pct_change",
+          "as": "stayed"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "fill": "#FFFFFF",
+        "strokeWidth": 1.1,
+        "stroke": "#4A463F"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "stayed",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              0,
+              65
+            ],
+            "range": [
+              0,
+              1300
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "sensor_name",
+            "title": "Sensor"
+          },
+          {
+            "field": "stayed",
+            "type": "quantitative",
+            "title": "Share of 2019 crowd that remained (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "counts_2019",
+            "type": "quantitative",
+            "title": "Mar–Jun 2019",
+            "format": ","
+          },
+          {
+            "field": "counts_2020",
+            "type": "quantitative",
+            "title": "Mar–Jun 2020",
+            "format": ","
+          }
+        ],
+        "stroke": {
+          "value": "#6B675F"
+        },
+        "fillOpacity": {
+          "field": "stayed",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              20,
+              65
+            ],
+            "range": [
+              0.35,
+              1
+            ]
+          },
+          "legend": null
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/sensors_covid_change_2020_vs_2019.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "counts_2019": "number",
+            "counts_2020": "number",
+            "pct_change": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "mappable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.mappable == 1 && datum.group == 'QVM area'"
+        },
+        {
+          "calculate": "100 + datum.pct_change",
+          "as": "stayed"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "fill": "#A632A6",
+        "stroke": "#F7F4EE",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "stayed",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              0,
+              65
+            ],
+            "range": [
+              0,
+              1300
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "sensor_name",
+            "title": "Sensor"
+          },
+          {
+            "field": "stayed",
+            "type": "quantitative",
+            "title": "Share of 2019 crowd that remained (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "counts_2019",
+            "type": "quantitative",
+            "title": "Mar–Jun 2019",
+            "format": ","
+          },
+          {
+            "field": "counts_2020",
+            "type": "quantitative",
+            "title": "Mar–Jun 2020",
+            "format": ","
+          }
+        ],
+        "fillOpacity": {
+          "field": "stayed",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              20,
+              65
+            ],
+            "range": [
+              0.35,
+              1
+            ]
+          },
+          "legend": null
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "l": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#B9B2A5",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "value": 592.9
+        },
+        "y": {
+          "value": 188.7
+        },
+        "x2": {
+          "value": 811
+        },
+        "y2": {
+          "value": 64.0
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "l": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#B9B2A5",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "value": 524.6
+        },
+        "y": {
+          "value": 237.3
+        },
+        "x2": {
+          "value": 218
+        },
+        "y2": {
+          "value": 64
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "b": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "fill": "#FCFBF8",
+        "stroke": "#DFD9CC",
+        "strokeWidth": 1,
+        "x": 0,
+        "x2": 226,
+        "y": 10,
+        "y2": 118
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "b": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "fill": "#FCFBF8",
+        "stroke": "#DFD9CC",
+        "strokeWidth": 1,
+        "x": 803,
+        "x2": 1046,
+        "y": 10,
+        "y2": 118
+      }
+    },
+    {
+      "data": {
+        "url": "data/sensors_covid_change_2020_vs_2019.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "counts_2019": "number",
+            "counts_2020": "number",
+            "pct_change": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "mappable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.sensor_name == 'QVM-Therry St (South)'"
+        },
+        {
+          "calculate": "split('No sensor in the city centre|held on to more of its crowd.', '|')",
+          "as": "t"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 18,
+        "font": "Archivo",
+        "fontSize": 13.5,
+        "fontWeight": 600,
+        "color": "#2E2A24"
+      },
+      "encoding": {
+        "x": {
+          "value": 14
+        },
+        "y": {
+          "value": 24
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/sensors_covid_change_2020_vs_2019.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "counts_2019": "number",
+            "counts_2020": "number",
+            "pct_change": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "mappable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.sensor_name == 'QVM-Therry St (South)'"
+        },
+        {
+          "calculate": "split('QVM-Therry St (South),|62% of its 2019 pedestrian count.', '|')",
+          "as": "t"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 18,
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "fontWeight": 400,
+        "color": "#6B675F"
+      },
+      "encoding": {
+        "x": {
+          "value": 14
+        },
+        "y": {
+          "value": 70
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/sensors_covid_change_2020_vs_2019.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "counts_2019": "number",
+            "counts_2020": "number",
+            "pct_change": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "mappable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.sensor_name == 'Lincoln-Swanston (West)'"
+        },
+        {
+          "calculate": "split('A few minutes’ walk away,|barely a fifth of them stayed.', '|')",
+          "as": "t"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 18,
+        "font": "Archivo",
+        "fontSize": 13.5,
+        "fontWeight": 600,
+        "color": "#2E2A24"
+      },
+      "encoding": {
+        "x": {
+          "value": 817
+        },
+        "y": {
+          "value": 24
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/sensors_covid_change_2020_vs_2019.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "counts_2019": "number",
+            "counts_2020": "number",
+            "pct_change": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "mappable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.sensor_name == 'Lincoln-Swanston (West)'"
+        },
+        {
+          "calculate": "split('Lincoln-Swanston (West), 478 m away,|' + '22% of its 2019 pedestrian count.', '|')",
+          "as": "t"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 18,
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "fontWeight": 400,
+        "color": "#6B675F"
+      },
+      "encoding": {
+        "x": {
+          "value": 817
+        },
+        "y": {
+          "value": 70
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": [
+              "Share of the 2019 crowd",
+              "that stayed in 2020"
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Archivo",
+        "fontSize": 15,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "lineHeight": 20
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": 254
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "v": 60
+          }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "fill": "#FFFFFF",
+        "fillOpacity": 0.928,
+        "stroke": "#4A463F",
+        "strokeWidth": 1.1,
+        "size": 1200
+      },
+      "encoding": {
+        "x": {
+          "value": 19.320508075688775
+        },
+        "y": {
+          "value": 341.3205080756888
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "v": 40
+          }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "fill": "#FFFFFF",
+        "fillOpacity": 0.639,
+        "stroke": "#4A463F",
+        "strokeWidth": 1.1,
+        "size": 800
+      },
+      "encoding": {
+        "x": {
+          "value": 19.320508075688775
+        },
+        "y": {
+          "value": 344.49888052764663
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "v": 25
+          }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "fill": "#FFFFFF",
+        "fillOpacity": 0.422,
+        "stroke": "#4A463F",
+        "strokeWidth": 1.1,
+        "size": 500
+      },
+      "encoding": {
+        "x": {
+          "value": 19.320508075688775
+        },
+        "y": {
+          "value": 347.4606762638786
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "v": 60
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#B9B2A5",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "value": 19.320508075688775
+        },
+        "y": {
+          "value": 324.0
+        },
+        "x2": {
+          "value": 44.64101615137755
+        },
+        "y2": {
+          "value": 318.0
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "60%"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "font": "Archivo",
+        "fontSize": 14,
+        "color": "#2E2A24"
+      },
+      "encoding": {
+        "x": {
+          "value": 48.64101615137755
+        },
+        "y": {
+          "value": 318.0
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "v": 40
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#B9B2A5",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "value": 19.320508075688775
+        },
+        "y": {
+          "value": 330.3567449039157
+        },
+        "x2": {
+          "value": 44.64101615137755
+        },
+        "y2": {
+          "value": 342.3567449039157
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "40%"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "font": "Archivo",
+        "fontSize": 14,
+        "color": "#2E2A24"
+      },
+      "encoding": {
+        "x": {
+          "value": 48.64101615137755
+        },
+        "y": {
+          "value": 342.3567449039157
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "v": 25
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#B9B2A5",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "value": 19.320508075688775
+        },
+        "y": {
+          "value": 336.28033637637964
+        },
+        "x2": {
+          "value": 44.64101615137755
+        },
+        "y2": {
+          "value": 366.28033637637964
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "25%"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "font": "Archivo",
+        "fontSize": 14,
+        "color": "#2E2A24"
+      },
+      "encoding": {
+        "x": {
+          "value": 48.64101615137755
+        },
+        "y": {
+          "value": 366.28033637637964
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/sensors_covid_change_2020_vs_2019.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "counts_2019": "number",
+            "counts_2020": "number",
+            "pct_change": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "mappable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "joinaggregate": [
+            {
+              "op": "sum",
+              "field": "mappable",
+              "as": "mapped"
+            },
+            {
+              "op": "count",
+              "as": "all"
+            }
+          ]
+        },
+        {
+          "filter": "datum.mappable == 0 && datum.group == 'QVM area'"
+        },
+        {
+          "calculate": "datum.mapped + ' of ' + datum.all + ' sensors are mapped.'",
+          "as": "t"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Archivo",
+        "fontSize": 13.5,
+        "fontWeight": 600,
+        "color": "#2E2A24"
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": 605
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/sensors_covid_change_2020_vs_2019.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "counts_2019": "number",
+            "counts_2020": "number",
+            "pct_change": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "mappable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "joinaggregate": [
+            {
+              "op": "sum",
+              "field": "mappable",
+              "as": "mapped"
+            },
+            {
+              "op": "count",
+              "as": "all"
+            }
+          ]
+        },
+        {
+          "filter": "datum.mappable == 0 && datum.group == 'QVM area'"
+        },
+        {
+          "calculate": "split('The other 4 appear in the 2009–22 archive but not in the council’s current locations|file, so they have no coordinates. Thus, they are counted in the averages, but not drawn.', '|')",
+          "as": "t"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 17,
+        "font": "Archivo",
+        "fontSize": 13,
+        "color": "#6B675F"
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": 626
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "b": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "fill": "#FCFBF8",
+        "stroke": "#DFD9CC",
+        "strokeWidth": 1,
+        "x": 846,
+        "x2": 1044,
+        "y": 240,
+        "y2": 383
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "On average"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Archivo",
+        "fontSize": 13.5,
+        "fontWeight": 600,
+        "color": "#2E2A24"
+      },
+      "encoding": {
+        "x": {
+          "value": 860
+        },
+        "y": {
+          "value": 254
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/sensors_covid_change_2020_vs_2019.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "counts_2019": "number",
+            "counts_2020": "number",
+            "pct_change": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "mappable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.group == 'QVM area' ? datum.counts_2019 : 0",
+          "as": "q19"
+        },
+        {
+          "calculate": "datum.group == 'QVM area' ? datum.counts_2020 : 0",
+          "as": "q20"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' ? datum.counts_2019 : 0",
+          "as": "c19"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' ? datum.counts_2020 : 0",
+          "as": "c20"
+        },
+        {
+          "calculate": "datum.group == 'QVM area' ? 1 : 0",
+          "as": "qn"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' ? 1 : 0",
+          "as": "cn"
+        },
+        {
+          "calculate": "datum.group == 'QVM area' && datum.mappable == 1 ? 1 : 0",
+          "as": "qmap"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' && datum.mappable == 1 ? 1 : 0",
+          "as": "cmap"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "q19",
+              "as": "q19"
+            },
+            {
+              "op": "sum",
+              "field": "q20",
+              "as": "q20"
+            },
+            {
+              "op": "sum",
+              "field": "c19",
+              "as": "c19"
+            },
+            {
+              "op": "sum",
+              "field": "c20",
+              "as": "c20"
+            },
+            {
+              "op": "sum",
+              "field": "qn",
+              "as": "qn"
+            },
+            {
+              "op": "sum",
+              "field": "cn",
+              "as": "cn"
+            },
+            {
+              "op": "sum",
+              "field": "qmap",
+              "as": "qmap"
+            },
+            {
+              "op": "sum",
+              "field": "cmap",
+              "as": "cmap"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.q20 / datum.q19 * 100",
+          "as": "qstay"
+        },
+        {
+          "calculate": "datum.c20 / datum.c19 * 100",
+          "as": "cstay"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "fill": "#A632A6",
+        "stroke": "#F7F4EE",
+        "strokeWidth": 1.1
+      },
+      "encoding": {
+        "x": {
+          "value": 876
+        },
+        "y": {
+          "value": 299
+        },
+        "size": {
+          "field": "qstay",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              0,
+              65
+            ],
+            "range": [
+              0,
+              1300
+            ]
+          },
+          "legend": null
+        },
+        "fillOpacity": {
+          "field": "qstay",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              20,
+              65
+            ],
+            "range": [
+              0.35,
+              1
+            ]
+          },
+          "legend": null
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/sensors_covid_change_2020_vs_2019.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "counts_2019": "number",
+            "counts_2020": "number",
+            "pct_change": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "mappable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.group == 'QVM area' ? datum.counts_2019 : 0",
+          "as": "q19"
+        },
+        {
+          "calculate": "datum.group == 'QVM area' ? datum.counts_2020 : 0",
+          "as": "q20"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' ? datum.counts_2019 : 0",
+          "as": "c19"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' ? datum.counts_2020 : 0",
+          "as": "c20"
+        },
+        {
+          "calculate": "datum.group == 'QVM area' ? 1 : 0",
+          "as": "qn"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' ? 1 : 0",
+          "as": "cn"
+        },
+        {
+          "calculate": "datum.group == 'QVM area' && datum.mappable == 1 ? 1 : 0",
+          "as": "qmap"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' && datum.mappable == 1 ? 1 : 0",
+          "as": "cmap"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "q19",
+              "as": "q19"
+            },
+            {
+              "op": "sum",
+              "field": "q20",
+              "as": "q20"
+            },
+            {
+              "op": "sum",
+              "field": "c19",
+              "as": "c19"
+            },
+            {
+              "op": "sum",
+              "field": "c20",
+              "as": "c20"
+            },
+            {
+              "op": "sum",
+              "field": "qn",
+              "as": "qn"
+            },
+            {
+              "op": "sum",
+              "field": "cn",
+              "as": "cn"
+            },
+            {
+              "op": "sum",
+              "field": "qmap",
+              "as": "qmap"
+            },
+            {
+              "op": "sum",
+              "field": "cmap",
+              "as": "cmap"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.q20 / datum.q19 * 100",
+          "as": "qstay"
+        },
+        {
+          "calculate": "datum.c20 / datum.c19 * 100",
+          "as": "cstay"
+        },
+        {
+          "calculate": "['Market area:', format(datum.qstay, '.1f') + '% stayed']",
+          "as": "t"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "lineHeight": 17,
+        "font": "Archivo",
+        "fontSize": 13,
+        "color": "#2E2A24"
+      },
+      "encoding": {
+        "x": {
+          "value": 904
+        },
+        "y": {
+          "value": 299
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/sensors_covid_change_2020_vs_2019.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "counts_2019": "number",
+            "counts_2020": "number",
+            "pct_change": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "mappable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.group == 'QVM area' ? datum.counts_2019 : 0",
+          "as": "q19"
+        },
+        {
+          "calculate": "datum.group == 'QVM area' ? datum.counts_2020 : 0",
+          "as": "q20"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' ? datum.counts_2019 : 0",
+          "as": "c19"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' ? datum.counts_2020 : 0",
+          "as": "c20"
+        },
+        {
+          "calculate": "datum.group == 'QVM area' ? 1 : 0",
+          "as": "qn"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' ? 1 : 0",
+          "as": "cn"
+        },
+        {
+          "calculate": "datum.group == 'QVM area' && datum.mappable == 1 ? 1 : 0",
+          "as": "qmap"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' && datum.mappable == 1 ? 1 : 0",
+          "as": "cmap"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "q19",
+              "as": "q19"
+            },
+            {
+              "op": "sum",
+              "field": "q20",
+              "as": "q20"
+            },
+            {
+              "op": "sum",
+              "field": "c19",
+              "as": "c19"
+            },
+            {
+              "op": "sum",
+              "field": "c20",
+              "as": "c20"
+            },
+            {
+              "op": "sum",
+              "field": "qn",
+              "as": "qn"
+            },
+            {
+              "op": "sum",
+              "field": "cn",
+              "as": "cn"
+            },
+            {
+              "op": "sum",
+              "field": "qmap",
+              "as": "qmap"
+            },
+            {
+              "op": "sum",
+              "field": "cmap",
+              "as": "cmap"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.q20 / datum.q19 * 100",
+          "as": "qstay"
+        },
+        {
+          "calculate": "datum.c20 / datum.c19 * 100",
+          "as": "cstay"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "fill": "#FFFFFF",
+        "stroke": "#4A463F",
+        "strokeWidth": 1.1
+      },
+      "encoding": {
+        "x": {
+          "value": 876
+        },
+        "y": {
+          "value": 345
+        },
+        "size": {
+          "field": "cstay",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              0,
+              65
+            ],
+            "range": [
+              0,
+              1300
+            ]
+          },
+          "legend": null
+        },
+        "fillOpacity": {
+          "field": "cstay",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              20,
+              65
+            ],
+            "range": [
+              0.35,
+              1
+            ]
+          },
+          "legend": null
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/sensors_covid_change_2020_vs_2019.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "counts_2019": "number",
+            "counts_2020": "number",
+            "pct_change": "number",
+            "latitude": "number",
+            "longitude": "number",
+            "mappable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.group == 'QVM area' ? datum.counts_2019 : 0",
+          "as": "q19"
+        },
+        {
+          "calculate": "datum.group == 'QVM area' ? datum.counts_2020 : 0",
+          "as": "q20"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' ? datum.counts_2019 : 0",
+          "as": "c19"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' ? datum.counts_2020 : 0",
+          "as": "c20"
+        },
+        {
+          "calculate": "datum.group == 'QVM area' ? 1 : 0",
+          "as": "qn"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' ? 1 : 0",
+          "as": "cn"
+        },
+        {
+          "calculate": "datum.group == 'QVM area' && datum.mappable == 1 ? 1 : 0",
+          "as": "qmap"
+        },
+        {
+          "calculate": "datum.group != 'QVM area' && datum.mappable == 1 ? 1 : 0",
+          "as": "cmap"
+        },
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "q19",
+              "as": "q19"
+            },
+            {
+              "op": "sum",
+              "field": "q20",
+              "as": "q20"
+            },
+            {
+              "op": "sum",
+              "field": "c19",
+              "as": "c19"
+            },
+            {
+              "op": "sum",
+              "field": "c20",
+              "as": "c20"
+            },
+            {
+              "op": "sum",
+              "field": "qn",
+              "as": "qn"
+            },
+            {
+              "op": "sum",
+              "field": "cn",
+              "as": "cn"
+            },
+            {
+              "op": "sum",
+              "field": "qmap",
+              "as": "qmap"
+            },
+            {
+              "op": "sum",
+              "field": "cmap",
+              "as": "cmap"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.q20 / datum.q19 * 100",
+          "as": "qstay"
+        },
+        {
+          "calculate": "datum.c20 / datum.c19 * 100",
+          "as": "cstay"
+        },
+        {
+          "calculate": "['Rest of the city centre:', format(datum.cstay, '.1f') + '% stayed']",
+          "as": "t"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "lineHeight": 17,
+        "font": "Archivo",
+        "fontSize": 13,
+        "color": "#2E2A24"
+      },
+      "encoding": {
+        "x": {
+          "value": 904
+        },
+        "y": {
+          "value": 345
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": "#F7F4EE"
+  },
+  "padding": {
+    "left": 5,
+    "top": 5,
+    "right": 5,
+    "bottom": 5
+  }
+}

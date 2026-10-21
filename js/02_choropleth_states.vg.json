@@ -1,0 +1,764 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 600,
+  "background": "#F7F4EE",
+  "title": {
+    "text": "Markets draw a steady slice of day trips, wherever you are",
+    "subtitle": [
+      "Share of domestic day trips that included going to a market, 2022 to 2024 combined. Shares rather than trip",
+      "counts, so a small state is not penalised for being small. TRA treats fewer than 40 responses as unreliable,",
+      "and several states sit close to that floor — Tasmania has 51, South Australia 70, Western Australia 104 — so",
+      "the states cannot be confidently ranked."
+    ],
+    "anchor": "start",
+    "font": "Fraunces",
+    "fontSize": 20,
+    "fontWeight": 600,
+    "color": "#1A1A17",
+    "subtitleFont": "Archivo",
+    "subtitleFontSize": 13.5,
+    "subtitleColor": "#6B675F",
+    "subtitleLineHeight": 18,
+    "offset": 34
+  },
+  "projection": {
+    "type": "conicEqualArea",
+    "rotate": [
+      -134,
+      0,
+      0
+    ],
+    "parallels": [
+      -18,
+      -36
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/au_states_abs2021.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "STE_2021_AUST_GDA2020"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#E8E4DC",
+        "stroke": "#F7F4EE",
+        "strokeWidth": 1.4
+      }
+    },
+    {
+      "data": {
+        "url": "data/daytrips_markets_share_by_state.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.reliable == 1"
+        },
+        {
+          "lookup": "state",
+          "from": {
+            "data": {
+              "url": "data/au_states_abs2021.topojson",
+              "format": {
+                "type": "topojson",
+                "feature": "STE_2021_AUST_GDA2020"
+              }
+            },
+            "key": "properties.STE_NAME21"
+          },
+          "as": "geo"
+        },
+        {
+          "calculate": "datum.share_pct < 2.6 ? 'Under 2.6%' : datum.share_pct < 2.9 ? '2.6–2.9%' : datum.share_pct < 3.2 ? '2.9–3.2%' : '3.2% or more'",
+          "as": "share_class"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#F7F4EE",
+        "strokeWidth": 1.4
+      },
+      "encoding": {
+        "shape": {
+          "field": "geo",
+          "type": "geojson"
+        },
+        "color": {
+          "field": "share_class",
+          "type": "ordinal",
+          "title": [
+            "Share of day trips",
+            "including a market"
+          ],
+          "scale": {
+            "domain": [
+              "3.2% or more",
+              "2.9–3.2%",
+              "2.6–2.9%",
+              "Under 2.6%"
+            ],
+            "range": [
+              "#1B867C",
+              "#54B3A9",
+              "#9BD4CD",
+              "#D6EBE8"
+            ]
+          },
+          "legend": {
+            "orient": "none",
+            "legendX": 0,
+            "legendY": 221,
+            "direction": "vertical",
+            "labelFont": "Archivo",
+            "labelFontSize": 13,
+            "labelColor": "#2E2A24",
+            "titleFont": "Archivo",
+            "titleFontSize": 13.5,
+            "titleColor": "#2E2A24",
+            "titleLineHeight": 18,
+            "titleLimit": 200,
+            "symbolType": "square",
+            "symbolSize": 484,
+            "symbolStrokeWidth": 0,
+            "rowPadding": 8,
+            "labelOffset": 10,
+            "titleFontWeight": 600,
+            "titlePadding": 10
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State or territory"
+          },
+          {
+            "field": "share_pct",
+            "type": "quantitative",
+            "title": "Share of day trips (%)",
+            "format": ".2f"
+          },
+          {
+            "field": "sample",
+            "type": "quantitative",
+            "title": "Survey responses",
+            "format": ".0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/daytrips_markets_share_by_state.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.reliable == 0"
+        },
+        {
+          "lookup": "state",
+          "from": {
+            "data": {
+              "url": "data/au_states_abs2021.topojson",
+              "format": {
+                "type": "topojson",
+                "feature": "STE_2021_AUST_GDA2020"
+              }
+            },
+            "key": "properties.STE_NAME21"
+          },
+          "as": "geo"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#DDDDDD",
+        "stroke": "#F7F4EE",
+        "strokeWidth": 1.4
+      },
+      "encoding": {
+        "shape": {
+          "field": "geo",
+          "type": "geojson"
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State or territory"
+          },
+          {
+            "field": "sample",
+            "type": "quantitative",
+            "title": "Survey responses",
+            "format": ".0f"
+          },
+          {
+            "field": "label",
+            "type": "nominal",
+            "title": "Estimate"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 122.0,
+            "lat": -25.5,
+            "t": "2.9%"
+          },
+          {
+            "lon": 135.0,
+            "lat": -29.8,
+            "t": "2.6%"
+          },
+          {
+            "lon": 144.3,
+            "lat": -22.8,
+            "t": "3.1%"
+          },
+          {
+            "lon": 146.6,
+            "lat": -32.3,
+            "t": "2.4%"
+          },
+          {
+            "lon": 144.0,
+            "lat": -36.9,
+            "t": "2.8%"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo Condensed",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "color": "#2E2A24"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 147.4,
+            "lat": -42.2
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo Condensed",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "color": "#2E2A24",
+        "align": "left",
+        "dx": 16,
+        "dy": 6,
+        "text": "3.2%"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "stem": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#B9B2A5",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 146.6
+        },
+        "latitude": {
+          "datum": -42.0
+        },
+        "longitude2": {
+          "datum": 125.0
+        },
+        "latitude2": {
+          "datum": -40.75
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "leader": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#B9B2A5",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 153.1
+        },
+        "latitude": {
+          "datum": -13.7
+        },
+        "longitude2": {
+          "datum": 133.4
+        },
+        "latitude2": {
+          "datum": -19.4
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "box": "spread"
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "opacity": 1,
+        "fill": "#FCFBF8",
+        "stroke": "#DFD9CC",
+        "strokeWidth": 1,
+        "size": 75076,
+        "shape": "M-1,-0.2774H1V0.2774H-1Z"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 125.0
+        },
+        "latitude": {
+          "datum": -40.75
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "box": "nt"
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "opacity": 1,
+        "fill": "#FCFBF8",
+        "stroke": "#DFD9CC",
+        "strokeWidth": 1,
+        "size": 42436,
+        "shape": "M-1,-0.4563H1V0.4563H-1Z"
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 153.1
+        },
+        "latitude": {
+          "datum": -13.7
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/daytrips_markets_share_by_state.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "share_pct": "number",
+            "reliable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.reliable == 1"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "max",
+              "field": "share_pct",
+              "as": "hi"
+            },
+            {
+              "op": "min",
+              "field": "share_pct",
+              "as": "lo"
+            }
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "first_value",
+              "field": "state",
+              "as": "hi_state"
+            }
+          ],
+          "sort": [
+            {
+              "field": "share_pct",
+              "order": "descending"
+            }
+          ],
+          "frame": [
+            null,
+            null
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "first_value",
+              "field": "state",
+              "as": "lo_state"
+            }
+          ],
+          "sort": [
+            {
+              "field": "share_pct",
+              "order": "ascending"
+            }
+          ],
+          "frame": [
+            null,
+            null
+          ]
+        },
+        {
+          "filter": "datum.share_pct == datum.hi"
+        },
+        {
+          "calculate": "split('The highest and lowest states differ|by ' + format(datum.hi - datum.lo, '.2f') + ' of a percentage point.', '|')",
+          "as": "claim"
+        },
+        {
+          "calculate": "datum.hi_state + ' ' + format(datum.hi, '.2f') + '%, ' + datum.lo_state + ' ' + format(datum.lo, '.2f') + '%.'",
+          "as": "figures"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": -125.0,
+        "dy": -29.0,
+        "font": "Archivo",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "lineHeight": 18
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 125.0
+        },
+        "latitude": {
+          "datum": -40.75
+        },
+        "text": {
+          "field": "claim",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/daytrips_markets_share_by_state.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "share_pct": "number",
+            "reliable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.reliable == 1"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "max",
+              "field": "share_pct",
+              "as": "hi"
+            },
+            {
+              "op": "min",
+              "field": "share_pct",
+              "as": "lo"
+            }
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "first_value",
+              "field": "state",
+              "as": "hi_state"
+            }
+          ],
+          "sort": [
+            {
+              "field": "share_pct",
+              "order": "descending"
+            }
+          ],
+          "frame": [
+            null,
+            null
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "first_value",
+              "field": "state",
+              "as": "lo_state"
+            }
+          ],
+          "sort": [
+            {
+              "field": "share_pct",
+              "order": "ascending"
+            }
+          ],
+          "frame": [
+            null,
+            null
+          ]
+        },
+        {
+          "filter": "datum.share_pct == datum.hi"
+        },
+        {
+          "calculate": "'The highest and lowest states differ by ' + format(datum.hi - datum.lo, '.2f') + ' of a percentage point.'",
+          "as": "claim"
+        },
+        {
+          "calculate": "datum.hi_state + ' ' + format(datum.hi, '.2f') + '%, ' + datum.lo_state + ' ' + format(datum.lo, '.2f') + '%.'",
+          "as": "figures"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": -125.0,
+        "dy": 11.0,
+        "font": "Archivo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "color": "#6B675F",
+        "lineHeight": 18
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 125.0
+        },
+        "latitude": {
+          "datum": -40.75
+        },
+        "text": {
+          "field": "figures",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/daytrips_markets_share_by_state.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "sample": "number",
+            "reliable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.reliable == 0"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "min",
+              "field": "sample",
+              "as": "lo"
+            },
+            {
+              "op": "max",
+              "field": "sample",
+              "as": "hi"
+            }
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "n"
+            }
+          ]
+        },
+        {
+          "filter": "datum.n == 1"
+        },
+        {
+          "calculate": "split('The Northern Territory and|the ACT are unshaded.', '|')",
+          "as": "claim"
+        },
+        {
+          "calculate": "datum.lo == datum.hi ? split('Only ' + datum.lo + ' people in each territory|reported a market day trip.', '|') : split('Only ' + datum.lo + ' and ' + datum.hi + ' people reported|a market day trip.', '|')",
+          "as": "figures"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 18,
+        "dy": -38.0,
+        "font": "Archivo",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "dx": -91.0
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 153.1
+        },
+        "latitude": {
+          "datum": -13.7
+        },
+        "text": {
+          "field": "claim",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/daytrips_markets_share_by_state.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "sample": "number",
+            "reliable": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.reliable == 0"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "min",
+              "field": "sample",
+              "as": "lo"
+            },
+            {
+              "op": "max",
+              "field": "sample",
+              "as": "hi"
+            }
+          ]
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "n"
+            }
+          ]
+        },
+        {
+          "filter": "datum.n == 1"
+        },
+        {
+          "calculate": "split('The Northern Territory and|the ACT are unshaded.', '|')",
+          "as": "claim"
+        },
+        {
+          "calculate": "datum.lo == datum.hi ? split('Only ' + datum.lo + ' people in each territory|reported a market day trip.', '|') : split('Only ' + datum.lo + ' and ' + datum.hi + ' people reported|a market day trip.', '|')",
+          "as": "figures"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "lineHeight": 18,
+        "dy": 2.0,
+        "font": "Archivo",
+        "fontSize": 13,
+        "fontWeight": 400,
+        "color": "#6B675F",
+        "dx": -91.0
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 153.1
+        },
+        "latitude": {
+          "datum": -13.7
+        },
+        "text": {
+          "field": "figures",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": "#F7F4EE"
+  }
+}

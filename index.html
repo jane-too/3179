@@ -1,12 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Australia's public markets — FIT3179 Data Visualisation 2</title>
+<meta name="description" content="How Australia's permanent public markets are used: who visits them, how they came through the pandemic, and what renewal puts at risk.">
+
+<link rel="stylesheet" href="css/styles.css">
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
 </head>
+
 <body>
 
-    <h1>Heading</h1>
-    <p>This is a paragraph.</p>
-    
+<header class="masthead">
+  <div class="page">
+    <h1 class="placeholder">Page title</h1>
+    <p class="standfirst placeholder">Standfirst — one or two sentences setting up the question the page answers.</p>
+    <p class="byline placeholder">Authorship and date (required by the specification).</p>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="section" id="s1">
+    <h2>For international visitors, the market outranks the landmark</h2>
+    <p class="placeholder">Opening paragraph. Names set in their own hue wherever they
+      appear, so the prose carries the legend:
+      <span class="k-qvm">Queen Victoria Market</span>,
+      <span class="k-smm">South Melbourne Market</span>,
+      <span class="k-acm">Adelaide Central Market</span> and
+      <span class="k-sfm">Sydney Fish Market</span>.</p>
+
+    <p class="callout placeholder">The sentence this section turns on, set apart so a
+      reader scanning the page still collects the argument.</p>
+
+    <figure class="figure">
+      <div class="vis-container" id="vis-01" data-spec="js/01_dotplot_attractions.vg.json"></div>
+      <figcaption class="figure__source placeholder">Source line for chart 01.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section" id="s2">
+    <h2>A habit, not a holiday</h2>
+    <p class="placeholder">Paragraph on what a day trip is and why the flatness is the finding.</p>
+
+    <p class="margin-note placeholder">A caveat that would interrupt the argument if it
+      sat in the main column — for instance that this series ends in 2024.</p>
+
+    <figure class="figure">
+      <div class="vis-container" id="vis-02" data-spec="js/02_choropleth_states.vg.json"></div>
+      <figcaption class="figure__source placeholder">Source line for chart 02.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section" id="s3">
+    <h2>Groceries fill half as many stalls as merchandise, yet they are the main draw</h2>
+    <p class="placeholder">Paragraph on the gap between floor space and the reason people come.</p>
+
+    <figure class="figure">
+      <div class="vis-container" id="vis-03" data-spec="js/03_waffle_stall_mix.vg.json"></div>
+      <figcaption class="figure__source placeholder">Source line for chart 03.</figcaption>
+    </figure>
+
+    <figure class="figure">
+      <div class="vis-container" id="vis-04" data-spec="js/04_slope_stalls_vs_reason.vg.json"></div>
+      <figcaption class="figure__source placeholder">Source line for chart 04.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section" id="s4">
+    <h2>The market held its ground while the city emptied</h2>
+    <p class="placeholder">Paragraph on March to June 2020 and why food trading continued.</p>
+
+    <figure class="figure">
+      <div class="vis-container" id="vis-05" data-spec="js/05_propsymbol_covid_sensors.vg.json"></div>
+      <figcaption class="figure__source placeholder">Source line for chart 05, including the note that 31 of 35 sensors can be mapped.</figcaption>
+    </figure>
+
+    <figure class="figure">
+      <div class="vis-container" id="vis-06" data-spec="js/06_dumbbell_covid_monthly.vg.json">
+        <p class="placeholder placeholder--chart">06 — dumbbell, monthly change by group.</p>
+      </div>
+      <figcaption class="figure__source placeholder">Source line for chart 06.</figcaption>
+    </figure>
+
+    <figure class="figure">
+      <div class="vis-container" id="vis-07" data-spec="js/07_calendar_qvm_daily.vg.json">
+        <p class="placeholder placeholder--chart">07 — calendar heatmap, daily counts.</p>
+      </div>
+      <figcaption class="figure__source placeholder">Source line for chart 07.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section" id="s5">
+    <h2>The locals' market came back first</h2>
+    <p class="placeholder">Paragraph on the two recoveries and the counting bases.</p>
+
+    <figure class="figure">
+      <div class="vis-container" id="vis-08" data-spec="js/08_waterfall_market_visitors.vg.json">
+        <p class="placeholder placeholder--chart">08 — waterfall, one panel per market.</p>
+      </div>
+      <figcaption class="figure__source placeholder">Source line for chart 08, including the two South Melbourne estimates.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section" id="s6">
+    <h2>Nearly half of all visitors go to a market</h2>
+    <p class="placeholder">Paragraph on propensity against volume.</p>
+
+    <figure class="figure">
+      <div class="vis-container" id="vis-09" data-spec="js/09_flowmap_intl_origins.vg.json">
+        <p class="placeholder placeholder--chart">09 — flow map, countries of origin.</p>
+      </div>
+      <figcaption class="figure__source placeholder">Source line for chart 09.</figcaption>
+    </figure>
+
+    <figure class="figure">
+      <div class="vis-container" id="vis-10" data-spec="js/10_marimekko_intl_countries.vg.json">
+        <p class="placeholder placeholder--chart">10 — Marimekko, countries by volume and propensity.</p>
+      </div>
+      <figcaption class="figure__source placeholder">Source line for chart 10.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section" id="s7">
+    <h2>The week still has a shape</h2>
+    <p class="placeholder">Paragraph on the weekly rhythm and the Wednesday evening exception.</p>
+
+    <figure class="figure">
+      <div class="vis-container" id="vis-11" data-spec="js/11_radial_hourly_weekday.vg.json">
+        <p class="placeholder placeholder--chart">11 — radial bar, hourly profile by weekday.</p>
+      </div>
+      <figcaption class="figure__source placeholder">Source line for chart 11.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section" id="s8">
+    <h2>What renewal puts at risk</h2>
+    <p class="placeholder">Closing argument, landing on a claim.</p>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <div class="page">
+    <h2>Sources</h2>
+    <ul>
+      <li class="placeholder">Dataset sources with URLs.</li>
+    </ul>
+
+    <h2 style="margin-top: var(--space-6);">Use of AI</h2>
+    <p class="placeholder">AI acknowledgement, required by the specification.</p>
+  </div>
+</footer>
+
+<script>
+  // Fonts first: Vega measures text to lay out axes and legends, so embedding
+  // before the faces arrive positions labels for a fallback face.
+  (async function () {
+    if (document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
+    }
+
+    const targets = document.querySelectorAll("[data-spec]");
+
+    for (const el of targets) {
+      const url = el.getAttribute("data-spec");
+
+      if (el.querySelector(".placeholder--chart")) {
+        continue;
+      }
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error("HTTP " + response.status);
+        }
+        const spec = await response.json();
+        el.innerHTML = "";
+        await vegaEmbed(el, spec, {
+          renderer: "svg",
+          actions: false
+        });
+      } catch (error) {
+        if (!el.querySelector(".placeholder")) {
+          el.innerHTML =
+            '<p class="placeholder placeholder--chart">' + url + " did not load: " + error.message + "</p>";
+        }
+        console.error("Could not embed " + url, error);
+      }
+    }
+  })();
+</script>
+
 </body>
 </html>

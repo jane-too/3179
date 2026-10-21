@@ -1,0 +1,30 @@
+# Working documents — kept locally, not published
+DV2_Handoff.md
+AI_LOG.md
+DV2_Source_Log.md
+
+# Unit reference material, not mine to publish
+_ref/
+_ref:/
+
+# Working artefacts
+_checks/
+dv2_build.zip
+.venv-render/
+__pycache__/
+.DS_Store
+
+# Render-only font instances: the page serves the .woff2 files.
+fonts/*.ttf
+
+# Data no spec loads. The repo carries what the page serves; these stay local.
+# melbourne_clue_blocks is the source for the derived d3 basemap;
+# au_states_ne50 is the rejected Natural Earth fallback.
+data/melbourne_clue_blocks.geojson
+data/au_states_ne50.geojson
+data/qvm_international_by_country_year.csv
+data/qvm_international_by_year.csv
+data/adelaide_central_international_by_country_year.csv
+data/adelaide_central_international_by_year.csv
+data/sydney_fish_market_international_by_country_year.csv
+data/sydney_fish_market_international_by_year.csv

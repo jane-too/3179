@@ -1,0 +1,400 @@
+attraction,year,sample,visitors
+Balmain/Glebe,2005,1053.0,130526
+Blue Mountains,2005,3943.0,510680
+Bondi,2005,5025.0,643566
+Central Coast,2005,632.0,87247
+Chinatown,2005,5816.0,713512
+Circular Quay,2005,7733.0,1002542
+Cowra Japanese gardens/POW camp,2005,54.0,6317
+Cronulla,2005,573.0,77096
+Darling Harbour,2005,9137.0,1193759
+Dubbo Zoo,2005,66.0,8752
+Hunter,2005,1023.0,134425
+Illawarra,2005,951.0,113464
+Jenolan Caves,2005,214.0,33238
+Jervis Bay,2005,167.0,21647
+Kings Cross,2005,3166.0,397106
+Manly,2005,3964.0,513592
+Newtown,2005,1217.0,131179
+North Coast,2005,778.0,97850
+Paddington/Double Bay,2005,2132.0,271817
+Parramatta,2005,2211.0,264973
+Southern Highlands,2005,178.0,23209
+Star City Casino,2005,2042.0,249681
+Sydney Aquarium,2005,3423.0,437982
+Sydney Harbour Bridge,2005,7885.0,1027985
+Sydney Opera House,2005,8881.0,1161352
+Sydney Tower,2005,3038.0,386720
+Taronga Zoo,2005,2187.0,284973
+The Rocks,2005,6767.0,877337
+Windsor,2005,263.0,32124
+Blue Mountains,2007,6836.0,834275
+Bondi,2007,9420.0,1187881
+Byron Bay,2007,2627.0,295490
+Central Coast,2007,1043.0,129142
+Chinatown,2007,11194.0,1314477
+Cronulla,2007,996.0,116960
+Darling Harbour,2007,15231.0,1902095
+Hunter,2007,1435.0,185219
+Illawarra,2007,1482.0,179715
+Kings Cross,2007,6758.0,789035
+Manly,2007,7140.0,877505
+Southern Highlands,2007,231.0,31312
+The Rocks,2007,11599.0,1432580
+Blue Mountains,2009,6433.0,771320
+Bondi,2009,9703.0,1182870
+Byron Bay/Northern Rivers,2009,3063.0,339462
+Central Coast,2009,908.0,115637
+Chinatown,2009,11013.0,1302180
+Darling Harbour,2009,14611.0,1800043
+Hunter,2009,1355.0,171659
+Kings Cross,2009,7030.0,811333
+Manly,2009,7061.0,828508
+Paddington,2009,3710.0,427125
+Parramatta,2009,3350.0,403332
+Port Stephens,2009,1086.0,115183
+The Rocks,2009,11024.0,1336432
+Wollongong/South Coast,2009,1983.0,232281
+Blue Mountains,2010,6374.0,849460
+Bondi,2010,9228.0,1185231
+Byron Bay/Northern Rivers,2010,3095.0,355448
+Central Coast,2010,1007.0,137722
+Chinatown,2010,10479.0,1299931
+Darling Harbour,2010,14101.0,1845707
+Hunter,2010,1400.0,192282
+Kings Cross,2010,6536.0,771987
+Manly,2010,6906.0,876310
+Paddington,2010,3688.0,447953
+Parramatta,2010,3453.0,446737
+Port Stephens,2010,1184.0,150282
+The Rocks,2010,10758.0,1400994
+Wollongong/South Coast,2010,2008.0,252656
+Art Gallery of NSW,2011,2307.0,267325
+Blue Mountains,2011,6139.0,786609
+Bondi,2011,8884.0,1097617
+Byron Bay/Northern Rivers,2011,3060.0,327227
+Central Coast,2011,1102.0,147497
+Chinatown,2011,9852.0,1196098
+Darling Harbour,2011,13187.0,1687825
+Hunter,2011,1402.0,183817
+Kings Cross,2011,5796.0,656319
+Manly,2011,6719.0,817913
+Port Stephens,2011,1098.0,130915
+Royal Botanical Gardens,2011,6720.0,854703
+Star City Casino,2011,2211.0,263672
+Sydney Aquarium,2011,4336.0,507048
+Sydney Harbour Bridge,2011,12790.0,1634515
+Sydney Opera House,2011,14210.0,1825876
+Sydney Tower,2011,4397.0,536760
+Sydney Wildlife World,2011,2200.0,243370
+Taronga Zoo,2011,3032.0,371192
+The Rocks,2011,9151.0,1145458
+Wollongong/South Coast,2011,2102.0,251221
+Art Gallery of NSW,2012,2198.0,277346
+Australian Museum,2012,1884.0,239073
+Blue Mountains,2012,5908.0,800061
+Bondi,2012,8420.0,1108129
+Byron Bay/Northern Rivers,2012,2911.0,316873
+Central Coast,2012,1110.0,154232
+Chinatown,2012,9474.0,1205759
+Darling Harbour,2012,12695.0,1726575
+Hunter,2012,1242.0,163875
+Kings Cross,2012,5549.0,668217
+Manly,2012,6187.0,816649
+Museum of Contemporary Art,2012,1635.0,207225
+Port Stephens,2012,1037.0,125048
+Powerhouse Museum,2012,622.0,69935
+Royal Botanical Gardens,2012,6354.0,868472
+Star City Casino,2012,2246.0,297806
+Sydney Aquarium,2012,3857.0,493384
+Sydney Harbour Bridge,2012,12493.0,1723733
+Sydney Opera House,2012,13686.0,1892874
+Sydney Tower,2012,3121.0,419160
+Sydney Wildlife World,2012,1810.0,221908
+Taronga Zoo,2012,2748.0,350122
+The Rocks,2012,8645.0,1168521
+Wollongong/South Coast,2012,1926.0,252383
+Art Gallery of NSW,2013,2098.0,285913
+Australian Museum,2013,1791.0,252085
+Blue Mountains,2013,5629.0,819001
+Bondi,2013,8445.0,1182657
+Byron Bay/Northern Rivers,2013,2652.0,314840
+Central Coast,2013,1075.0,160632
+Chinatown,2013,9273.0,1238526
+Darling Harbour,2013,12731.0,1823723
+Hunter,2013,1138.0,163757
+Kings Cross,2013,5182.0,669276
+Manly,2013,5997.0,858843
+Museum of Contemporary Art,2013,1806.0,240760
+Port Stephens,2013,1010.0,134618
+Powerhouse Museum,2013,482.0,60889
+Royal Botanical Gardens,2013,6182.0,913820
+Star City Casino,2013,2151.0,294996
+Sydney Aquarium,2013,3464.0,493031
+Sydney Harbour Bridge,2013,12552.0,1848172
+Sydney Opera House,2013,13704.0,2014518
+Sydney Tower,2013,2936.0,434428
+Sydney Wildlife World,2013,1625.0,225774
+Taronga Zoo,2013,2739.0,382142
+The Rocks,2013,8264.0,1187675
+Wollongong/South Coast,2013,1918.0,263365
+Art Gallery of NSW,2014,2059.0,282007
+Australian Museum,2014,1724.0,242224
+Blue Mountains,2014,6109.0,943146
+Bondi,2014,8946.0,1265288
+Byron Bay/Northern Rivers,2014,2790.0,337780
+Central Coast,2014,1250.0,191336
+Chinatown,2014,9272.0,1308381
+Darling Harbour,2014,13082.0,1959703
+Hunter,2014,1188.0,171083
+Kings Cross,2014,4985.0,650021
+Manly,2014,6271.0,880959
+Museum of Contemporary Art,2014,1880.0,251547
+Port Stephens,2014,1107.0,151557
+Powerhouse Museum,2014,484.0,65150
+Royal Botanical Gardens,2014,6340.0,973393
+Star City Casino,2014,2038.0,274207
+Sydney Aquarium,2014,3348.0,500610
+Sydney Fish Markets (excl Q1 and Q2 2014),2014,1858.0,286808
+Sydney Harbour Bridge,2014,13228.0,2021481
+Sydney Opera House,2014,14481.0,2225156
+Sydney Tower,2014,3023.0,441883
+Sydney Wildlife World,2014,1676.0,242071
+Taronga Zoo,2014,2778.0,397205
+The Rocks,2014,8426.0,1242556
+Wollongong/South Coast,2014,2000.0,284008
+Art Gallery of NSW,2015,2153.0,314417
+Australian Museum,2015,1794.0,270826
+Blue Mountains,2015,6455.0,1066913
+Bondi,2015,9306.0,1412141
+Byron Bay/Northern Rivers,2015,2766.0,362597
+Central Coast,2015,1348.0,211959
+Chinatown,2015,9148.0,1359716
+Darling Harbour,2015,13040.0,2082305
+Hunter,2015,1178.0,178512
+Kings Cross,2015,4875.0,683633
+Manly,2015,6430.0,959198
+Museum of Contemporary Art,2015,1930.0,273952
+Port Stephens,2015,1162.0,173559
+Powerhouse Museum,2015,520.0,64019
+Royal Botanical Gardens,2015,6728.0,1085651
+Star City Casino,2015,2093.0,310918
+Sydney Aquarium,2015,3057.0,481166
+Sydney Fish Markets (excl Q1 and Q2 2014),2015,4141.0,707171
+Sydney Harbour Bridge,2015,13419.0,2192480
+Sydney Opera House,2015,14611.0,2388768
+Sydney Tower,2015,2935.0,482623
+Sydney Wildlife World,2015,1592.0,241912
+Taronga Zoo,2015,2833.0,419038
+The Rocks,2015,8443.0,1291118
+Wollongong/South Coast,2015,2108.0,310555
+Art Gallery of NSW,2016,2205.0,373470
+Australian Museum,2016,1682.0,293941
+Barangaroo,2016,556.0,95762
+Blue Mountains,2016,6394.0,1238226
+Bondi,2016,9269.0,1594562
+Byron Bay/Northern Rivers,2016,2762.0,403742
+Central Coast,2016,1299.0,215730
+Chinatown,2016,8654.0,1513707
+Darling Harbour,2016,12889.0,2338379
+Hunter,2016,1087.0,192079
+Kings Cross,2016,4425.0,711759
+Manly,2016,6267.0,1053480
+Museum of Contemporary Art,2016,1741.0,285593
+Port Stephens,2016,1086.0,180846
+Powerhouse Museum,2016,491.0,76429
+Royal Botanical Gardens,2016,6768.0,1248408
+Star City Casino,2016,1822.0,309552
+Sydney Aquarium,2016,2704.0,501838
+Sydney Fish Markets (excl Q1 and Q2 2014),2016,4060.0,817573
+Sydney Harbour Bridge,2016,13448.0,2515680
+Sydney Opera House,2016,14555.0,2725101
+Sydney Tower,2016,2728.0,502808
+Sydney Wildlife World,2016,1392.0,255780
+Taronga Zoo,2016,2687.0,453800
+The Rocks,2016,8420.0,1503503
+Wollongong/South Coast,2016,2213.0,361833
+Art Gallery of NSW,2017,2095.0,390249
+Australian Maritime Museum,2017,795.0,171274
+Australian Museum,2017,1514.0,284799
+Barangaroo,2017,1196.0,231130
+Blue Mountains,2017,6126.0,1347286
+Bondi,2017,8961.0,1692729
+Bowral,2017,158.0,29409
+Byron Bay/Northern Rivers,2017,2439.0,405076
+Central Coast,2017,1162.0,229094
+Chinatown,2017,8427.0,1594744
+Darling Harbour,2017,12279.0,2456034
+Hunter,2017,979.0,202189
+Kings Cross,2017,3839.0,681155
+Manly,2017,5701.0,1055137
+Museum of Contemporary Art,2017,1609.0,278685
+Newcastle,2017,1591.0,259171
+Port Stephens,2017,1066.0,207915
+Powerhouse Museum,2017,451.0,75007
+Royal Botanical Gardens,2017,6211.0,1295163
+Star City Casino,2017,1547.0,283479
+Sydney Aquarium,2017,2384.0,475658
+Sydney CBD,2017,8744.0,1678568
+Sydney Fish Markets (excl Q1 and Q2 2014),2017,4076.0,884345
+Sydney Harbour Bridge,2017,13013.0,2705385
+Sydney Opera House,2017,14037.0,2927378
+Sydney Tower,2017,2725.0,567984
+Sydney Wildlife World,2017,1240.0,248473
+Taronga Zoo,2017,2579.0,479538
+The Rocks,2017,7439.0,1455774
+Wollongong/South Coast,2017,2032.0,369779
+Art Gallery of NSW,2018,2125.0,401442
+Australian Maritime Museum,2018,765.0,161193
+Australian Museum,2018,1614.0,304966
+Barangaroo,2018,1662.0,312849
+Blue Mountains,2018,5848.0,1311055
+Bondi,2018,8747.0,1684740
+Bowral,2018,206.0,45997
+Byron Bay/Northern Rivers,2018,2487.0,432240
+Central Coast,2018,1124.0,226120
+Chinatown,2018,8337.0,1620568
+Darling Harbour,2018,11928.0,2483445
+Hunter,2018,1013.0,209425
+Kings Cross,2018,3680.0,681263
+Manly,2018,5424.0,1018856
+Museum of Contemporary Art,2018,1740.0,310770
+Newcastle,2018,1455.0,250525
+Port Stephens,2018,1049.0,215136
+Powerhouse Museum,2018,436.0,71387
+Royal Botanical Gardens,2018,6149.0,1352344
+Star City Casino,2018,1519.0,264623
+Sydney Aquarium,2018,2224.0,456211
+Sydney CBD,2018,8804.0,1756013
+Sydney Fish Markets (excl Q1 and Q2 2014),2018,3463.0,841263
+Sydney Harbour Bridge,2018,12466.0,2687265
+Sydney Opera House,2018,13742.0,2957263
+Sydney Tower,2018,2420.0,536741
+Sydney Wildlife World,2018,1210.0,245711
+Taronga Zoo,2018,2622.0,511774
+The Rocks,2018,7462.0,1551964
+Wollongong/South Coast,2018,1959.0,360703
+Art Gallery of NSW,2019,2156.0,392318
+Australian Maritime Museum,2019,822.0,176520
+Australian Museum,2019,1495.0,283465
+Barangaroo,2019,1600.0,306286
+Blue Mountains,2019,5775.0,1330384
+Bondi,2019,8788.0,1736101
+Bowral,2019,222.0,46812
+Byron Bay/Northern Rivers,2019,2506.0,453138
+Central Coast,2019,1063.0,219910
+Chinatown,2019,8002.0,1586059
+Circular Quay,2019,7704.0,1618430
+Darling Harbour,2019,11424.0,2372521
+Hunter,2019,915.0,182732
+Kings Cross,2019,3356.0,623960
+Manly,2019,5243.0,1021333
+Museum of Contemporary Art,2019,1625.0,302849
+Newcastle,2019,1546.0,267299
+Port Stephens,2019,1008.0,191506
+Powerhouse Museum,2019,491.0,72716
+Royal Botanical Gardens,2019,6251.0,1331778
+Star City Casino,2019,1418.0,266067
+Sydney Aquarium,2019,2254.0,452719
+Sydney CBD,2019,8554.0,1733165
+Sydney Fish Markets (excl Q1 and Q2 2014),2019,3319.0,784268
+Sydney Harbour Bridge,2019,12305.0,2690785
+Sydney Opera House,2019,13599.0,2978794
+Sydney Tower,2019,2508.0,533507
+Sydney Wildlife World,2019,1204.0,256181
+Taronga Zoo,2019,2577.0,508595
+The Rocks,2019,7123.0,1497032
+Wollongong/South Coast,2019,2020.0,372202
+Art Gallery of NSW,2023,2398.0,518965
+Australian Maritime Museum,2023,530.0,126077
+Australian Museum,2023,1676.0,374675
+Barangaroo,2023,1660.0,366263
+Blue Mountains,2023,3948.0,967047
+Bondi,2023,6387.0,1416927
+Bowral,2023,181.0,42683
+Byron Bay/Northern Rivers,2023,1922.0,342170
+Central Coast,2023,550.0,125286
+Chinatown,2023,6205.0,1397273
+Circular Quay,2023,8935.0,2073905
+Darling Harbour,2023,7805.0,1820421
+Hunter,2023,662.0,164785
+Kings Cross,2023,2234.0,495003
+Manly,2023,3975.0,897809
+Museum of Contemporary Art,2023,1216.0,271976
+Newcastle,2023,1131.0,222421
+Port Stephens,2023,651.0,172366
+Powerhouse Museum,2023,539.0,102691
+Royal Botanical Gardens,2023,4313.0,1074113
+Star City Casino,2023,665.0,131235
+Sydney Aquarium,2023,1447.0,334912
+Sydney CBD,2023,6932.0,1600408
+Sydney Fish Markets (excl Q1 and Q2 2014),2023,1854.0,449808
+Sydney Harbour Bridge,2023,8916.0,2157497
+Sydney Opera House,2023,9949.0,2388823
+Sydney Tower,2023,1484.0,330218
+Sydney Wildlife World,2023,741.0,180305
+Taronga Zoo,2023,2252.0,522380
+The Rocks,2023,5149.0,1232840
+Wollongong/South Coast,2023,1413.0,324225
+Art Gallery of NSW,2024,2243.0,573433
+Australian Maritime Museum,2024,474.0,121813
+Australian Museum,2024,1869.0,485131
+Barangaroo,2024,1521.0,412549
+Blue Mountains,2024,4019.0,1196402
+Bondi,2024,6359.0,1669992
+Bowral,2024,180.0,47840
+Byron Bay/Northern Rivers,2024,1670.0,393077
+Central Coast,2024,589.0,133098
+Chinatown,2024,6338.0,1641760
+Circular Quay,2024,8951.0,2462652
+Darling Harbour,2024,7584.0,2119552
+Hunter,2024,645.0,165131
+Kings Cross,2024,2295.0,589726
+Manly,2024,4103.0,1062852
+Museum of Contemporary Art,2024,1058.0,280286
+Newcastle,2024,1048.0,235898
+Port Stephens,2024,512.0,189564
+Powerhouse Museum,2024,306.0,52595
+Royal Botanical Gardens,2024,4392.0,1284345
+Star City Casino,2024,621.0,139074
+Sydney Aquarium,2024,1314.0,340600
+Sydney CBD,2024,7164.0,1959950
+Sydney Fish Markets (excl Q1 and Q2 2014),2024,2041.0,601744
+Sydney Harbour Bridge,2024,9024.0,2553761
+Sydney Opera House,2024,9996.0,2816751
+Sydney Tower,2024,1331.0,361173
+Sydney Wildlife World,2024,967.0,260971
+Taronga Zoo,2024,2198.0,581137
+The Rocks,2024,4872.0,1447667
+Wollongong/South Coast,2024,1518.0,367526
+Art Gallery of NSW,2025,2417.0,590869
+Australian Maritime Museum,2025,629.0,182664
+Australian Museum,2025,2161.0,568253
+Barangaroo,2025,1870.0,511533
+Blue Mountains,2025,3890.0,1205723
+Bondi,2025,6440.0,1825138
+Bowral,2025,182.0,44316
+Byron Bay/Northern Rivers,2025,1263.0,361704
+Central Coast,2025,940.0,233021
+Chinatown,2025,6680.0,1722378
+Circular Quay,2025,8350.0,2462153
+Darling Harbour,2025,7436.0,2109617
+Hunter,2025,638.0,191550
+Kings Cross,2025,2262.0,620949
+Manly,2025,3651.0,1032983
+Museum of Contemporary Art,2025,1057.0,267967
+Newcastle,2025,1239.0,323528
+Port Stephens,2025,466.0,165887
+Powerhouse Museum,2025,219.0,43361
+Royal Botanical Gardens,2025,4491.0,1355977
+Star City Casino,2025,592.0,152829
+Sydney Aquarium,2025,1365.0,376927
+Sydney CBD,2025,7006.0,1935097
+Sydney Fish Markets (excl Q1 and Q2 2014),2025,2498.0,637236
+Sydney Harbour Bridge,2025,8376.0,2424106
+Sydney Opera House,2025,9894.0,2868033
+Sydney Tower,2025,1387.0,411273
+Sydney Wildlife World,2025,748.0,208917
+Taronga Zoo,2025,2542.0,689002
+The Rocks,2025,4632.0,1374766
+Wollongong/South Coast,2025,1706.0,465752

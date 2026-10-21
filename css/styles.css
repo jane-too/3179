@@ -1,0 +1,328 @@
+@font-face {
+  font-family: "Fraunces";
+  src: url("../fonts/Fraunces-var.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archivo";
+  src: url("../fonts/Archivo-var.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-stretch: 100%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archivo Condensed";
+  src: url("../fonts/Archivo-var.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-stretch: 75%;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --qvm: #A632A6;          /* Queen Victoria Market      contrast 5.27 */
+  --smm: #2F6B45;          /* South Melbourne Market     contrast 5.78 */
+  --acm: #663600;          /* Adelaide Central Market    contrast 9.14 */
+  --sfm: #0F00B2;          /* Sydney Fish Market        contrast 11.50 */
+
+  /* Ground and surface */
+  --page: #F7F4EE;         /* page background */
+  --ground: #DDDDDD;       /* no-data / de-emphasised marks */
+  --ground-land: #E8E4DC;  /* basemap land under data layers */
+  --rule: #DFD9CC;         /* hairline rules between blocks */
+
+  /* Text */
+  --ink: #2E2A24;          /* body text */
+  --ink-strong: #1A1A17;   /* headings and annotations */
+  --ink-soft: #6B675F;     /* standfirsts, axis labels, source lines */
+
+  /* Quantitative ramp: lightness means amount. Chart 2 only. */
+  --ramp-1: #D6EBE8;
+  --ramp-2: #9BD4CD;
+  --ramp-3: #54B3A9;
+  --ramp-4: #1B867C;
+
+  /* Type */
+  --font-head: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-label: "Archivo Condensed", "Archivo", "Helvetica Neue", Arial, sans-serif;
+
+  --size-title: clamp(2.1rem, 1.4rem + 2.6vw, 3.25rem);
+  --size-section: clamp(1.5rem, 1.2rem + 1.1vw, 1.95rem);
+  --size-standfirst: 1.19rem;   /* 19px */
+  --size-body: 1rem;            /* 16px — the unit's 11–12pt screen guidance */
+  --size-small: 0.875rem;       /* 14px — figure notes */
+  --size-source: 0.8125rem;     /* 13px — source lines */
+  --leading-body: 1.55;
+
+  /* One spacing scale, applied identically everywhere. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* Layout */
+  --measure: 65ch;             /* 7–10 words a line */
+  --page-max: 1120px;
+  --gutter: var(--space-6);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--size-body);
+  line-height: var(--leading-body);
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* One content column: every heading, paragraph, chart and source line starts
+   on the same left edge. */
+
+.page {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.masthead {
+  padding: var(--space-9) 0 var(--space-8);
+  border-bottom: 1px solid var(--rule);
+}
+
+.masthead h1 {
+  font-family: var(--font-head);
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+  font-weight: 600;
+  font-size: var(--size-title);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--ink-strong);
+  margin: 0 0 var(--space-4);
+  max-width: 20ch;
+}
+
+.standfirst {
+  font-size: var(--size-standfirst);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  max-width: var(--measure);
+  margin: 0 0 var(--space-5);
+}
+
+.byline {
+  font-size: var(--size-source);
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.section {
+  padding: var(--space-9) 0 0;
+}
+
+.section > * + * {
+  margin-top: var(--space-5);
+}
+
+.section h2 {
+  font-family: var(--font-head);
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+  font-weight: 600;
+  font-size: var(--size-section);
+  line-height: 1.18;
+  color: var(--ink-strong);
+  margin: 0;
+  /* Headings run the column width; the measure limit belongs on running text. */
+  max-width: none;
+  text-wrap: balance;
+}
+
+.section p {
+  max-width: var(--measure);
+  margin: 0;
+}
+
+.section p + p {
+  margin-top: var(--space-4);
+}
+
+/* A market named in a paragraph carries its own hue, so the prose does the
+   work of a legend. */
+
+.k-qvm { color: var(--qvm); font-weight: 600; }
+.k-smm { color: var(--smm); font-weight: 600; }
+.k-acm { color: var(--acm); font-weight: 600; }
+.k-sfm { color: var(--sfm); font-weight: 600; }
+
+/* The one sentence a section turns on. */
+.callout {
+  font-family: var(--font-head);
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.38;
+  color: var(--ink-strong);
+  max-width: 44ch;
+  margin: var(--space-6) 0;
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--rule);
+}
+
+/* A caveat set beside the argument rather than inside it. */
+.margin-note {
+  font-size: var(--size-small);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  max-width: 30ch;
+  margin: var(--space-5) 0 var(--space-5) calc(var(--measure) + var(--space-6));
+  padding-left: var(--space-3);
+  border-left: 1px solid var(--rule);
+}
+
+@media (max-width: 960px) {
+  .margin-note {
+    margin-left: 0;
+    max-width: var(--measure);
+  }
+}
+
+/* Every chart sits the same distance from its text and from what follows. */
+
+.figure {
+  margin: var(--space-7) 0 0;
+}
+
+/* Specs use "width": "container"; this satisfies the no-horizontal-scroll rule. */
+.vis-container {
+  width: 100%;
+}
+
+/* vega-embed adds its classes to the container element itself, not a child, so
+   these must not be written as descendant selectors. It also injects an inline-block
+   display and 14px of padding for the actions menu, which clips an oversized chart. */
+.vis-container,
+.vis-container.vega-embed,
+.vis-container .vega-embed-wrapper,
+.vis-container .chart-wrapper {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding-right: 0;
+  overflow: visible;
+}
+
+/* A chart wider than its column scales down rather than being cut off. */
+.vis-container svg,
+.vis-container canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.figure__note {
+  font-size: var(--size-small);
+  color: var(--ink-soft);
+  max-width: var(--measure);
+  margin: var(--space-4) 0 0;
+}
+
+.figure__source {
+  font-family: var(--font-label);
+  font-size: var(--size-source);
+  color: var(--ink-soft);
+  max-width: var(--measure);
+  margin: var(--space-3) 0 0;
+}
+
+/* Everything still to be written. Conspicuous so none of it ships by accident. */
+
+.placeholder {
+  font-family: var(--font-label);
+  font-size: var(--size-small);
+  color: var(--ink-soft);
+  background: rgba(166, 50, 166, 0.04);
+  border: 1px dashed rgba(166, 50, 166, 0.45);
+  border-radius: 2px;
+  padding: var(--space-3) var(--space-4);
+}
+
+.placeholder::before {
+  content: "TO WRITE — ";
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--qvm);
+}
+
+.placeholder--chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  text-align: center;
+}
+
+.placeholder--chart::before {
+  content: "CHART NOT BUILT YET — ";
+}
+
+.colophon {
+  margin-top: var(--space-9);
+  padding: var(--space-7) 0 var(--space-9);
+  border-top: 1px solid var(--rule);
+  font-size: var(--size-small);
+  color: var(--ink-soft);
+}
+
+.colophon h2 {
+  font-family: var(--font-head);
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--ink-strong);
+  margin: 0 0 var(--space-4);
+}
+
+.colophon ul {
+  max-width: var(--measure);
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.colophon li + li {
+  margin-top: var(--space-2);
+}
+
+/* Full width must stay visible without horizontal scrolling. */
+
+@media (max-width: 760px) {
+  :root {
+    --gutter: var(--space-4);
+  }
+
+  .section {
+    padding-top: var(--space-8);
+  }
+}

@@ -1,0 +1,1972 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#F7F4EE",
+  "title": {
+    "text": "DRAFT — Two of the three markets rank first or second in their state; Sydney’s ranks 13th",
+    "subtitle": [
+      "DRAFT — International visitors who went to each attraction in 2025. Counts are people, not visits: someone who",
+      "went three times during their trip is counted once. Each state is ranked against its own attractions only, and the",
+      "three scales differ, so the panels say where a market sits at home, not how the three markets compare."
+    ],
+    "anchor": "start",
+    "font": "Fraunces",
+    "fontSize": 20,
+    "fontWeight": 600,
+    "color": "#1A1A17",
+    "subtitleFont": "Archivo",
+    "subtitleFontSize": 13.5,
+    "subtitleColor": "#6B675F",
+    "subtitleLineHeight": 18,
+    "offset": 34
+  },
+  "spacing": 150,
+  "bounds": "flush",
+  "vconcat": [
+    {
+      "name": "victoria",
+      "title": {
+        "text": "VICTORIA",
+        "subtitle": "This panel ranks 28 attractions, with four survey artefacts set aside: the interview-mode row and three “don’t know” rows.",
+        "anchor": "start",
+        "font": "Archivo Condensed",
+        "fontSize": 18,
+        "fontWeight": 700,
+        "color": "#2E2A24",
+        "subtitleFont": "Archivo",
+        "subtitleFontSize": 13.5,
+        "subtitleColor": "#6B675F",
+        "offset": 26,
+        "frame": "group",
+        "dx": -246
+      },
+      "width": 784,
+      "height": {
+        "step": 19
+      },
+      "data": {
+        "url": "data/vic_attractions_international_by_year.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "year": "number",
+            "visitors": "number",
+            "sample": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.year == 2025 && datum.visitors != null"
+        },
+        {
+          "filter": "indexof(['Short Interview VIC', 'Other regional Victoria', \"Don't know VIC\", \"Don't know Melbourne\"], datum.attraction) < 0"
+        },
+        {
+          "calculate": "datum.attraction",
+          "as": "display_name"
+        },
+        {
+          "window": [
+            {
+              "op": "rank",
+              "as": "rank"
+            },
+            {
+              "op": "first_value",
+              "field": "display_name",
+              "as": "top_name"
+            },
+            {
+              "op": "first_value",
+              "field": "visitors",
+              "as": "top_visitors"
+            }
+          ],
+          "sort": [
+            {
+              "field": "visitors",
+              "order": "descending"
+            }
+          ]
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "count",
+              "field": "attraction",
+              "as": "field_size"
+            },
+            {
+              "op": "max",
+              "field": "visitors",
+              "as": "panel_max"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.rank + '   ' + datum.display_name",
+          "as": "label"
+        },
+        {
+          "calculate": "datum.attraction == 'Queen Victoria Market'",
+          "as": "is_market"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "label",
+          "type": "nominal",
+          "sort": {
+            "field": "visitors",
+            "order": "descending"
+          },
+          "title": null,
+          "axis": {
+            "labelFont": "Archivo Condensed",
+            "labelFontSize": 13,
+            "labelLimit": 260,
+            "labelColor": {
+              "condition": {
+                "test": "indexof(datum.label, 'Queen Victoria Market') >= 0",
+                "value": "#A632A6"
+              },
+              "value": "#6B675F"
+            },
+            "labelFontWeight": {
+              "condition": {
+                "test": "indexof(datum.label, 'Queen Victoria Market') >= 0",
+                "value": 700
+              },
+              "value": 400
+            },
+            "domain": false,
+            "ticks": false,
+            "labelPadding": 8
+          }
+        },
+        "x": {
+          "field": "visitors",
+          "type": "quantitative",
+          "title": null,
+          "axis": {
+            "tickCount": 4,
+            "labelFont": "Archivo Condensed",
+            "labelFontSize": 12,
+            "labelColor": "#6B675F",
+            "domainColor": "#C9C3B6",
+            "tickColor": "#C9C3B6",
+            "grid": false,
+            "orient": "bottom",
+            "labelExpr": "datum.value === 0 ? '0' : format(datum.value, '~s')"
+          },
+          "scale": {
+            "nice": 4
+          }
+        }
+      },
+      "layer": [
+        {
+          "transform": [
+            {
+              "filter": "!datum.is_market"
+            }
+          ],
+          "mark": {
+            "type": "rule",
+            "color": "#E8E4DC",
+            "strokeWidth": 1.5
+          },
+          "encoding": {
+            "x2": {
+              "datum": 0
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.is_market"
+            }
+          ],
+          "mark": {
+            "type": "rule",
+            "color": "#A632A6",
+            "strokeWidth": 2.5,
+            "opacity": 0.45
+          },
+          "encoding": {
+            "x2": {
+              "datum": 0
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.is_market"
+            }
+          ],
+          "mark": {
+            "type": "rule",
+            "color": "#B9B2A5",
+            "strokeWidth": 1,
+            "xOffset": 0,
+            "yOffset": 0,
+            "x2Offset": -12.5,
+            "y2Offset": 152
+          },
+          "encoding": {
+            "x2": {
+              "field": "visitors",
+              "type": "quantitative"
+            },
+            "y2": {
+              "field": "label",
+              "type": "nominal"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "!datum.is_market"
+            }
+          ],
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "color": "#DDDDDD",
+            "size": 70,
+            "opacity": 1
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "display_name",
+                "type": "nominal",
+                "title": "Attraction"
+              },
+              {
+                "field": "visitors",
+                "type": "quantitative",
+                "title": "International visitors, 2025",
+                "format": ",.0f"
+              },
+              {
+                "field": "rank",
+                "type": "quantitative",
+                "title": "Rank in Victoria"
+              },
+              {
+                "field": "sample",
+                "type": "quantitative",
+                "title": "Survey responses",
+                "format": ",.0f"
+              }
+            ]
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.is_market"
+            }
+          ],
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "color": "#A632A6",
+            "size": 190,
+            "opacity": 1
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "display_name",
+                "type": "nominal",
+                "title": "Attraction"
+              },
+              {
+                "field": "visitors",
+                "type": "quantitative",
+                "title": "International visitors, 2025",
+                "format": ",.0f"
+              },
+              {
+                "field": "rank",
+                "type": "quantitative",
+                "title": "Rank in Victoria"
+              },
+              {
+                "field": "sample",
+                "type": "quantitative",
+                "title": "Survey responses",
+                "format": ",.0f"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "url": "data/vic_attractions_international_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "year": "number",
+                "visitors": "number",
+                "sample": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.visitors != null && indexof(['Short Interview VIC', 'Other regional Victoria', \"Don't know VIC\", \"Don't know Melbourne\"], datum.attraction) < 0"
+            },
+            {
+              "window": [
+                {
+                  "op": "rank",
+                  "as": "rank"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "visitors",
+                  "order": "descending"
+                }
+              ],
+              "groupby": [
+                "year"
+              ]
+            },
+            {
+              "filter": "datum.attraction == 'Queen Victoria Market'"
+            },
+            {
+              "calculate": "datum.rank == 1 ? 1 : 0",
+              "as": "first"
+            },
+            {
+              "calculate": "datum.rank != 1 ? datum.year : 9999",
+              "as": "second_from"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "as": "r25"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "as": "v25"
+            },
+            {
+              "aggregate": [
+                {
+                  "op": "count",
+                  "as": "years"
+                },
+                {
+                  "op": "sum",
+                  "field": "first",
+                  "as": "firsts"
+                },
+                {
+                  "op": "min",
+                  "field": "second_from",
+                  "as": "since"
+                },
+                {
+                  "op": "max",
+                  "field": "r25",
+                  "as": "r25"
+                },
+                {
+                  "op": "max",
+                  "field": "v25",
+                  "as": "visitors"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.r25 + '   Queen Victoria Market'",
+              "as": "label"
+            },
+            {
+              "calculate": "split('First in Victoria in every|year on record before ' + datum.since + '.', '|')",
+              "as": "claim"
+            },
+            {
+              "calculate": "split('Second since then, behind the CBD|shopping precinct, recorded from ' + datum.since + '.', '|')",
+              "as": "figures"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "fill": "#FCFBF8",
+            "stroke": "#DFD9CC",
+            "strokeWidth": 1,
+            "cornerRadius": 2,
+            "xOffset": -137,
+            "x2Offset": 112,
+            "yOffset": 152,
+            "y2Offset": 243
+          },
+          "encoding": {
+            "x2": {
+              "field": "visitors",
+              "type": "quantitative"
+            },
+            "y2": {
+              "field": "label",
+              "type": "nominal"
+            }
+          }
+        },
+        {
+          "data": {
+            "url": "data/vic_attractions_international_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "year": "number",
+                "visitors": "number",
+                "sample": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.visitors != null && indexof(['Short Interview VIC', 'Other regional Victoria', \"Don't know VIC\", \"Don't know Melbourne\"], datum.attraction) < 0"
+            },
+            {
+              "window": [
+                {
+                  "op": "rank",
+                  "as": "rank"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "visitors",
+                  "order": "descending"
+                }
+              ],
+              "groupby": [
+                "year"
+              ]
+            },
+            {
+              "filter": "datum.attraction == 'Queen Victoria Market'"
+            },
+            {
+              "calculate": "datum.rank == 1 ? 1 : 0",
+              "as": "first"
+            },
+            {
+              "calculate": "datum.rank != 1 ? datum.year : 9999",
+              "as": "second_from"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "as": "r25"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "as": "v25"
+            },
+            {
+              "aggregate": [
+                {
+                  "op": "count",
+                  "as": "years"
+                },
+                {
+                  "op": "sum",
+                  "field": "first",
+                  "as": "firsts"
+                },
+                {
+                  "op": "min",
+                  "field": "second_from",
+                  "as": "since"
+                },
+                {
+                  "op": "max",
+                  "field": "r25",
+                  "as": "r25"
+                },
+                {
+                  "op": "max",
+                  "field": "v25",
+                  "as": "visitors"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.r25 + '   Queen Victoria Market'",
+              "as": "label"
+            },
+            {
+              "calculate": "split('First in Victoria in every|year on record before ' + datum.since + '.', '|')",
+              "as": "claim"
+            },
+            {
+              "calculate": "split('Second since then, behind the CBD|shopping precinct, recorded from ' + datum.since + '.', '|')",
+              "as": "figures"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "font": "Archivo",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "color": "#2E2A24",
+            "align": "left",
+            "dx": -125,
+            "baseline": "top",
+            "dy": 161,
+            "lineHeight": 18
+          },
+          "encoding": {
+            "text": {
+              "field": "claim",
+              "type": "nominal"
+            }
+          }
+        },
+        {
+          "data": {
+            "url": "data/vic_attractions_international_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "year": "number",
+                "visitors": "number",
+                "sample": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.visitors != null && indexof(['Short Interview VIC', 'Other regional Victoria', \"Don't know VIC\", \"Don't know Melbourne\"], datum.attraction) < 0"
+            },
+            {
+              "window": [
+                {
+                  "op": "rank",
+                  "as": "rank"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "visitors",
+                  "order": "descending"
+                }
+              ],
+              "groupby": [
+                "year"
+              ]
+            },
+            {
+              "filter": "datum.attraction == 'Queen Victoria Market'"
+            },
+            {
+              "calculate": "datum.rank == 1 ? 1 : 0",
+              "as": "first"
+            },
+            {
+              "calculate": "datum.rank != 1 ? datum.year : 9999",
+              "as": "second_from"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "as": "r25"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "as": "v25"
+            },
+            {
+              "aggregate": [
+                {
+                  "op": "count",
+                  "as": "years"
+                },
+                {
+                  "op": "sum",
+                  "field": "first",
+                  "as": "firsts"
+                },
+                {
+                  "op": "min",
+                  "field": "second_from",
+                  "as": "since"
+                },
+                {
+                  "op": "max",
+                  "field": "r25",
+                  "as": "r25"
+                },
+                {
+                  "op": "max",
+                  "field": "v25",
+                  "as": "visitors"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.r25 + '   Queen Victoria Market'",
+              "as": "label"
+            },
+            {
+              "calculate": "split('First in Victoria in every|year on record before ' + datum.since + '.', '|')",
+              "as": "claim"
+            },
+            {
+              "calculate": "split('Second since then, behind the CBD|shopping precinct, recorded from ' + datum.since + '.', '|')",
+              "as": "figures"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "font": "Archivo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "color": "#6B675F",
+            "align": "left",
+            "dx": -125,
+            "baseline": "top",
+            "dy": 201,
+            "lineHeight": 18
+          },
+          "encoding": {
+            "text": {
+              "field": "figures",
+              "type": "nominal"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "south_australia",
+      "title": {
+        "text": "SOUTH AUSTRALIA",
+        "subtitle": "These are all 14 South Australian attractions that the survey records for 2025.",
+        "anchor": "start",
+        "font": "Archivo Condensed",
+        "fontSize": 18,
+        "fontWeight": 700,
+        "color": "#2E2A24",
+        "subtitleFont": "Archivo",
+        "subtitleFontSize": 13.5,
+        "subtitleColor": "#6B675F",
+        "offset": 26,
+        "frame": "group",
+        "dx": -246
+      },
+      "width": 784,
+      "height": {
+        "step": 19
+      },
+      "data": {
+        "url": "data/sa_attractions_international_by_year.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "year": "number",
+            "visitors": "number",
+            "sample": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.year == 2025 && datum.visitors != null"
+        },
+        {
+          "calculate": "datum.attraction == 'Adelaide Central Markets' ? 'Adelaide Central Market' : datum.attraction",
+          "as": "display_name"
+        },
+        {
+          "window": [
+            {
+              "op": "rank",
+              "as": "rank"
+            },
+            {
+              "op": "lead",
+              "field": "display_name",
+              "as": "next_name"
+            },
+            {
+              "op": "lead",
+              "field": "visitors",
+              "as": "next_visitors"
+            }
+          ],
+          "sort": [
+            {
+              "field": "visitors",
+              "order": "descending"
+            }
+          ]
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "count",
+              "field": "attraction",
+              "as": "field_size"
+            },
+            {
+              "op": "max",
+              "field": "visitors",
+              "as": "panel_max"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.rank + '   ' + datum.display_name",
+          "as": "label"
+        },
+        {
+          "calculate": "datum.attraction == 'Adelaide Central Markets'",
+          "as": "is_market"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "label",
+          "type": "nominal",
+          "sort": {
+            "field": "visitors",
+            "order": "descending"
+          },
+          "title": null,
+          "axis": {
+            "labelFont": "Archivo Condensed",
+            "labelFontSize": 13,
+            "labelLimit": 260,
+            "labelColor": {
+              "condition": {
+                "test": "indexof(datum.label, 'Adelaide Central Market') >= 0",
+                "value": "#663600"
+              },
+              "value": "#6B675F"
+            },
+            "labelFontWeight": {
+              "condition": {
+                "test": "indexof(datum.label, 'Adelaide Central Market') >= 0",
+                "value": 700
+              },
+              "value": 400
+            },
+            "domain": false,
+            "ticks": false,
+            "labelPadding": 8
+          }
+        },
+        "x": {
+          "field": "visitors",
+          "type": "quantitative",
+          "title": null,
+          "axis": {
+            "tickCount": 4,
+            "labelFont": "Archivo Condensed",
+            "labelFontSize": 12,
+            "labelColor": "#6B675F",
+            "domainColor": "#C9C3B6",
+            "tickColor": "#C9C3B6",
+            "grid": false,
+            "orient": "bottom",
+            "labelExpr": "datum.value === 0 ? '0' : format(datum.value, '~s')"
+          },
+          "scale": {
+            "nice": 4
+          }
+        }
+      },
+      "layer": [
+        {
+          "transform": [
+            {
+              "filter": "!datum.is_market"
+            }
+          ],
+          "mark": {
+            "type": "rule",
+            "color": "#E8E4DC",
+            "strokeWidth": 1.5
+          },
+          "encoding": {
+            "x2": {
+              "datum": 0
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.is_market"
+            }
+          ],
+          "mark": {
+            "type": "rule",
+            "color": "#663600",
+            "strokeWidth": 2.5,
+            "opacity": 0.45
+          },
+          "encoding": {
+            "x2": {
+              "datum": 0
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.is_market"
+            }
+          ],
+          "mark": {
+            "type": "rule",
+            "color": "#B9B2A5",
+            "strokeWidth": 1,
+            "xOffset": 0,
+            "yOffset": 0,
+            "x2Offset": -46,
+            "y2Offset": 121.5
+          },
+          "encoding": {
+            "x2": {
+              "field": "visitors",
+              "type": "quantitative"
+            },
+            "y2": {
+              "field": "label",
+              "type": "nominal"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "!datum.is_market"
+            }
+          ],
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "color": "#DDDDDD",
+            "size": 70,
+            "opacity": 1
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "display_name",
+                "type": "nominal",
+                "title": "Attraction"
+              },
+              {
+                "field": "visitors",
+                "type": "quantitative",
+                "title": "International visitors, 2025",
+                "format": ",.0f"
+              },
+              {
+                "field": "rank",
+                "type": "quantitative",
+                "title": "Rank in South Australia"
+              },
+              {
+                "field": "sample",
+                "type": "quantitative",
+                "title": "Survey responses",
+                "format": ",.0f"
+              }
+            ]
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.is_market"
+            }
+          ],
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "color": "#663600",
+            "size": 190,
+            "opacity": 1
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "display_name",
+                "type": "nominal",
+                "title": "Attraction"
+              },
+              {
+                "field": "visitors",
+                "type": "quantitative",
+                "title": "International visitors, 2025",
+                "format": ",.0f"
+              },
+              {
+                "field": "rank",
+                "type": "quantitative",
+                "title": "Rank in South Australia"
+              },
+              {
+                "field": "sample",
+                "type": "quantitative",
+                "title": "Survey responses",
+                "format": ",.0f"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "url": "data/sa_attractions_international_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "year": "number",
+                "visitors": "number",
+                "sample": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.visitors != null"
+            },
+            {
+              "window": [
+                {
+                  "op": "rank",
+                  "as": "rank"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "visitors",
+                  "order": "descending"
+                }
+              ],
+              "groupby": [
+                "year"
+              ]
+            },
+            {
+              "filter": "datum.attraction == 'Adelaide Central Markets'"
+            },
+            {
+              "calculate": "datum.rank == 1 ? 1 : 0",
+              "as": "first"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "as": "r25"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "as": "v25"
+            },
+            {
+              "joinaggregate": [
+                {
+                  "op": "count",
+                  "as": "years"
+                },
+                {
+                  "op": "sum",
+                  "field": "first",
+                  "as": "firsts"
+                },
+                {
+                  "op": "max",
+                  "field": "r25",
+                  "as": "r25"
+                },
+                {
+                  "op": "max",
+                  "field": "v25",
+                  "as": "v25"
+                }
+              ]
+            },
+            {
+              "filter": "datum.rank != 1"
+            },
+            {
+              "aggregate": [
+                {
+                  "op": "values",
+                  "as": "others"
+                },
+                {
+                  "op": "max",
+                  "field": "rank",
+                  "as": "worst"
+                },
+                {
+                  "op": "max",
+                  "field": "years",
+                  "as": "years"
+                },
+                {
+                  "op": "max",
+                  "field": "firsts",
+                  "as": "firsts"
+                },
+                {
+                  "op": "max",
+                  "field": "r25",
+                  "as": "r25"
+                },
+                {
+                  "op": "max",
+                  "field": "v25",
+                  "as": "visitors"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.r25 + '   Adelaide Central Market'",
+              "as": "label"
+            },
+            {
+              "calculate": "split('First in South Australia|in ' + datum.firsts + ' of the ' + datum.years + ' years on record.', '|')",
+              "as": "claim"
+            },
+            {
+              "calculate": "(datum.worst == 2 ? 'Second in ' : 'Lower in ') + replace(join(pluck(datum.others, 'year'), ', '), regexp(', (\\\\d+)$'), ' and $1') + '.'",
+              "as": "figures"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "fill": "#FCFBF8",
+            "stroke": "#DFD9CC",
+            "strokeWidth": 1,
+            "cornerRadius": 2,
+            "xOffset": -265,
+            "x2Offset": -46,
+            "yOffset": 87,
+            "y2Offset": 156
+          },
+          "encoding": {
+            "x2": {
+              "field": "visitors",
+              "type": "quantitative"
+            },
+            "y2": {
+              "field": "label",
+              "type": "nominal"
+            }
+          }
+        },
+        {
+          "data": {
+            "url": "data/sa_attractions_international_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "year": "number",
+                "visitors": "number",
+                "sample": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.visitors != null"
+            },
+            {
+              "window": [
+                {
+                  "op": "rank",
+                  "as": "rank"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "visitors",
+                  "order": "descending"
+                }
+              ],
+              "groupby": [
+                "year"
+              ]
+            },
+            {
+              "filter": "datum.attraction == 'Adelaide Central Markets'"
+            },
+            {
+              "calculate": "datum.rank == 1 ? 1 : 0",
+              "as": "first"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "as": "r25"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "as": "v25"
+            },
+            {
+              "joinaggregate": [
+                {
+                  "op": "count",
+                  "as": "years"
+                },
+                {
+                  "op": "sum",
+                  "field": "first",
+                  "as": "firsts"
+                },
+                {
+                  "op": "max",
+                  "field": "r25",
+                  "as": "r25"
+                },
+                {
+                  "op": "max",
+                  "field": "v25",
+                  "as": "v25"
+                }
+              ]
+            },
+            {
+              "filter": "datum.rank != 1"
+            },
+            {
+              "aggregate": [
+                {
+                  "op": "values",
+                  "as": "others"
+                },
+                {
+                  "op": "max",
+                  "field": "rank",
+                  "as": "worst"
+                },
+                {
+                  "op": "max",
+                  "field": "years",
+                  "as": "years"
+                },
+                {
+                  "op": "max",
+                  "field": "firsts",
+                  "as": "firsts"
+                },
+                {
+                  "op": "max",
+                  "field": "r25",
+                  "as": "r25"
+                },
+                {
+                  "op": "max",
+                  "field": "v25",
+                  "as": "visitors"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.r25 + '   Adelaide Central Market'",
+              "as": "label"
+            },
+            {
+              "calculate": "split('First in South Australia|in ' + datum.firsts + ' of the ' + datum.years + ' years on record.', '|')",
+              "as": "claim"
+            },
+            {
+              "calculate": "(datum.worst == 2 ? 'Second in ' : 'Lower in ') + replace(join(pluck(datum.others, 'year'), ', '), regexp(', (\\\\d+)$'), ' and $1') + '.'",
+              "as": "figures"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "font": "Archivo",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "color": "#2E2A24",
+            "align": "left",
+            "dx": -253,
+            "baseline": "top",
+            "dy": 96,
+            "lineHeight": 18
+          },
+          "encoding": {
+            "text": {
+              "field": "claim",
+              "type": "nominal"
+            }
+          }
+        },
+        {
+          "data": {
+            "url": "data/sa_attractions_international_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "year": "number",
+                "visitors": "number",
+                "sample": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.visitors != null"
+            },
+            {
+              "window": [
+                {
+                  "op": "rank",
+                  "as": "rank"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "visitors",
+                  "order": "descending"
+                }
+              ],
+              "groupby": [
+                "year"
+              ]
+            },
+            {
+              "filter": "datum.attraction == 'Adelaide Central Markets'"
+            },
+            {
+              "calculate": "datum.rank == 1 ? 1 : 0",
+              "as": "first"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "as": "r25"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "as": "v25"
+            },
+            {
+              "joinaggregate": [
+                {
+                  "op": "count",
+                  "as": "years"
+                },
+                {
+                  "op": "sum",
+                  "field": "first",
+                  "as": "firsts"
+                },
+                {
+                  "op": "max",
+                  "field": "r25",
+                  "as": "r25"
+                },
+                {
+                  "op": "max",
+                  "field": "v25",
+                  "as": "v25"
+                }
+              ]
+            },
+            {
+              "filter": "datum.rank != 1"
+            },
+            {
+              "aggregate": [
+                {
+                  "op": "values",
+                  "as": "others"
+                },
+                {
+                  "op": "max",
+                  "field": "rank",
+                  "as": "worst"
+                },
+                {
+                  "op": "max",
+                  "field": "years",
+                  "as": "years"
+                },
+                {
+                  "op": "max",
+                  "field": "firsts",
+                  "as": "firsts"
+                },
+                {
+                  "op": "max",
+                  "field": "r25",
+                  "as": "r25"
+                },
+                {
+                  "op": "max",
+                  "field": "v25",
+                  "as": "visitors"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.r25 + '   Adelaide Central Market'",
+              "as": "label"
+            },
+            {
+              "calculate": "split('First in South Australia|in ' + datum.firsts + ' of the ' + datum.years + ' years on record.', '|')",
+              "as": "claim"
+            },
+            {
+              "calculate": "(datum.worst == 2 ? 'Second in ' : 'Lower in ') + replace(join(pluck(datum.others, 'year'), ', '), regexp(', (\\\\d+)$'), ' and $1') + '.'",
+              "as": "figures"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "font": "Archivo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "color": "#6B675F",
+            "align": "left",
+            "dx": -253,
+            "baseline": "top",
+            "dy": 132,
+            "lineHeight": 18
+          },
+          "encoding": {
+            "text": {
+              "field": "figures",
+              "type": "nominal"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "new_south_wales",
+      "title": {
+        "text": "NEW SOUTH WALES",
+        "subtitle": "These are all 31 New South Wales attractions that the survey records for 2025.",
+        "anchor": "start",
+        "font": "Archivo Condensed",
+        "fontSize": 18,
+        "fontWeight": 700,
+        "color": "#2E2A24",
+        "subtitleFont": "Archivo",
+        "subtitleFontSize": 13.5,
+        "subtitleColor": "#6B675F",
+        "offset": 26,
+        "frame": "group",
+        "dx": -246
+      },
+      "width": 784,
+      "height": {
+        "step": 19
+      },
+      "data": {
+        "url": "data/nsw_attractions_international_by_year.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "year": "number",
+            "visitors": "number",
+            "sample": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.year == 2025 && datum.visitors != null"
+        },
+        {
+          "calculate": "indexof(datum.attraction, 'Sydney Fish Markets') >= 0 ? 'Sydney Fish Market' : datum.attraction",
+          "as": "display_name"
+        },
+        {
+          "window": [
+            {
+              "op": "rank",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "visitors",
+              "order": "descending"
+            }
+          ]
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "count",
+              "field": "attraction",
+              "as": "field_size"
+            },
+            {
+              "op": "max",
+              "field": "visitors",
+              "as": "panel_max"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.rank + '   ' + datum.display_name",
+          "as": "label"
+        },
+        {
+          "calculate": "indexof(datum.attraction, 'Sydney Fish Markets') >= 0",
+          "as": "is_market"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "label",
+          "type": "nominal",
+          "sort": {
+            "field": "visitors",
+            "order": "descending"
+          },
+          "title": null,
+          "axis": {
+            "labelFont": "Archivo Condensed",
+            "labelFontSize": 13,
+            "labelLimit": 260,
+            "labelColor": {
+              "condition": {
+                "test": "indexof(datum.label, 'Sydney Fish Market') >= 0",
+                "value": "#0F00B2"
+              },
+              "value": "#6B675F"
+            },
+            "labelFontWeight": {
+              "condition": {
+                "test": "indexof(datum.label, 'Sydney Fish Market') >= 0",
+                "value": 700
+              },
+              "value": 400
+            },
+            "domain": false,
+            "ticks": false,
+            "labelPadding": 8
+          }
+        },
+        "x": {
+          "field": "visitors",
+          "type": "quantitative",
+          "title": null,
+          "axis": {
+            "tickCount": 4,
+            "labelFont": "Archivo Condensed",
+            "labelFontSize": 12,
+            "labelColor": "#6B675F",
+            "domainColor": "#C9C3B6",
+            "tickColor": "#C9C3B6",
+            "grid": false,
+            "orient": "bottom",
+            "labelExpr": "datum.value === 0 ? '0' : format(datum.value, '~s')"
+          },
+          "scale": {
+            "nice": 4
+          }
+        }
+      },
+      "layer": [
+        {
+          "transform": [
+            {
+              "filter": "!datum.is_market"
+            }
+          ],
+          "mark": {
+            "type": "rule",
+            "color": "#E8E4DC",
+            "strokeWidth": 1.5
+          },
+          "encoding": {
+            "x2": {
+              "datum": 0
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.is_market"
+            }
+          ],
+          "mark": {
+            "type": "rule",
+            "color": "#0F00B2",
+            "strokeWidth": 2.5,
+            "opacity": 0.45
+          },
+          "encoding": {
+            "x2": {
+              "datum": 0
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "indexof(datum.attraction, 'Sydney Fish Markets') >= 0"
+            }
+          ],
+          "mark": {
+            "type": "rule",
+            "color": "#B9B2A5",
+            "strokeWidth": 1,
+            "xOffset": 0,
+            "yOffset": 0,
+            "x2Offset": 84,
+            "y2Offset": 66.5
+          },
+          "encoding": {
+            "x2": {
+              "field": "visitors",
+              "type": "quantitative"
+            },
+            "y2": {
+              "field": "label",
+              "type": "nominal"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "!datum.is_market"
+            }
+          ],
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "color": "#DDDDDD",
+            "size": 70,
+            "opacity": 1
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "display_name",
+                "type": "nominal",
+                "title": "Attraction"
+              },
+              {
+                "field": "visitors",
+                "type": "quantitative",
+                "title": "International visitors, 2025",
+                "format": ",.0f"
+              },
+              {
+                "field": "rank",
+                "type": "quantitative",
+                "title": "Rank in New South Wales"
+              },
+              {
+                "field": "sample",
+                "type": "quantitative",
+                "title": "Survey responses",
+                "format": ",.0f"
+              }
+            ]
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.is_market"
+            }
+          ],
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "color": "#0F00B2",
+            "size": 190,
+            "opacity": 1
+          },
+          "encoding": {
+            "tooltip": [
+              {
+                "field": "display_name",
+                "type": "nominal",
+                "title": "Attraction"
+              },
+              {
+                "field": "visitors",
+                "type": "quantitative",
+                "title": "International visitors, 2025",
+                "format": ",.0f"
+              },
+              {
+                "field": "rank",
+                "type": "quantitative",
+                "title": "Rank in New South Wales"
+              },
+              {
+                "field": "sample",
+                "type": "quantitative",
+                "title": "Survey responses",
+                "format": ",.0f"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "url": "data/nsw_attractions_international_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "year": "number",
+                "visitors": "number",
+                "sample": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "(datum.year == 2024 || datum.year == 2025) && datum.visitors != null"
+            },
+            {
+              "window": [
+                {
+                  "op": "rank",
+                  "as": "rank"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "visitors",
+                  "order": "descending"
+                }
+              ],
+              "groupby": [
+                "year"
+              ]
+            },
+            {
+              "filter": "indexof(datum.attraction, 'Sydney Fish Markets') >= 0"
+            },
+            {
+              "calculate": "datum.year == 2024 ? datum.visitors : 0",
+              "as": "v24"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "as": "v25"
+            },
+            {
+              "calculate": "datum.year == 2024 ? datum.rank : 0",
+              "as": "r24"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "as": "r25"
+            },
+            {
+              "aggregate": [
+                {
+                  "op": "max",
+                  "field": "v24",
+                  "as": "v24"
+                },
+                {
+                  "op": "max",
+                  "field": "v25",
+                  "as": "v25"
+                },
+                {
+                  "op": "max",
+                  "field": "r24",
+                  "as": "r24"
+                },
+                {
+                  "op": "max",
+                  "field": "r25",
+                  "as": "r25"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.v25",
+              "as": "visitors"
+            },
+            {
+              "calculate": "datum.r25 + '   Sydney Fish Market'",
+              "as": "label"
+            },
+            {
+              "calculate": "'It drew more visitors than in 2024, but fell a place.'",
+              "as": "claim"
+            },
+            {
+              "calculate": "format(datum.v25, ',') + ' visitors in 2025 against ' + format(datum.v24, ',') + ' in 2024.'",
+              "as": "figures"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "fill": "#FCFBF8",
+            "stroke": "#DFD9CC",
+            "strokeWidth": 1,
+            "cornerRadius": 2,
+            "xOffset": 84,
+            "x2Offset": 421,
+            "yOffset": 41,
+            "y2Offset": 92
+          },
+          "encoding": {
+            "x2": {
+              "field": "visitors",
+              "type": "quantitative"
+            },
+            "y2": {
+              "field": "label",
+              "type": "nominal"
+            }
+          }
+        },
+        {
+          "data": {
+            "url": "data/nsw_attractions_international_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "year": "number",
+                "visitors": "number",
+                "sample": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "(datum.year == 2024 || datum.year == 2025) && datum.visitors != null"
+            },
+            {
+              "window": [
+                {
+                  "op": "rank",
+                  "as": "rank"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "visitors",
+                  "order": "descending"
+                }
+              ],
+              "groupby": [
+                "year"
+              ]
+            },
+            {
+              "filter": "indexof(datum.attraction, 'Sydney Fish Markets') >= 0"
+            },
+            {
+              "calculate": "datum.year == 2024 ? datum.visitors : 0",
+              "as": "v24"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "as": "v25"
+            },
+            {
+              "calculate": "datum.year == 2024 ? datum.rank : 0",
+              "as": "r24"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "as": "r25"
+            },
+            {
+              "aggregate": [
+                {
+                  "op": "max",
+                  "field": "v24",
+                  "as": "v24"
+                },
+                {
+                  "op": "max",
+                  "field": "v25",
+                  "as": "v25"
+                },
+                {
+                  "op": "max",
+                  "field": "r24",
+                  "as": "r24"
+                },
+                {
+                  "op": "max",
+                  "field": "r25",
+                  "as": "r25"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.v25",
+              "as": "visitors"
+            },
+            {
+              "calculate": "datum.r25 + '   Sydney Fish Market'",
+              "as": "label"
+            },
+            {
+              "calculate": "'It drew more visitors than in 2024, but fell a place.'",
+              "as": "claim"
+            },
+            {
+              "calculate": "format(datum.v25, ',') + ' visitors in 2025 against ' + format(datum.v24, ',') + ' in 2024.'",
+              "as": "figures"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "font": "Archivo",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "color": "#2E2A24",
+            "align": "left",
+            "dx": 96,
+            "baseline": "top",
+            "dy": 50,
+            "lineHeight": 18
+          },
+          "encoding": {
+            "text": {
+              "field": "claim",
+              "type": "nominal"
+            }
+          }
+        },
+        {
+          "data": {
+            "url": "data/nsw_attractions_international_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "year": "number",
+                "visitors": "number",
+                "sample": "number"
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "(datum.year == 2024 || datum.year == 2025) && datum.visitors != null"
+            },
+            {
+              "window": [
+                {
+                  "op": "rank",
+                  "as": "rank"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "visitors",
+                  "order": "descending"
+                }
+              ],
+              "groupby": [
+                "year"
+              ]
+            },
+            {
+              "filter": "indexof(datum.attraction, 'Sydney Fish Markets') >= 0"
+            },
+            {
+              "calculate": "datum.year == 2024 ? datum.visitors : 0",
+              "as": "v24"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "as": "v25"
+            },
+            {
+              "calculate": "datum.year == 2024 ? datum.rank : 0",
+              "as": "r24"
+            },
+            {
+              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "as": "r25"
+            },
+            {
+              "aggregate": [
+                {
+                  "op": "max",
+                  "field": "v24",
+                  "as": "v24"
+                },
+                {
+                  "op": "max",
+                  "field": "v25",
+                  "as": "v25"
+                },
+                {
+                  "op": "max",
+                  "field": "r24",
+                  "as": "r24"
+                },
+                {
+                  "op": "max",
+                  "field": "r25",
+                  "as": "r25"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.v25",
+              "as": "visitors"
+            },
+            {
+              "calculate": "datum.r25 + '   Sydney Fish Market'",
+              "as": "label"
+            },
+            {
+              "calculate": "'It drew more visitors than in 2024, but fell a place.'",
+              "as": "claim"
+            },
+            {
+              "calculate": "format(datum.v25, ',') + ' visitors in 2025 against ' + format(datum.v24, ',') + ' in 2024.'",
+              "as": "figures"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "font": "Archivo",
+            "fontSize": 13,
+            "fontWeight": 400,
+            "color": "#6B675F",
+            "align": "left",
+            "dx": 96,
+            "baseline": "top",
+            "dy": 68,
+            "lineHeight": 18
+          },
+          "encoding": {
+            "text": {
+              "field": "figures",
+              "type": "nominal"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": "#F7F4EE"
+  }
+}

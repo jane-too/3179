@@ -1,0 +1,210 @@
+attraction,year,sample,visitors
+Adelaide Hills/ Mt Lofty/ Hahndorf,2005,997.0,113888
+Barossa Valley,2005,755.0,86756
+Coober Pedy Opal Fields,2005,181.0,18636
+"Flinders Ranges, Wilpena Pound, Arkaroola",2005,225.0,24083
+Glenelg,2005,990.0,107437
+Kangaroo Island,2005,347.0,37488
+McLaren Vale wine region,2005,307.0,34122
+Narracoorte caves/Penola/Coonawarra,2005,72.0,9305
+Port Adelaide,2005,537.0,56936
+River Murray,2005,381.0,45228
+SA Aboriginal cultural attraction,2005,199.0,22370
+SA National parks/bushland,2005,551.0,59751
+Victor Harbour/Goolwa,2005,516.0,55859
+Wineries (SA),2005,720.0,80874
+Adelaide Central Markets,2007,1212.0,143824
+Adelaide Hills/ Mt Lofty/ Hahndorf,2007,1059.0,126133
+Barossa Valley,2007,863.0,108014
+Coober Pedy Opal Fields,2007,363.0,40880
+"Flinders Ranges, Wilpena Pound, Arkaroola",2007,326.0,38734
+Glenelg,2007,1155.0,134978
+Kangaroo Island,2007,571.0,65508
+McLaren Vale wine region,2007,318.0,39174
+"North Terrace attractions (e.g. muesum, art gallery etc)",2007,660.0,74595
+River Murray,2007,475.0,60822
+SA National parks/bushland,2007,628.0,71926
+Victor Harbour/Goolwa,2007,633.0,69429
+Wineries (SA),2007,846.0,104873
+Adelaide Botanic Gardens,2009,817.0,84603
+Adelaide Hills/ Mt Lofty/ Hahndorf,2009,1160.0,129151
+Barossa Valley,2009,823.0,89926
+Coober Pedy Opal Fields,2009,317.0,34533
+"Flinders Ranges, Wilpena Pound, Arkaroola",2009,272.0,30591
+Glenelg,2009,1248.0,138442
+Kangaroo Island,2009,482.0,58454
+McLaren Vale wine region,2009,367.0,42599
+River Murray,2009,442.0,50796
+Robe/Kingston,2009,186.0,22175
+SA National parks/bushland,2009,595.0,68659
+Victor Harbour/Goolwa,2009,607.0,67100
+Wineries (SA),2009,798.0,95016
+Adelaide Botanic Gardens,2010,881.0,97506
+Adelaide Hills/ Mt Lofty/ Hahndorf,2010,1175.0,146178
+Barossa Valley,2010,751.0,94101
+Coober Pedy Opal Fields,2010,276.0,27168
+"Flinders Ranges, Wilpena Pound, Arkaroola",2010,260.0,30552
+Glenelg,2010,1174.0,145184
+Kangaroo Island,2010,541.0,69216
+McLaren Vale wine region,2010,323.0,40409
+River Murray,2010,366.0,51329
+Robe/Kingston,2010,201.0,26354
+SA National parks/bushland,2010,598.0,70966
+Victor Harbour/Goolwa,2010,612.0,75295
+Wineries (SA),2010,792.0,102053
+Adelaide Central Markets,2011,1531.0,172683
+Adelaide Hills/ Mt Lofty/ Hahndorf,2011,1233.0,141774
+Barossa Valley,2011,770.0,89690
+Glenelg,2011,1206.0,139645
+Kangaroo Island,2011,588.0,57844
+Lake Eyre,2011,77.0,7119
+McLaren Vale wine region,2011,325.0,42791
+"North Terrace attractions (e.g. muesum, art gallery etc)",2011,568.0,62262
+Penola/Mary MacKillop attractions,2011,49.0,5374
+River Murray,2011,367.0,47355
+SA National parks/bushland,2011,503.0,54640
+Victor Harbour/Goolwa,2011,621.0,71888
+Wineries (SA),2011,671.0,84199
+Adelaide Central Markets,2012,1239.0,175238
+Adelaide Hills/ Mt Lofty/ Hahndorf,2012,973.0,141013
+Barossa Wineries,2012,616.0,89606
+Glenelg,2012,985.0,147015
+Lake Eyre,2012,90.0,12213
+McLaren Vale wine region,2012,299.0,51125
+"North Terrace attractions (e.g. muesum, art gallery etc)",2012,431.0,57645
+Penola/Mary MacKillop attractions,2012,48.0,8005
+River Murray,2012,351.0,52914
+River Torrens Precinct,2012,348.0,52524
+Rundle Mall,2012,1095.0,167881
+SA National parks/bushland,2012,403.0,56456
+Victor Harbour/Goolwa,2012,521.0,75426
+Adelaide Central Markets,2013,1197.0,176770
+Adelaide Hills/ Mt Lofty/ Hahndorf,2013,944.0,146931
+Barossa Wineries,2013,634.0,99647
+Glenelg,2013,972.0,150230
+Lake Eyre,2013,87.0,9456
+McLaren Vale wine region,2013,295.0,49657
+"North Terrace attractions (e.g. muesum, art gallery etc)",2013,414.0,60016
+Penola/Mary MacKillop attractions,2013,42.0,6180
+River Murray,2013,366.0,59573
+River Torrens Precinct,2013,338.0,49750
+Rundle Mall,2013,1091.0,171556
+SA National parks/bushland,2013,358.0,56348
+Victor Harbour/Goolwa,2013,559.0,88262
+Adelaide Central Markets,2014,1097.0,171776
+Adelaide Hills/ Mt Lofty/ Hahndorf,2014,903.0,143974
+Barossa Wineries,2014,561.0,91391
+Glenelg,2014,886.0,140189
+Lake Eyre,2014,73.0,9380
+McLaren Vale wine region,2014,284.0,43647
+"North Terrace attractions (e.g. muesum, art gallery etc)",2014,374.0,60451
+Penola/Mary MacKillop attractions,2014,33.0,6293
+River Murray,2014,312.0,52723
+River Torrens Precinct,2014,345.0,57133
+Rundle Mall,2014,1058.0,167944
+SA National parks/bushland,2014,333.0,49789
+Victor Harbour/Goolwa,2014,488.0,75931
+Adelaide Central Markets,2015,1210.0,169424
+Adelaide Hills/ Mt Lofty/ Hahndorf,2015,1114.0,166247
+Adelaide Zoo,2015,357.0,54140
+Barossa Wine Region,2015,560.0,90634
+Cleland Wildlife Park,2015,270.0,35230
+Glenelg,2015,1014.0,147505
+Kangaroo Island,2015,478.0,73424
+McLaren Vale wine region,2015,362.0,55136
+River Murray,2015,321.0,53138
+River Torrens Precinct,2015,371.0,53531
+Rundle Mall,2015,1203.0,173709
+Victor Harbour/Goolwa,2015,572.0,89895
+Adelaide Central Markets,2016,1223.0,187747
+Adelaide Hills/ Mt Lofty/ Hahndorf,2016,1071.0,172482
+Adelaide Zoo,2016,319.0,49674
+Barossa Wine Region,2016,579.0,97579
+Cleland Wildlife Park,2016,295.0,50501
+Glenelg,2016,1007.0,161333
+Kangaroo Island,2016,500.0,85838
+McLaren Vale wine region,2016,375.0,68029
+River Murray,2016,291.0,46436
+River Torrens Precinct,2016,376.0,55341
+Rundle Mall,2016,1244.0,187595
+Victor Harbour/Goolwa,2016,524.0,81093
+Adelaide Central Markets,2017,1210.0,213330
+Adelaide Hills/ Mt Lofty/ Hahndorf,2017,984.0,174408
+Adelaide Oval,2017,501.0,76357
+Adelaide Zoo,2017,312.0,53554
+Barossa Wine Region,2017,537.0,105385
+Cleland Wildlife Park,2017,283.0,45764
+Glenelg,2017,994.0,166794
+Kangaroo Island,2017,426.0,85747
+McLaren Vale wine region,2017,336.0,62546
+River Murray,2017,276.0,51616
+River Torrens Precinct,2017,310.0,53644
+Rundle Mall,2017,1215.0,200969
+Victor Harbour/Goolwa,2017,491.0,86020
+Adelaide Central Markets,2018,1127.0,192121
+Adelaide Hills/ Mt Lofty/ Hahndorf,2018,987.0,173784
+Adelaide Oval,2018,416.0,70514
+Adelaide Zoo,2018,327.0,51202
+Barossa Wine Region,2018,497.0,95354
+Cleland Wildlife Park,2018,264.0,43034
+Glenelg,2018,955.0,153588
+Kangaroo Island,2018,387.0,72732
+McLaren Vale wine region,2018,341.0,59051
+River Murray,2018,210.0,38077
+River Torrens Precinct,2018,256.0,46071
+Rundle Mall,2018,1174.0,196971
+Victor Harbour/Goolwa,2018,431.0,69492
+Adelaide Central Markets,2019,1117.0,225941
+Adelaide Hills/ Mt Lofty/ Hahndorf,2019,906.0,188119
+Adelaide Oval,2019,406.0,73534
+Adelaide Zoo,2019,310.0,52575
+Barossa Wine Region,2019,487.0,110272
+Cleland Wildlife Park,2019,223.0,37361
+Glenelg,2019,840.0,159653
+Kangaroo Island,2019,359.0,76139
+McLaren Vale wine region,2019,313.0,72905
+River Murray,2019,168.0,38521
+River Torrens Precinct,2019,246.0,51758
+Rundle Mall,2019,1102.0,215488
+Victor Harbour/Goolwa,2019,426.0,87154
+Adelaide Central Markets,2023,1307.0,227086
+Adelaide Hills/ Mt Lofty/ Hahndorf,2023,1130.0,184493
+Adelaide Oval,2023,552.0,93265
+Adelaide Zoo,2023,397.0,52695
+Barossa Wine Region,2023,535.0,83113
+Cleland Wildlife Park,2023,265.0,44386
+Glenelg,2023,1158.0,183925
+Kangaroo Island,2023,229.0,53015
+McLaren Vale wine region,2023,513.0,84365
+River Murray,2023,278.0,45838
+River Torrens Precinct,2023,411.0,58923
+Rundle Mall,2023,1464.0,237305
+Victor Harbour/Goolwa,2023,568.0,91762
+Adelaide Central Markets,2024,1028.0,211909
+Adelaide Hills/ Mt Lofty/ Hahndorf,2024,933.0,175898
+Adelaide Oval,2024,471.0,78883
+Adelaide Zoo,2024,284.0,45731
+Barossa Wine Region,2024,419.0,85552
+Cleland Wildlife Park,2024,220.0,40734
+Glenelg,2024,893.0,144027
+Kangaroo Island,2024,229.0,69451
+McLaren Vale wine region,2024,401.0,69171
+Monarto Safari Park/ Zoo,2024,95.0,16065
+River Murray,2024,213.0,41743
+River Torrens Precinct,2024,339.0,54899
+Rundle Mall,2024,1167.0,194628
+Victor Harbour/Goolwa,2024,445.0,87300
+Adelaide Central Markets,2025,929.0,222387
+Adelaide Hills/ Mt Lofty/ Hahndorf,2025,718.0,170914
+Adelaide Oval,2025,418.0,94755
+Adelaide Zoo,2025,298.0,68105
+Barossa Wine Region,2025,337.0,92695
+Cleland Wildlife Park,2025,195.0,51462
+Glenelg,2025,729.0,168208
+Kangaroo Island,2025,177.0,52868
+McLaren Vale wine region,2025,285.0,78526
+Monarto Safari Park/ Zoo,2025,101.0,21858
+River Murray,2025,171.0,43395
+River Torrens Precinct,2025,256.0,67509
+Rundle Mall,2025,883.0,207168
+Victor Harbour/Goolwa,2025,334.0,77923

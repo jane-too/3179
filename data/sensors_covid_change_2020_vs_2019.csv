@@ -1,0 +1,36 @@
+sensor_id,counts_2019,counts_2020,pct_change,sensor_name,group,sensor_description,latitude,longitude,mappable
+1,3949011,1373301,-65.2,Bourke Street Mall (North),Other CBD,Bourke Street Mall (North),-37.81349441,144.96515323,1
+2,2668133,905657,-66.1,Bourke Street Mall (South),Other CBD,Bourke Street Mall (South),-37.81380668,144.96516718,1
+4,4234727,1405139,-66.8,Town Hall (West),Other CBD,Town Hall (West),-37.81487988,144.9660878,1
+5,3970414,1124669,-71.7,Princes Bridge,Other CBD,Princes Bridge,-37.81874249,144.96787656,1
+6,4019085,1185559,-70.5,Flinders Street Station Underpass,Other CBD,Flinders Underpass - Myki Barriers,-37.81907439,144.96557866,1
+8,605096,347621,-42.6,Webb Bridge,Other CBD,Webb Bridge,-37.82293543,144.9471751,1
+9,2278715,528801,-76.8,Southern Cross Station,Other CBD,Southern Cross Station,-37.81982992,144.95102555,1
+10,553697,154996,-72.0,Victoria Point,Other CBD,Victoria Point,-37.81876474,144.94710545,1
+12,724434,395368,-45.4,New Quay,Other CBD,New Quay,-37.81457988,144.94292398,1
+17,1422641,462834,-67.5,Collins Place (South),Other CBD,Collins Place (South),-37.81362543,144.97323591,1
+18,1022543,297865,-70.9,Collins Place (North),Other CBD,Collins Place (North),-37.81344862,144.97305353,1
+19,1890574,522557,-72.4,Chinatown-Swanston St (North),Other CBD,Chinatown-Swanston St (North),-37.81237202,144.96550671,1
+20,1209729,276825,-77.1,Chinatown-Lt Bourke St (South),Other CBD,Chinatown-Lt Bourke St (South),-37.81172914,144.9682466,1
+22,5277346,2263936,-57.1,Flinders St-Elizabeth St (East),Other CBD,,,,0
+23,1160531,355812,-69.3,Spencer St-Collins St (South),Other CBD,Spencer St-Collins St (South),-37.81909256,144.95452748,1
+26,1857243,823681,-55.7,QV Market-Elizabeth St (West),QVM area,,,,0
+28,3411003,742263,-78.2,The Arts Centre,Other CBD,,,,0
+30,1552181,457455,-70.5,Lonsdale St (South),Other CBD,Lonsdale St (South),-37.8112185,144.96656806,1
+31,691969,336760,-51.3,Lygon St (West),Other CBD,Lygon St (West),-37.80169681,144.96658911,1
+34,414023,148724,-64.1,Flinders St-Spark La,Other CBD,,,,0
+35,3684892,1441396,-60.9,Southbank,Other CBD,Southbank Promenade,-37.82018685,144.96508508,1
+36,905773,293341,-67.6,Queen St (West),Other CBD,Queen St (West),-37.81652527,144.96121062,1
+37,413075,178425,-56.8,Lygon St (East),Other CBD,Lygon St (East),-37.80107122,144.96704554,1
+40,941811,263026,-72.1,Lonsdale St-Spring St (West),Other CBD,Lonsdale St-Spring St (West),-37.80999341,144.97227587,1
+43,713053,196623,-72.4,Monash Rd-Swanston St (West),Other CBD,Monash Rd-Swanston St (West),-37.79844526,144.96411782,1
+44,313183,85208,-72.8,Tin Alley-Swanston St (West),Other CBD,Tin Alley-Swanston St (West),-37.79698741,144.96441306,1
+47,2734165,1116638,-59.2,Melbourne Central-Elizabeth St (East),Other CBD,Melbourne Central-Elizabeth St (East),-37.81258467,144.9625775,1
+48,781690,447572,-42.7,QVM-Queen St (East),QVM area,QVM-Queen St (East),-37.80631581,144.95866697,1
+49,494167,307817,-37.7,QVM-Therry St (South),QVM area,QVM-Therry St (South),-37.80730068,144.95956055,1
+50,768438,360067,-53.1,Faraday St-Lygon St (West),Other CBD,Faraday St-Lygon St (West),-37.79808192,144.96721013,1
+51,401214,220993,-44.9,QVM-Franklin St (North),QVM area,QVM-Franklin St (North),-37.80841815,144.95906316,1
+52,1223219,396942,-67.5,Elizabeth St-Lonsdale St (South),Other CBD,Elizabeth St-Lonsdale St (South),-37.81252157,144.9619401,1
+53,2016223,733841,-63.6,Collins St (North),Other CBD,Collins Street (North),-37.81564191,144.965499,1
+54,555877,119928,-78.4,Lincoln-Swanston (West),Other CBD,Lincoln-Swanston (West),-37.804024,144.96308399,1
+58,2396598,697247,-70.9,Bourke St - Spencer St (North),Other CBD,Bourke St - Spencer St (North),-37.81686075,144.95358075,1
