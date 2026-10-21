@@ -1,0 +1,1379 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#F7F4EE",
+  "padding": 5,
+  "title": {
+    "text": [
+      "DRAFT — Over the same five years South Melbourne ended 7% above where it began;",
+      "Queen Victoria Market ended slightly below"
+    ],
+    "subtitle": [
+      "DRAFT — Visitors to each market by financial year; each bar is the change from the year before. Both series",
+      "start in FY2019-20, which already contains four months of the pandemic. Dashed bars are estimates."
+    ],
+    "anchor": "start",
+    "font": "Fraunces",
+    "fontSize": 18,
+    "fontWeight": 600,
+    "color": "#1A1A17",
+    "subtitleFont": "Archivo",
+    "subtitleFontSize": 13.5,
+    "subtitleColor": "#6B675F",
+    "subtitleLineHeight": 18,
+    "offset": 28,
+    "lineHeight": 26
+  },
+  "hconcat": [
+    {
+      "title": {
+        "text": "Queen Victoria Market",
+        "subtitle": "Day Market visitors",
+        "anchor": "start",
+        "font": "Archivo",
+        "fontSize": 16,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "offset": 10,
+        "subtitleFont": "Archivo",
+        "subtitleFontSize": 13,
+        "subtitleColor": "#6B675F",
+        "subtitlePadding": 4
+      },
+      "width": 452,
+      "height": 430,
+      "layer": [
+        {
+          "data": {
+            "url": "data/market_visitors_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "visitors": "number"
+              }
+            }
+          },
+          "mark": {
+            "type": "rule",
+            "stroke": "#B9B2A5",
+            "strokeWidth": 1,
+            "strokeDash": [
+              2,
+              2
+            ],
+            "xOffset": 19,
+            "x2Offset": -19
+          },
+          "encoding": {
+            "x": {
+              "field": "fy",
+              "type": "ordinal",
+              "sort": [
+                "2019-20",
+                "2020-21",
+                "2021-22",
+                "2022-23",
+                "2023-24",
+                "  2023-24 total"
+              ],
+              "title": null
+            },
+            "x2": {
+              "field": "fy2"
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  8600000
+                ]
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.market == 'Queen Victoria Market' && datum.financial_year >= '2019-20' && datum.financial_year <= '2023-24'"
+            },
+            {
+              "window": [
+                {
+                  "op": "lead",
+                  "field": "financial_year",
+                  "as": "fy2"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "financial_year",
+                  "order": "ascending"
+                }
+              ]
+            },
+            {
+              "filter": "isValid(datum.fy2)"
+            },
+            {
+              "calculate": "datum.financial_year",
+              "as": "fy"
+            },
+            {
+              "calculate": "datum.visitors",
+              "as": "y"
+            }
+          ]
+        },
+        {
+          "data": {
+            "url": "data/market_visitors_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "visitors": "number"
+              }
+            }
+          },
+          "mark": {
+            "type": "bar",
+            "size": 36,
+            "cornerRadius": 1
+          },
+          "encoding": {
+            "x": {
+              "field": "fy",
+              "type": "ordinal",
+              "sort": [
+                "2019-20",
+                "2020-21",
+                "2021-22",
+                "2022-23",
+                "2023-24",
+                "  2023-24 total"
+              ],
+              "title": null,
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 13,
+                "labelColor": "#6B675F",
+                "labelAngle": 0,
+                "domain": false,
+                "ticks": false,
+                "labelPadding": 8,
+                "labelAlign": "center",
+                "labelOffset": 0
+              }
+            },
+            "y": {
+              "field": "lo",
+              "type": "quantitative",
+              "title": null,
+              "scale": {
+                "domain": [
+                  0,
+                  8600000
+                ]
+              },
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 13,
+                "labelColor": "#6B675F",
+                "format": "~s",
+                "domain": false,
+                "ticks": false,
+                "grid": true,
+                "gridColor": "#E8E4DC",
+                "labelPadding": 6,
+                "values": [
+                  0,
+                  2000000,
+                  4000000,
+                  6000000,
+                  8000000
+                ]
+              }
+            },
+            "y2": {
+              "field": "hi"
+            },
+            "color": {
+              "field": "kind",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "up",
+                  "down",
+                  "total"
+                ],
+                "range": [
+                  "#A632A6",
+                  "#D9AFD9",
+                  "#6E1F6E"
+                ]
+              },
+              "legend": null
+            },
+            "opacity": {
+              "condition": {
+                "test": "datum.est",
+                "value": 0.5
+              },
+              "value": 1
+            },
+            "tooltip": [
+              {
+                "field": "fy",
+                "title": "Year"
+              },
+              {
+                "field": "total",
+                "type": "quantitative",
+                "title": "Visitors",
+                "format": ","
+              },
+              {
+                "field": "delta",
+                "type": "quantitative",
+                "title": "Change",
+                "format": "+,"
+              }
+            ]
+          },
+          "transform": [
+            {
+              "filter": "datum.market == 'Queen Victoria Market' && datum.financial_year >= '2019-20' && datum.financial_year <= '2023-24'"
+            },
+            {
+              "window": [
+                {
+                  "op": "lag",
+                  "field": "visitors",
+                  "as": "prev"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "financial_year",
+                  "order": "ascending"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.financial_year",
+              "as": "fy"
+            },
+            {
+              "calculate": "datum.visitors",
+              "as": "total"
+            },
+            {
+              "calculate": "isValid(datum.prev) ? datum.visitors - datum.prev : null",
+              "as": "delta"
+            },
+            {
+              "calculate": "datum.status == 'C'",
+              "as": "est"
+            },
+            {
+              "calculate": "datum.est && isValid(datum.delta) && abs(datum.delta) < 50000",
+              "as": "nil"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? 'total' : (datum.delta > 0 ? 'up' : 'down')",
+              "as": "kind"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? 0 : (datum.nil ? datum.visitors - 70000 : min(datum.prev, datum.visitors))",
+              "as": "lo"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? datum.visitors : (datum.nil ? datum.visitors + 70000 : max(datum.prev, datum.visitors))",
+              "as": "hi"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? format(datum.visitors / 1e6, '.2f') + 'M' : (datum.nil ? 'Unchanged' : (datum.delta > 0 ? '+' : '−') + format(abs(datum.delta) / 1e6, '.2f') + 'M')",
+              "as": "lab"
+            },
+            {
+              "calculate": "datum.fy == '2023-24' ? [0, 1] : [0]",
+              "as": "copy"
+            },
+            {
+              "flatten": [
+                "copy"
+              ]
+            },
+            {
+              "calculate": "datum.copy == 1 ? '  2023-24 total' : datum.fy",
+              "as": "fy"
+            },
+            {
+              "calculate": "datum.copy == 1 ? 0 : datum.lo",
+              "as": "lo"
+            },
+            {
+              "calculate": "datum.copy == 1 ? datum.visitors : datum.hi",
+              "as": "hi"
+            },
+            {
+              "calculate": "datum.copy == 1 ? 'total' : datum.kind",
+              "as": "kind"
+            },
+            {
+              "calculate": "datum.copy == 1 ? null : datum.delta",
+              "as": "delta"
+            },
+            {
+              "calculate": "datum.copy == 1 ? false : datum.est",
+              "as": "est"
+            },
+            {
+              "calculate": "datum.copy == 1 ? format(datum.visitors / 1e6, '.2f') + 'M' : datum.lab",
+              "as": "lab"
+            }
+          ]
+        },
+        {
+          "data": {
+            "url": "data/market_visitors_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "visitors": "number"
+              }
+            }
+          },
+          "mark": {
+            "type": "bar",
+            "size": 36,
+            "fill": null,
+            "stroke": "#6B675F",
+            "strokeWidth": 1,
+            "strokeDash": [
+              3,
+              2
+            ],
+            "cornerRadius": 1
+          },
+          "encoding": {
+            "x": {
+              "field": "fy",
+              "type": "ordinal",
+              "sort": [
+                "2019-20",
+                "2020-21",
+                "2021-22",
+                "2022-23",
+                "2023-24",
+                "  2023-24 total"
+              ],
+              "title": null
+            },
+            "y": {
+              "field": "lo",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  8600000
+                ]
+              }
+            },
+            "y2": {
+              "field": "hi"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.market == 'Queen Victoria Market' && datum.financial_year >= '2019-20' && datum.financial_year <= '2023-24'"
+            },
+            {
+              "window": [
+                {
+                  "op": "lag",
+                  "field": "visitors",
+                  "as": "prev"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "financial_year",
+                  "order": "ascending"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.financial_year",
+              "as": "fy"
+            },
+            {
+              "calculate": "datum.visitors",
+              "as": "total"
+            },
+            {
+              "calculate": "isValid(datum.prev) ? datum.visitors - datum.prev : null",
+              "as": "delta"
+            },
+            {
+              "calculate": "datum.status == 'C'",
+              "as": "est"
+            },
+            {
+              "calculate": "datum.est && isValid(datum.delta) && abs(datum.delta) < 50000",
+              "as": "nil"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? 'total' : (datum.delta > 0 ? 'up' : 'down')",
+              "as": "kind"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? 0 : (datum.nil ? datum.visitors - 70000 : min(datum.prev, datum.visitors))",
+              "as": "lo"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? datum.visitors : (datum.nil ? datum.visitors + 70000 : max(datum.prev, datum.visitors))",
+              "as": "hi"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? format(datum.visitors / 1e6, '.2f') + 'M' : (datum.nil ? 'Unchanged' : (datum.delta > 0 ? '+' : '−') + format(abs(datum.delta) / 1e6, '.2f') + 'M')",
+              "as": "lab"
+            },
+            {
+              "calculate": "datum.fy == '2023-24' ? [0, 1] : [0]",
+              "as": "copy"
+            },
+            {
+              "flatten": [
+                "copy"
+              ]
+            },
+            {
+              "calculate": "datum.copy == 1 ? '  2023-24 total' : datum.fy",
+              "as": "fy"
+            },
+            {
+              "calculate": "datum.copy == 1 ? 0 : datum.lo",
+              "as": "lo"
+            },
+            {
+              "calculate": "datum.copy == 1 ? datum.visitors : datum.hi",
+              "as": "hi"
+            },
+            {
+              "calculate": "datum.copy == 1 ? 'total' : datum.kind",
+              "as": "kind"
+            },
+            {
+              "calculate": "datum.copy == 1 ? null : datum.delta",
+              "as": "delta"
+            },
+            {
+              "calculate": "datum.copy == 1 ? false : datum.est",
+              "as": "est"
+            },
+            {
+              "calculate": "datum.copy == 1 ? format(datum.visitors / 1e6, '.2f') + 'M' : datum.lab",
+              "as": "lab"
+            },
+            {
+              "filter": "datum.est"
+            }
+          ]
+        },
+        {
+          "data": {
+            "url": "data/market_visitors_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "visitors": "number"
+              }
+            }
+          },
+          "mark": {
+            "type": "text",
+            "font": "Archivo",
+            "fontSize": 13,
+            "fontWeight": 600,
+            "color": "#2E2A24",
+            "baseline": "bottom",
+            "dy": -6
+          },
+          "encoding": {
+            "x": {
+              "field": "fy",
+              "type": "ordinal",
+              "sort": [
+                "2019-20",
+                "2020-21",
+                "2021-22",
+                "2022-23",
+                "2023-24",
+                "  2023-24 total"
+              ],
+              "title": null
+            },
+            "y": {
+              "field": "hi",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  8600000
+                ]
+              }
+            },
+            "text": {
+              "field": "lab"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.market == 'Queen Victoria Market' && datum.financial_year >= '2019-20' && datum.financial_year <= '2023-24'"
+            },
+            {
+              "window": [
+                {
+                  "op": "lag",
+                  "field": "visitors",
+                  "as": "prev"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "financial_year",
+                  "order": "ascending"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.financial_year",
+              "as": "fy"
+            },
+            {
+              "calculate": "datum.visitors",
+              "as": "total"
+            },
+            {
+              "calculate": "isValid(datum.prev) ? datum.visitors - datum.prev : null",
+              "as": "delta"
+            },
+            {
+              "calculate": "datum.status == 'C'",
+              "as": "est"
+            },
+            {
+              "calculate": "datum.est && isValid(datum.delta) && abs(datum.delta) < 50000",
+              "as": "nil"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? 'total' : (datum.delta > 0 ? 'up' : 'down')",
+              "as": "kind"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? 0 : (datum.nil ? datum.visitors - 70000 : min(datum.prev, datum.visitors))",
+              "as": "lo"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? datum.visitors : (datum.nil ? datum.visitors + 70000 : max(datum.prev, datum.visitors))",
+              "as": "hi"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? format(datum.visitors / 1e6, '.2f') + 'M' : (datum.nil ? 'Unchanged' : (datum.delta > 0 ? '+' : '−') + format(abs(datum.delta) / 1e6, '.2f') + 'M')",
+              "as": "lab"
+            },
+            {
+              "calculate": "datum.fy == '2023-24' ? [0, 1] : [0]",
+              "as": "copy"
+            },
+            {
+              "flatten": [
+                "copy"
+              ]
+            },
+            {
+              "calculate": "datum.copy == 1 ? '  2023-24 total' : datum.fy",
+              "as": "fy"
+            },
+            {
+              "calculate": "datum.copy == 1 ? 0 : datum.lo",
+              "as": "lo"
+            },
+            {
+              "calculate": "datum.copy == 1 ? datum.visitors : datum.hi",
+              "as": "hi"
+            },
+            {
+              "calculate": "datum.copy == 1 ? 'total' : datum.kind",
+              "as": "kind"
+            },
+            {
+              "calculate": "datum.copy == 1 ? null : datum.delta",
+              "as": "delta"
+            },
+            {
+              "calculate": "datum.copy == 1 ? false : datum.est",
+              "as": "est"
+            },
+            {
+              "calculate": "datum.copy == 1 ? format(datum.visitors / 1e6, '.2f') + 'M' : datum.lab",
+              "as": "lab"
+            }
+          ]
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "fy": "  2023-24 total",
+                "fy2": "2022-23"
+              }
+            ]
+          },
+          "mark": {
+            "type": "rule",
+            "stroke": "#A39C8E",
+            "strokeWidth": 1,
+            "xOffset": -18,
+            "x2Offset": 84
+          },
+          "encoding": {
+            "x": {
+              "field": "fy",
+              "type": "ordinal",
+              "sort": [
+                "2019-20",
+                "2020-21",
+                "2021-22",
+                "2022-23",
+                "2023-24",
+                "  2023-24 total"
+              ]
+            },
+            "x2": {
+              "field": "fy2"
+            },
+            "y": {
+              "datum": 2620000.0,
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  8600000
+                ]
+              }
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "fy": "2022-23"
+              }
+            ]
+          },
+          "mark": {
+            "type": "rect",
+            "fill": "#FCFBF8",
+            "stroke": "#DFD9CC",
+            "strokeWidth": 1,
+            "cornerRadius": 2,
+            "xOffset": -105,
+            "x2Offset": 84
+          },
+          "encoding": {
+            "x": {
+              "field": "fy",
+              "type": "ordinal",
+              "sort": [
+                "2019-20",
+                "2020-21",
+                "2021-22",
+                "2022-23",
+                "2023-24",
+                "  2023-24 total"
+              ]
+            },
+            "x2": {
+              "field": "fy"
+            },
+            "y": {
+              "datum": 3350000,
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  8600000
+                ]
+              }
+            },
+            "y2": {
+              "datum": 1890000.0
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "fy": "2022-23"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "font": "Archivo",
+            "fontSize": 12.5,
+            "color": "#2E2A24",
+            "lineHeight": 17,
+            "dx": -92,
+            "dy": 11,
+            "text": [
+              "Still 119,927 visitors short of a",
+              "starting year that already",
+              "included the pandemic."
+            ]
+          },
+          "encoding": {
+            "x": {
+              "field": "fy",
+              "type": "ordinal",
+              "sort": [
+                "2019-20",
+                "2020-21",
+                "2021-22",
+                "2022-23",
+                "2023-24",
+                "  2023-24 total"
+              ]
+            },
+            "y": {
+              "datum": 3350000,
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  8600000
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "text": "South Melbourne Market",
+        "subtitle": "Entries to the market",
+        "anchor": "start",
+        "font": "Archivo",
+        "fontSize": 16,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "offset": 10,
+        "subtitleFont": "Archivo",
+        "subtitleFontSize": 13,
+        "subtitleColor": "#6B675F",
+        "subtitlePadding": 4
+      },
+      "width": 452,
+      "height": 430,
+      "layer": [
+        {
+          "data": {
+            "url": "data/market_visitors_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "visitors": "number"
+              }
+            }
+          },
+          "mark": {
+            "type": "rule",
+            "stroke": "#B9B2A5",
+            "strokeWidth": 1,
+            "strokeDash": [
+              2,
+              2
+            ],
+            "xOffset": 19,
+            "x2Offset": -19
+          },
+          "encoding": {
+            "x": {
+              "field": "fy",
+              "type": "ordinal",
+              "sort": [
+                "2019-20",
+                "2020-21",
+                "2021-22",
+                "2022-23",
+                "2023-24",
+                "  2023-24 total"
+              ],
+              "title": null
+            },
+            "x2": {
+              "field": "fy2"
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  8600000
+                ]
+              }
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.market == 'South Melbourne Market' && datum.financial_year >= '2019-20' && datum.financial_year <= '2023-24'"
+            },
+            {
+              "window": [
+                {
+                  "op": "lead",
+                  "field": "financial_year",
+                  "as": "fy2"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "financial_year",
+                  "order": "ascending"
+                }
+              ]
+            },
+            {
+              "filter": "isValid(datum.fy2)"
+            },
+            {
+              "calculate": "datum.financial_year",
+              "as": "fy"
+            },
+            {
+              "calculate": "datum.visitors",
+              "as": "y"
+            }
+          ]
+        },
+        {
+          "data": {
+            "url": "data/market_visitors_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "visitors": "number"
+              }
+            }
+          },
+          "mark": {
+            "type": "bar",
+            "size": 36,
+            "cornerRadius": 1
+          },
+          "encoding": {
+            "x": {
+              "field": "fy",
+              "type": "ordinal",
+              "sort": [
+                "2019-20",
+                "2020-21",
+                "2021-22",
+                "2022-23",
+                "2023-24",
+                "  2023-24 total"
+              ],
+              "title": null,
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 13,
+                "labelColor": "#6B675F",
+                "labelAngle": 0,
+                "domain": false,
+                "ticks": false,
+                "labelPadding": 8,
+                "labelAlign": "center",
+                "labelOffset": 0
+              }
+            },
+            "y": {
+              "field": "lo",
+              "type": "quantitative",
+              "title": null,
+              "scale": {
+                "domain": [
+                  0,
+                  8600000
+                ]
+              },
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 13,
+                "labelColor": "#6B675F",
+                "format": "~s",
+                "domain": false,
+                "ticks": false,
+                "grid": true,
+                "gridColor": "#E8E4DC",
+                "labelPadding": 6,
+                "values": [
+                  0,
+                  2000000,
+                  4000000,
+                  6000000,
+                  8000000
+                ]
+              }
+            },
+            "y2": {
+              "field": "hi"
+            },
+            "color": {
+              "field": "kind",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "up",
+                  "down",
+                  "total"
+                ],
+                "range": [
+                  "#2F6B45",
+                  "#A9C4B4",
+                  "#1E4A2E"
+                ]
+              },
+              "legend": null
+            },
+            "opacity": {
+              "condition": {
+                "test": "datum.est",
+                "value": 0.5
+              },
+              "value": 1
+            },
+            "tooltip": [
+              {
+                "field": "fy",
+                "title": "Year"
+              },
+              {
+                "field": "total",
+                "type": "quantitative",
+                "title": "Visitors",
+                "format": ","
+              },
+              {
+                "field": "delta",
+                "type": "quantitative",
+                "title": "Change",
+                "format": "+,"
+              }
+            ]
+          },
+          "transform": [
+            {
+              "filter": "datum.market == 'South Melbourne Market' && datum.financial_year >= '2019-20' && datum.financial_year <= '2023-24'"
+            },
+            {
+              "window": [
+                {
+                  "op": "lag",
+                  "field": "visitors",
+                  "as": "prev"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "financial_year",
+                  "order": "ascending"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.financial_year",
+              "as": "fy"
+            },
+            {
+              "calculate": "datum.visitors",
+              "as": "total"
+            },
+            {
+              "calculate": "isValid(datum.prev) ? datum.visitors - datum.prev : null",
+              "as": "delta"
+            },
+            {
+              "calculate": "datum.status == 'C'",
+              "as": "est"
+            },
+            {
+              "calculate": "datum.est && isValid(datum.delta) && abs(datum.delta) < 50000",
+              "as": "nil"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? 'total' : (datum.delta > 0 ? 'up' : 'down')",
+              "as": "kind"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? 0 : (datum.nil ? datum.visitors - 70000 : min(datum.prev, datum.visitors))",
+              "as": "lo"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? datum.visitors : (datum.nil ? datum.visitors + 70000 : max(datum.prev, datum.visitors))",
+              "as": "hi"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? format(datum.visitors / 1e6, '.2f') + 'M' : (datum.nil ? 'Unchanged' : (datum.delta > 0 ? '+' : '−') + format(abs(datum.delta) / 1e6, '.2f') + 'M')",
+              "as": "lab"
+            },
+            {
+              "calculate": "datum.fy == '2023-24' ? [0, 1] : [0]",
+              "as": "copy"
+            },
+            {
+              "flatten": [
+                "copy"
+              ]
+            },
+            {
+              "calculate": "datum.copy == 1 ? '  2023-24 total' : datum.fy",
+              "as": "fy"
+            },
+            {
+              "calculate": "datum.copy == 1 ? 0 : datum.lo",
+              "as": "lo"
+            },
+            {
+              "calculate": "datum.copy == 1 ? datum.visitors : datum.hi",
+              "as": "hi"
+            },
+            {
+              "calculate": "datum.copy == 1 ? 'total' : datum.kind",
+              "as": "kind"
+            },
+            {
+              "calculate": "datum.copy == 1 ? null : datum.delta",
+              "as": "delta"
+            },
+            {
+              "calculate": "datum.copy == 1 ? false : datum.est",
+              "as": "est"
+            },
+            {
+              "calculate": "datum.copy == 1 ? format(datum.visitors / 1e6, '.2f') + 'M' : datum.lab",
+              "as": "lab"
+            }
+          ]
+        },
+        {
+          "data": {
+            "url": "data/market_visitors_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "visitors": "number"
+              }
+            }
+          },
+          "mark": {
+            "type": "bar",
+            "size": 36,
+            "fill": null,
+            "stroke": "#6B675F",
+            "strokeWidth": 1,
+            "strokeDash": [
+              3,
+              2
+            ],
+            "cornerRadius": 1
+          },
+          "encoding": {
+            "x": {
+              "field": "fy",
+              "type": "ordinal",
+              "sort": [
+                "2019-20",
+                "2020-21",
+                "2021-22",
+                "2022-23",
+                "2023-24",
+                "  2023-24 total"
+              ],
+              "title": null
+            },
+            "y": {
+              "field": "lo",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  8600000
+                ]
+              }
+            },
+            "y2": {
+              "field": "hi"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.market == 'South Melbourne Market' && datum.financial_year >= '2019-20' && datum.financial_year <= '2023-24'"
+            },
+            {
+              "window": [
+                {
+                  "op": "lag",
+                  "field": "visitors",
+                  "as": "prev"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "financial_year",
+                  "order": "ascending"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.financial_year",
+              "as": "fy"
+            },
+            {
+              "calculate": "datum.visitors",
+              "as": "total"
+            },
+            {
+              "calculate": "isValid(datum.prev) ? datum.visitors - datum.prev : null",
+              "as": "delta"
+            },
+            {
+              "calculate": "datum.status == 'C'",
+              "as": "est"
+            },
+            {
+              "calculate": "datum.est && isValid(datum.delta) && abs(datum.delta) < 50000",
+              "as": "nil"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? 'total' : (datum.delta > 0 ? 'up' : 'down')",
+              "as": "kind"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? 0 : (datum.nil ? datum.visitors - 70000 : min(datum.prev, datum.visitors))",
+              "as": "lo"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? datum.visitors : (datum.nil ? datum.visitors + 70000 : max(datum.prev, datum.visitors))",
+              "as": "hi"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? format(datum.visitors / 1e6, '.2f') + 'M' : (datum.nil ? 'Unchanged' : (datum.delta > 0 ? '+' : '−') + format(abs(datum.delta) / 1e6, '.2f') + 'M')",
+              "as": "lab"
+            },
+            {
+              "calculate": "datum.fy == '2023-24' ? [0, 1] : [0]",
+              "as": "copy"
+            },
+            {
+              "flatten": [
+                "copy"
+              ]
+            },
+            {
+              "calculate": "datum.copy == 1 ? '  2023-24 total' : datum.fy",
+              "as": "fy"
+            },
+            {
+              "calculate": "datum.copy == 1 ? 0 : datum.lo",
+              "as": "lo"
+            },
+            {
+              "calculate": "datum.copy == 1 ? datum.visitors : datum.hi",
+              "as": "hi"
+            },
+            {
+              "calculate": "datum.copy == 1 ? 'total' : datum.kind",
+              "as": "kind"
+            },
+            {
+              "calculate": "datum.copy == 1 ? null : datum.delta",
+              "as": "delta"
+            },
+            {
+              "calculate": "datum.copy == 1 ? false : datum.est",
+              "as": "est"
+            },
+            {
+              "calculate": "datum.copy == 1 ? format(datum.visitors / 1e6, '.2f') + 'M' : datum.lab",
+              "as": "lab"
+            },
+            {
+              "filter": "datum.est"
+            }
+          ]
+        },
+        {
+          "data": {
+            "url": "data/market_visitors_by_year.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "visitors": "number"
+              }
+            }
+          },
+          "mark": {
+            "type": "text",
+            "font": "Archivo",
+            "fontSize": 13,
+            "fontWeight": 600,
+            "color": "#2E2A24",
+            "baseline": "bottom",
+            "dy": -6
+          },
+          "encoding": {
+            "x": {
+              "field": "fy",
+              "type": "ordinal",
+              "sort": [
+                "2019-20",
+                "2020-21",
+                "2021-22",
+                "2022-23",
+                "2023-24",
+                "  2023-24 total"
+              ],
+              "title": null
+            },
+            "y": {
+              "field": "hi",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  8600000
+                ]
+              }
+            },
+            "text": {
+              "field": "lab"
+            }
+          },
+          "transform": [
+            {
+              "filter": "datum.market == 'South Melbourne Market' && datum.financial_year >= '2019-20' && datum.financial_year <= '2023-24'"
+            },
+            {
+              "window": [
+                {
+                  "op": "lag",
+                  "field": "visitors",
+                  "as": "prev"
+                }
+              ],
+              "sort": [
+                {
+                  "field": "financial_year",
+                  "order": "ascending"
+                }
+              ]
+            },
+            {
+              "calculate": "datum.financial_year",
+              "as": "fy"
+            },
+            {
+              "calculate": "datum.visitors",
+              "as": "total"
+            },
+            {
+              "calculate": "isValid(datum.prev) ? datum.visitors - datum.prev : null",
+              "as": "delta"
+            },
+            {
+              "calculate": "datum.status == 'C'",
+              "as": "est"
+            },
+            {
+              "calculate": "datum.est && isValid(datum.delta) && abs(datum.delta) < 50000",
+              "as": "nil"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? 'total' : (datum.delta > 0 ? 'up' : 'down')",
+              "as": "kind"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? 0 : (datum.nil ? datum.visitors - 70000 : min(datum.prev, datum.visitors))",
+              "as": "lo"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? datum.visitors : (datum.nil ? datum.visitors + 70000 : max(datum.prev, datum.visitors))",
+              "as": "hi"
+            },
+            {
+              "calculate": "!isValid(datum.prev) ? format(datum.visitors / 1e6, '.2f') + 'M' : (datum.nil ? 'Unchanged' : (datum.delta > 0 ? '+' : '−') + format(abs(datum.delta) / 1e6, '.2f') + 'M')",
+              "as": "lab"
+            },
+            {
+              "calculate": "datum.fy == '2023-24' ? [0, 1] : [0]",
+              "as": "copy"
+            },
+            {
+              "flatten": [
+                "copy"
+              ]
+            },
+            {
+              "calculate": "datum.copy == 1 ? '  2023-24 total' : datum.fy",
+              "as": "fy"
+            },
+            {
+              "calculate": "datum.copy == 1 ? 0 : datum.lo",
+              "as": "lo"
+            },
+            {
+              "calculate": "datum.copy == 1 ? datum.visitors : datum.hi",
+              "as": "hi"
+            },
+            {
+              "calculate": "datum.copy == 1 ? 'total' : datum.kind",
+              "as": "kind"
+            },
+            {
+              "calculate": "datum.copy == 1 ? null : datum.delta",
+              "as": "delta"
+            },
+            {
+              "calculate": "datum.copy == 1 ? false : datum.est",
+              "as": "est"
+            },
+            {
+              "calculate": "datum.copy == 1 ? format(datum.visitors / 1e6, '.2f') + 'M' : datum.lab",
+              "as": "lab"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "spacing": 40,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": "#F7F4EE"
+  },
+  "resolve": {
+    "scale": {
+      "color": "independent",
+      "y": "shared",
+      "x": "independent"
+    }
+  }
+}

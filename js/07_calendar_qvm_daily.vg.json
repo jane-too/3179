@@ -1,0 +1,1651 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#F7F4EE",
+  "padding": 5,
+  "title": {
+    "text": "DRAFT — Four years in which the streets around the market emptied and only two-thirds refilled",
+    "subtitle": [
+      "DRAFT — People counted each day by four street sensors around the Queen Victoria Market.",
+      "Unfilled cells are the 61 days when one sensor was not reporting — 14 of them in August 2020 —",
+      "or after the series ends on 31 October 2022."
+    ],
+    "anchor": "start",
+    "font": "Fraunces",
+    "fontSize": 20,
+    "fontWeight": 600,
+    "color": "#1A1A17",
+    "subtitleFont": "Archivo",
+    "subtitleFontSize": 13.5,
+    "subtitleColor": "#6B675F",
+    "subtitleLineHeight": 18,
+    "offset": 30
+  },
+  "data": {
+    "url": "data/qvm_area_daily_counts_2019_2022.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "count": "number",
+        "sensors": "number",
+        "date": "date"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "year(datum.date)",
+      "as": "yr"
+    },
+    {
+      "calculate": "datum.sensors == 4 ? datum.count : null",
+      "as": "shown"
+    },
+    {
+      "calculate": "toNumber(timeFormat(datum.date, '%W'))",
+      "as": "wk"
+    }
+  ],
+  "vconcat": [
+    {
+      "title": {
+        "text": "2019",
+        "anchor": "start",
+        "font": "Archivo",
+        "fontSize": 15,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "offset": 7
+      },
+      "width": {
+        "step": 18.0
+      },
+      "height": {
+        "step": 18.0
+      },
+      "transform": [
+        {
+          "filter": "datum.yr == 2019"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "fill": "#F7F4EE",
+            "stroke": "#DFD9CC",
+            "strokeWidth": 0.6
+          },
+          "encoding": {
+            "x": {
+              "field": "wk",
+              "type": "ordinal",
+              "title": null,
+              "scale": {
+                "domain": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  41,
+                  42,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50,
+                  51,
+                  52
+                ]
+              },
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 11,
+                "labelColor": "#6B675F",
+                "labelAngle": 0,
+                "domain": false,
+                "ticks": false,
+                "labelPadding": 6,
+                "values": [
+                  0,
+                  13,
+                  26,
+                  39
+                ],
+                "labelExpr": "{'0': 'Jan', '13': 'Apr', '26': 'Jul', '39': 'Oct'}[datum.value]"
+              }
+            },
+            "y": {
+              "field": "weekday",
+              "type": "ordinal",
+              "sort": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "title": null,
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 10.5,
+                "labelColor": "#6B675F",
+                "labelPadding": 30,
+                "domain": false,
+                "ticks": false,
+                "labelExpr": "slice(datum.value, 0, 3)",
+                "labelAlign": "left"
+              }
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.shown != null"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "stroke": "#F7F4EE",
+            "strokeWidth": 0.5
+          },
+          "encoding": {
+            "x": {
+              "field": "wk",
+              "type": "ordinal",
+              "title": null,
+              "scale": {
+                "domain": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  41,
+                  42,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50,
+                  51,
+                  52
+                ]
+              }
+            },
+            "y": {
+              "field": "weekday",
+              "type": "ordinal",
+              "sort": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "title": null
+            },
+            "color": {
+              "field": "shown",
+              "type": "quantitative",
+              "scale": {
+                "type": "threshold",
+                "domain": [
+                  11400,
+                  15600,
+                  20000,
+                  27300
+                ],
+                "range": [
+                  "#E3ABE3",
+                  "#DA7CDA",
+                  "#D841D8",
+                  "#C516C5",
+                  "#950495"
+                ]
+              },
+              "legend": null
+            },
+            "tooltip": [
+              {
+                "field": "date",
+                "type": "temporal",
+                "title": "Date",
+                "format": "%a %e %b %Y"
+              },
+              {
+                "field": "count",
+                "type": "quantitative",
+                "title": "People counted",
+                "format": ","
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "text": "2020",
+        "anchor": "start",
+        "font": "Archivo",
+        "fontSize": 15,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "offset": 7
+      },
+      "width": {
+        "step": 18.0
+      },
+      "height": {
+        "step": 18.0
+      },
+      "transform": [
+        {
+          "filter": "datum.yr == 2020"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "fill": "#F7F4EE",
+            "stroke": "#DFD9CC",
+            "strokeWidth": 0.6
+          },
+          "encoding": {
+            "x": {
+              "field": "wk",
+              "type": "ordinal",
+              "title": null,
+              "scale": {
+                "domain": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  41,
+                  42,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50,
+                  51,
+                  52
+                ]
+              },
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 11,
+                "labelColor": "#6B675F",
+                "labelAngle": 0,
+                "domain": false,
+                "ticks": false,
+                "labelPadding": 6,
+                "values": [
+                  0,
+                  13,
+                  26,
+                  39
+                ],
+                "labelExpr": "{'0': 'Jan', '13': 'Apr', '26': 'Jul', '39': 'Oct'}[datum.value]"
+              }
+            },
+            "y": {
+              "field": "weekday",
+              "type": "ordinal",
+              "sort": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "title": null,
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 10.5,
+                "labelColor": "#6B675F",
+                "labelPadding": 30,
+                "domain": false,
+                "ticks": false,
+                "labelExpr": "slice(datum.value, 0, 3)",
+                "labelAlign": "left"
+              }
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.shown != null"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "stroke": "#F7F4EE",
+            "strokeWidth": 0.5
+          },
+          "encoding": {
+            "x": {
+              "field": "wk",
+              "type": "ordinal",
+              "title": null,
+              "scale": {
+                "domain": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  41,
+                  42,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50,
+                  51,
+                  52
+                ]
+              }
+            },
+            "y": {
+              "field": "weekday",
+              "type": "ordinal",
+              "sort": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "title": null
+            },
+            "color": {
+              "field": "shown",
+              "type": "quantitative",
+              "scale": {
+                "type": "threshold",
+                "domain": [
+                  11400,
+                  15600,
+                  20000,
+                  27300
+                ],
+                "range": [
+                  "#E3ABE3",
+                  "#DA7CDA",
+                  "#D841D8",
+                  "#C516C5",
+                  "#950495"
+                ]
+              },
+              "legend": null
+            },
+            "tooltip": [
+              {
+                "field": "date",
+                "type": "temporal",
+                "title": "Date",
+                "format": "%a %e %b %Y"
+              },
+              {
+                "field": "count",
+                "type": "quantitative",
+                "title": "People counted",
+                "format": ","
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "text": "2021",
+        "anchor": "start",
+        "font": "Archivo",
+        "fontSize": 15,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "offset": 7
+      },
+      "width": {
+        "step": 18.0
+      },
+      "height": {
+        "step": 18.0
+      },
+      "transform": [
+        {
+          "filter": "datum.yr == 2021"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "fill": "#F7F4EE",
+            "stroke": "#DFD9CC",
+            "strokeWidth": 0.6
+          },
+          "encoding": {
+            "x": {
+              "field": "wk",
+              "type": "ordinal",
+              "title": null,
+              "scale": {
+                "domain": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  41,
+                  42,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50,
+                  51,
+                  52
+                ]
+              },
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 11,
+                "labelColor": "#6B675F",
+                "labelAngle": 0,
+                "domain": false,
+                "ticks": false,
+                "labelPadding": 6,
+                "values": [
+                  0,
+                  13,
+                  26,
+                  39
+                ],
+                "labelExpr": "{'0': 'Jan', '13': 'Apr', '26': 'Jul', '39': 'Oct'}[datum.value]"
+              }
+            },
+            "y": {
+              "field": "weekday",
+              "type": "ordinal",
+              "sort": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "title": null,
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 10.5,
+                "labelColor": "#6B675F",
+                "labelPadding": 30,
+                "domain": false,
+                "ticks": false,
+                "labelExpr": "slice(datum.value, 0, 3)",
+                "labelAlign": "left"
+              }
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.shown != null"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "stroke": "#F7F4EE",
+            "strokeWidth": 0.5
+          },
+          "encoding": {
+            "x": {
+              "field": "wk",
+              "type": "ordinal",
+              "title": null,
+              "scale": {
+                "domain": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  41,
+                  42,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50,
+                  51,
+                  52
+                ]
+              }
+            },
+            "y": {
+              "field": "weekday",
+              "type": "ordinal",
+              "sort": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "title": null
+            },
+            "color": {
+              "field": "shown",
+              "type": "quantitative",
+              "scale": {
+                "type": "threshold",
+                "domain": [
+                  11400,
+                  15600,
+                  20000,
+                  27300
+                ],
+                "range": [
+                  "#E3ABE3",
+                  "#DA7CDA",
+                  "#D841D8",
+                  "#C516C5",
+                  "#950495"
+                ]
+              },
+              "legend": null
+            },
+            "tooltip": [
+              {
+                "field": "date",
+                "type": "temporal",
+                "title": "Date",
+                "format": "%a %e %b %Y"
+              },
+              {
+                "field": "count",
+                "type": "quantitative",
+                "title": "People counted",
+                "format": ","
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "text": "2022",
+        "anchor": "start",
+        "font": "Archivo",
+        "fontSize": 15,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "offset": 7
+      },
+      "width": {
+        "step": 18.0
+      },
+      "height": {
+        "step": 18.0
+      },
+      "transform": [
+        {
+          "filter": "datum.yr == 2022"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "fill": "#F7F4EE",
+            "stroke": "#DFD9CC",
+            "strokeWidth": 0.6
+          },
+          "encoding": {
+            "x": {
+              "field": "wk",
+              "type": "ordinal",
+              "title": null,
+              "scale": {
+                "domain": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  41,
+                  42,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50,
+                  51,
+                  52
+                ]
+              },
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 11,
+                "labelColor": "#6B675F",
+                "labelAngle": 0,
+                "domain": false,
+                "ticks": false,
+                "labelPadding": 6,
+                "values": [
+                  0,
+                  13,
+                  26,
+                  39
+                ],
+                "labelExpr": "{'0': 'Jan', '13': 'Apr', '26': 'Jul', '39': 'Oct'}[datum.value]"
+              }
+            },
+            "y": {
+              "field": "weekday",
+              "type": "ordinal",
+              "sort": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "title": null,
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 10.5,
+                "labelColor": "#6B675F",
+                "labelPadding": 30,
+                "domain": false,
+                "ticks": false,
+                "labelExpr": "slice(datum.value, 0, 3)",
+                "labelAlign": "left"
+              }
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.shown != null"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "stroke": "#F7F4EE",
+            "strokeWidth": 0.5
+          },
+          "encoding": {
+            "x": {
+              "field": "wk",
+              "type": "ordinal",
+              "title": null,
+              "scale": {
+                "domain": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  41,
+                  42,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50,
+                  51,
+                  52
+                ]
+              }
+            },
+            "y": {
+              "field": "weekday",
+              "type": "ordinal",
+              "sort": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "title": null
+            },
+            "color": {
+              "field": "shown",
+              "type": "quantitative",
+              "scale": {
+                "type": "threshold",
+                "domain": [
+                  11400,
+                  15600,
+                  20000,
+                  27300
+                ],
+                "range": [
+                  "#E3ABE3",
+                  "#DA7CDA",
+                  "#D841D8",
+                  "#C516C5",
+                  "#950495"
+                ]
+              },
+              "legend": null
+            },
+            "tooltip": [
+              {
+                "field": "date",
+                "type": "temporal",
+                "title": "Date",
+                "format": "%a %e %b %Y"
+              },
+              {
+                "field": "count",
+                "type": "quantitative",
+                "title": "People counted",
+                "format": ","
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "wk": 43,
+                "weekday": "Monday"
+              }
+            ]
+          },
+          "mark": {
+            "type": "rect",
+            "fill": "#FCFBF8",
+            "stroke": "#DFD9CC",
+            "strokeWidth": 1,
+            "cornerRadius": 2,
+            "xOffset": 44,
+            "x2Offset": 232,
+            "yOffset": -9.0,
+            "y2Offset": 117.0
+          },
+          "encoding": {
+            "x": {
+              "field": "wk",
+              "type": "ordinal",
+              "scale": {
+                "domain": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  41,
+                  42,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50,
+                  51,
+                  52
+                ]
+              },
+              "title": null
+            },
+            "x2": {
+              "field": "wk",
+              "type": "ordinal",
+              "scale": {
+                "domain": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  41,
+                  42,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50,
+                  51,
+                  52
+                ]
+              },
+              "title": null
+            },
+            "y": {
+              "field": "weekday",
+              "type": "ordinal",
+              "sort": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "title": null
+            },
+            "y2": {
+              "field": "weekday",
+              "type": "ordinal",
+              "sort": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "title": null
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "wk": 43,
+                "weekday": "Monday"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "font": "Archivo",
+            "fontSize": 12,
+            "color": "#2E2A24",
+            "lineHeight": 17,
+            "dx": 58,
+            "dy": 5.5,
+            "text": [
+              "In 2021, a typical Saturday",
+              "drew no more than a typical",
+              "Monday had in 2019. By 2022,",
+              "the Saturdays were back – but",
+              "still a quarter below 2019's",
+              "average."
+            ]
+          },
+          "encoding": {
+            "x": {
+              "field": "wk",
+              "type": "ordinal",
+              "scale": {
+                "domain": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12,
+                  13,
+                  14,
+                  15,
+                  16,
+                  17,
+                  18,
+                  19,
+                  20,
+                  21,
+                  22,
+                  23,
+                  24,
+                  25,
+                  26,
+                  27,
+                  28,
+                  29,
+                  30,
+                  31,
+                  32,
+                  33,
+                  34,
+                  35,
+                  36,
+                  37,
+                  38,
+                  39,
+                  40,
+                  41,
+                  42,
+                  43,
+                  44,
+                  45,
+                  46,
+                  47,
+                  48,
+                  49,
+                  50,
+                  51,
+                  52
+                ]
+              },
+              "title": null
+            },
+            "y": {
+              "field": "weekday",
+              "type": "ordinal",
+              "sort": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "title": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "text": "People counted each day",
+        "anchor": "start",
+        "font": "Archivo",
+        "fontSize": 13,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "offset": 8,
+        "dx": 0
+      },
+      "data": {
+        "values": [
+          {
+            "i": 0,
+            "c": "#E3ABE3",
+            "x": 0.0
+          },
+          {
+            "i": 1,
+            "c": "#DA7CDA",
+            "x": 52.0
+          },
+          {
+            "i": 2,
+            "c": "#D841D8",
+            "x": 104.0
+          },
+          {
+            "i": 3,
+            "c": "#C516C5",
+            "x": 156.0
+          },
+          {
+            "i": 4,
+            "c": "#950495",
+            "x": 208.0
+          },
+          {
+            "i": 5,
+            "c": "none",
+            "x": 316.0
+          }
+        ]
+      },
+      "width": 954.0,
+      "height": 70,
+      "layer": [
+        {
+          "transform": [
+            {
+              "filter": "datum.i == 5"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "fill": "#F7F4EE",
+            "stroke": "#DFD9CC",
+            "strokeWidth": 1,
+            "width": 52.0,
+            "height": 28,
+            "y": 0
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative",
+              "axis": null,
+              "scale": {
+                "domain": [
+                  0,
+                  954.0
+                ],
+                "range": [
+                  0,
+                  954.0
+                ]
+              }
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.i < 5"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "width": 52.0,
+            "height": 28,
+            "y": 0
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative",
+              "axis": null,
+              "scale": {
+                "domain": [
+                  0,
+                  954.0
+                ],
+                "range": [
+                  0,
+                  954.0
+                ]
+              }
+            },
+            "color": {
+              "field": "c",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "#E3ABE3",
+                  "#DA7CDA",
+                  "#D841D8",
+                  "#C516C5",
+                  "#950495"
+                ],
+                "range": [
+                  "#E3ABE3",
+                  "#DA7CDA",
+                  "#D841D8",
+                  "#C516C5",
+                  "#950495"
+                ]
+              },
+              "legend": null
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "x": 26.0,
+                "t": "11,400"
+              },
+              {
+                "x": 78.0,
+                "t": "15,600"
+              },
+              {
+                "x": 130.0,
+                "t": "20,000"
+              },
+              {
+                "x": 182.0,
+                "t": "27,300"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "top",
+            "font": "Archivo",
+            "fontSize": 11.5,
+            "color": "#6B675F",
+            "y": 34
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative",
+              "axis": null,
+              "scale": {
+                "domain": [
+                  0,
+                  954.0
+                ],
+                "range": [
+                  0,
+                  954.0
+                ]
+              }
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "x": 316.0,
+                "t": "no data"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "top",
+            "font": "Archivo",
+            "fontSize": 11.5,
+            "color": "#6B675F",
+            "y": 34
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative",
+              "axis": null,
+              "scale": {
+                "domain": [
+                  0,
+                  954.0
+                ],
+                "range": [
+                  0,
+                  954.0
+                ]
+              }
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "x": 214.0,
+                "t": "and over"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "font": "Archivo",
+            "fontSize": 11.5,
+            "color": "#6B675F",
+            "y": 34
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative",
+              "axis": null,
+              "scale": {
+                "domain": [
+                  0,
+                  954.0
+                ],
+                "range": [
+                  0,
+                  954.0
+                ]
+              }
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        }
+      ],
+      "padding": {
+        "left": 33
+      }
+    }
+  ],
+  "spacing": 26,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": "#F7F4EE"
+  },
+  "align": "none",
+  "center": false
+}

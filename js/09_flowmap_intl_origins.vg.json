@@ -1,0 +1,960 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#F7F4EE",
+  "padding": 5,
+  "width": 840,
+  "height": 500,
+  "title": {
+    "text": "DRAFT — No single country supplies more than an eighth of Australia's market crowd",
+    "subtitle": [
+      "DRAFT — 3.8 million of Australia's 8.3 million international visitors in 2025 went to a market. Circle area shows how many came from each country.",
+      "Four residual groups with no single country (12.8% of market-goers) can't be mapped and aren't shown."
+    ],
+    "anchor": "start",
+    "font": "Fraunces",
+    "fontSize": 18,
+    "fontWeight": 600,
+    "color": "#1A1A17",
+    "subtitleFont": "Archivo",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#6B675F",
+    "subtitleLineHeight": 18,
+    "offset": 26
+  },
+  "projection": {
+    "type": "equalEarth",
+    "rotate": [
+      -18,
+      0,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/oceans.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "oceans"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#E4E8EA",
+        "stroke": null
+      }
+    },
+    {
+      "data": {
+        "url": "data/world_graticules.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_graticules_30"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#D8D2C6",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "url": "data/world_graticules.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#DAD5CA",
+        "stroke": "#C9C2B4",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 144.9631,
+            "lat": -37.8136
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "shape": "diamond",
+        "filled": true,
+        "size": 200,
+        "color": "#2E2A24",
+        "stroke": "#F7F4EE",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 144.9631,
+            "lat": -37.8136,
+            "t": "Australia"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 13,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "align": "center",
+        "baseline": "bottom",
+        "dx": 0,
+        "dy": -14
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/intl_origin_points_2025.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "mkt_visitors": "number",
+            "visitors": "number",
+            "mkt_share_pct": "number",
+            "km": "number",
+            "lon": "number",
+            "lat": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "calculate": "-datum.mkt_visitors",
+          "as": "neg"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#A632A6",
+        "opacity": 0.78,
+        "stroke": "#F7F4EE",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "mkt_visitors",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              23230,
+              454822
+            ],
+            "range": [
+              70,
+              1700
+            ]
+          },
+          "legend": null
+        },
+        "order": {
+          "field": "neg",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "country",
+            "title": "Country of residence"
+          },
+          {
+            "field": "mkt_visitors",
+            "type": "quantitative",
+            "title": "Visited a market",
+            "format": ","
+          },
+          {
+            "field": "visitors",
+            "type": "quantitative",
+            "title": "Total visitors",
+            "format": ","
+          },
+          {
+            "field": "mkt_share_pct",
+            "type": "quantitative",
+            "title": "Share visiting a market",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "fill": "#FCFBF8",
+        "stroke": "#DFD9CC",
+        "strokeWidth": 1,
+        "cornerRadius": 2,
+        "x": 740.0,
+        "x2": 957.0,
+        "y": 6.0,
+        "y2": 76.0
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "color": "#2E2A24",
+        "lineHeight": 17,
+        "x": 754.0,
+        "y": 18.0,
+        "text": [
+          "Taiwan has the highest rate of any",
+          "origin: 67.7% of Taiwanese visitors",
+          "went to a market."
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 884.0,
+            "y": 288.7639471896804,
+            "o": 0
+          },
+          {
+            "x": 921.6180264051599,
+            "y": 288.7639471896804,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": false,
+        "stroke": "#9A948A",
+        "strokeWidth": 1,
+        "size": 1700.4120513754697,
+        "x": 884.0,
+        "y": 289.3819735948402
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 884.0,
+            "y": 268.7639471896804,
+            "o": 0
+          },
+          {
+            "x": 921.6180264051599,
+            "y": 268.7639471896804,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#A39C8E",
+        "strokeWidth": 1,
+        "x": 926.6180264051599,
+        "y": 288.7639471896804
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "order": {
+          "field": "o",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "455,000"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 11,
+        "color": "#6B675F",
+        "align": "left",
+        "baseline": "middle",
+        "x": 926.6180264051599,
+        "y": 268.7639471896804,
+        "size": 990.5589280691876
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 884.0,
+            "y": 298.5268538581033,
+            "o": 0
+          },
+          {
+            "x": 921.6180264051599,
+            "y": 308.7639471896804,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": false,
+        "stroke": "#9A948A",
+        "strokeWidth": 1,
+        "size": 990.5589280691876,
+        "x": 884.0,
+        "y": 294.26342692905166
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 884.0,
+            "y": 278.5268538581033,
+            "o": 0
+          },
+          {
+            "x": 921.6180264051599,
+            "y": 288.7639471896804,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#A39C8E",
+        "strokeWidth": 1,
+        "x": 926.6180264051599,
+        "y": 308.7639471896804
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "order": {
+          "field": "o",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "200,000"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 11,
+        "color": "#6B675F",
+        "align": "left",
+        "baseline": "middle",
+        "x": 926.6180264051599,
+        "y": 288.7639471896804,
+        "size": 292.3111202914206
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 884.0,
+            "y": 312.90289146401005,
+            "o": 0
+          },
+          {
+            "x": 921.6180264051599,
+            "y": 328.7639471896804,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "filled": false,
+        "stroke": "#9A948A",
+        "strokeWidth": 1,
+        "size": 292.3111202914206,
+        "x": 884.0,
+        "y": 301.451445732005
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 884.0,
+            "y": 292.90289146401005,
+            "o": 0
+          },
+          {
+            "x": 921.6180264051599,
+            "y": 308.7639471896804,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#A39C8E",
+        "strokeWidth": 1,
+        "x": 926.6180264051599,
+        "y": 328.7639471896804
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "order": {
+          "field": "o",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "50,000"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 11,
+        "color": "#6B675F",
+        "align": "left",
+        "baseline": "middle",
+        "x": 926.6180264051599,
+        "y": 308.7639471896804
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 13,
+        "fontWeight": 600,
+        "color": "#6B675F",
+        "align": "left",
+        "baseline": "top",
+        "x": 863.3819735948401,
+        "y": 329.0,
+        "lineHeight": 16.5,
+        "text": [
+          "Visitors who went",
+          "to a market"
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 660.6662710024567,
+            "y": 169.68598559831543,
+            "o": 0
+          },
+          {
+            "x": 790.0,
+            "y": 76.0,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#A39C8E",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "order": {
+          "field": "o",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 601.0,
+            "y": 118.3844718719117,
+            "o": 0
+          },
+          {
+            "x": 601.0,
+            "y": 106.3844718719117,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#A39C8E",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "order": {
+          "field": "o",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "China"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "align": "center",
+        "baseline": "bottom",
+        "x": 601.0,
+        "y": 103.3844718719117
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 381.0,
+            "y": 74.75640870508903,
+            "o": 0
+          },
+          {
+            "x": 381.0,
+            "y": 62.75640870508903,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#A39C8E",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "order": {
+          "field": "o",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "United Kingdom"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "align": "center",
+        "baseline": "bottom",
+        "x": 381.0,
+        "y": 59.75640870508903
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 157.8412644335476,
+            "y": 132.0,
+            "o": 0
+          },
+          {
+            "x": 147.84126443354756,
+            "y": 132.0,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#A39C8E",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "order": {
+          "field": "o",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "United States"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "align": "right",
+        "baseline": "middle",
+        "x": 144.84126443354756,
+        "y": 132.0
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 205.0,
+            "y": 74.609273518374,
+            "o": 0
+          },
+          {
+            "x": 205.0,
+            "y": 64.609273518374,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#A39C8E",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "order": {
+          "field": "o",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "Canada"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "align": "center",
+        "baseline": "bottom",
+        "x": 205.0,
+        "y": 61.609273518373996
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 747.6555050101135,
+            "y": 381.0,
+            "o": 0
+          },
+          {
+            "x": 757.6555050101135,
+            "y": 381.0,
+            "o": 1
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#A39C8E",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "order": {
+          "field": "o",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "New Zealand"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "align": "left",
+        "baseline": "middle",
+        "x": 760.6555050101135,
+        "y": 381.0
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "Taiwan"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "align": "left",
+        "baseline": "middle",
+        "x": 668.933063974399,
+        "y": 180.0
+      },
+      "encoding": {
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": "#F7F4EE"
+  }
+}
