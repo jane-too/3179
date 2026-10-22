@@ -1,0 +1,564 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#F7F4EE",
+  "padding": 5,
+  "width": 1006,
+  "height": 470,
+  "title": {
+    "text": [
+      "DRAFT — New Zealand sends Australia more visitors than any other country,",
+      "and the smallest share of them go to a market"
+    ],
+    "subtitle": [
+      "DRAFT — International visitors in 2025 by country of residence, ordered by the share who went to a market. Column width is the number of visitors;",
+      "the dark part is the share who went. The narrowest columns rest on the smallest survey samples, so read their heights loosely."
+    ],
+    "anchor": "start",
+    "font": "Fraunces",
+    "fontSize": 19,
+    "fontWeight": 600,
+    "color": "#1A1A17",
+    "subtitleFont": "Archivo",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#6B675F",
+    "subtitleLineHeight": 18,
+    "offset": 8
+  },
+  "data": {
+    "url": "data/intl_visitors_by_country_year.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "visitors": "number",
+        "mkt_visitors": "number",
+        "mkt_share_pct": "number",
+        "sample": "number",
+        "mkt_sample": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.year == '2025' && datum.mkt_reliable == '1' && datum.imputed_2020_22 != '1'"
+    },
+    {
+      "calculate": "datum.country == 'United States of America' ? 'United States' : indexof(datum.country, 'Other Asia') == 0 ? 'Other Asia' : datum.country",
+      "as": "name"
+    },
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "visitors",
+          "as": "x1"
+        }
+      ],
+      "sort": [
+        {
+          "field": "mkt_share_pct",
+          "order": "descending"
+        },
+        {
+          "field": "country",
+          "order": "ascending"
+        }
+      ],
+      "frame": [
+        null,
+        0
+      ],
+      "ignorePeers": true
+    },
+    {
+      "calculate": "datum.x1 - datum.visitors",
+      "as": "x0"
+    },
+    {
+      "calculate": "(datum.x0 + datum.x1) / 2",
+      "as": "xm"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "visitors",
+          "as": "total_v"
+        },
+        {
+          "op": "sum",
+          "field": "mkt_visitors",
+          "as": "total_m"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.total_m / datum.total_v * 100",
+      "as": "overall"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "fill": "#DDDDDD",
+        "stroke": "#F7F4EE",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x0",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              8272331
+            ],
+            "nice": false,
+            "zero": true
+          },
+          "title": null,
+          "axis": {
+            "values": [
+              0,
+              2000000,
+              4000000,
+              6000000,
+              8000000
+            ],
+            "labelExpr": "datum.value == 0 ? '0' : format(datum.value/1e6, '.0f') + 'M'",
+            "labelFont": "Archivo",
+            "labelFontSize": 12,
+            "labelColor": "#6B675F",
+            "domain": false,
+            "ticks": false,
+            "grid": false,
+            "labelPadding": 8,
+            "title": "International visitors in 2025, column width",
+            "titleFont": "Archivo",
+            "titleFontSize": 12,
+            "titleFontWeight": 400,
+            "titleColor": "#6B675F",
+            "titlePadding": 8
+          }
+        },
+        "x2": {
+          "field": "x1"
+        },
+        "y": {
+          "field": "mkt_share_pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              126
+            ]
+          },
+          "title": null,
+          "axis": {
+            "values": [
+              0,
+              25,
+              50,
+              75,
+              100
+            ],
+            "labelExpr": "datum.value + '%'",
+            "labelFont": "Archivo",
+            "labelFontSize": 12,
+            "labelColor": "#6B675F",
+            "domain": false,
+            "ticks": false,
+            "grid": false,
+            "labelPadding": 6
+          }
+        },
+        "y2": {
+          "datum": 100
+        },
+        "tooltip": [
+          {
+            "field": "country",
+            "title": "Country of residence"
+          },
+          {
+            "field": "visitors",
+            "type": "quantitative",
+            "title": "Visitors",
+            "format": ","
+          },
+          {
+            "field": "mkt_visitors",
+            "type": "quantitative",
+            "title": "Went to a market",
+            "format": ","
+          },
+          {
+            "field": "mkt_share_pct",
+            "type": "quantitative",
+            "title": "Share who went (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "mkt_sample",
+            "type": "quantitative",
+            "title": "Survey responses behind the share",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "rect",
+        "fill": "#4A463F",
+        "stroke": "#F7F4EE",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "x0",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "x1"
+        },
+        "y": {
+          "field": "mkt_share_pct",
+          "type": "quantitative"
+        },
+        "y2": {
+          "datum": 0
+        },
+        "tooltip": [
+          {
+            "field": "country",
+            "title": "Country of residence"
+          },
+          {
+            "field": "visitors",
+            "type": "quantitative",
+            "title": "Visitors",
+            "format": ","
+          },
+          {
+            "field": "mkt_visitors",
+            "type": "quantitative",
+            "title": "Went to a market",
+            "format": ","
+          },
+          {
+            "field": "mkt_share_pct",
+            "type": "quantitative",
+            "title": "Share who went (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "mkt_sample",
+            "type": "quantitative",
+            "title": "Survey responses behind the share",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "max",
+              "field": "overall",
+              "as": "overall"
+            }
+          ]
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#F7F4EE",
+        "strokeWidth": 1.5,
+        "strokeDash": [
+          4,
+          3
+        ]
+      },
+      "encoding": {
+        "y": {
+          "field": "overall",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "max",
+              "field": "overall",
+              "as": "overall"
+            },
+            {
+              "op": "max",
+              "field": "total_v",
+              "as": "tv"
+            }
+          ]
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "dx": -6,
+        "dy": -4,
+        "font": "Archivo",
+        "fontSize": 12,
+        "color": "#4A463F"
+      },
+      "encoding": {
+        "x": {
+          "field": "tv",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "overall",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": {
+            "expr": "'All visitors: ' + format(datum.overall, '.1f') + '%'"
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.visitors / datum.total_v >= 0.0145"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "angle": 270,
+        "align": "right",
+        "baseline": "middle",
+        "dy": 0,
+        "dx": -6,
+        "font": "Archivo",
+        "fontSize": 11.5,
+        "color": "#2E2A24"
+      },
+      "encoding": {
+        "x": {
+          "field": "xm",
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 100,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "name"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.country == 'Taiwan'"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#A39C8E",
+        "strokeWidth": 1,
+        "y2Offset": -1
+      },
+      "encoding": {
+        "x": {
+          "field": "xm",
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 123,
+          "type": "quantitative"
+        },
+        "y2": {
+          "datum": 100
+        },
+        "yOffset": {
+          "value": 51
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.country == 'Taiwan'"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "fill": "#FCFBF8",
+        "stroke": "#DFD9CC",
+        "strokeWidth": 1,
+        "cornerRadius": 2,
+        "xOffset": -14,
+        "x2Offset": 225,
+        "yOffset": 0,
+        "y2Offset": 53
+      },
+      "encoding": {
+        "x": {
+          "field": "xm",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "xm"
+        },
+        "y": {
+          "datum": 123,
+          "type": "quantitative"
+        },
+        "y2": {
+          "datum": 123
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.country == 'Taiwan'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "color": "#2E2A24",
+        "lineHeight": 17,
+        "dx": -1,
+        "dy": 11,
+        "text": [
+          "Taiwan has the highest share: 67.7% of",
+          "its 174,946 visitors went to a market."
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "xm",
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 123,
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.country == 'New Zealand'"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#A39C8E",
+        "strokeWidth": 1,
+        "y2Offset": -1
+      },
+      "encoding": {
+        "x": {
+          "field": "xm",
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 123,
+          "type": "quantitative"
+        },
+        "y2": {
+          "datum": 100
+        },
+        "yOffset": {
+          "value": 68
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.country == 'New Zealand'"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "fill": "#FCFBF8",
+        "stroke": "#DFD9CC",
+        "strokeWidth": 1,
+        "cornerRadius": 2,
+        "xOffset": -224,
+        "x2Offset": 14,
+        "yOffset": 0,
+        "y2Offset": 70
+      },
+      "encoding": {
+        "x": {
+          "field": "xm",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "xm"
+        },
+        "y": {
+          "datum": 123,
+          "type": "quantitative"
+        },
+        "y2": {
+          "datum": 123
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.country == 'New Zealand'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "color": "#2E2A24",
+        "lineHeight": 17,
+        "dx": -211,
+        "dy": 11,
+        "text": [
+          "Even at the lowest share, New Zealand",
+          "supplies the second-largest group of",
+          "market-goers: 390,477."
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "xm",
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": 123,
+          "type": "quantitative"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": "#F7F4EE"
+  }
+}

@@ -196,28 +196,7 @@
               "field": "hi"
             },
             "color": {
-              "field": "kind",
-              "type": "nominal",
-              "scale": {
-                "domain": [
-                  "up",
-                  "down",
-                  "total"
-                ],
-                "range": [
-                  "#A632A6",
-                  "#D9AFD9",
-                  "#6E1F6E"
-                ]
-              },
-              "legend": null
-            },
-            "opacity": {
-              "condition": {
-                "test": "datum.est",
-                "value": 0.5
-              },
-              "value": 1
+              "value": "#A632A6"
             },
             "tooltip": [
               {
@@ -235,6 +214,10 @@
                 "type": "quantitative",
                 "title": "Change",
                 "format": "+,"
+              },
+              {
+                "field": "basis",
+                "title": "Figure"
               }
             ]
           },
@@ -329,6 +312,10 @@
             {
               "calculate": "datum.copy == 1 ? format(datum.visitors / 1e6, '.2f') + 'M' : datum.lab",
               "as": "lab"
+            },
+            {
+              "calculate": "datum.est ? 'Estimate, derived from a later annual report' : 'Published count'",
+              "as": "basis"
             }
           ]
         },
@@ -344,7 +331,7 @@
           },
           "mark": {
             "type": "bar",
-            "size": 36,
+            "size": 42,
             "fill": null,
             "stroke": "#6B675F",
             "strokeWidth": 1,
@@ -476,6 +463,14 @@
             },
             {
               "filter": "datum.est"
+            },
+            {
+              "calculate": "datum.lo - 60000",
+              "as": "lo"
+            },
+            {
+              "calculate": "datum.hi + 60000",
+              "as": "hi"
             }
           ]
         },
@@ -935,28 +930,7 @@
               "field": "hi"
             },
             "color": {
-              "field": "kind",
-              "type": "nominal",
-              "scale": {
-                "domain": [
-                  "up",
-                  "down",
-                  "total"
-                ],
-                "range": [
-                  "#2F6B45",
-                  "#A9C4B4",
-                  "#1E4A2E"
-                ]
-              },
-              "legend": null
-            },
-            "opacity": {
-              "condition": {
-                "test": "datum.est",
-                "value": 0.5
-              },
-              "value": 1
+              "value": "#2F6B45"
             },
             "tooltip": [
               {
@@ -974,6 +948,10 @@
                 "type": "quantitative",
                 "title": "Change",
                 "format": "+,"
+              },
+              {
+                "field": "basis",
+                "title": "Figure"
               }
             ]
           },
@@ -1068,6 +1046,10 @@
             {
               "calculate": "datum.copy == 1 ? format(datum.visitors / 1e6, '.2f') + 'M' : datum.lab",
               "as": "lab"
+            },
+            {
+              "calculate": "datum.est ? 'Estimate, derived from a later annual report' : 'Published count'",
+              "as": "basis"
             }
           ]
         },
@@ -1083,7 +1065,7 @@
           },
           "mark": {
             "type": "bar",
-            "size": 36,
+            "size": 42,
             "fill": null,
             "stroke": "#6B675F",
             "strokeWidth": 1,
@@ -1215,6 +1197,14 @@
             },
             {
               "filter": "datum.est"
+            },
+            {
+              "calculate": "datum.lo - 60000",
+              "as": "lo"
+            },
+            {
+              "calculate": "datum.hi + 60000",
+              "as": "hi"
             }
           ]
         },

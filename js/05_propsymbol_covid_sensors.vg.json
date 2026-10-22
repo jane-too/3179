@@ -60,7 +60,7 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#E8E4DC",
+        "fill": "#DAD5CA",
         "stroke": "#F7F4EE",
         "strokeWidth": 1
       }
@@ -93,7 +93,7 @@
         "type": "circle",
         "fill": "#FFFFFF",
         "strokeWidth": 1.1,
-        "stroke": "#4A463F"
+        "stroke": "#9A948A"
       },
       "encoding": {
         "longitude": {
@@ -589,7 +589,7 @@
         "type": "circle",
         "fill": "#FFFFFF",
         "fillOpacity": 0.928,
-        "stroke": "#4A463F",
+        "stroke": "#6B675F",
         "strokeWidth": 1.1,
         "size": 1200
       },
@@ -614,7 +614,7 @@
         "type": "circle",
         "fill": "#FFFFFF",
         "fillOpacity": 0.639,
-        "stroke": "#4A463F",
+        "stroke": "#6B675F",
         "strokeWidth": 1.1,
         "size": 800
       },
@@ -639,7 +639,7 @@
         "type": "circle",
         "fill": "#FFFFFF",
         "fillOpacity": 0.422,
-        "stroke": "#4A463F",
+        "stroke": "#6B675F",
         "strokeWidth": 1.1,
         "size": 500
       },
@@ -1365,7 +1365,7 @@
       "mark": {
         "type": "circle",
         "fill": "#FFFFFF",
-        "stroke": "#4A463F",
+        "stroke": "#9A948A",
         "strokeWidth": 1.1
       },
       "encoding": {

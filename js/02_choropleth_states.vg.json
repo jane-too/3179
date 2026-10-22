@@ -45,7 +45,7 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#E8E4DC",
+        "fill": "#DAD5CA",
         "stroke": "#F7F4EE",
         "strokeWidth": 1.4
       }
@@ -176,9 +176,9 @@
       ],
       "mark": {
         "type": "geoshape",
-        "fill": "#DDDDDD",
-        "stroke": "#F7F4EE",
-        "strokeWidth": 1.4
+        "fill": "#F7F4EE",
+        "stroke": "#DFD9CC",
+        "strokeWidth": 1
       },
       "encoding": {
         "shape": {
