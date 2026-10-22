@@ -3,9 +3,9 @@
   "background": "#F7F4EE",
   "padding": 5,
   "title": {
-    "text": "DRAFT — Four years in which the streets around the market emptied and only two-thirds refilled",
+    "text": "By 2022, the streets around the market were still a third emptier than in 2019",
     "subtitle": [
-      "DRAFT — People counted each day by four street sensors around the Queen Victoria Market.",
+      "People counted each day by four street sensors around Queen Victoria Market.",
       "Unfilled cells are the 61 days when one sensor was not reporting — 14 of them in August 2020 —",
       "or after the series ends on 31 October 2022."
     ],
@@ -17,7 +17,7 @@
     "subtitleFont": "Archivo",
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
-    "subtitleLineHeight": 18,
+    "subtitleLineHeight": 20,
     "offset": 30
   },
   "data": {
@@ -139,7 +139,7 @@
               },
               "axis": {
                 "labelFont": "Archivo",
-                "labelFontSize": 11,
+                "labelFontSize": 12.5,
                 "labelColor": "#6B675F",
                 "labelAngle": 0,
                 "domain": false,
@@ -169,7 +169,7 @@
               "title": null,
               "axis": {
                 "labelFont": "Archivo",
-                "labelFontSize": 10.5,
+                "labelFontSize": 12.5,
                 "labelColor": "#6B675F",
                 "labelPadding": 30,
                 "domain": false,
@@ -400,7 +400,7 @@
               },
               "axis": {
                 "labelFont": "Archivo",
-                "labelFontSize": 11,
+                "labelFontSize": 12.5,
                 "labelColor": "#6B675F",
                 "labelAngle": 0,
                 "domain": false,
@@ -430,7 +430,7 @@
               "title": null,
               "axis": {
                 "labelFont": "Archivo",
-                "labelFontSize": 10.5,
+                "labelFontSize": 12.5,
                 "labelColor": "#6B675F",
                 "labelPadding": 30,
                 "domain": false,
@@ -661,7 +661,7 @@
               },
               "axis": {
                 "labelFont": "Archivo",
-                "labelFontSize": 11,
+                "labelFontSize": 12.5,
                 "labelColor": "#6B675F",
                 "labelAngle": 0,
                 "domain": false,
@@ -691,7 +691,7 @@
               "title": null,
               "axis": {
                 "labelFont": "Archivo",
-                "labelFontSize": 10.5,
+                "labelFontSize": 12.5,
                 "labelColor": "#6B675F",
                 "labelPadding": 30,
                 "domain": false,
@@ -922,7 +922,7 @@
               },
               "axis": {
                 "labelFont": "Archivo",
-                "labelFontSize": 11,
+                "labelFontSize": 12.5,
                 "labelColor": "#6B675F",
                 "labelAngle": 0,
                 "domain": false,
@@ -952,7 +952,7 @@
               "title": null,
               "axis": {
                 "labelFont": "Archivo",
-                "labelFontSize": 10.5,
+                "labelFontSize": 12.5,
                 "labelColor": "#6B675F",
                 "labelPadding": 30,
                 "domain": false,
@@ -1103,7 +1103,7 @@
             "stroke": "#DFD9CC",
             "strokeWidth": 1,
             "cornerRadius": 2,
-            "xOffset": 44,
+            "xOffset": 41,
             "x2Offset": 232,
             "yOffset": -9.0,
             "y2Offset": 117.0
@@ -1280,15 +1280,15 @@
             "fontSize": 12,
             "color": "#2E2A24",
             "lineHeight": 17,
-            "dx": 58,
+            "dx": 55,
             "dy": 5.5,
             "text": [
               "In 2021, a typical Saturday",
-              "drew no more than a typical",
-              "Monday had in 2019. By 2022,",
-              "the Saturdays were back – but",
-              "still a quarter below 2019's",
-              "Saturdays."
+              "drew about as many people as",
+              "a typical Monday had in 2019.",
+              "By 2022, Saturdays had",
+              "climbed back, but only to",
+              "about three-quarters of 2019’s."
             ]
           },
           "encoding": {
@@ -1377,7 +1377,7 @@
         "text": "People counted each day",
         "anchor": "start",
         "font": "Archivo",
-        "fontSize": 13,
+        "fontSize": 15,
         "fontWeight": 600,
         "color": "#2E2A24",
         "offset": 8,

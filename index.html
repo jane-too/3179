@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Australia's public markets — FIT3179 Data Visualisation 2</title>
-<meta name="description" content="How Australia's permanent public markets are used: who visits them, how they came through the pandemic, and what renewal puts at risk.">
+<title>Australia’s public markets — FIT3179 Data Visualisation 2</title>
+<meta name="description" content="How Australia’s permanent public markets are used: who visits them, how they came through the pandemic, and what renewal puts at risk.">
 
 <link rel="stylesheet" href="css/styles.css">
 
@@ -17,9 +17,13 @@
 
 <header class="masthead">
   <div class="page">
-    <h1 class="placeholder">Page title</h1>
-    <p class="standfirst placeholder">Standfirst — one or two sentences setting up the question the page answers.</p>
-    <p class="byline placeholder">Authorship and date (required by the specification).</p>
+    <h1>Australia’s public markets run on the weekly shop</h1>
+    <p class="standfirst">Big city markets draw tourists, and two rank among
+      the most visited places in their states, but tourists are not what keeps them
+      going. The data
+      points to a weekly shop that held through the pandemic and still runs to the
+      same timetable, and that is what a renewal adding more dining has to protect.</p>
+    <p class="byline">Jane Too · October 2026</p>
   </div>
 </header>
 
@@ -27,108 +31,173 @@
 
   <section class="section" id="s1">
     <h2>For international visitors, the market outranks the landmark</h2>
-    <p class="placeholder">Opening paragraph. Names set in their own hue wherever they
-      appear, so the prose carries the legend:
-      <span class="k-qvm">Queen Victoria Market</span>,
-      <span class="k-smm">South Melbourne Market</span>,
-      <span class="k-acm">Adelaide Central Market</span> and
-      <span class="k-sfm">Sydney Fish Market</span>.</p>
+    <p>Ask international visitors where they went in Victoria and
+      <span class="k-qvm">Queen Victoria Market</span> comes second, behind only the
+      city’s shopping precinct and ahead of the Great Ocean Road. In South Australia,
+      <span class="k-acm">Adelaide Central Market</span> tops the list outright.
+      <span class="k-sfm">Sydney Fish Market</span> is the exception: in a state with
+      the Opera House and the Harbour Bridge, it ranks 13th. The fourth market on this
+      page, <span class="k-smm">South Melbourne Market</span>, is not in the survey at
+      all, and returns later as the neighbourhood market.</p>
 
-    <p class="callout placeholder">The sentence this section turns on, set apart so a
-      reader scanning the page still collects the argument.</p>
+    <p class="callout">A market is the rare attraction that is also where people do
+      the week’s shopping. The rest of this page asks which of those two jobs keeps it alive.</p>
 
     <figure class="figure">
       <div class="vis-container" id="vis-01" data-spec="js/01_dotplot_attractions.vg.json"></div>
-      <figcaption class="figure__source placeholder">Source line for chart 01.</figcaption>
+      <figcaption class="figure__source">Source: Tourism Research Australia, International Visitor Survey, places visited by state, 2025, via TRA Online. Victoria’s ranking excludes four survey artefacts (an interview-mode row, a regional catch-all and two “don’t know” rows). Five long attraction names are shortened.</figcaption>
     </figure>
   </section>
 
   <section class="section" id="s2">
-    <h2>A habit, not a holiday</h2>
-    <p class="placeholder">Paragraph on what a day trip is and why the flatness is the finding.</p>
+    <h2>Every state, the same small share</h2>
+    <p>Tourism Research Australia counts a day trip as a deliberate outing, at least
+      50 kilometres there and back and at least four hours from home, that is not part
+      of a daily routine. Across 2022–24, between 2.4% and 3.2% of these trips in each
+      state included a market, and because the figures are survey estimates, the gaps
+      between states are small enough that a different sample could reorder them. That
+      flatness is the finding: no state sells the market visit better than another,
+      and in every state it turns up in roughly the same small share of outings.</p>
 
-    <p class="margin-note placeholder">A caveat that would interrupt the argument if it
-      sat in the main column — for instance that this series ends in 2024.</p>
+    <p class="margin-note">The Domestic Daytrip series ends in 2024, when Tourism
+      Research Australia replaced the survey.</p>
 
     <figure class="figure">
       <div class="vis-container" id="vis-02" data-spec="js/02_choropleth_states.vg.json"></div>
-      <figcaption class="figure__source placeholder">Source line for chart 02.</figcaption>
+      <figcaption class="figure__source">Source: Tourism Research Australia, National Visitor Survey (Domestic Daytrip), day trips that included going to a market, 2022–24 pooled, via TRA Online. State boundaries: Australian Bureau of Statistics, ASGS Edition 3 (2021).</figcaption>
     </figure>
   </section>
 
   <section class="section" id="s3">
-    <h2>Groceries fill half as many stalls as merchandise, yet they are the main draw</h2>
-    <p class="placeholder">Paragraph on the gap between floor space and the reason people come.</p>
+    <h2>What fills the stalls, and what draws the crowd</h2>
+    <p><span class="k-smm">South Melbourne Market</span> publishes something rare: both
+      how its stalls are divided and why people come. Merchandise and services take 51% of its stalls, groceries 26% and
+      eateries 23%. Yet when visitors name their main reason for coming, 61% come
+      mainly for groceries, 32% to eat, and only 6% for merchandise. A quarter of the stalls
+      brings in most of the crowd.</p>
 
     <figure class="figure">
       <div class="vis-container" id="vis-03" data-spec="js/03_waffle_stall_mix.vg.json"></div>
-      <figcaption class="figure__source placeholder">Source line for chart 03.</figcaption>
+      <figcaption class="figure__source">Source: South Melbourne Market, Annual Report 2024-25. The five SO:ME Space pop-up stalls are excluded.</figcaption>
     </figure>
 
     <figure class="figure">
       <div class="vis-container" id="vis-04" data-spec="js/04_slope_stalls_vs_reason.vg.json"></div>
-      <figcaption class="figure__source placeholder">Source line for chart 04.</figcaption>
+      <figcaption class="figure__source">Source: South Melbourne Market Strategic Plan 2026–30.</figcaption>
     </figure>
   </section>
 
   <section class="section" id="s4">
     <h2>The market held its ground while the city emptied</h2>
-    <p class="placeholder">Paragraph on March to June 2020 and why food trading continued.</p>
+    <p>When Melbourne locked down in March 2020, its city centre emptied, but the
+      streets around <span class="k-qvm">Queen Victoria Market</span> emptied less:
+      across March to June they kept 50.9% of their 2019 foot traffic, against 33.2%
+      for the rest of the city centre. The two fell almost in step in March, but by May
+      the market’s streets had fallen 28 points less, and
+      <span class="k-smm">South Melbourne Market</span>, counted at its doors, was down
+      just 12%. The recovery was slower than the fall: by late 2022, when the sensor
+      record ends, the market’s streets had refilled to only two-thirds of 2019, with
+      even Saturdays, the busiest day, about a quarter below.</p>
 
     <figure class="figure">
       <div class="vis-container" id="vis-05" data-spec="js/05_propsymbol_covid_sensors.vg.json"></div>
-      <figcaption class="figure__source placeholder">Source line for chart 05, including the note that 31 of 35 sensors can be mapped.</figcaption>
+      <figcaption class="figure__source">Source: City of Melbourne, Pedestrian Counting System, hourly counts for March–June 2019 and 2020 (2009–22 archive). Block outlines: City of Melbourne, Census of Land Use and Employment blocks. 31 of the 35 sensors are mapped: the other four are in the archive but have no published coordinates, and they are still counted in both groups’ totals.</figcaption>
     </figure>
 
     <figure class="figure">
       <div class="vis-container" id="vis-06" data-spec="js/06_dumbbell_covid_monthly.vg.json"></div>
-      <figcaption class="figure__source placeholder">Source line for chart 06.</figcaption>
+      <figcaption class="figure__source">Sources: City of Melbourne, Pedestrian Counting System, hourly counts for March–June 2019 and 2020 at four sensors around Queen Victoria Market and 31 elsewhere in the city centre (2009–22 archive); South Melbourne Market, Annual Report 2019-20 (monthly entries).</figcaption>
     </figure>
 
     <figure class="figure">
       <div class="vis-container" id="vis-07" data-spec="js/07_calendar_qvm_daily.vg.json"></div>
-      <figcaption class="figure__source placeholder">Source line for chart 07.</figcaption>
+      <figcaption class="figure__source">Source: City of Melbourne, Pedestrian Counting System, daily totals at four sensors around Queen Victoria Market, 1 January 2019 to 31 October 2022 (2009–22 archive).</figcaption>
     </figure>
   </section>
 
   <section class="section" id="s5">
-    <h2>The locals' market came back first</h2>
-    <p class="placeholder">Paragraph on the two recoveries and the counting bases.</p>
+    <h2>The locals’ market came back first</h2>
+    <p><span class="k-smm">South Melbourne</span> is the neighbourhood market the first section promised: two in
+      three of its shoppers live locally, and the average shopper comes back about 42
+      times a year. Its annual counts show the recovery from inside the gates. By
+      2023-24 South Melbourne was counting 7% more entries than in the 2019-20 financial year.
+      <span class="k-qvm">Queen Victoria Market</span>, where three in ten visits
+      before the pandemic were made by tourists, was still 119,927 visitors short.
+      Each market is compared only with its own past: South Melbourne counts entries
+      and Queen Victoria counts Day Market visitors, and 2019-20 already includes the
+      first months of the pandemic.</p>
 
     <figure class="figure">
       <div class="vis-container" id="vis-08" data-spec="js/08_waterfall_market_visitors.vg.json"></div>
-      <figcaption class="figure__source placeholder">Source line for chart 08. South Melbourne’s FY2020-21 and FY2021-22 figures (dashed bars) are derived from percentage changes published in later annual reports, not from counts. The series stops at FY2023-24 because Queen Victoria Market replaced its people-counting system in FY2024-25 and has not restated earlier years.</figcaption>
+      <figcaption class="figure__source">Sources: Queen Victoria Market Pty Ltd, annual reports 2019-20 to 2023-24; South Melbourne Market, annual reports 2021-22 to 2024-25. South Melbourne’s FY2020-21 and FY2021-22 figures (dashed bars) are derived from percentage changes published in later annual reports, not from counts. The series stops at FY2023-24 because Queen Victoria Market replaced its people-counting system in FY2024-25 and has not restated earlier years.</figcaption>
     </figure>
   </section>
 
   <section class="section" id="s6">
     <h2>Nearly half of all visitors go to a market</h2>
-    <p class="placeholder">Paragraph on propensity against volume.</p>
+    <p>Tourists still matter: in 2025, 46.1% of Australia’s 8.3 million international
+      visitors went to a market. They came from
+      dozens of countries, and no single country
+      supplied more than an eighth of that crowd, but the appetite varied widely.
+      From Taiwan, two in three visitors went to a market (67.7%). From New
+      Zealand, which sends Australia more visitors than any other country, fewer
+      than one in three did (30.0%), the lowest rate in every survey year since
+      2011.</p>
 
     <figure class="figure">
       <div class="vis-container" id="vis-09" data-spec="js/09_flowmap_intl_origins.vg.json"></div>
-      <figcaption class="figure__source placeholder">Source line for chart 09.</figcaption>
+      <figcaption class="figure__source">Source: Tourism Research Australia, International Visitor Survey, visitors who went to markets by country of residence, 2025, via TRA Online. Basemap and country positions: Natural Earth, via the FIT3179 unit repository.</figcaption>
     </figure>
 
     <figure class="figure">
       <div class="vis-container" id="vis-10" data-spec="js/10_marimekko_intl_countries.vg.json"></div>
-      <figcaption class="figure__source placeholder">Source line for chart 10.</figcaption>
+      <figcaption class="figure__source">Source: Tourism Research Australia, International Visitor Survey, visitors and visitors who went to markets by country of residence, 2025, via TRA Online. All 25 origin groups have at least 40 survey responses, TRA’s reliability threshold.</figcaption>
     </figure>
   </section>
 
   <section class="section" id="s7">
-    <h2>The week still has a shape</h2>
-    <p class="placeholder">Paragraph on the weekly rhythm and the Wednesday evening exception.</p>
+    <h2>The crowd came back on the same timetable</h2>
+    <p>The pandemic changed the size of the crowd around
+      <span class="k-qvm">Queen Victoria Market</span>, but not its timetable. At the
+      Therry Street sensor, Saturday was the busiest day and Monday, when the market is
+      closed, the quietest, in 2019 and again from October 2025 to October 2026. Between
+      the two periods, no day’s share of the week’s traffic moved by as much as two
+      points. The hours held too: on six days out of seven, the busiest hour fell at
+      lunchtime both times. The exception, in both periods, is Wednesday, which peaked at
+      7pm: the day market is closed on Wednesdays, and in winter the market opens in the
+      evening for its Winter Night Market. In 2026, its fifteen night-market Wednesdays
+      drew about twice as many people at 7pm as at noon. Six years and a pandemic later,
+      the weekly shop keeps the same hours.</p>
 
     <figure class="figure">
       <div class="vis-container" id="vis-11" data-spec="js/11_radial_hourly_weekday.vg.json"></div>
-      <figcaption class="figure__source placeholder">Source line for chart 11.</figcaption>
+      <figcaption class="figure__source">Source: City of Melbourne, Pedestrian Counting System, hourly counts at sensor 49 (Therry Street) for 2019 (2009–22 archive) and 20 October 2025 to 19 October 2026 (live data).</figcaption>
     </figure>
   </section>
 
   <section class="section" id="s8">
-    <h2>What renewal puts at risk</h2>
-    <p class="placeholder">Closing argument, landing on a claim.</p>
+    <h2>What renewal has to protect</h2>
+    <p><span class="k-qvm">Queen Victoria Market</span> is being renewed, and on paper
+      its plan reads the crowd well. It grows fresh produce, which its own strategy calls
+      “the Market’s biggest draw for Melburnians”, from 24% to 27% of the mix, and
+      shrinks specialty shopping from 68% to 55%, the trade that at
+      <span class="k-smm">South Melbourne</span> fills half the stalls but brings in only
+      6 visitors in 100. Its boldest move is on eateries and food stalls, which more than
+      double from 8% to 18%, and South Melbourne suggests the appetite is real: nearly a third of its
+      visitors now come mainly to eat, up from a fifth a decade ago.</p>
+
+    <p>Everything this page can follow over time, though, points the same way. When
+      Melbourne locked down, the streets around
+      <span class="k-qvm">Queen Victoria Market</span> held on to more of their crowd
+      than the rest of the city centre; the neighbourhood market, where two in three
+      shoppers live locally, recovered first; and six years on, the crowd still arrives
+      at lunchtime on the same days of the week. Even at
+      <span class="k-smm">South Melbourne</span>, where eating has grown fastest,
+      groceries remain the main reason for nearly twice as many visitors. The tables may
+      bring new people in, but the evidence here points to the weekly shop as what brings
+      them back, and renewal should be judged on whether that survives. If it does, the
+      grocers stay and the tables are extra. If it doesn’t, the market becomes one more
+      place to eat, and a city already has plenty of those.</p>
   </section>
 
 </main>
@@ -137,7 +206,59 @@
   <div class="page">
     <h2>Sources</h2>
     <ul>
-      <li class="placeholder">Dataset sources with URLs.</li>
+      <li>Australian Bureau of Statistics (2021). <em>Australian Statistical Geography Standard,
+        Edition 3: States and Territories</em>, digital boundary files.
+        <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files">abs.gov.au</a>. Chart 2.</li>
+      <li>City of Melbourne. <em>Pedestrian Counting System: Monthly Counts per Hour</em>, live
+        data and the May 2009 – December 2022 archive.
+        <a href="https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-monthly-counts-per-hour/">data.melbourne.vic.gov.au</a>.
+        Sensor positions from <em>Pedestrian Counting System: Sensor Locations</em>,
+        <a href="https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-sensor-locations/">data.melbourne.vic.gov.au</a>.
+        Accessed October 2026. Charts 5, 6, 7 and 11.</li>
+      <li>City of Melbourne. <em>Blocks for Census of Land Use and Employment (CLUE)</em>.
+        <a href="https://data.melbourne.vic.gov.au/explore/dataset/blocks-for-census-of-land-use-and-employment-clue/">data.melbourne.vic.gov.au</a>. Chart 5.</li>
+      <li>FIT3179 Data Visualisation unit repository. <em>oceans.topojson</em> and
+        <em>WorldMapWithGraticules.topojson</em>, from Natural Earth.
+        <a href="https://github.com/FIT3179/Vega-Lite">github.com/FIT3179/Vega-Lite</a>. Chart 9.</li>
+      <li>Natural Earth. <em>Admin 0 – Countries</em>, 1:110m and 1:50m, used for country
+        positions. <a href="https://github.com/nvkelso/natural-earth-vector">github.com/nvkelso/natural-earth-vector</a>. Chart 9.</li>
+      <li>Premier of Victoria (22 March 2020). <em>Statement from the Premier</em>.
+        <a href="https://www.premier.vic.gov.au/statement-premier-61">premier.vic.gov.au</a>.
+        Section 4.</li>
+      <li>Queen Victoria Market Pty Ltd. <em>Annual Report</em>
+        <a href="https://cdn.qvm.com.au/wp-content/uploads/2022/01/FINAL-QVM-Pty-Ltd-Annual-Report-and-Financial-Statements-2019-20.pdf">2019-20</a>,
+        <a href="https://cdn.qvm.com.au/wp-content/uploads/2021/11/QVM-Pty-Ltd-Annual-Report-2020-21.pdf">2020-21</a>,
+        <a href="https://cdn.qvm.com.au/wp-content/uploads/2024/08/QVM-Pty-Ltd-Annual-Report-2022-23.pdf">2022-23</a> and
+        <a href="https://cdn.qvm.com.au/wp-content/uploads/2025/01/QVM-Pty-Ltd-Annual-Report-2023-24.pdf">2023-24</a>.
+        Chart 8 and section 5.</li>
+      <li>Queen Victoria Market Pty Ltd (July 2021). <em>Future Market Strategy</em>, pp. 17–18.
+        <a href="https://cdn.qvm.com.au/wp-content/uploads/2021/07/Future-Market-Strategy.pdf">cdn.qvm.com.au</a>.
+        Sections 5 and 8.</li>
+      <li>Queen Victoria Market Pty Ltd (2026). <em>Winter Night Market Trader Information Pack
+        2026</em>, p. 3.
+        <a href="https://cdn.qvm.com.au/wp-content/uploads/2026/03/QVM_Winter-Night-Market-Info-Pack_2026.pdf">cdn.qvm.com.au</a>;
+        2019 season from <em>The Night Market</em>, archived 23 July 2019,
+        <a href="https://web.archive.org/web/20190723003346/https://thenightmarket.com.au/">web.archive.org</a>.
+        Section 7.</li>
+      <li>South Melbourne Market (City of Port Phillip). <em>Annual Report</em>
+        <a href="https://www.southmelbournemarket.com.au/media/f0epihb3/final-smm-2019-20-annual-report.pdf">2019-20</a>,
+        <a href="https://www.southmelbournemarket.com.au/media/sh4jjzwk/smm-2021-22-annual-report-wcag-2-0-compliant.pdf">2021-22</a>,
+        <a href="https://www.southmelbournemarket.com.au/media/3hxhcmhu/smm-annual-report-2022-23-wcag-2-0-compliant.pdf">2022-23</a>,
+        <a href="https://www.southmelbournemarket.com.au/media/bflefrkd/smm-annual-report-2023-24.pdf">2023-24</a> and
+        <a href="https://www.southmelbournemarket.com.au/media/lc5hrilu/smm_annual-report-2024-25.pdf">2024-25</a>.
+        Charts 3, 6 and 8, and section 5.</li>
+      <li>South Melbourne Market (City of Port Phillip). <em>Strategic Plan 2026–30</em>.
+        <a href="https://www.southmelbournemarket.com.au/media/2wlfqlrm/smm_2026-30-strategic-plan.pdf">southmelbournemarket.com.au</a>.
+        Chart 4 and sections 3 and 8.</li>
+      <li>Tourism Research Australia (2026). <em>International Visitor Survey</em> and
+        <em>National Visitor Survey</em> (Domestic Daytrip), TRA Online Student Data Package,
+        accessed 4 October 2026 via Monash University Library.
+        <a href="https://www.tra.gov.au/en/about-us/services">tra.gov.au</a>. Charts 1, 2, 9 and 10.</li>
+      <li>Tourism Research Australia. <em>National Visitor Survey methodology</em> (day-trip
+        definition) and <em>Frequently asked questions</em> (the 40-response reliability threshold).
+        <a href="https://www.tra.gov.au/en/about-us/methodology/national-visitor-survey-methodology">Methodology</a>;
+        <a href="https://www.tra.gov.au/en/about-us/frequently-asked-questions">FAQ</a>.
+        Section 2 and chart 2.</li>
     </ul>
 
     <h2 style="margin-top: var(--space-6);">Use of AI</h2>

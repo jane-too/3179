@@ -7,9 +7,9 @@
   },
   "padding": 5,
   "title": {
-    "text": "DRAFT — The market and the city centre emptied together, then came apart",
+    "text": "The market and the city centre emptied together, then came apart",
     "subtitle": [
-      "DRAFT — Change in foot traffic in each month of 2020 against the same month a year earlier.",
+      "Change in foot traffic in each month of 2020 against the same month a year earlier.",
       "Gaps between the two sensor series are given in percentage points."
     ],
     "anchor": "start",
@@ -20,7 +20,7 @@
     "subtitleFont": "Archivo",
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
-    "subtitleLineHeight": 18,
+    "subtitleLineHeight": 20,
     "offset": 34
   },
   "encoding": {
@@ -36,7 +36,7 @@
       "title": null,
       "axis": {
         "labelFont": "Archivo",
-        "labelFontSize": 16,
+        "labelFontSize": 12.5,
         "labelColor": "#2E2A24",
         "labelPadding": 56,
         "domain": false,
@@ -96,9 +96,9 @@
               -15,
               0
             ],
-            "labelExpr": "datum.value + '%'",
+            "labelExpr": "replace(datum.value + '%', '-', '−')",
             "labelFont": "Archivo",
-            "labelFontSize": 13,
+            "labelFontSize": 12.5,
             "labelColor": "#6B675F",
             "domain": false,
             "ticks": false,
@@ -154,9 +154,9 @@
               -15,
               0
             ],
-            "labelExpr": "datum.value + '%'",
+            "labelExpr": "replace(datum.value + '%', '-', '−')",
             "labelFont": "Archivo",
-            "labelFontSize": 13,
+            "labelFontSize": 12.5,
             "labelColor": "#6B675F",
             "domain": false,
             "ticks": false,
@@ -266,9 +266,9 @@
               -15,
               0
             ],
-            "labelExpr": "datum.value + '%'",
+            "labelExpr": "replace(datum.value + '%', '-', '−')",
             "labelFont": "Archivo",
-            "labelFontSize": 13,
+            "labelFontSize": 12.5,
             "labelColor": "#6B675F",
             "domain": false,
             "ticks": false,

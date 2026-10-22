@@ -7,9 +7,9 @@
     "text": "Markets draw a steady slice of day trips, wherever you are",
     "subtitle": [
       "Share of domestic day trips that included going to a market, 2022 to 2024 combined. Shares rather than trip",
-      "counts, so a small state is not penalised for being small. TRA treats fewer than 40 responses as unreliable,",
-      "and several states sit close to that floor — Tasmania has 51, South Australia 70, Western Australia 104 — so",
-      "the states cannot be confidently ranked."
+      "counts, so a small state is not penalised for being small. Each share is a survey estimate, and some rest on few",
+      "responses: Tasmania 51, South Australia 70, Western Australia 104, against TRA’s minimum of 40. The gaps",
+      "between states are small enough that a different survey sample could reorder them."
     ],
     "anchor": "start",
     "font": "Fraunces",
@@ -19,7 +19,7 @@
     "subtitleFont": "Archivo",
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
-    "subtitleLineHeight": 18,
+    "subtitleLineHeight": 20,
     "offset": 34
   },
   "projection": {
@@ -114,7 +114,7 @@
             "legendY": 221,
             "direction": "vertical",
             "labelFont": "Archivo",
-            "labelFontSize": 13,
+            "labelFontSize": 12.5,
             "labelColor": "#2E2A24",
             "titleFont": "Archivo",
             "titleFontSize": 13.5,
@@ -386,8 +386,8 @@
         "fill": "#FCFBF8",
         "stroke": "#DFD9CC",
         "strokeWidth": 1,
-        "size": 42436,
-        "shape": "M-1,-0.4563H1V0.4563H-1Z"
+        "size": 49284,
+        "shape": "M-1,-0.4234H1V0.4234H-1Z"
       },
       "encoding": {
         "longitude": {
@@ -651,7 +651,7 @@
           "as": "claim"
         },
         {
-          "calculate": "datum.lo == datum.hi ? split('Only ' + datum.lo + ' people in each territory|reported a market day trip.', '|') : split('Only ' + datum.lo + ' and ' + datum.hi + ' people reported|a market day trip.', '|')",
+          "calculate": "datum.lo == datum.hi ? split('Only ' + datum.lo + ' survey responses in each|territory included a market day trip.', '|') : split('Only ' + datum.lo + ' and ' + datum.hi + ' survey responses|included a market day trip.', '|')",
           "as": "figures"
         }
       ],
@@ -660,12 +660,12 @@
         "align": "left",
         "baseline": "top",
         "lineHeight": 18,
-        "dy": -38.0,
+        "dy": -36.0,
         "font": "Archivo",
         "fontSize": 14,
         "fontWeight": 600,
         "color": "#2E2A24",
-        "dx": -91.0
+        "dx": -99.0
       },
       "encoding": {
         "longitude": {
@@ -725,7 +725,7 @@
           "as": "claim"
         },
         {
-          "calculate": "datum.lo == datum.hi ? split('Only ' + datum.lo + ' people in each territory|reported a market day trip.', '|') : split('Only ' + datum.lo + ' and ' + datum.hi + ' people reported|a market day trip.', '|')",
+          "calculate": "datum.lo == datum.hi ? split('Only ' + datum.lo + ' survey responses in each|territory included a market day trip.', '|') : split('Only ' + datum.lo + ' and ' + datum.hi + ' survey responses|included a market day trip.', '|')",
           "as": "figures"
         }
       ],
@@ -734,12 +734,12 @@
         "align": "left",
         "baseline": "top",
         "lineHeight": 18,
-        "dy": 2.0,
+        "dy": 4.0,
         "font": "Archivo",
         "fontSize": 13,
         "fontWeight": 400,
         "color": "#6B675F",
-        "dx": -91.0
+        "dx": -99.0
       },
       "encoding": {
         "longitude": {

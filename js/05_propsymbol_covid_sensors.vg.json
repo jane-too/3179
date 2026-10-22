@@ -5,12 +5,12 @@
   "height": 600,
   "title": {
     "text": [
-      "DRAFT — Around Queen Victoria Market half the crowd stayed on average,",
+      "Around Queen Victoria Market half the crowd stayed on average,",
       "against only a third across the rest of the city centre"
     ],
     "subtitle": [
-      "DRAFT — People counted by the City of Melbourne's pedestrian sensors, March to June 2020, as a share of the same months",
-      "of 2019. The larger and more solid the circle, the more of its 2019 crowd remained."
+      "People counted by the City of Melbourne’s pedestrian sensors, March to June 2020, as a share of the same months",
+      "of 2019. The larger the circle, the more of its 2019 crowd remained."
     ],
     "anchor": "start",
     "font": "Fraunces",
@@ -20,7 +20,7 @@
     "subtitleFont": "Archivo",
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
-    "subtitleLineHeight": 18,
+    "subtitleLineHeight": 20,
     "offset": 34,
     "lineHeight": 26
   },
@@ -91,9 +91,10 @@
       ],
       "mark": {
         "type": "circle",
-        "fill": "#FFFFFF",
+        "fill": "#9A948A",
         "strokeWidth": 1.1,
-        "stroke": "#9A948A"
+        "stroke": "#6B675F",
+        "opacity": 0.75
       },
       "encoding": {
         "longitude": {
@@ -143,26 +144,7 @@
             "title": "Mar–Jun 2020",
             "format": ","
           }
-        ],
-        "stroke": {
-          "value": "#6B675F"
-        },
-        "fillOpacity": {
-          "field": "stayed",
-          "type": "quantitative",
-          "scale": {
-            "type": "linear",
-            "domain": [
-              20,
-              65
-            ],
-            "range": [
-              0.35,
-              1
-            ]
-          },
-          "legend": null
-        }
+        ]
       }
     },
     {
@@ -193,7 +175,8 @@
         "type": "circle",
         "fill": "#A632A6",
         "stroke": "#F7F4EE",
-        "strokeWidth": 1
+        "strokeWidth": 1,
+        "opacity": 0.75
       },
       "encoding": {
         "longitude": {
@@ -243,23 +226,7 @@
             "title": "Mar–Jun 2020",
             "format": ","
           }
-        ],
-        "fillOpacity": {
-          "field": "stayed",
-          "type": "quantitative",
-          "scale": {
-            "type": "linear",
-            "domain": [
-              20,
-              65
-            ],
-            "range": [
-              0.35,
-              1
-            ]
-          },
-          "legend": null
-        }
+        ]
       }
     },
     {
@@ -470,7 +437,7 @@
           "filter": "datum.sensor_name == 'Lincoln-Swanston (West)'"
         },
         {
-          "calculate": "split('A few minutes’ walk away,|barely a fifth of them stayed.', '|')",
+          "calculate": "split('A few minutes’ walk away,|barely a fifth of pedestrians stayed.', '|')",
           "as": "t"
         }
       ],
@@ -587,18 +554,18 @@
       },
       "mark": {
         "type": "circle",
-        "fill": "#FFFFFF",
-        "fillOpacity": 0.928,
+        "fill": "#9A948A",
         "stroke": "#6B675F",
         "strokeWidth": 1.1,
-        "size": 1200
+        "size": 1200,
+        "opacity": 0.75
       },
       "encoding": {
         "x": {
-          "value": 19.320508075688775
+          "value": 100.57
         },
         "y": {
-          "value": 341.3205080756888
+          "value": 326.68
         }
       }
     },
@@ -612,18 +579,18 @@
       },
       "mark": {
         "type": "circle",
-        "fill": "#FFFFFF",
-        "fillOpacity": 0.639,
+        "fill": "#9A948A",
         "stroke": "#6B675F",
         "strokeWidth": 1.1,
-        "size": 800
+        "size": 800,
+        "opacity": 0.75
       },
       "encoding": {
         "x": {
-          "value": 19.320508075688775
+          "value": 53.1
         },
         "y": {
-          "value": 344.49888052764663
+          "value": 329.86
         }
       }
     },
@@ -637,46 +604,18 @@
       },
       "mark": {
         "type": "circle",
-        "fill": "#FFFFFF",
-        "fillOpacity": 0.422,
+        "fill": "#9A948A",
         "stroke": "#6B675F",
         "strokeWidth": 1.1,
-        "size": 500
+        "size": 500,
+        "opacity": 0.75
       },
       "encoding": {
         "x": {
-          "value": 19.320508075688775
+          "value": 11.78
         },
         "y": {
-          "value": 347.4606762638786
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "v": 60
-          }
-        ]
-      },
-      "mark": {
-        "type": "rule",
-        "color": "#A39C8E",
-        "strokeWidth": 1
-      },
-      "encoding": {
-        "x": {
-          "value": 19.320508075688775
-        },
-        "y": {
-          "value": 324.0
-        },
-        "x2": {
-          "value": 44.64101615137755
-        },
-        "y2": {
-          "value": 318.0
+          "value": 332.82
         }
       }
     },
@@ -690,49 +629,22 @@
       },
       "mark": {
         "type": "text",
-        "align": "left",
-        "baseline": "middle",
+        "align": "center",
+        "baseline": "top",
         "font": "Archivo",
         "fontSize": 14,
-        "color": "#2E2A24"
+        "color": "#2E2A24",
+        "dx": 3
       },
       "encoding": {
         "x": {
-          "value": 48.64101615137755
+          "value": 100.57
         },
         "y": {
-          "value": 318.0
+          "value": 352
         },
         "text": {
           "field": "t"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "v": 40
-          }
-        ]
-      },
-      "mark": {
-        "type": "rule",
-        "color": "#A39C8E",
-        "strokeWidth": 1
-      },
-      "encoding": {
-        "x": {
-          "value": 19.320508075688775
-        },
-        "y": {
-          "value": 330.3567449039157
-        },
-        "x2": {
-          "value": 44.64101615137755
-        },
-        "y2": {
-          "value": 342.3567449039157
         }
       }
     },
@@ -746,49 +658,22 @@
       },
       "mark": {
         "type": "text",
-        "align": "left",
-        "baseline": "middle",
+        "align": "center",
+        "baseline": "top",
         "font": "Archivo",
         "fontSize": 14,
-        "color": "#2E2A24"
+        "color": "#2E2A24",
+        "dx": 3
       },
       "encoding": {
         "x": {
-          "value": 48.64101615137755
+          "value": 53.1
         },
         "y": {
-          "value": 342.3567449039157
+          "value": 352
         },
         "text": {
           "field": "t"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "v": 25
-          }
-        ]
-      },
-      "mark": {
-        "type": "rule",
-        "color": "#A39C8E",
-        "strokeWidth": 1
-      },
-      "encoding": {
-        "x": {
-          "value": 19.320508075688775
-        },
-        "y": {
-          "value": 336.28033637637964
-        },
-        "x2": {
-          "value": 44.64101615137755
-        },
-        "y2": {
-          "value": 366.28033637637964
         }
       }
     },
@@ -802,18 +687,19 @@
       },
       "mark": {
         "type": "text",
-        "align": "left",
-        "baseline": "middle",
+        "align": "center",
+        "baseline": "top",
         "font": "Archivo",
         "fontSize": 14,
-        "color": "#2E2A24"
+        "color": "#2E2A24",
+        "dx": 3
       },
       "encoding": {
         "x": {
-          "value": 48.64101615137755
+          "value": 11.78
         },
         "y": {
-          "value": 366.28033637637964
+          "value": 352
         },
         "text": {
           "field": "t"
@@ -1091,7 +977,8 @@
         "type": "circle",
         "fill": "#A632A6",
         "stroke": "#F7F4EE",
-        "strokeWidth": 1.1
+        "strokeWidth": 1.1,
+        "opacity": 0.75
       },
       "encoding": {
         "x": {
@@ -1112,22 +999,6 @@
             "range": [
               0,
               1300
-            ]
-          },
-          "legend": null
-        },
-        "fillOpacity": {
-          "field": "qstay",
-          "type": "quantitative",
-          "scale": {
-            "type": "linear",
-            "domain": [
-              20,
-              65
-            ],
-            "range": [
-              0.35,
-              1
             ]
           },
           "legend": null
@@ -1253,7 +1124,7 @@
           "value": 904
         },
         "y": {
-          "value": 299
+          "value": 290.5
         },
         "text": {
           "field": "t",
@@ -1364,9 +1235,10 @@
       ],
       "mark": {
         "type": "circle",
-        "fill": "#FFFFFF",
-        "stroke": "#9A948A",
-        "strokeWidth": 1.1
+        "fill": "#9A948A",
+        "stroke": "#6B675F",
+        "strokeWidth": 1.1,
+        "opacity": 0.75
       },
       "encoding": {
         "x": {
@@ -1387,22 +1259,6 @@
             "range": [
               0,
               1300
-            ]
-          },
-          "legend": null
-        },
-        "fillOpacity": {
-          "field": "cstay",
-          "type": "quantitative",
-          "scale": {
-            "type": "linear",
-            "domain": [
-              20,
-              65
-            ],
-            "range": [
-              0.35,
-              1
             ]
           },
           "legend": null
@@ -1528,7 +1384,7 @@
           "value": 904
         },
         "y": {
-          "value": 345
+          "value": 336.5
         },
         "text": {
           "field": "t",

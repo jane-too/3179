@@ -4,11 +4,10 @@
   "width": "container",
   "height": 440,
   "title": {
-    "text": "DRAFT — The trade that fills the most stalls is the main draw for only 6% of visitors",
+    "text": "The trade that fills the most stalls is the main draw for only 6% of visitors",
     "subtitle": [
-      "DRAFT — Each trade's share of South Melbourne Market's 150 permanent stalls, against the share of visitors who name",
-      "it as their main reason for coming. Stall counts are from the 2024-25 annual report; visitor shares are from the",
-      "market's 2026-30 strategic plan."
+      "Each trade’s share of South Melbourne Market’s 150 permanent stalls, against the share of visitors who name",
+      "it as their main reason for coming. All six figures are from the market’s strategic plan, published in 2026."
     ],
     "anchor": "start",
     "font": "Fraunces",
@@ -18,7 +17,7 @@
     "subtitleFont": "Archivo",
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
-    "subtitleLineHeight": 18,
+    "subtitleLineHeight": 20,
     "offset": 34
   },
   "data": {
@@ -53,6 +52,10 @@
     {
       "calculate": "datum.category == 'Grocery'",
       "as": "is_figure"
+    },
+    {
+      "calculate": "datum.category == 'General merchandise & services'",
+      "as": "is_merch"
     }
   ],
   "encoding": {
@@ -83,7 +86,7 @@
     {
       "transform": [
         {
-          "filter": "!datum.is_figure"
+          "filter": "!datum.is_merch"
         }
       ],
       "mark": {
@@ -101,7 +104,7 @@
     {
       "transform": [
         {
-          "filter": "datum.is_figure"
+          "filter": "datum.is_merch"
         }
       ],
       "mark": {
@@ -117,62 +120,6 @@
       }
     },
     {
-      "transform": [
-        {
-          "filter": "datum.is_figure && datum.xpos == 1"
-        }
-      ],
-      "mark": {
-        "type": "rule",
-        "color": "#A39C8E",
-        "strokeWidth": 1,
-        "x2Offset": -12,
-        "y2Offset": 17.0
-      },
-      "encoding": {
-        "x": {
-          "datum": 1
-        },
-        "y": {
-          "datum": 61
-        },
-        "x2": {
-          "datum": 1.35
-        },
-        "y2": {
-          "datum": 50
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "filter": "!datum.is_figure && datum.xpos == 1"
-        }
-      ],
-      "mark": {
-        "type": "rule",
-        "color": "#A39C8E",
-        "strokeWidth": 1,
-        "x2Offset": -12,
-        "y2Offset": 26.0
-      },
-      "encoding": {
-        "x": {
-          "datum": 1
-        },
-        "y": {
-          "datum": 6
-        },
-        "x2": {
-          "datum": 1.35
-        },
-        "y2": {
-          "datum": 27
-        }
-      }
-    },
-    {
       "mark": {
         "type": "circle",
         "opacity": 1,
@@ -181,7 +128,7 @@
       "encoding": {
         "size": {
           "condition": {
-            "test": "datum.is_figure",
+            "test": "datum.is_merch",
             "value": 160
           },
           "value": 80
@@ -251,7 +198,7 @@
         "font": "Archivo",
         "fontSize": 15,
         "fontWeight": {
-          "expr": "datum.is_figure ? 600 : 400"
+          "expr": "datum.is_merch ? 600 : 400"
         },
         "color": "#2E2A24"
       },
@@ -279,7 +226,7 @@
         "font": "Archivo",
         "fontSize": 15,
         "fontWeight": {
-          "expr": "datum.is_figure ? 600 : 400"
+          "expr": "datum.is_merch ? 600 : 400"
         },
         "color": "#2E2A24"
       },
@@ -334,33 +281,6 @@
       }
     },
     {
-      "data": {
-        "values": [
-          {
-            "note": 1
-          }
-        ]
-      },
-      "transform": [],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "bottom",
-        "font": "Archivo",
-        "fontSize": 13.5,
-        "color": "#6B675F",
-        "text": "Eateries are not shown: no main-reason figure is published for them."
-      },
-      "encoding": {
-        "x": {
-          "value": 0
-        },
-        "y": {
-          "value": 440
-        }
-      }
-    },
-    {
       "transform": [
         {
           "filter": "datum.is_figure && datum.xpos == 1"
@@ -372,23 +292,23 @@
         "stroke": "#DFD9CC",
         "strokeWidth": 1,
         "cornerRadius": 2,
-        "xOffset": -12,
-        "x2Offset": 180,
-        "yOffset": -8,
-        "y2Offset": 42
+        "xOffset": 58,
+        "x2Offset": 236.2,
+        "yOffset": 18,
+        "y2Offset": 68
       },
       "encoding": {
         "x": {
-          "datum": 1.35
+          "datum": 1
         },
         "x2": {
-          "datum": 1.35
+          "datum": 1
         },
         "y": {
-          "datum": 50
+          "datum": 61
         },
         "y2": {
-          "datum": 50
+          "datum": 61
         }
       }
     },
@@ -410,14 +330,16 @@
         "font": "Archivo",
         "fontSize": 13.5,
         "fontWeight": 300,
-        "color": "#2E2A24"
+        "color": "#2E2A24",
+        "dx": 70,
+        "dy": 26
       },
       "encoding": {
         "x": {
-          "datum": 1.35
+          "datum": 1
         },
         "y": {
-          "datum": 50
+          "datum": 61
         },
         "text": {
           "field": "note"
@@ -427,7 +349,7 @@
     {
       "transform": [
         {
-          "filter": "!datum.is_figure && datum.xpos == 1"
+          "filter": "datum.is_merch && datum.xpos == 1"
         }
       ],
       "mark": {
@@ -436,30 +358,30 @@
         "stroke": "#DFD9CC",
         "strokeWidth": 1,
         "cornerRadius": 2,
-        "xOffset": -12,
-        "x2Offset": 180,
-        "yOffset": -8,
-        "y2Offset": 60
+        "xOffset": 58,
+        "x2Offset": 247.4,
+        "yOffset": 18,
+        "y2Offset": 86
       },
       "encoding": {
         "x": {
-          "datum": 1.35
+          "datum": 1
         },
         "x2": {
-          "datum": 1.35
+          "datum": 1
         },
         "y": {
-          "datum": 27
+          "datum": 6
         },
         "y2": {
-          "datum": 27
+          "datum": 6
         }
       }
     },
     {
       "transform": [
         {
-          "filter": "!datum.is_figure && datum.xpos == 1"
+          "filter": "datum.is_merch && datum.xpos == 1"
         },
         {
           "calculate": "split('It fills half the market’s stalls,|yet only ' + format(datum.pct, '.0f') + ' visitors in 100|come primarily for it.', '|')",
@@ -474,14 +396,16 @@
         "font": "Archivo",
         "fontSize": 13.5,
         "fontWeight": 300,
-        "color": "#2E2A24"
+        "color": "#2E2A24",
+        "dx": 70,
+        "dy": 26
       },
       "encoding": {
         "x": {
-          "datum": 1.35
+          "datum": 1
         },
         "y": {
-          "datum": 27
+          "datum": 6
         },
         "text": {
           "field": "note"

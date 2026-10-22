@@ -4,22 +4,22 @@
   "padding": 5,
   "title": {
     "text": [
-      "DRAFT — Over the same five years South Melbourne ended 7% above where it began;",
+      "Over the same five years South Melbourne ended 7% above where it began;",
       "Queen Victoria Market ended slightly below"
     ],
     "subtitle": [
-      "DRAFT — Visitors to each market by financial year; each bar is the change from the year before. Both series",
+      "Visitors to each market by financial year; each bar is the change from the year before. Both series",
       "start in FY2019-20, which already contains four months of the pandemic. Dashed bars are estimates."
     ],
     "anchor": "start",
     "font": "Fraunces",
-    "fontSize": 18,
+    "fontSize": 20,
     "fontWeight": 600,
     "color": "#1A1A17",
     "subtitleFont": "Archivo",
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
-    "subtitleLineHeight": 18,
+    "subtitleLineHeight": 20,
     "offset": 28,
     "lineHeight": 26
   },
@@ -30,12 +30,12 @@
         "subtitle": "Day Market visitors",
         "anchor": "start",
         "font": "Archivo",
-        "fontSize": 16,
+        "fontSize": 15,
         "fontWeight": 600,
         "color": "#2E2A24",
         "offset": 10,
         "subtitleFont": "Archivo",
-        "subtitleFontSize": 13,
+        "subtitleFontSize": 13.5,
         "subtitleColor": "#6B675F",
         "subtitlePadding": 4
       },
@@ -153,7 +153,7 @@
               "title": null,
               "axis": {
                 "labelFont": "Archivo",
-                "labelFontSize": 13,
+                "labelFontSize": 12.5,
                 "labelColor": "#6B675F",
                 "labelAngle": 0,
                 "domain": false,
@@ -175,7 +175,7 @@
               },
               "axis": {
                 "labelFont": "Archivo",
-                "labelFontSize": 13,
+                "labelFontSize": 12.5,
                 "labelColor": "#6B675F",
                 "format": "~s",
                 "domain": false,
@@ -764,12 +764,12 @@
         "subtitle": "Entries to the market",
         "anchor": "start",
         "font": "Archivo",
-        "fontSize": 16,
+        "fontSize": 15,
         "fontWeight": 600,
         "color": "#2E2A24",
         "offset": 10,
         "subtitleFont": "Archivo",
-        "subtitleFontSize": 13,
+        "subtitleFontSize": 13.5,
         "subtitleColor": "#6B675F",
         "subtitlePadding": 4
       },
@@ -887,7 +887,7 @@
               "title": null,
               "axis": {
                 "labelFont": "Archivo",
-                "labelFontSize": 13,
+                "labelFontSize": 12.5,
                 "labelColor": "#6B675F",
                 "labelAngle": 0,
                 "domain": false,
@@ -909,7 +909,7 @@
               },
               "axis": {
                 "labelFont": "Archivo",
-                "labelFontSize": 13,
+                "labelFontSize": 12.5,
                 "labelColor": "#6B675F",
                 "format": "~s",
                 "domain": false,

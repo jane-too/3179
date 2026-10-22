@@ -2,9 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "background": "#F7F4EE",
   "title": {
-    "text": "DRAFT — Two of the three markets rank first or second in their state; Sydney’s ranks 13th",
+    "text": "In 2025, two of the three markets ranked first or second in their state; Sydney’s ranked 13th",
     "subtitle": [
-      "DRAFT — International visitors who went to each attraction in 2025. Counts are people, not visits: someone who",
+      "International visitors who went to each attraction in 2025. Counts are people, not visits: someone who",
       "went three times during their trip is counted once. Each state is ranked against its own attractions only, and the",
       "three scales differ, so the panels say where a market sits at home, not how the three markets compare."
     ],
@@ -16,7 +16,7 @@
     "subtitleFont": "Archivo",
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
-    "subtitleLineHeight": 18,
+    "subtitleLineHeight": 20,
     "offset": 34
   },
   "spacing": 150,
@@ -26,11 +26,11 @@
       "name": "victoria",
       "title": {
         "text": "VICTORIA",
-        "subtitle": "This panel ranks 28 attractions, with four survey artefacts set aside: the interview-mode row and three “don’t know” rows.",
+        "subtitle": "These are all 28 Victorian attractions that the survey records for 2025.",
         "anchor": "start",
-        "font": "Archivo Condensed",
-        "fontSize": 18,
-        "fontWeight": 700,
+        "font": "Archivo",
+        "fontSize": 15,
+        "fontWeight": 600,
         "color": "#2E2A24",
         "subtitleFont": "Archivo",
         "subtitleFontSize": 13.5,
@@ -62,7 +62,7 @@
           "filter": "indexof(['Short Interview VIC', 'Other regional Victoria', \"Don't know VIC\", \"Don't know Melbourne\"], datum.attraction) < 0"
         },
         {
-          "calculate": "datum.attraction",
+          "calculate": "{'Royal Botanic Gardens - Melbourne or Cranbourne': 'Royal Botanic Gardens', 'Melbourne Museum (Royal Exhibition Building)': 'Melbourne Museum', 'Australian Centre for the Moving Image (ACMI)': 'ACMI', 'Daylesford, Hepburn Springs, Mt. Macedon': 'Daylesford & Hepburn Springs', 'Docklands/Telstra Dome/Etihad Stadium': 'Docklands/Etihad Stadium'}[replace(datum.attraction, regexp('\"', 'g'), '')] || replace(datum.attraction, regexp('\"', 'g'), '')",
           "as": "display_name"
         },
         {
@@ -122,9 +122,9 @@
           },
           "title": null,
           "axis": {
-            "labelFont": "Archivo Condensed",
-            "labelFontSize": 13,
-            "labelLimit": 260,
+            "labelFont": "Archivo",
+            "labelFontSize": 12.5,
+            "labelLimit": 400,
             "labelColor": {
               "condition": {
                 "test": "indexof(datum.label, 'Queen Victoria Market') >= 0",
@@ -150,8 +150,8 @@
           "title": null,
           "axis": {
             "tickCount": 4,
-            "labelFont": "Archivo Condensed",
-            "labelFontSize": 12,
+            "labelFont": "Archivo",
+            "labelFontSize": 12.5,
             "labelColor": "#6B675F",
             "domainColor": "#C9C3B6",
             "tickColor": "#C9C3B6",
@@ -653,9 +653,9 @@
         "text": "SOUTH AUSTRALIA",
         "subtitle": "These are all 14 South Australian attractions that the survey records for 2025.",
         "anchor": "start",
-        "font": "Archivo Condensed",
-        "fontSize": 18,
-        "fontWeight": 700,
+        "font": "Archivo",
+        "fontSize": 15,
+        "fontWeight": 600,
         "color": "#2E2A24",
         "subtitleFont": "Archivo",
         "subtitleFontSize": 13.5,
@@ -744,9 +744,9 @@
           },
           "title": null,
           "axis": {
-            "labelFont": "Archivo Condensed",
-            "labelFontSize": 13,
-            "labelLimit": 260,
+            "labelFont": "Archivo",
+            "labelFontSize": 12.5,
+            "labelLimit": 400,
             "labelColor": {
               "condition": {
                 "test": "indexof(datum.label, 'Adelaide Central Market') >= 0",
@@ -772,8 +772,8 @@
           "title": null,
           "axis": {
             "tickCount": 4,
-            "labelFont": "Archivo Condensed",
-            "labelFontSize": 12,
+            "labelFont": "Archivo",
+            "labelFontSize": 12.5,
             "labelColor": "#6B675F",
             "domainColor": "#C9C3B6",
             "tickColor": "#C9C3B6",
@@ -1356,9 +1356,9 @@
         "text": "NEW SOUTH WALES",
         "subtitle": "These are all 31 New South Wales attractions that the survey records for 2025.",
         "anchor": "start",
-        "font": "Archivo Condensed",
-        "fontSize": 18,
-        "fontWeight": 700,
+        "font": "Archivo",
+        "fontSize": 15,
+        "fontWeight": 600,
         "color": "#2E2A24",
         "subtitleFont": "Archivo",
         "subtitleFontSize": 13.5,
@@ -1437,9 +1437,9 @@
           },
           "title": null,
           "axis": {
-            "labelFont": "Archivo Condensed",
-            "labelFontSize": 13,
-            "labelLimit": 260,
+            "labelFont": "Archivo",
+            "labelFontSize": 12.5,
+            "labelLimit": 400,
             "labelColor": {
               "condition": {
                 "test": "indexof(datum.label, 'Sydney Fish Market') >= 0",
@@ -1465,8 +1465,8 @@
           "title": null,
           "axis": {
             "tickCount": 4,
-            "labelFont": "Archivo Condensed",
-            "labelFontSize": 12,
+            "labelFont": "Archivo",
+            "labelFontSize": 12.5,
             "labelColor": "#6B675F",
             "domainColor": "#C9C3B6",
             "tickColor": "#C9C3B6",
