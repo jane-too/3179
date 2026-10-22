@@ -18,15 +18,30 @@
 <header class="masthead">
   <div class="page">
     <h1>Australia’s public markets run on weekly shopping</h1>
-    <p class="standfirst">Markets such as Queen Victoria and Adelaide Central are among the
-      most visited places in their states, yet tourists are not what keeps them going. The data
-      points to a weekly shopping habit that held through the pandemic and still runs to the
-      same timetable, and that is what a renewal adding more dining has to protect.</p>
+    <p class="standfirst">Tourists put Australia’s public markets on the map; the people who come
+      back every week keep them open.</p>
     <p class="byline">Jane Too · October 2026</p>
   </div>
 </header>
 
 <main class="page">
+
+  <section class="section" id="intro">
+    <h2>Attraction or habit?</h2>
+    <div class="prose">
+      <p>This page follows four of Australia’s permanent public markets:
+        <span class="k-qvm">Queen Victoria Market</span> and
+        <span class="k-smm">South Melbourne Market</span> in Melbourne,
+        <span class="k-acm">Adelaide Central Market</span> and
+        <span class="k-sfm">Sydney Fish Market</span>. Each is both a tourist attraction
+        and a place where people buy their groceries, and the question is which of those
+        two jobs keeps it going. The answer draws on three kinds of evidence: Tourism
+        Research Australia’s visitor surveys, the City of Melbourne’s street sensors, and
+        the markets’ own annual reports and plans. The answer is about to be
+        tested: Queen Victoria Market is being renewed, and its plan redraws what fills
+        the stalls.</p>
+    </div>
+  </section>
 
   <section class="section" id="s1">
     <h2>For international visitors, the market outranks the landmark</h2>
@@ -36,13 +51,9 @@
         city’s shopping precinct and ahead of the Great Ocean Road. In South Australia,
         <span class="k-acm">Adelaide Central Market</span> tops the list outright.
         <span class="k-sfm">Sydney Fish Market</span> is the exception: in a state with
-        the Opera House and the Harbour Bridge, it ranks 13th. The fourth market on this
-        page, <span class="k-smm">South Melbourne Market</span>, is not in the survey at
-        all, and returns later as the neighbourhood market.</p>
+        the Opera House and the Harbour Bridge, it ranks 13th. <span class="k-smm">South Melbourne Market</span> is not among the places the
+        survey asks about, and returns later as the neighbourhood market.</p>
     </div>
-
-    <p class="callout">A market is the rare attraction that is also where people do
-      the week’s shopping. The rest of this page asks which of those two jobs keeps it alive.</p>
 
     <figure class="figure">
       <div class="vis-container" id="vis-01" data-spec="js/01_dotplot_attractions.vg.json"></div>
@@ -60,14 +71,11 @@
         between states are small enough that a different sample could reorder them. That
         flatness is the finding: no state sells the market visit better than another,
         and in every state it turns up in roughly the same small share of outings.</p>
-
-      <p class="margin-note">The Domestic Daytrip series ends in 2024, when Tourism
-        Research Australia replaced the survey.</p>
     </div>
 
     <figure class="figure">
       <div class="vis-container" id="vis-02" data-spec="js/02_choropleth_states.vg.json"></div>
-      <figcaption class="figure__source">Source: Tourism Research Australia, National Visitor Survey (Domestic Daytrip), day trips that included going to a market, 2022–24 pooled, via TRA Online. State boundaries: Australian Bureau of Statistics, ASGS Edition 3 (2021).</figcaption>
+      <figcaption class="figure__source">Source: Tourism Research Australia, National Visitor Survey (Domestic Daytrip), day trips that included going to a market, 2022–24 pooled, via TRA Online. The series ends in 2024, when TRA replaced the survey. State boundaries: Australian Bureau of Statistics, ASGS Edition 3 (2021).</figcaption>
     </figure>
   </section>
 
@@ -217,65 +225,82 @@
 
 <footer class="colophon">
   <div class="page">
-    <h2>Sources</h2>
-    <ul>
-      <li>Australian Bureau of Statistics (2021). <em>Australian Statistical Geography Standard,
-        Edition 3: States and Territories</em>, digital boundary files.
-        <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files">abs.gov.au</a>. Chart 2.</li>
-      <li>City of Melbourne. <em>Pedestrian Counting System: Monthly Counts per Hour</em>, live
-        data and the May 2009 – December 2022 archive.
-        <a href="https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-monthly-counts-per-hour/">data.melbourne.vic.gov.au</a>.
-        Sensor positions from <em>Pedestrian Counting System: Sensor Locations</em>,
-        <a href="https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-sensor-locations/">data.melbourne.vic.gov.au</a>.
-        Accessed October 2026. Charts 5, 6, 7 and 11.</li>
-      <li>City of Melbourne. <em>Blocks for Census of Land Use and Employment (CLUE)</em>.
-        <a href="https://data.melbourne.vic.gov.au/explore/dataset/blocks-for-census-of-land-use-and-employment-clue/">data.melbourne.vic.gov.au</a>. Chart 5.</li>
-      <li>FIT3179 Data Visualisation unit repository. <em>oceans.topojson</em> and
-        <em>WorldMapWithGraticules.topojson</em>, from Natural Earth.
-        <a href="https://github.com/FIT3179/Vega-Lite">github.com/FIT3179/Vega-Lite</a>. Chart 9.</li>
-      <li>Natural Earth. <em>Admin 0 – Countries</em>, 1:110m and 1:50m, used for country
-        positions. <a href="https://github.com/nvkelso/natural-earth-vector">github.com/nvkelso/natural-earth-vector</a>. Chart 9.</li>
-      <li>Premier of Victoria (22 March 2020). <em>Statement from the Premier</em>.
-        <a href="https://www.premier.vic.gov.au/statement-premier-61">premier.vic.gov.au</a>.
-        Section 4.</li>
-      <li>Queen Victoria Market Pty Ltd. <em>Annual Report</em>
-        <a href="https://cdn.qvm.com.au/wp-content/uploads/2022/01/FINAL-QVM-Pty-Ltd-Annual-Report-and-Financial-Statements-2019-20.pdf">2019-20</a>,
-        <a href="https://cdn.qvm.com.au/wp-content/uploads/2021/11/QVM-Pty-Ltd-Annual-Report-2020-21.pdf">2020-21</a>,
-        <a href="https://cdn.qvm.com.au/wp-content/uploads/2024/08/QVM-Pty-Ltd-Annual-Report-2022-23.pdf">2022-23</a> and
-        <a href="https://cdn.qvm.com.au/wp-content/uploads/2025/01/QVM-Pty-Ltd-Annual-Report-2023-24.pdf">2023-24</a>.
-        Chart 8 and section 5.</li>
-      <li>Queen Victoria Market Pty Ltd (July 2021). <em>Future Market Strategy</em>, pp. 17–18.
-        <a href="https://cdn.qvm.com.au/wp-content/uploads/2021/07/Future-Market-Strategy.pdf">cdn.qvm.com.au</a>.
-        Sections 5 and 8.</li>
-      <li>Queen Victoria Market Pty Ltd (2026). <em>Winter Night Market Trader Information Pack
-        2026</em>, p. 3.
-        <a href="https://cdn.qvm.com.au/wp-content/uploads/2026/03/QVM_Winter-Night-Market-Info-Pack_2026.pdf">cdn.qvm.com.au</a>;
-        2019 season from <em>The Night Market</em>, archived 23 July 2019,
-        <a href="https://web.archive.org/web/20190723003346/https://thenightmarket.com.au/">web.archive.org</a>.
-        Section 7.</li>
-      <li>South Melbourne Market (City of Port Phillip). <em>Annual Report</em>
-        <a href="https://www.southmelbournemarket.com.au/media/f0epihb3/final-smm-2019-20-annual-report.pdf">2019-20</a>,
-        <a href="https://www.southmelbournemarket.com.au/media/sh4jjzwk/smm-2021-22-annual-report-wcag-2-0-compliant.pdf">2021-22</a>,
-        <a href="https://www.southmelbournemarket.com.au/media/3hxhcmhu/smm-annual-report-2022-23-wcag-2-0-compliant.pdf">2022-23</a>,
-        <a href="https://www.southmelbournemarket.com.au/media/bflefrkd/smm-annual-report-2023-24.pdf">2023-24</a> and
-        <a href="https://www.southmelbournemarket.com.au/media/lc5hrilu/smm_annual-report-2024-25.pdf">2024-25</a>.
-        Charts 3, 6 and 8, and section 5.</li>
-      <li>South Melbourne Market (City of Port Phillip). <em>Strategic Plan 2026–30</em>.
-        <a href="https://www.southmelbournemarket.com.au/media/2wlfqlrm/smm_2026-30-strategic-plan.pdf">southmelbournemarket.com.au</a>.
-        Chart 4 and sections 3 and 8.</li>
-      <li>Tourism Research Australia (2026). <em>International Visitor Survey</em> and
-        <em>National Visitor Survey</em> (Domestic Daytrip), TRA Online Student Data Package,
-        accessed 4 October 2026 via Monash University Library.
-        <a href="https://www.tra.gov.au/en/about-us/services">tra.gov.au</a>. Charts 1, 2, 9 and 10.</li>
-      <li>Tourism Research Australia. <em>National Visitor Survey methodology</em> (day-trip
-        definition) and <em>Frequently asked questions</em> (the 40-response reliability threshold).
-        <a href="https://www.tra.gov.au/en/about-us/methodology/national-visitor-survey-methodology">Methodology</a>;
-        <a href="https://www.tra.gov.au/en/about-us/frequently-asked-questions">FAQ</a>.
-        Section 2 and chart 2.</li>
-    </ul>
+    <div class="colophon__grid">
+      <div>
+        <h2>Author</h2>
+        <p>Compiled and presented by Jane Too, October 2026.</p>
 
-    <h2 style="margin-top: var(--space-6);">Use of AI</h2>
-    <p class="placeholder">AI acknowledgement, required by the specification.</p>
+        <h2>Sources</h2>
+      <ul>
+        <li>Australian Bureau of Statistics (2021). <em>Australian Statistical Geography Standard,
+          Edition 3: States and Territories</em>, digital boundary files.
+          <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files">abs.gov.au</a>. Chart 2.</li>
+        <li>City of Melbourne. <em>Pedestrian Counting System: Monthly Counts per Hour</em>, live
+          data and the May 2009 – December 2022 archive.
+          <a href="https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-monthly-counts-per-hour/">data.melbourne.vic.gov.au</a>.
+          Sensor positions from <em>Pedestrian Counting System: Sensor Locations</em>,
+          <a href="https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-sensor-locations/">data.melbourne.vic.gov.au</a>.
+          Accessed October 2026. Charts 5, 6, 7 and 11.</li>
+        <li>City of Melbourne. <em>Blocks for Census of Land Use and Employment (CLUE)</em>.
+          <a href="https://data.melbourne.vic.gov.au/explore/dataset/blocks-for-census-of-land-use-and-employment-clue/">data.melbourne.vic.gov.au</a>. Chart 5.</li>
+        <li>FIT3179 Data Visualisation unit repository. <em>oceans.topojson</em> and
+          <em>WorldMapWithGraticules.topojson</em>, from Natural Earth.
+          <a href="https://github.com/FIT3179/Vega-Lite">github.com/FIT3179/Vega-Lite</a>. Chart 9.</li>
+        <li>Natural Earth. <em>Admin 0 – Countries</em>, 1:110m and 1:50m, used for country
+          positions. <a href="https://github.com/nvkelso/natural-earth-vector">github.com/nvkelso/natural-earth-vector</a>. Chart 9.</li>
+        <li>Premier of Victoria (22 March 2020). <em>Statement from the Premier</em>.
+          <a href="https://www.premier.vic.gov.au/statement-premier-61">premier.vic.gov.au</a>.
+          Section 4.</li>
+        <li>Queen Victoria Market Pty Ltd. <em>Annual Report</em>
+          <a href="https://cdn.qvm.com.au/wp-content/uploads/2022/01/FINAL-QVM-Pty-Ltd-Annual-Report-and-Financial-Statements-2019-20.pdf">2019-20</a>,
+          <a href="https://cdn.qvm.com.au/wp-content/uploads/2021/11/QVM-Pty-Ltd-Annual-Report-2020-21.pdf">2020-21</a>,
+          <a href="https://cdn.qvm.com.au/wp-content/uploads/2024/08/QVM-Pty-Ltd-Annual-Report-2022-23.pdf">2022-23</a> and
+          <a href="https://cdn.qvm.com.au/wp-content/uploads/2025/01/QVM-Pty-Ltd-Annual-Report-2023-24.pdf">2023-24</a>.
+          Chart 8 and section 5.</li>
+        <li>Queen Victoria Market Pty Ltd (July 2021). <em>Future Market Strategy</em>, pp. 17–18.
+          <a href="https://cdn.qvm.com.au/wp-content/uploads/2021/07/Future-Market-Strategy.pdf">cdn.qvm.com.au</a>.
+          Sections 5 and 8.</li>
+        <li>Queen Victoria Market Pty Ltd (2026). <em>Winter Night Market Trader Information Pack
+          2026</em>, p. 3.
+          <a href="https://cdn.qvm.com.au/wp-content/uploads/2026/03/QVM_Winter-Night-Market-Info-Pack_2026.pdf">cdn.qvm.com.au</a>;
+          2019 season from <em>The Night Market</em>, archived 23 July 2019,
+          <a href="https://web.archive.org/web/20190723003346/https://thenightmarket.com.au/">web.archive.org</a>.
+          Section 7.</li>
+        <li>South Melbourne Market (City of Port Phillip). <em>Annual Report</em>
+          <a href="https://www.southmelbournemarket.com.au/media/f0epihb3/final-smm-2019-20-annual-report.pdf">2019-20</a>,
+          <a href="https://www.southmelbournemarket.com.au/media/sh4jjzwk/smm-2021-22-annual-report-wcag-2-0-compliant.pdf">2021-22</a>,
+          <a href="https://www.southmelbournemarket.com.au/media/3hxhcmhu/smm-annual-report-2022-23-wcag-2-0-compliant.pdf">2022-23</a>,
+          <a href="https://www.southmelbournemarket.com.au/media/bflefrkd/smm-annual-report-2023-24.pdf">2023-24</a> and
+          <a href="https://www.southmelbournemarket.com.au/media/lc5hrilu/smm_annual-report-2024-25.pdf">2024-25</a>.
+          Charts 3, 6 and 8, and section 5.</li>
+        <li>South Melbourne Market (City of Port Phillip). <em>Strategic Plan 2026–30</em>.
+          <a href="https://www.southmelbournemarket.com.au/media/2wlfqlrm/smm_2026-30-strategic-plan.pdf">southmelbournemarket.com.au</a>.
+          Chart 4 and sections 3 and 8.</li>
+        <li>Tourism Research Australia (2026). <em>International Visitor Survey</em> and
+          <em>National Visitor Survey</em> (Domestic Daytrip), TRA Online Student Data Package,
+          accessed 4 October 2026 via Monash University Library.
+          <a href="https://www.tra.gov.au/en/about-us/services">tra.gov.au</a>. Charts 1, 2, 9 and 10.</li>
+        <li>Tourism Research Australia. <em>National Visitor Survey methodology</em> (day-trip
+          definition) and <em>Frequently asked questions</em> (the 40-response reliability threshold).
+          <a href="https://www.tra.gov.au/en/about-us/methodology/national-visitor-survey-methodology">Methodology</a>;
+          <a href="https://www.tra.gov.au/en/about-us/frequently-asked-questions">FAQ</a>.
+          Section 2 and chart 2.</li>
+      </ul>
+      </div>
+
+      <div>
+        <h2>Typefaces</h2>
+        <p>Fraunces and Archivo, both SIL Open Font License.</p>
+
+        <h2>Use of generative AI</h2>
+        <p>Claude (Anthropic, claude.ai) was used as a research, coding and editing
+          assistant between 4 and 23 October 2026. It helped find and extract the source
+          data, wrote the data-cleaning scripts and the Vega-Lite chart specifications to
+          the author’s direction, checked the page’s figures against their sources, and
+          drafted copy that the author edited. The story and every design and editorial
+          decision are the author’s. No source values were altered.</p>
+      </div>
+    </div>
   </div>
 </footer>
 
