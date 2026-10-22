@@ -5,9 +5,8 @@
   "title": {
     "text": "By 2022, the streets around the market were still a third emptier than in 2019",
     "subtitle": [
-      "People counted each day by four street sensors around Queen Victoria Market.",
-      "Unfilled cells are the 61 days when one sensor was not reporting — 14 of them in August 2020 —",
-      "or after the series ends on 31 October 2022."
+      "People counted each day by four street sensors around Queen Victoria Market. Unfilled cells are the 61 days when",
+      "one sensor was not reporting (14 of them in August 2020) and the days after the series ends on 31 October 2022."
     ],
     "anchor": "start",
     "font": "Fraunces",
@@ -18,7 +17,7 @@
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
-    "offset": 30
+    "offset": 42
   },
   "data": {
     "url": "data/qvm_area_daily_counts_2019_2022.csv",
@@ -1418,7 +1417,7 @@
         ]
       },
       "width": 954.0,
-      "height": 70,
+      "height": 46,
       "layer": [
         {
           "transform": [

@@ -20,7 +20,7 @@
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
-    "offset": 28,
+    "offset": 43,
     "lineHeight": 26
   },
   "hconcat": [
@@ -39,7 +39,7 @@
         "subtitleColor": "#6B675F",
         "subtitlePadding": 4
       },
-      "width": 478,
+      "width": 479,
       "height": 430,
       "layer": [
         {
@@ -773,7 +773,7 @@
         "subtitleColor": "#6B675F",
         "subtitlePadding": 4
       },
-      "width": 478,
+      "width": 479,
       "height": 430,
       "layer": [
         {

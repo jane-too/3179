@@ -7,8 +7,8 @@
   "title": {
     "text": "Australia’s overseas market crowd is spread across Asia, Europe, North America and the Pacific",
     "subtitle": [
-      "3.8 million of Australia’s 8.3 million international visitors in 2025 went to a market. Circle area shows how many came from each country.",
-      "Four residual groups with no single country (12.8% of market-goers) can’t be mapped and aren’t shown."
+      "3.8 million of Australia’s 8.3 million international visitors in 2025 went to a market. Circle area shows how many came from",
+      "each country. Four residual groups with no single country (12.8% of market-goers) can’t be mapped and aren’t shown."
     ],
     "anchor": "start",
     "font": "Fraunces",
@@ -19,7 +19,7 @@
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
-    "offset": 26
+    "offset": 39
   },
   "projection": {
     "type": "equalEarth",

@@ -7,8 +7,8 @@
   "title": {
     "text": "Australia’s most numerous visitors are its least likely market-goers",
     "subtitle": [
-      "International visitors in 2025 by country of residence. Column width is the number of visitors, and the height of each bar is",
-      "the share who visited a market. Columns are ordered by that share."
+      "International visitors in 2025 by country of residence. Column width is the number of visitors,",
+      "and the height of each bar is the share who visited a market. Columns are ordered by that share."
     ],
     "anchor": "start",
     "font": "Fraunces",
@@ -19,7 +19,7 @@
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
-    "offset": 8
+    "offset": 11
   },
   "data": {
     "url": "data/intl_visitors_by_country_year.csv",

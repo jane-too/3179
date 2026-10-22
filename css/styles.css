@@ -25,42 +25,37 @@
 }
 
 :root {
-  --qvm: #A632A6;          /* Queen Victoria Market      contrast 5.27 */
-  --smm: #2F6B45;          /* South Melbourne Market     contrast 5.78 */
-  --acm: #663600;          /* Adelaide Central Market    contrast 9.14 */
-  --sfm: #0F00B2;          /* Sydney Fish Market        contrast 11.50 */
+  --qvm: #A632A6;
+  --smm: #2F6B45;
+  --acm: #663600;
+  --sfm: #0F00B2;
 
-  /* Ground and surface */
-  --page: #F7F4EE;         /* page background */
-  --ground: #DDDDDD;       /* no-data / de-emphasised marks */
-  --ground-land: #E8E4DC;  /* basemap land under data layers */
-  --rule: #DFD9CC;         /* hairline rules between blocks */
+  --page: #F7F4EE;
+  --ground: #DDDDDD;
+  --ground-land: #E8E4DC;
+  --rule: #DFD9CC;
 
-  /* Text */
-  --ink: #2E2A24;          /* body text */
-  --ink-strong: #1A1A17;   /* headings and annotations */
-  --ink-soft: #6B675F;     /* standfirsts, axis labels, source lines */
+  --ink: #2E2A24;
+  --ink-strong: #1A1A17;
+  --ink-soft: #6B675F;
 
-  /* Quantitative ramp: lightness means amount. Chart 2 only. */
   --ramp-1: #D6EBE8;
   --ramp-2: #9BD4CD;
   --ramp-3: #54B3A9;
   --ramp-4: #1B867C;
 
-  /* Type */
   --font-head: "Fraunces", Georgia, "Times New Roman", serif;
   --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --font-label: "Archivo Condensed", "Archivo", "Helvetica Neue", Arial, sans-serif;
 
   --size-title: clamp(2.1rem, 1.4rem + 2.6vw, 3.25rem);
   --size-section: clamp(1.5rem, 1.2rem + 1.1vw, 1.95rem);
-  --size-standfirst: 1.19rem;   /* 19px */
-  --size-body: 1rem;            /* 16px — the unit's 11–12pt screen guidance */
-  --size-small: 0.875rem;       /* 14px — figure notes */
-  --size-source: 0.8125rem;     /* 13px — source lines */
+  --size-standfirst: 1.19rem;
+  --size-body: 1rem;
+  --size-small: 0.875rem;
+  --size-source: 0.8125rem;
   --leading-body: 1.55;
 
-  /* One spacing scale, applied identically everywhere. */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -71,8 +66,7 @@
   --space-8: 4rem;
   --space-9: 6rem;
 
-  /* Layout */
-  --measure: 65ch;             /* 7–10 words a line */
+  --measure: 65ch;
   --page-max: 1120px;
   --gutter: var(--space-6);
 }
@@ -99,9 +93,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* One content column: every heading, paragraph, chart and source line starts
-   on the same left edge. */
-
 .page {
   max-width: var(--page-max);
   margin: 0 auto;
@@ -109,8 +100,7 @@ body {
 }
 
 .masthead {
-  padding: var(--space-9) 0 var(--space-8);
-  border-bottom: 1px solid var(--rule);
+  padding: var(--space-9) 0 0;
 }
 
 .masthead h1 {
@@ -155,7 +145,7 @@ body {
   line-height: 1.18;
   color: var(--ink-strong);
   margin: 0;
-  /* Headings run the column width; the measure limit belongs on running text. */
+
   max-width: none;
   text-wrap: balance;
 }
@@ -169,18 +159,33 @@ body {
   margin-top: var(--space-4);
 }
 
-/* A market named in a paragraph carries its own hue, so the prose does the
-   work of a legend. */
+.prose {
+  columns: 2;
+  column-gap: var(--space-7);
+}
 
-.k-qvm { color: var(--qvm); font-weight: 600; }
-.k-smm { color: var(--smm); font-weight: 600; }
-.k-acm { color: var(--acm); font-weight: 600; }
-.k-sfm { color: var(--sfm); font-weight: 600; }
+.prose p {
+  max-width: none;
+}
 
-/* The one sentence a section turns on. */
-.callout {
-  font-family: var(--font-head);
-  font-variation-settings: "SOFT" 0, "WONK" 0;
+.section .prose p + p {
+  margin-top: 0;
+  text-indent: 1.5em;
+}
+
+.section .prose .margin-note {
+  margin: var(--space-4) 0 0;
+  text-indent: 0;
+  break-inside: avoid;
+}
+
+.k-qvm { color: var(--qvm); font-weight: 600; white-space: nowrap; }
+.k-smm { color: var(--smm); font-weight: 600; white-space: nowrap; }
+.k-acm { color: var(--acm); font-weight: 600; white-space: nowrap; }
+.k-sfm { color: var(--sfm); font-weight: 600; white-space: nowrap; }
+
+.section .callout {
+  font-family: var(--font-body);
   font-weight: 500;
   font-size: 1.3rem;
   line-height: 1.38;
@@ -191,38 +196,32 @@ body {
   border-left: 2px solid var(--rule);
 }
 
-/* A caveat set beside the argument rather than inside it. */
-.margin-note {
+.section .margin-note {
   font-size: var(--size-small);
   line-height: 1.45;
   color: var(--ink-soft);
-  max-width: 30ch;
-  margin: var(--space-5) 0 var(--space-5) calc(var(--measure) + var(--space-6));
+  max-width: none;
+
+  margin: var(--space-5) 0 var(--space-5) calc(50% + var(--space-7) / 2);
   padding-left: var(--space-3);
   border-left: 1px solid var(--rule);
 }
 
 @media (max-width: 960px) {
-  .margin-note {
+  .section .margin-note {
     margin-left: 0;
     max-width: var(--measure);
   }
 }
 
-/* Every chart sits the same distance from its text and from what follows. */
-
 .figure {
-  margin: var(--space-7) 0 0;
+  margin: var(--space-8) 0 0;
 }
 
-/* Specs use "width": "container"; this satisfies the no-horizontal-scroll rule. */
 .vis-container {
   width: 100%;
 }
 
-/* vega-embed adds its classes to the container element itself, not a child, so
-   these must not be written as descendant selectors. It also injects an inline-block
-   display and 14px of padding for the actions menu, which clips an oversized chart. */
 .vis-container,
 .vis-container.vega-embed,
 .vis-container .vega-embed-wrapper,
@@ -234,7 +233,6 @@ body {
   overflow: visible;
 }
 
-/* A chart wider than its column scales down rather than being cut off. */
 .vis-container svg,
 .vis-container canvas {
   display: block;
@@ -256,8 +254,6 @@ body {
   max-width: var(--measure);
   margin: var(--space-3) 0 0;
 }
-
-/* Everything still to be written. Conspicuous so none of it ships by accident. */
 
 .placeholder {
   font-family: var(--font-label);
@@ -291,7 +287,6 @@ body {
 .colophon {
   margin-top: var(--space-9);
   padding: var(--space-7) 0 var(--space-9);
-  border-top: 1px solid var(--rule);
   font-size: var(--size-small);
   color: var(--ink-soft);
 }
@@ -315,8 +310,6 @@ body {
   margin-top: var(--space-2);
 }
 
-/* Full width must stay visible without horizontal scrolling. */
-
 @media (max-width: 760px) {
   :root {
     --gutter: var(--space-4);
@@ -325,4 +318,17 @@ body {
   .section {
     padding-top: var(--space-8);
   }
+
+  .prose {
+    columns: 1;
+  }
+}
+
+.section .prose--split p {
+  break-inside: avoid;
+}
+
+.section .prose--split p + p {
+  text-indent: 0;
+  break-before: column;
 }

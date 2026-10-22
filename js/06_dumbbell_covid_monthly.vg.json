@@ -9,8 +9,8 @@
   "title": {
     "text": "The market and the city centre emptied together, then came apart",
     "subtitle": [
-      "Change in foot traffic in each month of 2020 against the same month a year earlier.",
-      "Gaps between the two sensor series are given in percentage points."
+      "Change in foot traffic in each month of 2020 against the same month a year",
+      "earlier. Gaps between the two sensor series are given in percentage points."
     ],
     "anchor": "start",
     "font": "Fraunces",
@@ -21,7 +21,7 @@
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
-    "offset": 34
+    "offset": 42
   },
   "encoding": {
     "y": {
