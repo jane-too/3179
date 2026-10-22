@@ -4,13 +4,10 @@ AI_LOG.md
 DV2_Source_Log.md
 
 # Unit reference material, not mine to publish
-_ref/
 _ref:/
 
 # Working artefacts
 _checks/
-dv2_build.zip
-.venv-render/
 __pycache__/
 .DS_Store
 
@@ -28,3 +25,8 @@ data/adelaide_central_international_by_country_year.csv
 data/adelaide_central_international_by_year.csv
 data/sydney_fish_market_international_by_country_year.csv
 data/sydney_fish_market_international_by_year.csv
+# Sources for derived files the page loads (kept for provenance, 23 Oct 2026).
+data/domestic_daytrips_markets_by_state_year.csv
+data/domestic_daytrips_markets_share_pooled.csv
+data/intl_origin_points_2025.csv
+data/qvm_mix_share.csv
