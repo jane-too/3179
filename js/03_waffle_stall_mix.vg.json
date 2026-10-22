@@ -143,7 +143,7 @@
         "color": {
           "condition": {
             "test": "datum.filled",
-            "value": "#4A463F"
+            "value": "#A07C0A"
           },
           "value": "#DDDDDD"
         },

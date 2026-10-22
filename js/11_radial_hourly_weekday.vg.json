@@ -1,0 +1,2054 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#F7F4EE",
+  "padding": 5,
+  "title": {
+    "text": "DRAFT — Lunchtime six days a week, 7pm on Wednesdays — in 2019 and again in 2025–26",
+    "subtitle": [
+      "DRAFT — Share of each day's pedestrians counted in each hour by the sensor on Therry Street, beside the Queen Victoria Market.",
+      "Shares, not counts: the sensor was replaced between the two periods, so only the shape of each day can be compared."
+    ],
+    "anchor": "start",
+    "font": "Fraunces",
+    "fontSize": 19,
+    "fontWeight": 600,
+    "color": "#1A1A17",
+    "subtitleFont": "Archivo",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#6B675F",
+    "subtitleLineHeight": 18,
+    "offset": 24
+  },
+  "vconcat": [
+    {
+      "hconcat": [
+        {
+          "title": {
+            "text": "Monday",
+            "anchor": "middle",
+            "font": "Archivo",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "color": "#2E2A24",
+            "offset": 4
+          },
+          "width": 236,
+          "height": 236,
+          "data": {
+            "url": "data/qvm_hourly_by_weekday.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "hour": "number",
+                "share_of_day_pct": "number",
+                "count": "number"
+              }
+            }
+          },
+          "layer": [
+            {
+              "data": {
+                "values": [
+                  {
+                    "v": 5
+                  }
+                ]
+              },
+              "mark": {
+                "type": "point",
+                "shape": "circle",
+                "filled": false,
+                "stroke": "#E8E4DC",
+                "strokeWidth": 1,
+                "size": 16572.227288393897,
+                "x": 118.0,
+                "y": 118.0
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "v": 10
+                  }
+                ]
+              },
+              "mark": {
+                "type": "point",
+                "shape": "circle",
+                "filled": false,
+                "stroke": "#E8E4DC",
+                "strokeWidth": 1,
+                "size": 30196.678085611275,
+                "x": 118.0,
+                "y": 118.0
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.weekday == 'Monday'"
+                },
+                {
+                  "calculate": "datum.hour + 1",
+                  "as": "hour_end"
+                },
+                {
+                  "filter": "datum.period == '2025-26'"
+                }
+              ],
+              "mark": {
+                "type": "arc",
+                "fill": "#A632A6",
+                "fillOpacity": 0.45,
+                "stroke": "#F7F4EE",
+                "strokeWidth": 0.5
+              },
+              "encoding": {
+                "theta": {
+                  "field": "hour",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "theta2": {
+                  "field": "hour_end"
+                },
+                "radius": {
+                  "field": "share_of_day_pct",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "sqrt",
+                    "domain": [
+                      0,
+                      13.1
+                    ],
+                    "range": [
+                      10,
+                      98
+                    ],
+                    "zero": true
+                  },
+                  "legend": null
+                },
+                "radius2": {
+                  "value": 10
+                },
+                "tooltip": [
+                  {
+                    "field": "weekday",
+                    "title": "Day"
+                  },
+                  {
+                    "field": "period",
+                    "title": "Period"
+                  },
+                  {
+                    "field": "hour",
+                    "title": "Hour starting",
+                    "format": "02d"
+                  },
+                  {
+                    "field": "share_of_day_pct",
+                    "title": "Share of the day (%)",
+                    "format": ".1f"
+                  }
+                ]
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.weekday == 'Monday'"
+                },
+                {
+                  "calculate": "datum.hour + 1",
+                  "as": "hour_end"
+                },
+                {
+                  "filter": "datum.period == '2019'"
+                }
+              ],
+              "mark": {
+                "type": "arc",
+                "fill": null,
+                "stroke": "#1A1A17",
+                "strokeWidth": 1.1
+              },
+              "encoding": {
+                "theta": {
+                  "field": "hour",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "theta2": {
+                  "field": "hour_end"
+                },
+                "radius": {
+                  "field": "share_of_day_pct",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "sqrt",
+                    "domain": [
+                      0,
+                      13.1
+                    ],
+                    "range": [
+                      10,
+                      98
+                    ],
+                    "zero": true
+                  },
+                  "legend": null
+                },
+                "radius2": {
+                  "value": 10
+                },
+                "tooltip": [
+                  {
+                    "field": "weekday",
+                    "title": "Day"
+                  },
+                  {
+                    "field": "period",
+                    "title": "Period"
+                  },
+                  {
+                    "field": "hour",
+                    "title": "Hour starting",
+                    "format": "02d"
+                  },
+                  {
+                    "field": "share_of_day_pct",
+                    "title": "Share of the day (%)",
+                    "format": ".1f"
+                  }
+                ]
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "h": 0,
+                    "t": "0"
+                  },
+                  {
+                    "h": 6,
+                    "t": "6"
+                  },
+                  {
+                    "h": 12,
+                    "t": "12"
+                  },
+                  {
+                    "h": 18,
+                    "t": "18"
+                  }
+                ]
+              },
+              "mark": {
+                "type": "text",
+                "font": "Archivo",
+                "fontSize": 11,
+                "color": "#6B675F",
+                "radius": 103
+              },
+              "encoding": {
+                "theta": {
+                  "field": "h",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "text": {
+                  "field": "t"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "text": "Tuesday",
+            "anchor": "middle",
+            "font": "Archivo",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "color": "#2E2A24",
+            "offset": 4
+          },
+          "width": 236,
+          "height": 236,
+          "data": {
+            "url": "data/qvm_hourly_by_weekday.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "hour": "number",
+                "share_of_day_pct": "number",
+                "count": "number"
+              }
+            }
+          },
+          "layer": [
+            {
+              "data": {
+                "values": [
+                  {
+                    "v": 5
+                  }
+                ]
+              },
+              "mark": {
+                "type": "point",
+                "shape": "circle",
+                "filled": false,
+                "stroke": "#E8E4DC",
+                "strokeWidth": 1,
+                "size": 16572.227288393897,
+                "x": 118.0,
+                "y": 118.0
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "v": 10
+                  }
+                ]
+              },
+              "mark": {
+                "type": "point",
+                "shape": "circle",
+                "filled": false,
+                "stroke": "#E8E4DC",
+                "strokeWidth": 1,
+                "size": 30196.678085611275,
+                "x": 118.0,
+                "y": 118.0
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.weekday == 'Tuesday'"
+                },
+                {
+                  "calculate": "datum.hour + 1",
+                  "as": "hour_end"
+                },
+                {
+                  "filter": "datum.period == '2025-26'"
+                }
+              ],
+              "mark": {
+                "type": "arc",
+                "fill": "#A632A6",
+                "fillOpacity": 0.45,
+                "stroke": "#F7F4EE",
+                "strokeWidth": 0.5
+              },
+              "encoding": {
+                "theta": {
+                  "field": "hour",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "theta2": {
+                  "field": "hour_end"
+                },
+                "radius": {
+                  "field": "share_of_day_pct",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "sqrt",
+                    "domain": [
+                      0,
+                      13.1
+                    ],
+                    "range": [
+                      10,
+                      98
+                    ],
+                    "zero": true
+                  },
+                  "legend": null
+                },
+                "radius2": {
+                  "value": 10
+                },
+                "tooltip": [
+                  {
+                    "field": "weekday",
+                    "title": "Day"
+                  },
+                  {
+                    "field": "period",
+                    "title": "Period"
+                  },
+                  {
+                    "field": "hour",
+                    "title": "Hour starting",
+                    "format": "02d"
+                  },
+                  {
+                    "field": "share_of_day_pct",
+                    "title": "Share of the day (%)",
+                    "format": ".1f"
+                  }
+                ]
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.weekday == 'Tuesday'"
+                },
+                {
+                  "calculate": "datum.hour + 1",
+                  "as": "hour_end"
+                },
+                {
+                  "filter": "datum.period == '2019'"
+                }
+              ],
+              "mark": {
+                "type": "arc",
+                "fill": null,
+                "stroke": "#1A1A17",
+                "strokeWidth": 1.1
+              },
+              "encoding": {
+                "theta": {
+                  "field": "hour",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "theta2": {
+                  "field": "hour_end"
+                },
+                "radius": {
+                  "field": "share_of_day_pct",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "sqrt",
+                    "domain": [
+                      0,
+                      13.1
+                    ],
+                    "range": [
+                      10,
+                      98
+                    ],
+                    "zero": true
+                  },
+                  "legend": null
+                },
+                "radius2": {
+                  "value": 10
+                },
+                "tooltip": [
+                  {
+                    "field": "weekday",
+                    "title": "Day"
+                  },
+                  {
+                    "field": "period",
+                    "title": "Period"
+                  },
+                  {
+                    "field": "hour",
+                    "title": "Hour starting",
+                    "format": "02d"
+                  },
+                  {
+                    "field": "share_of_day_pct",
+                    "title": "Share of the day (%)",
+                    "format": ".1f"
+                  }
+                ]
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "h": 0,
+                    "t": "0"
+                  },
+                  {
+                    "h": 6,
+                    "t": "6"
+                  },
+                  {
+                    "h": 12,
+                    "t": "12"
+                  },
+                  {
+                    "h": 18,
+                    "t": "18"
+                  }
+                ]
+              },
+              "mark": {
+                "type": "text",
+                "font": "Archivo",
+                "fontSize": 11,
+                "color": "#6B675F",
+                "radius": 103
+              },
+              "encoding": {
+                "theta": {
+                  "field": "h",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "text": {
+                  "field": "t"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "text": "Wednesday",
+            "anchor": "middle",
+            "font": "Archivo",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "color": "#2E2A24",
+            "offset": 4
+          },
+          "width": 236,
+          "height": 236,
+          "data": {
+            "url": "data/qvm_hourly_by_weekday.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "hour": "number",
+                "share_of_day_pct": "number",
+                "count": "number"
+              }
+            }
+          },
+          "layer": [
+            {
+              "data": {
+                "values": [
+                  {
+                    "v": 5
+                  }
+                ]
+              },
+              "mark": {
+                "type": "point",
+                "shape": "circle",
+                "filled": false,
+                "stroke": "#E8E4DC",
+                "strokeWidth": 1,
+                "size": 16572.227288393897,
+                "x": 118.0,
+                "y": 118.0
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "v": 10
+                  }
+                ]
+              },
+              "mark": {
+                "type": "point",
+                "shape": "circle",
+                "filled": false,
+                "stroke": "#E8E4DC",
+                "strokeWidth": 1,
+                "size": 30196.678085611275,
+                "x": 118.0,
+                "y": 118.0
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.weekday == 'Wednesday'"
+                },
+                {
+                  "calculate": "datum.hour + 1",
+                  "as": "hour_end"
+                },
+                {
+                  "filter": "datum.period == '2025-26'"
+                }
+              ],
+              "mark": {
+                "type": "arc",
+                "fill": "#A632A6",
+                "fillOpacity": 0.45,
+                "stroke": "#F7F4EE",
+                "strokeWidth": 0.5
+              },
+              "encoding": {
+                "theta": {
+                  "field": "hour",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "theta2": {
+                  "field": "hour_end"
+                },
+                "radius": {
+                  "field": "share_of_day_pct",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "sqrt",
+                    "domain": [
+                      0,
+                      13.1
+                    ],
+                    "range": [
+                      10,
+                      98
+                    ],
+                    "zero": true
+                  },
+                  "legend": null
+                },
+                "radius2": {
+                  "value": 10
+                },
+                "tooltip": [
+                  {
+                    "field": "weekday",
+                    "title": "Day"
+                  },
+                  {
+                    "field": "period",
+                    "title": "Period"
+                  },
+                  {
+                    "field": "hour",
+                    "title": "Hour starting",
+                    "format": "02d"
+                  },
+                  {
+                    "field": "share_of_day_pct",
+                    "title": "Share of the day (%)",
+                    "format": ".1f"
+                  }
+                ]
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.weekday == 'Wednesday'"
+                },
+                {
+                  "calculate": "datum.hour + 1",
+                  "as": "hour_end"
+                },
+                {
+                  "filter": "datum.period == '2019'"
+                }
+              ],
+              "mark": {
+                "type": "arc",
+                "fill": null,
+                "stroke": "#1A1A17",
+                "strokeWidth": 1.1
+              },
+              "encoding": {
+                "theta": {
+                  "field": "hour",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "theta2": {
+                  "field": "hour_end"
+                },
+                "radius": {
+                  "field": "share_of_day_pct",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "sqrt",
+                    "domain": [
+                      0,
+                      13.1
+                    ],
+                    "range": [
+                      10,
+                      98
+                    ],
+                    "zero": true
+                  },
+                  "legend": null
+                },
+                "radius2": {
+                  "value": 10
+                },
+                "tooltip": [
+                  {
+                    "field": "weekday",
+                    "title": "Day"
+                  },
+                  {
+                    "field": "period",
+                    "title": "Period"
+                  },
+                  {
+                    "field": "hour",
+                    "title": "Hour starting",
+                    "format": "02d"
+                  },
+                  {
+                    "field": "share_of_day_pct",
+                    "title": "Share of the day (%)",
+                    "format": ".1f"
+                  }
+                ]
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "h": 0,
+                    "t": "0"
+                  },
+                  {
+                    "h": 6,
+                    "t": "6"
+                  },
+                  {
+                    "h": 12,
+                    "t": "12"
+                  },
+                  {
+                    "h": 18,
+                    "t": "18"
+                  }
+                ]
+              },
+              "mark": {
+                "type": "text",
+                "font": "Archivo",
+                "fontSize": 11,
+                "color": "#6B675F",
+                "radius": 103
+              },
+              "encoding": {
+                "theta": {
+                  "field": "h",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "text": {
+                  "field": "t"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "text": " ",
+            "offset": 4,
+            "fontSize": 14
+          },
+          "width": 236,
+          "height": 236,
+          "data": {
+            "values": [
+              {
+                "a": 0
+              }
+            ]
+          },
+          "layer": [
+            {
+              "mark": {
+                "type": "rect",
+                "x": 0,
+                "x2": 199,
+                "y": 42,
+                "y2": 111,
+                "fill": "#FCFBF8",
+                "stroke": "#DFD9CC",
+                "strokeWidth": 1,
+                "cornerRadius": 2
+              }
+            },
+            {
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "font": "Archivo",
+                "color": "#2E2A24",
+                "x": 12,
+                "y": 54,
+                "baseline": "top",
+                "fontSize": 12.5,
+                "lineHeight": 17,
+                "text": [
+                  "Wednesday is the only day that",
+                  "peaks in the evening, at 7pm,",
+                  "in both periods."
+                ]
+              }
+            },
+            {
+              "mark": {
+                "type": "rect",
+                "x": 0,
+                "x2": 18,
+                "y": 134,
+                "y2": 152,
+                "fill": "#A632A6",
+                "fillOpacity": 0.45
+              }
+            },
+            {
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "font": "Archivo",
+                "color": "#2E2A24",
+                "x": 26,
+                "y": 143,
+                "baseline": "middle",
+                "fontSize": 12.5,
+                "text": "12 months to October 2026"
+              }
+            },
+            {
+              "mark": {
+                "type": "rect",
+                "x": 0,
+                "x2": 18,
+                "y": 162,
+                "y2": 180,
+                "fill": null,
+                "stroke": "#1A1A17",
+                "strokeWidth": 1.1
+              }
+            },
+            {
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "font": "Archivo",
+                "color": "#2E2A24",
+                "x": 26,
+                "y": 171,
+                "baseline": "middle",
+                "fontSize": 12.5,
+                "text": "2019"
+              }
+            },
+            {
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "font": "Archivo",
+                "color": "#6B675F",
+                "x": 0,
+                "y": 192,
+                "baseline": "top",
+                "fontSize": 11.5,
+                "lineHeight": 15,
+                "text": [
+                  "Rings mark 5% and 10% of the day's",
+                  "count. Hours run clockwise from",
+                  "midnight at the top."
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "spacing": 33.1
+    },
+    {
+      "hconcat": [
+        {
+          "title": {
+            "text": "Thursday",
+            "anchor": "middle",
+            "font": "Archivo",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "color": "#2E2A24",
+            "offset": 4
+          },
+          "width": 236,
+          "height": 236,
+          "data": {
+            "url": "data/qvm_hourly_by_weekday.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "hour": "number",
+                "share_of_day_pct": "number",
+                "count": "number"
+              }
+            }
+          },
+          "layer": [
+            {
+              "data": {
+                "values": [
+                  {
+                    "v": 5
+                  }
+                ]
+              },
+              "mark": {
+                "type": "point",
+                "shape": "circle",
+                "filled": false,
+                "stroke": "#E8E4DC",
+                "strokeWidth": 1,
+                "size": 16572.227288393897,
+                "x": 118.0,
+                "y": 118.0
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "v": 10
+                  }
+                ]
+              },
+              "mark": {
+                "type": "point",
+                "shape": "circle",
+                "filled": false,
+                "stroke": "#E8E4DC",
+                "strokeWidth": 1,
+                "size": 30196.678085611275,
+                "x": 118.0,
+                "y": 118.0
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.weekday == 'Thursday'"
+                },
+                {
+                  "calculate": "datum.hour + 1",
+                  "as": "hour_end"
+                },
+                {
+                  "filter": "datum.period == '2025-26'"
+                }
+              ],
+              "mark": {
+                "type": "arc",
+                "fill": "#A632A6",
+                "fillOpacity": 0.45,
+                "stroke": "#F7F4EE",
+                "strokeWidth": 0.5
+              },
+              "encoding": {
+                "theta": {
+                  "field": "hour",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "theta2": {
+                  "field": "hour_end"
+                },
+                "radius": {
+                  "field": "share_of_day_pct",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "sqrt",
+                    "domain": [
+                      0,
+                      13.1
+                    ],
+                    "range": [
+                      10,
+                      98
+                    ],
+                    "zero": true
+                  },
+                  "legend": null
+                },
+                "radius2": {
+                  "value": 10
+                },
+                "tooltip": [
+                  {
+                    "field": "weekday",
+                    "title": "Day"
+                  },
+                  {
+                    "field": "period",
+                    "title": "Period"
+                  },
+                  {
+                    "field": "hour",
+                    "title": "Hour starting",
+                    "format": "02d"
+                  },
+                  {
+                    "field": "share_of_day_pct",
+                    "title": "Share of the day (%)",
+                    "format": ".1f"
+                  }
+                ]
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.weekday == 'Thursday'"
+                },
+                {
+                  "calculate": "datum.hour + 1",
+                  "as": "hour_end"
+                },
+                {
+                  "filter": "datum.period == '2019'"
+                }
+              ],
+              "mark": {
+                "type": "arc",
+                "fill": null,
+                "stroke": "#1A1A17",
+                "strokeWidth": 1.1
+              },
+              "encoding": {
+                "theta": {
+                  "field": "hour",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "theta2": {
+                  "field": "hour_end"
+                },
+                "radius": {
+                  "field": "share_of_day_pct",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "sqrt",
+                    "domain": [
+                      0,
+                      13.1
+                    ],
+                    "range": [
+                      10,
+                      98
+                    ],
+                    "zero": true
+                  },
+                  "legend": null
+                },
+                "radius2": {
+                  "value": 10
+                },
+                "tooltip": [
+                  {
+                    "field": "weekday",
+                    "title": "Day"
+                  },
+                  {
+                    "field": "period",
+                    "title": "Period"
+                  },
+                  {
+                    "field": "hour",
+                    "title": "Hour starting",
+                    "format": "02d"
+                  },
+                  {
+                    "field": "share_of_day_pct",
+                    "title": "Share of the day (%)",
+                    "format": ".1f"
+                  }
+                ]
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "h": 0,
+                    "t": "0"
+                  },
+                  {
+                    "h": 6,
+                    "t": "6"
+                  },
+                  {
+                    "h": 12,
+                    "t": "12"
+                  },
+                  {
+                    "h": 18,
+                    "t": "18"
+                  }
+                ]
+              },
+              "mark": {
+                "type": "text",
+                "font": "Archivo",
+                "fontSize": 11,
+                "color": "#6B675F",
+                "radius": 103
+              },
+              "encoding": {
+                "theta": {
+                  "field": "h",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "text": {
+                  "field": "t"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "text": "Friday",
+            "anchor": "middle",
+            "font": "Archivo",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "color": "#2E2A24",
+            "offset": 4
+          },
+          "width": 236,
+          "height": 236,
+          "data": {
+            "url": "data/qvm_hourly_by_weekday.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "hour": "number",
+                "share_of_day_pct": "number",
+                "count": "number"
+              }
+            }
+          },
+          "layer": [
+            {
+              "data": {
+                "values": [
+                  {
+                    "v": 5
+                  }
+                ]
+              },
+              "mark": {
+                "type": "point",
+                "shape": "circle",
+                "filled": false,
+                "stroke": "#E8E4DC",
+                "strokeWidth": 1,
+                "size": 16572.227288393897,
+                "x": 118.0,
+                "y": 118.0
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "v": 10
+                  }
+                ]
+              },
+              "mark": {
+                "type": "point",
+                "shape": "circle",
+                "filled": false,
+                "stroke": "#E8E4DC",
+                "strokeWidth": 1,
+                "size": 30196.678085611275,
+                "x": 118.0,
+                "y": 118.0
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.weekday == 'Friday'"
+                },
+                {
+                  "calculate": "datum.hour + 1",
+                  "as": "hour_end"
+                },
+                {
+                  "filter": "datum.period == '2025-26'"
+                }
+              ],
+              "mark": {
+                "type": "arc",
+                "fill": "#A632A6",
+                "fillOpacity": 0.45,
+                "stroke": "#F7F4EE",
+                "strokeWidth": 0.5
+              },
+              "encoding": {
+                "theta": {
+                  "field": "hour",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "theta2": {
+                  "field": "hour_end"
+                },
+                "radius": {
+                  "field": "share_of_day_pct",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "sqrt",
+                    "domain": [
+                      0,
+                      13.1
+                    ],
+                    "range": [
+                      10,
+                      98
+                    ],
+                    "zero": true
+                  },
+                  "legend": null
+                },
+                "radius2": {
+                  "value": 10
+                },
+                "tooltip": [
+                  {
+                    "field": "weekday",
+                    "title": "Day"
+                  },
+                  {
+                    "field": "period",
+                    "title": "Period"
+                  },
+                  {
+                    "field": "hour",
+                    "title": "Hour starting",
+                    "format": "02d"
+                  },
+                  {
+                    "field": "share_of_day_pct",
+                    "title": "Share of the day (%)",
+                    "format": ".1f"
+                  }
+                ]
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.weekday == 'Friday'"
+                },
+                {
+                  "calculate": "datum.hour + 1",
+                  "as": "hour_end"
+                },
+                {
+                  "filter": "datum.period == '2019'"
+                }
+              ],
+              "mark": {
+                "type": "arc",
+                "fill": null,
+                "stroke": "#1A1A17",
+                "strokeWidth": 1.1
+              },
+              "encoding": {
+                "theta": {
+                  "field": "hour",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "theta2": {
+                  "field": "hour_end"
+                },
+                "radius": {
+                  "field": "share_of_day_pct",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "sqrt",
+                    "domain": [
+                      0,
+                      13.1
+                    ],
+                    "range": [
+                      10,
+                      98
+                    ],
+                    "zero": true
+                  },
+                  "legend": null
+                },
+                "radius2": {
+                  "value": 10
+                },
+                "tooltip": [
+                  {
+                    "field": "weekday",
+                    "title": "Day"
+                  },
+                  {
+                    "field": "period",
+                    "title": "Period"
+                  },
+                  {
+                    "field": "hour",
+                    "title": "Hour starting",
+                    "format": "02d"
+                  },
+                  {
+                    "field": "share_of_day_pct",
+                    "title": "Share of the day (%)",
+                    "format": ".1f"
+                  }
+                ]
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "h": 0,
+                    "t": "0"
+                  },
+                  {
+                    "h": 6,
+                    "t": "6"
+                  },
+                  {
+                    "h": 12,
+                    "t": "12"
+                  },
+                  {
+                    "h": 18,
+                    "t": "18"
+                  }
+                ]
+              },
+              "mark": {
+                "type": "text",
+                "font": "Archivo",
+                "fontSize": 11,
+                "color": "#6B675F",
+                "radius": 103
+              },
+              "encoding": {
+                "theta": {
+                  "field": "h",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "text": {
+                  "field": "t"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "text": "Saturday",
+            "anchor": "middle",
+            "font": "Archivo",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "color": "#2E2A24",
+            "offset": 4
+          },
+          "width": 236,
+          "height": 236,
+          "data": {
+            "url": "data/qvm_hourly_by_weekday.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "hour": "number",
+                "share_of_day_pct": "number",
+                "count": "number"
+              }
+            }
+          },
+          "layer": [
+            {
+              "data": {
+                "values": [
+                  {
+                    "v": 5
+                  }
+                ]
+              },
+              "mark": {
+                "type": "point",
+                "shape": "circle",
+                "filled": false,
+                "stroke": "#E8E4DC",
+                "strokeWidth": 1,
+                "size": 16572.227288393897,
+                "x": 118.0,
+                "y": 118.0
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "v": 10
+                  }
+                ]
+              },
+              "mark": {
+                "type": "point",
+                "shape": "circle",
+                "filled": false,
+                "stroke": "#E8E4DC",
+                "strokeWidth": 1,
+                "size": 30196.678085611275,
+                "x": 118.0,
+                "y": 118.0
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.weekday == 'Saturday'"
+                },
+                {
+                  "calculate": "datum.hour + 1",
+                  "as": "hour_end"
+                },
+                {
+                  "filter": "datum.period == '2025-26'"
+                }
+              ],
+              "mark": {
+                "type": "arc",
+                "fill": "#A632A6",
+                "fillOpacity": 0.45,
+                "stroke": "#F7F4EE",
+                "strokeWidth": 0.5
+              },
+              "encoding": {
+                "theta": {
+                  "field": "hour",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "theta2": {
+                  "field": "hour_end"
+                },
+                "radius": {
+                  "field": "share_of_day_pct",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "sqrt",
+                    "domain": [
+                      0,
+                      13.1
+                    ],
+                    "range": [
+                      10,
+                      98
+                    ],
+                    "zero": true
+                  },
+                  "legend": null
+                },
+                "radius2": {
+                  "value": 10
+                },
+                "tooltip": [
+                  {
+                    "field": "weekday",
+                    "title": "Day"
+                  },
+                  {
+                    "field": "period",
+                    "title": "Period"
+                  },
+                  {
+                    "field": "hour",
+                    "title": "Hour starting",
+                    "format": "02d"
+                  },
+                  {
+                    "field": "share_of_day_pct",
+                    "title": "Share of the day (%)",
+                    "format": ".1f"
+                  }
+                ]
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.weekday == 'Saturday'"
+                },
+                {
+                  "calculate": "datum.hour + 1",
+                  "as": "hour_end"
+                },
+                {
+                  "filter": "datum.period == '2019'"
+                }
+              ],
+              "mark": {
+                "type": "arc",
+                "fill": null,
+                "stroke": "#1A1A17",
+                "strokeWidth": 1.1
+              },
+              "encoding": {
+                "theta": {
+                  "field": "hour",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "theta2": {
+                  "field": "hour_end"
+                },
+                "radius": {
+                  "field": "share_of_day_pct",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "sqrt",
+                    "domain": [
+                      0,
+                      13.1
+                    ],
+                    "range": [
+                      10,
+                      98
+                    ],
+                    "zero": true
+                  },
+                  "legend": null
+                },
+                "radius2": {
+                  "value": 10
+                },
+                "tooltip": [
+                  {
+                    "field": "weekday",
+                    "title": "Day"
+                  },
+                  {
+                    "field": "period",
+                    "title": "Period"
+                  },
+                  {
+                    "field": "hour",
+                    "title": "Hour starting",
+                    "format": "02d"
+                  },
+                  {
+                    "field": "share_of_day_pct",
+                    "title": "Share of the day (%)",
+                    "format": ".1f"
+                  }
+                ]
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "h": 0,
+                    "t": "0"
+                  },
+                  {
+                    "h": 6,
+                    "t": "6"
+                  },
+                  {
+                    "h": 12,
+                    "t": "12"
+                  },
+                  {
+                    "h": 18,
+                    "t": "18"
+                  }
+                ]
+              },
+              "mark": {
+                "type": "text",
+                "font": "Archivo",
+                "fontSize": 11,
+                "color": "#6B675F",
+                "radius": 103
+              },
+              "encoding": {
+                "theta": {
+                  "field": "h",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "text": {
+                  "field": "t"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "title": {
+            "text": "Sunday",
+            "anchor": "middle",
+            "font": "Archivo",
+            "fontSize": 14,
+            "fontWeight": 600,
+            "color": "#2E2A24",
+            "offset": 4
+          },
+          "width": 236,
+          "height": 236,
+          "data": {
+            "url": "data/qvm_hourly_by_weekday.csv",
+            "format": {
+              "type": "csv",
+              "parse": {
+                "hour": "number",
+                "share_of_day_pct": "number",
+                "count": "number"
+              }
+            }
+          },
+          "layer": [
+            {
+              "data": {
+                "values": [
+                  {
+                    "v": 5
+                  }
+                ]
+              },
+              "mark": {
+                "type": "point",
+                "shape": "circle",
+                "filled": false,
+                "stroke": "#E8E4DC",
+                "strokeWidth": 1,
+                "size": 16572.227288393897,
+                "x": 118.0,
+                "y": 118.0
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "v": 10
+                  }
+                ]
+              },
+              "mark": {
+                "type": "point",
+                "shape": "circle",
+                "filled": false,
+                "stroke": "#E8E4DC",
+                "strokeWidth": 1,
+                "size": 30196.678085611275,
+                "x": 118.0,
+                "y": 118.0
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.weekday == 'Sunday'"
+                },
+                {
+                  "calculate": "datum.hour + 1",
+                  "as": "hour_end"
+                },
+                {
+                  "filter": "datum.period == '2025-26'"
+                }
+              ],
+              "mark": {
+                "type": "arc",
+                "fill": "#A632A6",
+                "fillOpacity": 0.45,
+                "stroke": "#F7F4EE",
+                "strokeWidth": 0.5
+              },
+              "encoding": {
+                "theta": {
+                  "field": "hour",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "theta2": {
+                  "field": "hour_end"
+                },
+                "radius": {
+                  "field": "share_of_day_pct",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "sqrt",
+                    "domain": [
+                      0,
+                      13.1
+                    ],
+                    "range": [
+                      10,
+                      98
+                    ],
+                    "zero": true
+                  },
+                  "legend": null
+                },
+                "radius2": {
+                  "value": 10
+                },
+                "tooltip": [
+                  {
+                    "field": "weekday",
+                    "title": "Day"
+                  },
+                  {
+                    "field": "period",
+                    "title": "Period"
+                  },
+                  {
+                    "field": "hour",
+                    "title": "Hour starting",
+                    "format": "02d"
+                  },
+                  {
+                    "field": "share_of_day_pct",
+                    "title": "Share of the day (%)",
+                    "format": ".1f"
+                  }
+                ]
+              }
+            },
+            {
+              "transform": [
+                {
+                  "filter": "datum.weekday == 'Sunday'"
+                },
+                {
+                  "calculate": "datum.hour + 1",
+                  "as": "hour_end"
+                },
+                {
+                  "filter": "datum.period == '2019'"
+                }
+              ],
+              "mark": {
+                "type": "arc",
+                "fill": null,
+                "stroke": "#1A1A17",
+                "strokeWidth": 1.1
+              },
+              "encoding": {
+                "theta": {
+                  "field": "hour",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "theta2": {
+                  "field": "hour_end"
+                },
+                "radius": {
+                  "field": "share_of_day_pct",
+                  "type": "quantitative",
+                  "scale": {
+                    "type": "sqrt",
+                    "domain": [
+                      0,
+                      13.1
+                    ],
+                    "range": [
+                      10,
+                      98
+                    ],
+                    "zero": true
+                  },
+                  "legend": null
+                },
+                "radius2": {
+                  "value": 10
+                },
+                "tooltip": [
+                  {
+                    "field": "weekday",
+                    "title": "Day"
+                  },
+                  {
+                    "field": "period",
+                    "title": "Period"
+                  },
+                  {
+                    "field": "hour",
+                    "title": "Hour starting",
+                    "format": "02d"
+                  },
+                  {
+                    "field": "share_of_day_pct",
+                    "title": "Share of the day (%)",
+                    "format": ".1f"
+                  }
+                ]
+              }
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "h": 0,
+                    "t": "0"
+                  },
+                  {
+                    "h": 6,
+                    "t": "6"
+                  },
+                  {
+                    "h": 12,
+                    "t": "12"
+                  },
+                  {
+                    "h": 18,
+                    "t": "18"
+                  }
+                ]
+              },
+              "mark": {
+                "type": "text",
+                "font": "Archivo",
+                "fontSize": 11,
+                "color": "#6B675F",
+                "radius": 103
+              },
+              "encoding": {
+                "theta": {
+                  "field": "h",
+                  "type": "quantitative",
+                  "scale": {
+                    "domain": [
+                      0,
+                      24
+                    ],
+                    "range": [
+                      0,
+                      6.283185307179586
+                    ]
+                  }
+                },
+                "text": {
+                  "field": "t"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "spacing": 33.1
+    }
+  ],
+  "spacing": 26,
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": "#F7F4EE"
+  }
+}

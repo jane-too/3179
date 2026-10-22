@@ -912,7 +912,7 @@
           "filter": "datum.mappable == 0 && datum.group == 'QVM area'"
         },
         {
-          "calculate": "split('The other 4 appear in the 2009–22 archive but not in the council’s current locations|file, so they have no coordinates. Thus, they are counted in the averages, but not drawn.', '|')",
+          "calculate": "split('The other 4 appear in the 2009–22 archive but not in the council’s current locations|file, so they have no coordinates. They are counted in the averages, but not drawn.', '|')",
           "as": "t"
         }
       ],

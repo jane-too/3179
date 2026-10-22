@@ -88,7 +88,7 @@
       ],
       "mark": {
         "type": "line",
-        "color": "#2F6B45",
+        "color": "#A07C0A",
         "strokeWidth": 2.5,
         "strokeCap": "round"
       },
@@ -106,7 +106,7 @@
       ],
       "mark": {
         "type": "line",
-        "color": "#2F6B45",
+        "color": "#A07C0A",
         "strokeWidth": 5,
         "strokeCap": "round"
       },
@@ -176,7 +176,7 @@
       "mark": {
         "type": "circle",
         "opacity": 1,
-        "color": "#2F6B45"
+        "color": "#A07C0A"
       },
       "encoding": {
         "size": {
@@ -253,7 +253,7 @@
         "fontWeight": {
           "expr": "datum.is_figure ? 600 : 400"
         },
-        "color": "#2F6B45"
+        "color": "#2E2A24"
       },
       "encoding": {
         "text": {
@@ -281,7 +281,7 @@
         "fontWeight": {
           "expr": "datum.is_figure ? 600 : 400"
         },
-        "color": "#2F6B45"
+        "color": "#2E2A24"
       },
       "encoding": {
         "text": {
@@ -368,8 +368,7 @@
       ],
       "mark": {
         "type": "rect",
-        "fill": "#FFFFFF",
-        "fillOpacity": 0.6,
+        "fill": "#FCFBF8",
         "stroke": "#DFD9CC",
         "strokeWidth": 1,
         "cornerRadius": 2,
@@ -433,8 +432,7 @@
       ],
       "mark": {
         "type": "rect",
-        "fill": "#FFFFFF",
-        "fillOpacity": 0.6,
+        "fill": "#FCFBF8",
         "stroke": "#DFD9CC",
         "strokeWidth": 1,
         "cornerRadius": 2,

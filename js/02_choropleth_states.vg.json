@@ -469,7 +469,7 @@
           "filter": "datum.share_pct == datum.hi"
         },
         {
-          "calculate": "split('The highest and lowest states differ|by ' + format(datum.hi - datum.lo, '.2f') + ' of a percentage point.', '|')",
+          "calculate": "split('The highest and lowest states differ|by ' + format(datum.hi - datum.lo, '.2f') + ' percentage points.', '|')",
           "as": "claim"
         },
         {
@@ -573,7 +573,7 @@
           "filter": "datum.share_pct == datum.hi"
         },
         {
-          "calculate": "'The highest and lowest states differ by ' + format(datum.hi - datum.lo, '.2f') + ' of a percentage point.'",
+          "calculate": "'The highest and lowest states differ by ' + format(datum.hi - datum.lo, '.2f') + ' percentage points.'",
           "as": "claim"
         },
         {
