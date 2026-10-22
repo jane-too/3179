@@ -17,7 +17,8 @@
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
-    "offset": 42
+    "offset": 42,
+    "subtitlePadding": 10
   },
   "data": {
     "url": "data/qvm_area_daily_counts_2019_2022.csv",
@@ -45,6 +46,272 @@
     }
   ],
   "vconcat": [
+    {
+      "title": {
+        "text": "People counted each day",
+        "anchor": "start",
+        "font": "Archivo",
+        "fontSize": 15,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "offset": 8,
+        "dx": 0
+      },
+      "data": {
+        "values": [
+          {
+            "i": 0,
+            "c": "#FDC1F9",
+            "x": 0.0
+          },
+          {
+            "i": 1,
+            "c": "#DC8CD8",
+            "x": 52.0
+          },
+          {
+            "i": 2,
+            "c": "#BA56B8",
+            "x": 104.0
+          },
+          {
+            "i": 3,
+            "c": "#8D288D",
+            "x": 156.0
+          },
+          {
+            "i": 4,
+            "c": "#5B015C",
+            "x": 208.0
+          },
+          {
+            "i": 5,
+            "c": "none",
+            "x": 316.0
+          }
+        ]
+      },
+      "width": 954.0,
+      "height": 46,
+      "layer": [
+        {
+          "transform": [
+            {
+              "filter": "datum.i == 5"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "fill": "#F7F4EE",
+            "stroke": "#DFD9CC",
+            "strokeWidth": 1,
+            "width": 52.0,
+            "height": 28,
+            "y": 0
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative",
+              "axis": null,
+              "scale": {
+                "domain": [
+                  0,
+                  954.0
+                ],
+                "range": [
+                  0,
+                  954.0
+                ]
+              }
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.i < 5"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "width": 52.0,
+            "height": 28,
+            "y": 0
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative",
+              "axis": null,
+              "scale": {
+                "domain": [
+                  0,
+                  954.0
+                ],
+                "range": [
+                  0,
+                  954.0
+                ]
+              }
+            },
+            "color": {
+              "field": "c",
+              "type": "nominal",
+              "scale": {
+                "domain": [
+                  "#FDC1F9",
+                  "#DC8CD8",
+                  "#BA56B8",
+                  "#8D288D",
+                  "#5B015C"
+                ],
+                "range": [
+                  "#FDC1F9",
+                  "#DC8CD8",
+                  "#BA56B8",
+                  "#8D288D",
+                  "#5B015C"
+                ]
+              },
+              "legend": null
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "x": 26.0,
+                "t": "11,400"
+              },
+              {
+                "x": 78.0,
+                "t": "15,600"
+              },
+              {
+                "x": 130.0,
+                "t": "20,000"
+              },
+              {
+                "x": 182.0,
+                "t": "27,300"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "top",
+            "font": "Archivo",
+            "fontSize": 11.5,
+            "color": "#6B675F",
+            "y": 34
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative",
+              "axis": null,
+              "scale": {
+                "domain": [
+                  0,
+                  954.0
+                ],
+                "range": [
+                  0,
+                  954.0
+                ]
+              }
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "x": 316.0,
+                "t": "no data"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "align": "center",
+            "baseline": "top",
+            "font": "Archivo",
+            "fontSize": 11.5,
+            "color": "#6B675F",
+            "y": 34
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative",
+              "axis": null,
+              "scale": {
+                "domain": [
+                  0,
+                  954.0
+                ],
+                "range": [
+                  0,
+                  954.0
+                ]
+              }
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "x": 214.0,
+                "t": "and over"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "font": "Archivo",
+            "fontSize": 11.5,
+            "color": "#6B675F",
+            "y": 34
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative",
+              "axis": null,
+              "scale": {
+                "domain": [
+                  0,
+                  954.0
+                ],
+                "range": [
+                  0,
+                  954.0
+                ]
+              }
+            },
+            "text": {
+              "field": "t"
+            }
+          }
+        }
+      ],
+      "padding": {
+        "left": 33
+      }
+    },
     {
       "title": {
         "text": "2019",
@@ -1370,272 +1637,6 @@
           }
         }
       ]
-    },
-    {
-      "title": {
-        "text": "People counted each day",
-        "anchor": "start",
-        "font": "Archivo",
-        "fontSize": 15,
-        "fontWeight": 600,
-        "color": "#2E2A24",
-        "offset": 8,
-        "dx": 0
-      },
-      "data": {
-        "values": [
-          {
-            "i": 0,
-            "c": "#FDC1F9",
-            "x": 0.0
-          },
-          {
-            "i": 1,
-            "c": "#DC8CD8",
-            "x": 52.0
-          },
-          {
-            "i": 2,
-            "c": "#BA56B8",
-            "x": 104.0
-          },
-          {
-            "i": 3,
-            "c": "#8D288D",
-            "x": 156.0
-          },
-          {
-            "i": 4,
-            "c": "#5B015C",
-            "x": 208.0
-          },
-          {
-            "i": 5,
-            "c": "none",
-            "x": 316.0
-          }
-        ]
-      },
-      "width": 954.0,
-      "height": 46,
-      "layer": [
-        {
-          "transform": [
-            {
-              "filter": "datum.i == 5"
-            }
-          ],
-          "mark": {
-            "type": "rect",
-            "fill": "#F7F4EE",
-            "stroke": "#DFD9CC",
-            "strokeWidth": 1,
-            "width": 52.0,
-            "height": 28,
-            "y": 0
-          },
-          "encoding": {
-            "x": {
-              "field": "x",
-              "type": "quantitative",
-              "axis": null,
-              "scale": {
-                "domain": [
-                  0,
-                  954.0
-                ],
-                "range": [
-                  0,
-                  954.0
-                ]
-              }
-            }
-          }
-        },
-        {
-          "transform": [
-            {
-              "filter": "datum.i < 5"
-            }
-          ],
-          "mark": {
-            "type": "rect",
-            "width": 52.0,
-            "height": 28,
-            "y": 0
-          },
-          "encoding": {
-            "x": {
-              "field": "x",
-              "type": "quantitative",
-              "axis": null,
-              "scale": {
-                "domain": [
-                  0,
-                  954.0
-                ],
-                "range": [
-                  0,
-                  954.0
-                ]
-              }
-            },
-            "color": {
-              "field": "c",
-              "type": "nominal",
-              "scale": {
-                "domain": [
-                  "#FDC1F9",
-                  "#DC8CD8",
-                  "#BA56B8",
-                  "#8D288D",
-                  "#5B015C"
-                ],
-                "range": [
-                  "#FDC1F9",
-                  "#DC8CD8",
-                  "#BA56B8",
-                  "#8D288D",
-                  "#5B015C"
-                ]
-              },
-              "legend": null
-            }
-          }
-        },
-        {
-          "data": {
-            "values": [
-              {
-                "x": 26.0,
-                "t": "11,400"
-              },
-              {
-                "x": 78.0,
-                "t": "15,600"
-              },
-              {
-                "x": 130.0,
-                "t": "20,000"
-              },
-              {
-                "x": 182.0,
-                "t": "27,300"
-              }
-            ]
-          },
-          "mark": {
-            "type": "text",
-            "align": "center",
-            "baseline": "top",
-            "font": "Archivo",
-            "fontSize": 11.5,
-            "color": "#6B675F",
-            "y": 34
-          },
-          "encoding": {
-            "x": {
-              "field": "x",
-              "type": "quantitative",
-              "axis": null,
-              "scale": {
-                "domain": [
-                  0,
-                  954.0
-                ],
-                "range": [
-                  0,
-                  954.0
-                ]
-              }
-            },
-            "text": {
-              "field": "t"
-            }
-          }
-        },
-        {
-          "data": {
-            "values": [
-              {
-                "x": 316.0,
-                "t": "no data"
-              }
-            ]
-          },
-          "mark": {
-            "type": "text",
-            "align": "center",
-            "baseline": "top",
-            "font": "Archivo",
-            "fontSize": 11.5,
-            "color": "#6B675F",
-            "y": 34
-          },
-          "encoding": {
-            "x": {
-              "field": "x",
-              "type": "quantitative",
-              "axis": null,
-              "scale": {
-                "domain": [
-                  0,
-                  954.0
-                ],
-                "range": [
-                  0,
-                  954.0
-                ]
-              }
-            },
-            "text": {
-              "field": "t"
-            }
-          }
-        },
-        {
-          "data": {
-            "values": [
-              {
-                "x": 214.0,
-                "t": "and over"
-              }
-            ]
-          },
-          "mark": {
-            "type": "text",
-            "align": "left",
-            "baseline": "top",
-            "font": "Archivo",
-            "fontSize": 11.5,
-            "color": "#6B675F",
-            "y": 34
-          },
-          "encoding": {
-            "x": {
-              "field": "x",
-              "type": "quantitative",
-              "axis": null,
-              "scale": {
-                "domain": [
-                  0,
-                  954.0
-                ],
-                "range": [
-                  0,
-                  954.0
-                ]
-              }
-            },
-            "text": {
-              "field": "t"
-            }
-          }
-        }
-      ],
-      "padding": {
-        "left": 33
-      }
     }
   ],
   "spacing": 26,

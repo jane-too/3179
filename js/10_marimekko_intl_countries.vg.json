@@ -19,7 +19,8 @@
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
-    "offset": 11
+    "offset": 11,
+    "subtitlePadding": 10
   },
   "data": {
     "url": "data/intl_visitors_by_country_year.csv",

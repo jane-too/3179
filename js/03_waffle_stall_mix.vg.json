@@ -20,7 +20,8 @@
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
-    "offset": 40
+    "offset": 40,
+    "subtitlePadding": 10
   },
   "data": {
     "url": "data/stall_mix.csv",

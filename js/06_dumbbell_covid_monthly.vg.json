@@ -21,7 +21,8 @@
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
-    "offset": 42
+    "offset": 42,
+    "subtitlePadding": 10
   },
   "encoding": {
     "y": {
@@ -687,7 +688,7 @@
         "fontWeight": 600,
         "color": "#6B675F",
         "dx": -57,
-        "dy": 64,
+        "dy": -138,
         "text": "People passing street sensors"
       },
       "encoding": {
@@ -703,7 +704,7 @@
           "title": null
         },
         "y": {
-          "datum": "June"
+          "datum": "March"
         }
       }
     },
@@ -730,11 +731,11 @@
         "opacity": 1,
         "color": "#A632A6",
         "dx": 0,
-        "dy": 90,
+        "dy": -112,
         "stroke": "#F7F4EE",
         "strokeWidth": 0,
         "xOffset": -50,
-        "yOffset": 90
+        "yOffset": -112
       },
       "encoding": {
         "x": {
@@ -749,7 +750,7 @@
           "title": null
         },
         "y": {
-          "datum": "June"
+          "datum": "March"
         }
       }
     },
@@ -776,7 +777,7 @@
         "fontSize": 13.5,
         "color": "#2E2A24",
         "dx": -35,
-        "dy": 90,
+        "dy": -112,
         "text": "Queen Victoria Market"
       },
       "encoding": {
@@ -792,7 +793,7 @@
           "title": null
         },
         "y": {
-          "datum": "June"
+          "datum": "March"
         }
       }
     },
@@ -819,11 +820,11 @@
         "opacity": 1,
         "color": "#9A948A",
         "dx": 205.29999999999998,
-        "dy": 90,
+        "dy": -112,
         "stroke": "#F7F4EE",
         "strokeWidth": 0,
         "xOffset": 155.29999999999998,
-        "yOffset": 90
+        "yOffset": -112
       },
       "encoding": {
         "x": {
@@ -838,7 +839,7 @@
           "title": null
         },
         "y": {
-          "datum": "June"
+          "datum": "March"
         }
       }
     },
@@ -865,7 +866,7 @@
         "fontSize": 13.5,
         "color": "#2E2A24",
         "dx": 170.29999999999998,
-        "dy": 90,
+        "dy": -112,
         "text": "Rest of the city centre"
       },
       "encoding": {
@@ -881,7 +882,7 @@
           "title": null
         },
         "y": {
-          "datum": "June"
+          "datum": "March"
         }
       }
     },
@@ -908,8 +909,8 @@
         "fontSize": 12,
         "fontWeight": 600,
         "color": "#6B675F",
-        "dx": -57,
-        "dy": 120,
+        "dx": 373,
+        "dy": -138,
         "text": "Entries to the market"
       },
       "encoding": {
@@ -925,7 +926,7 @@
           "title": null
         },
         "y": {
-          "datum": "June"
+          "datum": "March"
         }
       }
     },
@@ -953,8 +954,8 @@
         "color": "#2F6B45",
         "stroke": "#F7F4EE",
         "strokeWidth": 1.5,
-        "xOffset": -50,
-        "yOffset": 146
+        "xOffset": 380,
+        "yOffset": -112
       },
       "encoding": {
         "x": {
@@ -969,7 +970,7 @@
           "title": null
         },
         "y": {
-          "datum": "June"
+          "datum": "March"
         }
       }
     },
@@ -995,8 +996,8 @@
         "font": "Archivo",
         "fontSize": 13.5,
         "color": "#2E2A24",
-        "dx": -35,
-        "dy": 146,
+        "dx": 395,
+        "dy": -112,
         "text": "South Melbourne Market"
       },
       "encoding": {
@@ -1012,7 +1013,7 @@
           "title": null
         },
         "y": {
-          "datum": "June"
+          "datum": "March"
         }
       }
     }

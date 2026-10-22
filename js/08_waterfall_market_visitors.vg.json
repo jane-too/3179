@@ -8,8 +8,8 @@
       "Queen Victoria Market ended slightly below"
     ],
     "subtitle": [
-      "Visitors to each market by financial year; each bar is the change from the year before. Both series",
-      "start in FY2019-20, which already contains four months of the pandemic. Dashed bars are estimates."
+      "Visitors to each market by financial year; each bar is the change from the year before.",
+      "Both series start in FY2019-20, which already contains four months of the pandemic."
     ],
     "anchor": "start",
     "font": "Fraunces",
@@ -21,7 +21,8 @@
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
     "offset": 43,
-    "lineHeight": 26
+    "lineHeight": 26,
+    "subtitlePadding": 10
   },
   "hconcat": [
     {

@@ -22,7 +22,8 @@
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
     "offset": 42,
-    "lineHeight": 26
+    "lineHeight": 26,
+    "subtitlePadding": 10
   },
   "projection": {
     "type": "mercator"

@@ -19,7 +19,8 @@
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
-    "offset": 38
+    "offset": 38,
+    "subtitlePadding": 10
   },
   "data": {
     "url": "data/smm_stalls_vs_reason.csv",

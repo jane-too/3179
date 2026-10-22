@@ -21,7 +21,8 @@
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
-    "offset": 41
+    "offset": 41,
+    "subtitlePadding": 10
   },
   "projection": {
     "type": "conicEqualArea",

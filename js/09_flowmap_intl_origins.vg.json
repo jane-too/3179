@@ -7,8 +7,9 @@
   "title": {
     "text": "Australia’s overseas market crowd is spread across Asia, Europe, North America and the Pacific",
     "subtitle": [
-      "3.8 million of Australia’s 8.3 million international visitors in 2025 went to a market. Circle area shows how many came from",
-      "each country. Four residual groups with no single country (12.8% of market-goers) can’t be mapped and aren’t shown."
+      "3.8 million of Australia’s 8.3 million international visitors in 2025 went to a market. Circle area shows",
+      "how many came from each country; circles are moved apart where they would overlap. Four residual groups",
+      "with no single country (12.8% of market-goers) can’t be mapped and aren’t shown."
     ],
     "anchor": "start",
     "font": "Fraunces",
@@ -19,7 +20,8 @@
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
-    "offset": 39
+    "offset": 39,
+    "subtitlePadding": 10
   },
   "projection": {
     "type": "equalEarth",
@@ -71,7 +73,8 @@
         "type": "geoshape",
         "fill": "#DAD5CA",
         "stroke": "#C9C2B4",
-        "strokeWidth": 0.5
+        "strokeWidth": 0.5,
+        "opacity": 0.8
       }
     },
     {
@@ -140,7 +143,7 @@
     },
     {
       "data": {
-        "url": "data/intl_origin_points_2025.csv",
+        "url": "data/intl_origin_dorling_2025.csv",
         "format": {
           "type": "csv",
           "parse": {
@@ -149,7 +152,10 @@
             "mkt_share_pct": "number",
             "km": "number",
             "lon": "number",
-            "lat": "number"
+            "lat": "number",
+            "x_px": "number",
+            "y_px": "number",
+            "moved_px": "number"
           }
         }
       },
@@ -167,13 +173,17 @@
         "strokeWidth": 0.8
       },
       "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
+        "x": {
+          "field": "x_px",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
         },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
+        "y": {
+          "field": "y_px",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
         },
         "size": {
           "field": "mkt_visitors",
@@ -185,8 +195,8 @@
               454822
             ],
             "range": [
-              70,
-              1700
+              179.2,
+              4352.0
             ]
           },
           "legend": null
@@ -225,20 +235,34 @@
       "data": {
         "values": [
           {
-            "x": 747.5,
-            "y": 100.9,
-            "o": 0
+            "x": 497.9,
+            "y": 102.3,
+            "x2": 497.9,
+            "y2": 143.3
           },
           {
-            "x": 747.5,
-            "y": 88.9,
-            "o": 1
+            "x": 730.2,
+            "y": 200.1,
+            "x2": 720.6,
+            "y2": 205.6
+          },
+          {
+            "x": 756.1,
+            "y": 217.8,
+            "x2": 717.6,
+            "y2": 231.8
+          },
+          {
+            "x": 776.6,
+            "y": 142.2,
+            "x2": 776.6,
+            "y2": 56.0
           }
         ]
       },
       "mark": {
-        "type": "line",
-        "stroke": "#A39C8E",
+        "type": "rule",
+        "color": "#A39C8E",
         "strokeWidth": 1
       },
       "encoding": {
@@ -254,9 +278,11 @@
           "scale": null,
           "axis": null
         },
-        "order": {
-          "field": "o",
-          "type": "quantitative"
+        "x2": {
+          "field": "x2"
+        },
+        "y2": {
+          "field": "y2"
         }
       }
     },
@@ -264,7 +290,19 @@
       "data": {
         "values": [
           {
-            "t": "China"
+            "t": "Korea",
+            "x": 812.4,
+            "y": 85.9
+          },
+          {
+            "t": "China",
+            "x": 744.5,
+            "y": 83.0
+          },
+          {
+            "t": "Hong Kong",
+            "x": 775.0,
+            "y": 52.0
           }
         ]
       },
@@ -275,35 +313,7 @@
         "fontWeight": 600,
         "color": "#2E2A24",
         "align": "center",
-        "baseline": "bottom",
-        "x": 747.5,
-        "y": 85.9
-      },
-      "encoding": {
-        "text": {
-          "field": "t"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "x": 474.5,
-            "y": 46.8,
-            "o": 0
-          },
-          {
-            "x": 474.5,
-            "y": 34.8,
-            "o": 1
-          }
-        ]
-      },
-      "mark": {
-        "type": "line",
-        "stroke": "#A39C8E",
-        "strokeWidth": 1
+        "baseline": "bottom"
       },
       "encoding": {
         "x": {
@@ -318,9 +328,8 @@
           "scale": null,
           "axis": null
         },
-        "order": {
-          "field": "o",
-          "type": "quantitative"
+        "text": {
+          "field": "t"
         }
       }
     },
@@ -328,7 +337,9 @@
       "data": {
         "values": [
           {
-            "t": "United Kingdom"
+            "t": "Switzerland",
+            "x": 497.9,
+            "y": 146.3
           }
         ]
       },
@@ -339,35 +350,7 @@
         "fontWeight": 600,
         "color": "#2E2A24",
         "align": "center",
-        "baseline": "bottom",
-        "x": 474.5,
-        "y": 31.8
-      },
-      "encoding": {
-        "text": {
-          "field": "t"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "x": 201.3,
-            "y": 112.5,
-            "o": 0
-          },
-          {
-            "x": 191.3,
-            "y": 112.5,
-            "o": 1
-          }
-        ]
-      },
-      "mark": {
-        "type": "line",
-        "stroke": "#A39C8E",
-        "strokeWidth": 1
+        "baseline": "top"
       },
       "encoding": {
         "x": {
@@ -382,32 +365,6 @@
           "scale": null,
           "axis": null
         },
-        "order": {
-          "field": "o",
-          "type": "quantitative"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "t": "United States"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "font": "Archivo",
-        "fontSize": 12.5,
-        "fontWeight": 600,
-        "color": "#2E2A24",
-        "align": "right",
-        "baseline": "middle",
-        "x": 188.3,
-        "y": 112.5
-      },
-      "encoding": {
         "text": {
           "field": "t"
         }
@@ -417,110 +374,9 @@
       "data": {
         "values": [
           {
-            "x": 255.0,
-            "y": 44.1,
-            "o": 0
-          },
-          {
-            "x": 255.0,
-            "y": 34.1,
-            "o": 1
-          }
-        ]
-      },
-      "mark": {
-        "type": "line",
-        "stroke": "#A39C8E",
-        "strokeWidth": 1
-      },
-      "encoding": {
-        "x": {
-          "field": "x",
-          "type": "quantitative",
-          "scale": null,
-          "axis": null
-        },
-        "y": {
-          "field": "y",
-          "type": "quantitative",
-          "scale": null,
-          "axis": null
-        },
-        "order": {
-          "field": "o",
-          "type": "quantitative"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "t": "Canada"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "font": "Archivo",
-        "fontSize": 12.5,
-        "fontWeight": 600,
-        "color": "#2E2A24",
-        "align": "center",
-        "baseline": "bottom",
-        "x": 255.0,
-        "y": 31.1
-      },
-      "encoding": {
-        "text": {
-          "field": "t"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "x": 924.2,
-            "y": 422.5,
-            "o": 0
-          },
-          {
-            "x": 934.2,
-            "y": 422.5,
-            "o": 1
-          }
-        ]
-      },
-      "mark": {
-        "type": "line",
-        "stroke": "#A39C8E",
-        "strokeWidth": 1
-      },
-      "encoding": {
-        "x": {
-          "field": "x",
-          "type": "quantitative",
-          "scale": null,
-          "axis": null
-        },
-        "y": {
-          "field": "y",
-          "type": "quantitative",
-          "scale": null,
-          "axis": null
-        },
-        "order": {
-          "field": "o",
-          "type": "quantitative"
-        }
-      }
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "t": "New Zealand"
+            "t": "Netherlands",
+            "x": 516.6,
+            "y": 38.4
           }
         ]
       },
@@ -531,11 +387,229 @@
         "fontWeight": 600,
         "color": "#2E2A24",
         "align": "left",
-        "baseline": "middle",
-        "x": 937.2,
-        "y": 422.5
+        "baseline": "bottom"
       },
       "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "Italy",
+            "x": 536.4,
+            "y": 109.8
+          },
+          {
+            "t": "Canada",
+            "x": 276.4,
+            "y": 56.1
+          },
+          {
+            "t": "Philippines",
+            "x": 863.6,
+            "y": 205.0
+          },
+          {
+            "t": "Germany",
+            "x": 544.2,
+            "y": 71.1
+          },
+          {
+            "t": "Malaysia",
+            "x": 831.4,
+            "y": 248.0
+          },
+          {
+            "t": "Indonesia",
+            "x": 828.6,
+            "y": 286.0
+          },
+          {
+            "t": "Taiwan",
+            "x": 853.0,
+            "y": 170.1
+          },
+          {
+            "t": "Japan",
+            "x": 890.0,
+            "y": 122.8
+          },
+          {
+            "t": "United States",
+            "x": 253.2,
+            "y": 112.3
+          },
+          {
+            "t": "New Zealand",
+            "x": 939.2,
+            "y": 422.6
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "align": "left",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "India",
+            "x": 679.3,
+            "y": 146.6
+          },
+          {
+            "t": "United Kingdom",
+            "x": 449.7,
+            "y": 30.0
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "align": "right",
+        "baseline": "bottom"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "France",
+            "x": 455.7,
+            "y": 109.9
+          },
+          {
+            "t": "Viet Nam",
+            "x": 714.8,
+            "y": 232.8
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "align": "right",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "t": "Thailand",
+            "x": 718.0,
+            "y": 207.1
+          },
+          {
+            "t": "Singapore",
+            "x": 734.2,
+            "y": 273.2
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 12.5,
+        "fontWeight": 600,
+        "color": "#2E2A24",
+        "align": "right",
+        "baseline": "top"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": null,
+          "axis": null
+        },
         "text": {
           "field": "t"
         }
@@ -555,10 +629,10 @@
         "stroke": "#DFD9CC",
         "strokeWidth": 1,
         "cornerRadius": 2,
-        "x": 843.0,
-        "x2": 1044.0,
-        "y": 5.0,
-        "y2": 93.0
+        "x": 24.0,
+        "x2": 225.0,
+        "y": 230.0,
+        "y2": 318.0
       }
     },
     {
@@ -577,8 +651,8 @@
         "color": "#2E2A24",
         "align": "left",
         "baseline": "top",
-        "x": 856.0,
-        "y": 17.0,
+        "x": 37.0,
+        "y": 242.0,
         "text": [
           "China, New Zealand, the United",
           "Kingdom and the United States",
@@ -597,8 +671,8 @@
             "o": 0
           },
           {
-            "x": 760.6,
-            "y": 270.5,
+            "x": 747.0,
+            "y": 284.0,
             "o": 1
           }
         ]
@@ -682,15 +756,36 @@
         ]
       },
       "mark": {
+        "type": "rect",
+        "fill": "#FCFBF8",
+        "fillOpacity": 0.6,
+        "stroke": "#DFD9CC",
+        "strokeWidth": 1,
+        "cornerRadius": 2,
+        "x": 24.0,
+        "x2": 249.1,
+        "y": 393,
+        "y2": 535.0
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "a": 0
+          }
+        ]
+      },
+      "mark": {
         "type": "text",
         "font": "Archivo",
         "fontSize": 15,
         "fontWeight": 600,
         "color": "#2E2A24",
-        "align": "center",
+        "align": "left",
         "baseline": "top",
-        "x": 522,
-        "y": 544,
+        "x": 36.0,
+        "y": 405,
         "text": "Visitors who went to a market"
       }
     },
@@ -704,13 +799,13 @@
       },
       "mark": {
         "type": "circle",
-        "size": 292.3111202914206,
+        "size": 748.3,
         "fill": "#A07C0A",
         "opacity": 0.85,
         "stroke": "#1A1A17",
         "strokeWidth": 0.8,
-        "x": 455.75,
-        "y": 608.69
+        "x": 58.2,
+        "y": 489.3
       }
     },
     {
@@ -728,8 +823,8 @@
         "color": "#2E2A24",
         "align": "center",
         "baseline": "top",
-        "x": 455.75,
-        "y": 625.24,
+        "x": 58.2,
+        "y": 510.98,
         "text": "50,000"
       }
     },
@@ -743,13 +838,13 @@
       },
       "mark": {
         "type": "circle",
-        "size": 990.5589280691876,
+        "size": 2535.8,
         "fill": "#A07C0A",
         "opacity": 0.85,
         "stroke": "#1A1A17",
         "strokeWidth": 0.8,
-        "x": 518.15,
-        "y": 601.5
+        "x": 120.6,
+        "y": 477.8
       }
     },
     {
@@ -767,8 +862,8 @@
         "color": "#2E2A24",
         "align": "center",
         "baseline": "top",
-        "x": 518.15,
-        "y": 625.24,
+        "x": 120.6,
+        "y": 510.98,
         "text": "200,000"
       }
     },
@@ -782,13 +877,13 @@
       },
       "mark": {
         "type": "circle",
-        "size": 1700.4120513754697,
+        "size": 4353.1,
         "fill": "#A07C0A",
         "opacity": 0.85,
         "stroke": "#1A1A17",
         "strokeWidth": 0.8,
-        "x": 584.4,
-        "y": 596.62
+        "x": 193.79,
+        "y": 469.99
       }
     },
     {
@@ -806,8 +901,8 @@
         "color": "#2E2A24",
         "align": "center",
         "baseline": "top",
-        "x": 584.4,
-        "y": 625.24,
+        "x": 193.79,
+        "y": 510.98,
         "text": "455,000"
       }
     }

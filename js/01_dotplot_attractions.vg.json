@@ -18,7 +18,8 @@
     "subtitleFontSize": 13.5,
     "subtitleColor": "#6B675F",
     "subtitleLineHeight": 20,
-    "offset": 42
+    "offset": 42,
+    "subtitlePadding": 10
   },
   "spacing": 150,
   "bounds": "flush",
