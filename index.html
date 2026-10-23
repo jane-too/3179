@@ -55,8 +55,8 @@
     </div>
 
     <figure class="figure">
-      <div class="vis-container" id="vis-01" data-spec="js/01_dotplot_attractions.vg.json"></div>
-      <figcaption class="figure__source">Source: Tourism Research Australia, International Visitor Survey, places visited by state, 2025, via TRA Online. Victoria’s ranking excludes four survey artefacts (an interview-mode row, a regional catch-all and two “don’t know” rows). Five long attraction names are shortened.</figcaption>
+      <div class="vis-container" id="vis-01" data-spec="js/01_lollipop_attractions.vg.json"></div>
+      <figcaption class="figure__source">Source: Tourism Research Australia, International Visitor Survey, places visited by state, 2014–2025, via TRA Online. There are no figures for 2020–22, when international borders were closed. Victoria’s ranking excludes four survey artefacts (an interview-mode row, a regional catch-all and two “don’t know” rows). Five long attraction names are shortened.</figcaption>
     </figure>
   </section>
 
@@ -305,8 +305,7 @@
 </footer>
 
 <script>
-  // Fonts first: Vega measures text to lay out axes and legends, so embedding
-  // before the faces arrive positions labels for a fallback face.
+  // Wait for fonts: Vega measures text to place labels, so it needs the real typeface.
   (async function () {
     if (document.fonts && document.fonts.ready) {
       await document.fonts.ready;

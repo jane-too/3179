@@ -1,7 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "background": "#F7F4EE",
-  "padding": 5,
+  "padding": {
+    "left": 5,
+    "top": 5,
+    "right": 5,
+    "bottom": 0
+  },
   "title": {
     "text": "Six years apart, the market’s week keeps the same shape",
     "subtitle": [
@@ -21,6 +26,21 @@
     "offset": 42,
     "subtitlePadding": 10
   },
+  "params": [
+    {
+      "name": "period",
+      "value": "Both",
+      "bind": {
+        "input": "radio",
+        "options": [
+          "Both",
+          "2019",
+          "2025–26"
+        ],
+        "name": "Show "
+      }
+    }
+  ],
   "vconcat": [
     {
       "width": 1035.2,
@@ -263,10 +283,20 @@
               ],
               "mark": {
                 "type": "arc",
-                "fill": "#A632A6",
+                "fill": {
+                  "expr": "period == '2019' ? null : '#A632A6'"
+                },
                 "fillOpacity": 0.75,
-                "stroke": "#F7F4EE",
-                "strokeWidth": 0.5
+                "stroke": {
+                  "expr": "period == '2019' ? null : '#F7F4EE'"
+                },
+                "strokeWidth": 0.5,
+                "opacity": {
+                  "expr": "period == '2019' ? 0 : 1"
+                },
+                "tooltip": {
+                  "expr": "period == '2019' ? null : {'title': datum.weekday + ', ' + (datum.period == '2025-26' ? '2025–26' : datum.period), 'Hour': (datum.hour == 0 ? '12am' : datum.hour < 12 ? datum.hour + 'am' : datum.hour == 12 ? '12pm' : (datum.hour - 12) + 'pm') + '–' + ((datum.hour + 1) % 24 == 0 ? '12am' : (datum.hour + 1) < 12 ? (datum.hour + 1) + 'am' : (datum.hour + 1) == 12 ? '12pm' : (datum.hour - 11) + 'pm'), 'Share of the day': format(datum.share_of_day_pct, '.1f') + '%'}"
+                }
               },
               "encoding": {
                 "theta": {
@@ -305,27 +335,7 @@
                 },
                 "radius2": {
                   "value": 10
-                },
-                "tooltip": [
-                  {
-                    "field": "weekday",
-                    "title": "Day"
-                  },
-                  {
-                    "field": "period",
-                    "title": "Period"
-                  },
-                  {
-                    "field": "hour",
-                    "title": "Hour starting",
-                    "format": "02d"
-                  },
-                  {
-                    "field": "share_of_day_pct",
-                    "title": "Share of the day (%)",
-                    "format": ".1f"
-                  }
-                ]
+                }
               }
             },
             {
@@ -344,8 +354,16 @@
               "mark": {
                 "type": "arc",
                 "fill": null,
-                "stroke": "#1A1A17",
-                "strokeWidth": 1.1
+                "stroke": {
+                  "expr": "period == '2025–26' ? null : '#1A1A17'"
+                },
+                "strokeWidth": 1.1,
+                "opacity": {
+                  "expr": "period == '2025–26' ? 0 : 1"
+                },
+                "tooltip": {
+                  "expr": "period == '2025–26' ? null : {'title': datum.weekday + ', ' + (datum.period == '2025-26' ? '2025–26' : datum.period), 'Hour': (datum.hour == 0 ? '12am' : datum.hour < 12 ? datum.hour + 'am' : datum.hour == 12 ? '12pm' : (datum.hour - 12) + 'pm') + '–' + ((datum.hour + 1) % 24 == 0 ? '12am' : (datum.hour + 1) < 12 ? (datum.hour + 1) + 'am' : (datum.hour + 1) == 12 ? '12pm' : (datum.hour - 11) + 'pm'), 'Share of the day': format(datum.share_of_day_pct, '.1f') + '%'}"
+                }
               },
               "encoding": {
                 "theta": {
@@ -384,27 +402,7 @@
                 },
                 "radius2": {
                   "value": 10
-                },
-                "tooltip": [
-                  {
-                    "field": "weekday",
-                    "title": "Day"
-                  },
-                  {
-                    "field": "period",
-                    "title": "Period"
-                  },
-                  {
-                    "field": "hour",
-                    "title": "Hour starting",
-                    "format": "02d"
-                  },
-                  {
-                    "field": "share_of_day_pct",
-                    "title": "Share of the day (%)",
-                    "format": ".1f"
-                  }
-                ]
+                }
               }
             },
             {
@@ -709,10 +707,20 @@
               ],
               "mark": {
                 "type": "arc",
-                "fill": "#A632A6",
+                "fill": {
+                  "expr": "period == '2019' ? null : '#A632A6'"
+                },
                 "fillOpacity": 0.75,
-                "stroke": "#F7F4EE",
-                "strokeWidth": 0.5
+                "stroke": {
+                  "expr": "period == '2019' ? null : '#F7F4EE'"
+                },
+                "strokeWidth": 0.5,
+                "opacity": {
+                  "expr": "period == '2019' ? 0 : 1"
+                },
+                "tooltip": {
+                  "expr": "period == '2019' ? null : {'title': datum.weekday + ', ' + (datum.period == '2025-26' ? '2025–26' : datum.period), 'Hour': (datum.hour == 0 ? '12am' : datum.hour < 12 ? datum.hour + 'am' : datum.hour == 12 ? '12pm' : (datum.hour - 12) + 'pm') + '–' + ((datum.hour + 1) % 24 == 0 ? '12am' : (datum.hour + 1) < 12 ? (datum.hour + 1) + 'am' : (datum.hour + 1) == 12 ? '12pm' : (datum.hour - 11) + 'pm'), 'Share of the day': format(datum.share_of_day_pct, '.1f') + '%'}"
+                }
               },
               "encoding": {
                 "theta": {
@@ -751,27 +759,7 @@
                 },
                 "radius2": {
                   "value": 10
-                },
-                "tooltip": [
-                  {
-                    "field": "weekday",
-                    "title": "Day"
-                  },
-                  {
-                    "field": "period",
-                    "title": "Period"
-                  },
-                  {
-                    "field": "hour",
-                    "title": "Hour starting",
-                    "format": "02d"
-                  },
-                  {
-                    "field": "share_of_day_pct",
-                    "title": "Share of the day (%)",
-                    "format": ".1f"
-                  }
-                ]
+                }
               }
             },
             {
@@ -790,8 +778,16 @@
               "mark": {
                 "type": "arc",
                 "fill": null,
-                "stroke": "#1A1A17",
-                "strokeWidth": 1.1
+                "stroke": {
+                  "expr": "period == '2025–26' ? null : '#1A1A17'"
+                },
+                "strokeWidth": 1.1,
+                "opacity": {
+                  "expr": "period == '2025–26' ? 0 : 1"
+                },
+                "tooltip": {
+                  "expr": "period == '2025–26' ? null : {'title': datum.weekday + ', ' + (datum.period == '2025-26' ? '2025–26' : datum.period), 'Hour': (datum.hour == 0 ? '12am' : datum.hour < 12 ? datum.hour + 'am' : datum.hour == 12 ? '12pm' : (datum.hour - 12) + 'pm') + '–' + ((datum.hour + 1) % 24 == 0 ? '12am' : (datum.hour + 1) < 12 ? (datum.hour + 1) + 'am' : (datum.hour + 1) == 12 ? '12pm' : (datum.hour - 11) + 'pm'), 'Share of the day': format(datum.share_of_day_pct, '.1f') + '%'}"
+                }
               },
               "encoding": {
                 "theta": {
@@ -830,27 +826,7 @@
                 },
                 "radius2": {
                   "value": 10
-                },
-                "tooltip": [
-                  {
-                    "field": "weekday",
-                    "title": "Day"
-                  },
-                  {
-                    "field": "period",
-                    "title": "Period"
-                  },
-                  {
-                    "field": "hour",
-                    "title": "Hour starting",
-                    "format": "02d"
-                  },
-                  {
-                    "field": "share_of_day_pct",
-                    "title": "Share of the day (%)",
-                    "format": ".1f"
-                  }
-                ]
+                }
               }
             },
             {
@@ -1155,10 +1131,20 @@
               ],
               "mark": {
                 "type": "arc",
-                "fill": "#A632A6",
+                "fill": {
+                  "expr": "period == '2019' ? null : '#A632A6'"
+                },
                 "fillOpacity": 0.75,
-                "stroke": "#F7F4EE",
-                "strokeWidth": 0.5
+                "stroke": {
+                  "expr": "period == '2019' ? null : '#F7F4EE'"
+                },
+                "strokeWidth": 0.5,
+                "opacity": {
+                  "expr": "period == '2019' ? 0 : 1"
+                },
+                "tooltip": {
+                  "expr": "period == '2019' ? null : {'title': datum.weekday + ', ' + (datum.period == '2025-26' ? '2025–26' : datum.period), 'Hour': (datum.hour == 0 ? '12am' : datum.hour < 12 ? datum.hour + 'am' : datum.hour == 12 ? '12pm' : (datum.hour - 12) + 'pm') + '–' + ((datum.hour + 1) % 24 == 0 ? '12am' : (datum.hour + 1) < 12 ? (datum.hour + 1) + 'am' : (datum.hour + 1) == 12 ? '12pm' : (datum.hour - 11) + 'pm'), 'Share of the day': format(datum.share_of_day_pct, '.1f') + '%'}"
+                }
               },
               "encoding": {
                 "theta": {
@@ -1197,27 +1183,7 @@
                 },
                 "radius2": {
                   "value": 10
-                },
-                "tooltip": [
-                  {
-                    "field": "weekday",
-                    "title": "Day"
-                  },
-                  {
-                    "field": "period",
-                    "title": "Period"
-                  },
-                  {
-                    "field": "hour",
-                    "title": "Hour starting",
-                    "format": "02d"
-                  },
-                  {
-                    "field": "share_of_day_pct",
-                    "title": "Share of the day (%)",
-                    "format": ".1f"
-                  }
-                ]
+                }
               }
             },
             {
@@ -1236,8 +1202,16 @@
               "mark": {
                 "type": "arc",
                 "fill": null,
-                "stroke": "#1A1A17",
-                "strokeWidth": 1.1
+                "stroke": {
+                  "expr": "period == '2025–26' ? null : '#1A1A17'"
+                },
+                "strokeWidth": 1.1,
+                "opacity": {
+                  "expr": "period == '2025–26' ? 0 : 1"
+                },
+                "tooltip": {
+                  "expr": "period == '2025–26' ? null : {'title': datum.weekday + ', ' + (datum.period == '2025-26' ? '2025–26' : datum.period), 'Hour': (datum.hour == 0 ? '12am' : datum.hour < 12 ? datum.hour + 'am' : datum.hour == 12 ? '12pm' : (datum.hour - 12) + 'pm') + '–' + ((datum.hour + 1) % 24 == 0 ? '12am' : (datum.hour + 1) < 12 ? (datum.hour + 1) + 'am' : (datum.hour + 1) == 12 ? '12pm' : (datum.hour - 11) + 'pm'), 'Share of the day': format(datum.share_of_day_pct, '.1f') + '%'}"
+                }
               },
               "encoding": {
                 "theta": {
@@ -1276,27 +1250,7 @@
                 },
                 "radius2": {
                   "value": 10
-                },
-                "tooltip": [
-                  {
-                    "field": "weekday",
-                    "title": "Day"
-                  },
-                  {
-                    "field": "period",
-                    "title": "Period"
-                  },
-                  {
-                    "field": "hour",
-                    "title": "Hour starting",
-                    "format": "02d"
-                  },
-                  {
-                    "field": "share_of_day_pct",
-                    "title": "Share of the day (%)",
-                    "format": ".1f"
-                  }
-                ]
+                }
               }
             },
             {
@@ -1643,10 +1597,20 @@
               ],
               "mark": {
                 "type": "arc",
-                "fill": "#A632A6",
+                "fill": {
+                  "expr": "period == '2019' ? null : '#A632A6'"
+                },
                 "fillOpacity": 0.75,
-                "stroke": "#F7F4EE",
-                "strokeWidth": 0.5
+                "stroke": {
+                  "expr": "period == '2019' ? null : '#F7F4EE'"
+                },
+                "strokeWidth": 0.5,
+                "opacity": {
+                  "expr": "period == '2019' ? 0 : 1"
+                },
+                "tooltip": {
+                  "expr": "period == '2019' ? null : {'title': datum.weekday + ', ' + (datum.period == '2025-26' ? '2025–26' : datum.period), 'Hour': (datum.hour == 0 ? '12am' : datum.hour < 12 ? datum.hour + 'am' : datum.hour == 12 ? '12pm' : (datum.hour - 12) + 'pm') + '–' + ((datum.hour + 1) % 24 == 0 ? '12am' : (datum.hour + 1) < 12 ? (datum.hour + 1) + 'am' : (datum.hour + 1) == 12 ? '12pm' : (datum.hour - 11) + 'pm'), 'Share of the day': format(datum.share_of_day_pct, '.1f') + '%'}"
+                }
               },
               "encoding": {
                 "theta": {
@@ -1685,27 +1649,7 @@
                 },
                 "radius2": {
                   "value": 10
-                },
-                "tooltip": [
-                  {
-                    "field": "weekday",
-                    "title": "Day"
-                  },
-                  {
-                    "field": "period",
-                    "title": "Period"
-                  },
-                  {
-                    "field": "hour",
-                    "title": "Hour starting",
-                    "format": "02d"
-                  },
-                  {
-                    "field": "share_of_day_pct",
-                    "title": "Share of the day (%)",
-                    "format": ".1f"
-                  }
-                ]
+                }
               }
             },
             {
@@ -1724,8 +1668,16 @@
               "mark": {
                 "type": "arc",
                 "fill": null,
-                "stroke": "#1A1A17",
-                "strokeWidth": 1.1
+                "stroke": {
+                  "expr": "period == '2025–26' ? null : '#1A1A17'"
+                },
+                "strokeWidth": 1.1,
+                "opacity": {
+                  "expr": "period == '2025–26' ? 0 : 1"
+                },
+                "tooltip": {
+                  "expr": "period == '2025–26' ? null : {'title': datum.weekday + ', ' + (datum.period == '2025-26' ? '2025–26' : datum.period), 'Hour': (datum.hour == 0 ? '12am' : datum.hour < 12 ? datum.hour + 'am' : datum.hour == 12 ? '12pm' : (datum.hour - 12) + 'pm') + '–' + ((datum.hour + 1) % 24 == 0 ? '12am' : (datum.hour + 1) < 12 ? (datum.hour + 1) + 'am' : (datum.hour + 1) == 12 ? '12pm' : (datum.hour - 11) + 'pm'), 'Share of the day': format(datum.share_of_day_pct, '.1f') + '%'}"
+                }
               },
               "encoding": {
                 "theta": {
@@ -1764,27 +1716,7 @@
                 },
                 "radius2": {
                   "value": 10
-                },
-                "tooltip": [
-                  {
-                    "field": "weekday",
-                    "title": "Day"
-                  },
-                  {
-                    "field": "period",
-                    "title": "Period"
-                  },
-                  {
-                    "field": "hour",
-                    "title": "Hour starting",
-                    "format": "02d"
-                  },
-                  {
-                    "field": "share_of_day_pct",
-                    "title": "Share of the day (%)",
-                    "format": ".1f"
-                  }
-                ]
+                }
               }
             },
             {
@@ -2089,10 +2021,20 @@
               ],
               "mark": {
                 "type": "arc",
-                "fill": "#A632A6",
+                "fill": {
+                  "expr": "period == '2019' ? null : '#A632A6'"
+                },
                 "fillOpacity": 0.75,
-                "stroke": "#F7F4EE",
-                "strokeWidth": 0.5
+                "stroke": {
+                  "expr": "period == '2019' ? null : '#F7F4EE'"
+                },
+                "strokeWidth": 0.5,
+                "opacity": {
+                  "expr": "period == '2019' ? 0 : 1"
+                },
+                "tooltip": {
+                  "expr": "period == '2019' ? null : {'title': datum.weekday + ', ' + (datum.period == '2025-26' ? '2025–26' : datum.period), 'Hour': (datum.hour == 0 ? '12am' : datum.hour < 12 ? datum.hour + 'am' : datum.hour == 12 ? '12pm' : (datum.hour - 12) + 'pm') + '–' + ((datum.hour + 1) % 24 == 0 ? '12am' : (datum.hour + 1) < 12 ? (datum.hour + 1) + 'am' : (datum.hour + 1) == 12 ? '12pm' : (datum.hour - 11) + 'pm'), 'Share of the day': format(datum.share_of_day_pct, '.1f') + '%'}"
+                }
               },
               "encoding": {
                 "theta": {
@@ -2131,27 +2073,7 @@
                 },
                 "radius2": {
                   "value": 10
-                },
-                "tooltip": [
-                  {
-                    "field": "weekday",
-                    "title": "Day"
-                  },
-                  {
-                    "field": "period",
-                    "title": "Period"
-                  },
-                  {
-                    "field": "hour",
-                    "title": "Hour starting",
-                    "format": "02d"
-                  },
-                  {
-                    "field": "share_of_day_pct",
-                    "title": "Share of the day (%)",
-                    "format": ".1f"
-                  }
-                ]
+                }
               }
             },
             {
@@ -2170,8 +2092,16 @@
               "mark": {
                 "type": "arc",
                 "fill": null,
-                "stroke": "#1A1A17",
-                "strokeWidth": 1.1
+                "stroke": {
+                  "expr": "period == '2025–26' ? null : '#1A1A17'"
+                },
+                "strokeWidth": 1.1,
+                "opacity": {
+                  "expr": "period == '2025–26' ? 0 : 1"
+                },
+                "tooltip": {
+                  "expr": "period == '2025–26' ? null : {'title': datum.weekday + ', ' + (datum.period == '2025-26' ? '2025–26' : datum.period), 'Hour': (datum.hour == 0 ? '12am' : datum.hour < 12 ? datum.hour + 'am' : datum.hour == 12 ? '12pm' : (datum.hour - 12) + 'pm') + '–' + ((datum.hour + 1) % 24 == 0 ? '12am' : (datum.hour + 1) < 12 ? (datum.hour + 1) + 'am' : (datum.hour + 1) == 12 ? '12pm' : (datum.hour - 11) + 'pm'), 'Share of the day': format(datum.share_of_day_pct, '.1f') + '%'}"
+                }
               },
               "encoding": {
                 "theta": {
@@ -2210,27 +2140,7 @@
                 },
                 "radius2": {
                   "value": 10
-                },
-                "tooltip": [
-                  {
-                    "field": "weekday",
-                    "title": "Day"
-                  },
-                  {
-                    "field": "period",
-                    "title": "Period"
-                  },
-                  {
-                    "field": "hour",
-                    "title": "Hour starting",
-                    "format": "02d"
-                  },
-                  {
-                    "field": "share_of_day_pct",
-                    "title": "Share of the day (%)",
-                    "format": ".1f"
-                  }
-                ]
+                }
               }
             },
             {
@@ -2535,10 +2445,20 @@
               ],
               "mark": {
                 "type": "arc",
-                "fill": "#A632A6",
+                "fill": {
+                  "expr": "period == '2019' ? null : '#A632A6'"
+                },
                 "fillOpacity": 0.75,
-                "stroke": "#F7F4EE",
-                "strokeWidth": 0.5
+                "stroke": {
+                  "expr": "period == '2019' ? null : '#F7F4EE'"
+                },
+                "strokeWidth": 0.5,
+                "opacity": {
+                  "expr": "period == '2019' ? 0 : 1"
+                },
+                "tooltip": {
+                  "expr": "period == '2019' ? null : {'title': datum.weekday + ', ' + (datum.period == '2025-26' ? '2025–26' : datum.period), 'Hour': (datum.hour == 0 ? '12am' : datum.hour < 12 ? datum.hour + 'am' : datum.hour == 12 ? '12pm' : (datum.hour - 12) + 'pm') + '–' + ((datum.hour + 1) % 24 == 0 ? '12am' : (datum.hour + 1) < 12 ? (datum.hour + 1) + 'am' : (datum.hour + 1) == 12 ? '12pm' : (datum.hour - 11) + 'pm'), 'Share of the day': format(datum.share_of_day_pct, '.1f') + '%'}"
+                }
               },
               "encoding": {
                 "theta": {
@@ -2577,27 +2497,7 @@
                 },
                 "radius2": {
                   "value": 10
-                },
-                "tooltip": [
-                  {
-                    "field": "weekday",
-                    "title": "Day"
-                  },
-                  {
-                    "field": "period",
-                    "title": "Period"
-                  },
-                  {
-                    "field": "hour",
-                    "title": "Hour starting",
-                    "format": "02d"
-                  },
-                  {
-                    "field": "share_of_day_pct",
-                    "title": "Share of the day (%)",
-                    "format": ".1f"
-                  }
-                ]
+                }
               }
             },
             {
@@ -2616,8 +2516,16 @@
               "mark": {
                 "type": "arc",
                 "fill": null,
-                "stroke": "#1A1A17",
-                "strokeWidth": 1.1
+                "stroke": {
+                  "expr": "period == '2025–26' ? null : '#1A1A17'"
+                },
+                "strokeWidth": 1.1,
+                "opacity": {
+                  "expr": "period == '2025–26' ? 0 : 1"
+                },
+                "tooltip": {
+                  "expr": "period == '2025–26' ? null : {'title': datum.weekday + ', ' + (datum.period == '2025-26' ? '2025–26' : datum.period), 'Hour': (datum.hour == 0 ? '12am' : datum.hour < 12 ? datum.hour + 'am' : datum.hour == 12 ? '12pm' : (datum.hour - 12) + 'pm') + '–' + ((datum.hour + 1) % 24 == 0 ? '12am' : (datum.hour + 1) < 12 ? (datum.hour + 1) + 'am' : (datum.hour + 1) == 12 ? '12pm' : (datum.hour - 11) + 'pm'), 'Share of the day': format(datum.share_of_day_pct, '.1f') + '%'}"
+                }
               },
               "encoding": {
                 "theta": {
@@ -2656,27 +2564,7 @@
                 },
                 "radius2": {
                   "value": 10
-                },
-                "tooltip": [
-                  {
-                    "field": "weekday",
-                    "title": "Day"
-                  },
-                  {
-                    "field": "period",
-                    "title": "Period"
-                  },
-                  {
-                    "field": "hour",
-                    "title": "Hour starting",
-                    "format": "02d"
-                  },
-                  {
-                    "field": "share_of_day_pct",
-                    "title": "Share of the day (%)",
-                    "format": ".1f"
-                  }
-                ]
+                }
               }
             },
             {
@@ -2986,10 +2874,20 @@
               ],
               "mark": {
                 "type": "arc",
-                "fill": "#A632A6",
+                "fill": {
+                  "expr": "period == '2019' ? null : '#A632A6'"
+                },
                 "fillOpacity": 0.75,
-                "stroke": "#F7F4EE",
-                "strokeWidth": 0.5
+                "stroke": {
+                  "expr": "period == '2019' ? null : '#F7F4EE'"
+                },
+                "strokeWidth": 0.5,
+                "opacity": {
+                  "expr": "period == '2019' ? 0 : 1"
+                },
+                "tooltip": {
+                  "expr": "period == '2019' ? null : {'title': datum.weekday + ', ' + (datum.period == '2025-26' ? '2025–26' : datum.period), 'Hour': (datum.hour == 0 ? '12am' : datum.hour < 12 ? datum.hour + 'am' : datum.hour == 12 ? '12pm' : (datum.hour - 12) + 'pm') + '–' + ((datum.hour + 1) % 24 == 0 ? '12am' : (datum.hour + 1) < 12 ? (datum.hour + 1) + 'am' : (datum.hour + 1) == 12 ? '12pm' : (datum.hour - 11) + 'pm'), 'Share of the day': format(datum.share_of_day_pct, '.1f') + '%'}"
+                }
               },
               "encoding": {
                 "theta": {
@@ -3028,27 +2926,7 @@
                 },
                 "radius2": {
                   "value": 10
-                },
-                "tooltip": [
-                  {
-                    "field": "weekday",
-                    "title": "Day"
-                  },
-                  {
-                    "field": "period",
-                    "title": "Period"
-                  },
-                  {
-                    "field": "hour",
-                    "title": "Hour starting",
-                    "format": "02d"
-                  },
-                  {
-                    "field": "share_of_day_pct",
-                    "title": "Share of the day (%)",
-                    "format": ".1f"
-                  }
-                ]
+                }
               }
             },
             {
@@ -3067,8 +2945,16 @@
               "mark": {
                 "type": "arc",
                 "fill": null,
-                "stroke": "#1A1A17",
-                "strokeWidth": 1.1
+                "stroke": {
+                  "expr": "period == '2025–26' ? null : '#1A1A17'"
+                },
+                "strokeWidth": 1.1,
+                "opacity": {
+                  "expr": "period == '2025–26' ? 0 : 1"
+                },
+                "tooltip": {
+                  "expr": "period == '2025–26' ? null : {'title': datum.weekday + ', ' + (datum.period == '2025-26' ? '2025–26' : datum.period), 'Hour': (datum.hour == 0 ? '12am' : datum.hour < 12 ? datum.hour + 'am' : datum.hour == 12 ? '12pm' : (datum.hour - 12) + 'pm') + '–' + ((datum.hour + 1) % 24 == 0 ? '12am' : (datum.hour + 1) < 12 ? (datum.hour + 1) + 'am' : (datum.hour + 1) == 12 ? '12pm' : (datum.hour - 11) + 'pm'), 'Share of the day': format(datum.share_of_day_pct, '.1f') + '%'}"
+                }
               },
               "encoding": {
                 "theta": {
@@ -3107,27 +2993,7 @@
                 },
                 "radius2": {
                   "value": 10
-                },
-                "tooltip": [
-                  {
-                    "field": "weekday",
-                    "title": "Day"
-                  },
-                  {
-                    "field": "period",
-                    "title": "Period"
-                  },
-                  {
-                    "field": "hour",
-                    "title": "Hour starting",
-                    "format": "02d"
-                  },
-                  {
-                    "field": "share_of_day_pct",
-                    "title": "Share of the day (%)",
-                    "format": ".1f"
-                  }
-                ]
+                }
               }
             },
             {

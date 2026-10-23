@@ -131,7 +131,10 @@
         "filled": true,
         "size": 300,
         "opacity": 1,
-        "strokeWidth": 0
+        "strokeWidth": 0,
+        "tooltip": {
+          "expr": "{'title': (datum.group == 'QVM area' ? 'Streets around Queen Victoria Market' : datum.group == 'Other CBD' ? 'Rest of the city centre' : datum.group), 'Month': datum.month, 'Change on 2019': (datum.pct_change > 0 ? '+' : '−') + format(abs(datum.pct_change), '.1f') + '%', 'People counted, 2020': format(datum.counts_2020, ',.0f')}"
+        }
       },
       "encoding": {
         "x": {
@@ -167,30 +170,6 @@
             "labelPadding": 8
           }
         },
-        "tooltip": [
-          {
-            "field": "month",
-            "title": "Month"
-          },
-          {
-            "field": "pct_change",
-            "type": "quantitative",
-            "title": "Change (%)",
-            "format": ".1f"
-          },
-          {
-            "field": "counts_2019",
-            "type": "quantitative",
-            "title": "2019",
-            "format": ","
-          },
-          {
-            "field": "counts_2020",
-            "type": "quantitative",
-            "title": "2020",
-            "format": ","
-          }
-        ],
         "color": {
           "field": "group",
           "type": "nominal",
@@ -243,7 +222,10 @@
         "size": 416,
         "opacity": 1,
         "stroke": "#F7F4EE",
-        "strokeWidth": 1.5
+        "strokeWidth": 1.5,
+        "tooltip": {
+          "expr": "{'title': 'South Melbourne Market', 'Month': datum.month, 'Change in entries on 2019': (datum.pct_change > 0 ? '+' : '−') + format(abs(datum.pct_change), '.0f') + '%'}"
+        }
       },
       "encoding": {
         "x": {
@@ -279,17 +261,6 @@
             "labelPadding": 8
           }
         },
-        "tooltip": [
-          {
-            "field": "month",
-            "title": "Month"
-          },
-          {
-            "field": "pct_change",
-            "type": "quantitative",
-            "title": "Change in entries (%)"
-          }
-        ],
         "shape": {
           "field": "group",
           "type": "nominal",

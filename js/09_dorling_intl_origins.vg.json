@@ -170,7 +170,10 @@
         "color": "#A07C0A",
         "opacity": 0.85,
         "stroke": "#1A1A17",
-        "strokeWidth": 0.8
+        "strokeWidth": 0.8,
+        "tooltip": {
+          "expr": "{'Country': datum.country == 'United States of America' ? 'United States' : datum.country, 'Went to a market': format(datum.mkt_visitors, ',.0f'), 'Share of visitors': format(datum.mkt_share_pct, '.1f') + '%'}"
+        }
       },
       "encoding": {
         "x": {
@@ -204,31 +207,7 @@
         "order": {
           "field": "neg",
           "type": "quantitative"
-        },
-        "tooltip": [
-          {
-            "field": "country",
-            "title": "Country of residence"
-          },
-          {
-            "field": "mkt_visitors",
-            "type": "quantitative",
-            "title": "Visited a market",
-            "format": ","
-          },
-          {
-            "field": "visitors",
-            "type": "quantitative",
-            "title": "Total visitors",
-            "format": ","
-          },
-          {
-            "field": "mkt_share_pct",
-            "type": "quantitative",
-            "title": "Share visiting a market",
-            "format": ".1f"
-          }
-        ]
+        }
       }
     },
     {

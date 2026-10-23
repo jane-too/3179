@@ -1,7 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "background": "#F7F4EE",
-  "padding": 5,
+  "padding": {
+    "left": 5,
+    "top": 5,
+    "right": 5,
+    "bottom": 4
+  },
   "width": "container",
   "height": 440,
   "title": {
@@ -125,7 +130,10 @@
       "mark": {
         "type": "circle",
         "opacity": 1,
-        "color": "#A07C0A"
+        "color": "#A07C0A",
+        "tooltip": {
+          "expr": "datum.measure == 'share_of_stalls_pct' ? {'Trade': datum.display, 'Share of stalls': format(datum.pct, '.0f') + '%'} : {'Trade': datum.display, 'Main reason for visiting': format(datum.pct, '.0f') + '%'}"
+        }
       },
       "encoding": {
         "size": {
@@ -134,22 +142,7 @@
             "value": 160
           },
           "value": 80
-        },
-        "tooltip": [
-          {
-            "field": "display",
-            "title": "Trade"
-          },
-          {
-            "field": "measure",
-            "title": "Measure"
-          },
-          {
-            "field": "pct",
-            "type": "quantitative",
-            "title": "Share (%)"
-          }
-        ]
+        }
       }
     },
     {

@@ -1,7 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "background": "#F7F4EE",
-  "padding": 5,
+  "padding": {
+    "left": 5,
+    "top": 5,
+    "right": 5,
+    "bottom": 3
+  },
   "title": {
     "text": [
       "Over the same five years South Melbourne ended 7% above where it began;",
@@ -137,7 +142,10 @@
           "mark": {
             "type": "bar",
             "size": 36,
-            "cornerRadius": 1
+            "cornerRadius": 1,
+            "tooltip": {
+              "expr": "isValid(datum.delta) && datum.copy != 1 ? {'Year': trim(datum.fy), 'Visitors': format(datum.total, ',.0f'), 'Change on previous year': (datum.delta > 0 ? '+' : '−') + format(abs(datum.delta), ',.0f')} : {'Year': trim(replace(datum.fy, 'total', '')), 'Visitors': format(datum.total, ',.0f')}"
+            }
           },
           "encoding": {
             "x": {
@@ -198,29 +206,7 @@
             },
             "color": {
               "value": "#A632A6"
-            },
-            "tooltip": [
-              {
-                "field": "fy",
-                "title": "Year"
-              },
-              {
-                "field": "total",
-                "type": "quantitative",
-                "title": "Visitors",
-                "format": ","
-              },
-              {
-                "field": "delta",
-                "type": "quantitative",
-                "title": "Change",
-                "format": "+,"
-              },
-              {
-                "field": "basis",
-                "title": "Figure"
-              }
-            ]
+            }
           },
           "transform": [
             {
@@ -871,7 +857,10 @@
           "mark": {
             "type": "bar",
             "size": 36,
-            "cornerRadius": 1
+            "cornerRadius": 1,
+            "tooltip": {
+              "expr": "isValid(datum.delta) && datum.copy != 1 ? {'Year': trim(datum.fy), 'Visitors': format(datum.total, ',.0f'), 'Change on previous year': (datum.delta > 0 ? '+' : '−') + format(abs(datum.delta), ',.0f')} : {'Year': trim(replace(datum.fy, 'total', '')), 'Visitors': format(datum.total, ',.0f')}"
+            }
           },
           "encoding": {
             "x": {
@@ -932,29 +921,7 @@
             },
             "color": {
               "value": "#2F6B45"
-            },
-            "tooltip": [
-              {
-                "field": "fy",
-                "title": "Year"
-              },
-              {
-                "field": "total",
-                "type": "quantitative",
-                "title": "Visitors",
-                "format": ","
-              },
-              {
-                "field": "delta",
-                "type": "quantitative",
-                "title": "Change",
-                "format": "+,"
-              },
-              {
-                "field": "basis",
-                "title": "Figure"
-              }
-            ]
+            }
           },
           "transform": [
             {

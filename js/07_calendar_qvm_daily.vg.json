@@ -455,7 +455,10 @@
           "mark": {
             "type": "rect",
             "stroke": "#F7F4EE",
-            "strokeWidth": 0.5
+            "strokeWidth": 0.5,
+            "tooltip": {
+              "expr": "{'Date': timeFormat(datum.date, '%a %-d %b %Y'), 'People counted': format(datum.count, ',.0f')}"
+            }
           },
           "encoding": {
             "x": {
@@ -554,21 +557,7 @@
                 ]
               },
               "legend": null
-            },
-            "tooltip": [
-              {
-                "field": "date",
-                "type": "temporal",
-                "title": "Date",
-                "format": "%a %e %b %Y"
-              },
-              {
-                "field": "count",
-                "type": "quantitative",
-                "title": "People counted",
-                "format": ","
-              }
-            ]
+            }
           }
         }
       ]
@@ -716,7 +705,10 @@
           "mark": {
             "type": "rect",
             "stroke": "#F7F4EE",
-            "strokeWidth": 0.5
+            "strokeWidth": 0.5,
+            "tooltip": {
+              "expr": "{'Date': timeFormat(datum.date, '%a %-d %b %Y'), 'People counted': format(datum.count, ',.0f')}"
+            }
           },
           "encoding": {
             "x": {
@@ -815,21 +807,7 @@
                 ]
               },
               "legend": null
-            },
-            "tooltip": [
-              {
-                "field": "date",
-                "type": "temporal",
-                "title": "Date",
-                "format": "%a %e %b %Y"
-              },
-              {
-                "field": "count",
-                "type": "quantitative",
-                "title": "People counted",
-                "format": ","
-              }
-            ]
+            }
           }
         }
       ]
@@ -977,7 +955,10 @@
           "mark": {
             "type": "rect",
             "stroke": "#F7F4EE",
-            "strokeWidth": 0.5
+            "strokeWidth": 0.5,
+            "tooltip": {
+              "expr": "{'Date': timeFormat(datum.date, '%a %-d %b %Y'), 'People counted': format(datum.count, ',.0f')}"
+            }
           },
           "encoding": {
             "x": {
@@ -1076,21 +1057,7 @@
                 ]
               },
               "legend": null
-            },
-            "tooltip": [
-              {
-                "field": "date",
-                "type": "temporal",
-                "title": "Date",
-                "format": "%a %e %b %Y"
-              },
-              {
-                "field": "count",
-                "type": "quantitative",
-                "title": "People counted",
-                "format": ","
-              }
-            ]
+            }
           }
         }
       ]
@@ -1238,7 +1205,10 @@
           "mark": {
             "type": "rect",
             "stroke": "#F7F4EE",
-            "strokeWidth": 0.5
+            "strokeWidth": 0.5,
+            "tooltip": {
+              "expr": "{'Date': timeFormat(datum.date, '%a %-d %b %Y'), 'People counted': format(datum.count, ',.0f')}"
+            }
           },
           "encoding": {
             "x": {
@@ -1337,21 +1307,7 @@
                 ]
               },
               "legend": null
-            },
-            "tooltip": [
-              {
-                "field": "date",
-                "type": "temporal",
-                "title": "Date",
-                "format": "%a %e %b %Y"
-              },
-              {
-                "field": "count",
-                "type": "quantitative",
-                "title": "People counted",
-                "format": ","
-              }
-            ]
+            }
           }
         },
         {

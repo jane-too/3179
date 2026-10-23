@@ -1,14 +1,23 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "background": "#F7F4EE",
-  "padding": 5,
+  "padding": {
+    "left": 5,
+    "top": 5,
+    "right": 5,
+    "bottom": 3
+  },
+  "autosize": {
+    "type": "pad",
+    "resize": true
+  },
   "title": {
-    "text": "In 2025, two of the three markets ranked first or second in their state; Sydney’s ranked 13th",
-    "subtitle": [
-      "International visitors who went to each attraction in 2025. Counts are people, not visits: someone who",
-      "went three times during their trip is counted once. Each state is ranked against its own attractions only, and",
-      "the three scales differ, so the panels say where a market sits at home, not how the three markets compare."
-    ],
+    "text": {
+      "expr": "'In ' + year + ', two of the three markets ranked ' + {'2014': 'first', '2015': 'first or second', '2016': 'first or second', '2017': 'first or second', '2018': 'first or second', '2019': 'first or second', '2023': 'first or second', '2024': 'first or second', '2025': 'first or second'}[year] + ' in their state; Sydney’s ranked ' + {'2014': '15th', '2015': '10th', '2016': '10th', '2017': '11th', '2018': '11th', '2019': '12th', '2023': '15th', '2024': '12th', '2025': '13th'}[year]"
+    },
+    "subtitle": {
+      "expr": "[\"International visitors who went to each attraction in \" + year + \". Counts are people, not visits: someone who\", \"went three times during their trip is counted once. Each state is ranked against its own attractions only, and\", \"the three scales differ, so the panels say where a market sits at home, not how the three markets compare.\"]"
+    },
     "anchor": "start",
     "font": "Fraunces",
     "fontSize": 20,
@@ -28,7 +37,9 @@
       "name": "victoria",
       "title": {
         "text": "VICTORIA",
-        "subtitle": "These are all 28 Victorian attractions that the survey records for 2025.",
+        "subtitle": {
+          "expr": "'These are all ' + {'2014': 26, '2015': 26, '2016': 27, '2017': 28, '2018': 28, '2019': 28, '2023': 28, '2024': 28, '2025': 28}[year] + ' Victorian attractions that the survey records for ' + year + '.'"
+        },
         "anchor": "start",
         "font": "Archivo",
         "fontSize": 15,
@@ -58,7 +69,7 @@
       },
       "transform": [
         {
-          "filter": "datum.year == 2025 && datum.visitors != null"
+          "filter": "datum.year == year && datum.visitors != null"
         },
         {
           "filter": "indexof(['Short Interview VIC', 'Other regional Victoria', \"Don't know VIC\", \"Don't know Melbourne\"], datum.attraction) < 0"
@@ -162,6 +173,10 @@
             "labelExpr": "datum.value === 0 ? '0' : format(datum.value, '~s')"
           },
           "scale": {
+            "domain": [
+              0,
+              1980683
+            ],
             "nice": 4
           }
         }
@@ -239,34 +254,12 @@
             "filled": true,
             "color": "#DDDDDD",
             "size": 70,
-            "opacity": 1
+            "opacity": 1,
+            "tooltip": {
+              "expr": "{'Attraction': datum.display_name, 'Rank': datum.rank + ' of ' + datum.field_size, 'International visitors': format(datum.visitors, ',.0f')}"
+            }
           },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "display_name",
-                "type": "nominal",
-                "title": "Attraction"
-              },
-              {
-                "field": "visitors",
-                "type": "quantitative",
-                "title": "International visitors, 2025",
-                "format": ",.0f"
-              },
-              {
-                "field": "rank",
-                "type": "quantitative",
-                "title": "Rank in Victoria"
-              },
-              {
-                "field": "sample",
-                "type": "quantitative",
-                "title": "Survey responses",
-                "format": ",.0f"
-              }
-            ]
-          }
+          "encoding": {}
         },
         {
           "transform": [
@@ -279,34 +272,12 @@
             "filled": true,
             "color": "#A632A6",
             "size": 190,
-            "opacity": 1
+            "opacity": 1,
+            "tooltip": {
+              "expr": "{'Attraction': datum.display_name, 'Rank': datum.rank + ' of ' + datum.field_size, 'International visitors': format(datum.visitors, ',.0f')}"
+            }
           },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "display_name",
-                "type": "nominal",
-                "title": "Attraction"
-              },
-              {
-                "field": "visitors",
-                "type": "quantitative",
-                "title": "International visitors, 2025",
-                "format": ",.0f"
-              },
-              {
-                "field": "rank",
-                "type": "quantitative",
-                "title": "Rank in Victoria"
-              },
-              {
-                "field": "sample",
-                "type": "quantitative",
-                "title": "Survey responses",
-                "format": ",.0f"
-              }
-            ]
-          }
+          "encoding": {}
         },
         {
           "data": {
@@ -353,11 +324,11 @@
               "as": "second_from"
             },
             {
-              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "calculate": "datum.year == year ? datum.rank : 0",
               "as": "r25"
             },
             {
-              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "calculate": "datum.year == year ? datum.visitors : 0",
               "as": "v25"
             },
             {
@@ -468,11 +439,11 @@
               "as": "second_from"
             },
             {
-              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "calculate": "datum.year == year ? datum.rank : 0",
               "as": "r25"
             },
             {
-              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "calculate": "datum.year == year ? datum.visitors : 0",
               "as": "v25"
             },
             {
@@ -580,11 +551,11 @@
               "as": "second_from"
             },
             {
-              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "calculate": "datum.year == year ? datum.rank : 0",
               "as": "r25"
             },
             {
-              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "calculate": "datum.year == year ? datum.visitors : 0",
               "as": "v25"
             },
             {
@@ -653,7 +624,9 @@
       "name": "south_australia",
       "title": {
         "text": "SOUTH AUSTRALIA",
-        "subtitle": "These are all 14 South Australian attractions that the survey records for 2025.",
+        "subtitle": {
+          "expr": "'These are all ' + {'2014': 13, '2015': 12, '2016': 12, '2017': 13, '2018': 13, '2019': 13, '2023': 13, '2024': 14, '2025': 14}[year] + ' South Australian attractions that the survey records for ' + year + '.'"
+        },
         "anchor": "start",
         "font": "Archivo",
         "fontSize": 15,
@@ -683,10 +656,10 @@
       },
       "transform": [
         {
-          "filter": "datum.year == 2025 && datum.visitors != null"
+          "filter": "datum.year == year && datum.visitors != null"
         },
         {
-          "calculate": "datum.attraction == 'Adelaide Central Markets' ? 'Adelaide Central Market' : datum.attraction",
+          "calculate": "datum.attraction == 'Adelaide Central Markets' ? 'Adelaide Central Market' : indexof(datum.attraction, 'North Terrace attractions') == 0 ? 'North Terrace attractions' : datum.attraction",
           "as": "display_name"
         },
         {
@@ -784,6 +757,10 @@
             "labelExpr": "datum.value === 0 ? '0' : format(datum.value, '~s')"
           },
           "scale": {
+            "domain": [
+              0,
+              237305
+            ],
             "nice": 4
           }
         }
@@ -861,34 +838,12 @@
             "filled": true,
             "color": "#DDDDDD",
             "size": 70,
-            "opacity": 1
+            "opacity": 1,
+            "tooltip": {
+              "expr": "{'Attraction': datum.display_name, 'Rank': datum.rank + ' of ' + datum.field_size, 'International visitors': format(datum.visitors, ',.0f')}"
+            }
           },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "display_name",
-                "type": "nominal",
-                "title": "Attraction"
-              },
-              {
-                "field": "visitors",
-                "type": "quantitative",
-                "title": "International visitors, 2025",
-                "format": ",.0f"
-              },
-              {
-                "field": "rank",
-                "type": "quantitative",
-                "title": "Rank in South Australia"
-              },
-              {
-                "field": "sample",
-                "type": "quantitative",
-                "title": "Survey responses",
-                "format": ",.0f"
-              }
-            ]
-          }
+          "encoding": {}
         },
         {
           "transform": [
@@ -901,34 +856,12 @@
             "filled": true,
             "color": "#663600",
             "size": 190,
-            "opacity": 1
+            "opacity": 1,
+            "tooltip": {
+              "expr": "{'Attraction': datum.display_name, 'Rank': datum.rank + ' of ' + datum.field_size, 'International visitors': format(datum.visitors, ',.0f')}"
+            }
           },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "display_name",
-                "type": "nominal",
-                "title": "Attraction"
-              },
-              {
-                "field": "visitors",
-                "type": "quantitative",
-                "title": "International visitors, 2025",
-                "format": ",.0f"
-              },
-              {
-                "field": "rank",
-                "type": "quantitative",
-                "title": "Rank in South Australia"
-              },
-              {
-                "field": "sample",
-                "type": "quantitative",
-                "title": "Survey responses",
-                "format": ",.0f"
-              }
-            ]
-          }
+          "encoding": {}
         },
         {
           "data": {
@@ -971,11 +904,11 @@
               "as": "first"
             },
             {
-              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "calculate": "datum.year == year ? datum.rank : 0",
               "as": "r25"
             },
             {
-              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "calculate": "datum.year == year ? datum.visitors : 0",
               "as": "v25"
             },
             {
@@ -1113,11 +1046,11 @@
               "as": "first"
             },
             {
-              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "calculate": "datum.year == year ? datum.rank : 0",
               "as": "r25"
             },
             {
-              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "calculate": "datum.year == year ? datum.visitors : 0",
               "as": "v25"
             },
             {
@@ -1252,11 +1185,11 @@
               "as": "first"
             },
             {
-              "calculate": "datum.year == 2025 ? datum.rank : 0",
+              "calculate": "datum.year == year ? datum.rank : 0",
               "as": "r25"
             },
             {
-              "calculate": "datum.year == 2025 ? datum.visitors : 0",
+              "calculate": "datum.year == year ? datum.visitors : 0",
               "as": "v25"
             },
             {
@@ -1356,7 +1289,9 @@
       "name": "new_south_wales",
       "title": {
         "text": "NEW SOUTH WALES",
-        "subtitle": "These are all 31 New South Wales attractions that the survey records for 2025.",
+        "subtitle": {
+          "expr": "'These are all ' + {'2014': 25, '2015': 25, '2016': 26, '2017': 30, '2018': 30, '2019': 31, '2023': 31, '2024': 31, '2025': 31}[year] + ' New South Wales attractions that the survey records for ' + year + '.'"
+        },
         "anchor": "start",
         "font": "Archivo",
         "fontSize": 15,
@@ -1386,7 +1321,7 @@
       },
       "transform": [
         {
-          "filter": "datum.year == 2025 && datum.visitors != null"
+          "filter": "datum.year == year && datum.visitors != null"
         },
         {
           "calculate": "indexof(datum.attraction, 'Sydney Fish Markets') >= 0 ? 'Sydney Fish Market' : datum.attraction",
@@ -1477,6 +1412,10 @@
             "labelExpr": "datum.value === 0 ? '0' : format(datum.value, '~s')"
           },
           "scale": {
+            "domain": [
+              0,
+              2978794
+            ],
             "nice": 4
           }
         }
@@ -1520,6 +1459,9 @@
         {
           "transform": [
             {
+              "filter": "year == 2025"
+            },
+            {
               "filter": "indexof(datum.attraction, 'Sydney Fish Markets') >= 0"
             }
           ],
@@ -1554,34 +1496,12 @@
             "filled": true,
             "color": "#DDDDDD",
             "size": 70,
-            "opacity": 1
+            "opacity": 1,
+            "tooltip": {
+              "expr": "{'Attraction': datum.display_name, 'Rank': datum.rank + ' of ' + datum.field_size, 'International visitors': format(datum.visitors, ',.0f')}"
+            }
           },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "display_name",
-                "type": "nominal",
-                "title": "Attraction"
-              },
-              {
-                "field": "visitors",
-                "type": "quantitative",
-                "title": "International visitors, 2025",
-                "format": ",.0f"
-              },
-              {
-                "field": "rank",
-                "type": "quantitative",
-                "title": "Rank in New South Wales"
-              },
-              {
-                "field": "sample",
-                "type": "quantitative",
-                "title": "Survey responses",
-                "format": ",.0f"
-              }
-            ]
-          }
+          "encoding": {}
         },
         {
           "transform": [
@@ -1594,34 +1514,12 @@
             "filled": true,
             "color": "#0F00B2",
             "size": 190,
-            "opacity": 1
+            "opacity": 1,
+            "tooltip": {
+              "expr": "{'Attraction': datum.display_name, 'Rank': datum.rank + ' of ' + datum.field_size, 'International visitors': format(datum.visitors, ',.0f')}"
+            }
           },
-          "encoding": {
-            "tooltip": [
-              {
-                "field": "display_name",
-                "type": "nominal",
-                "title": "Attraction"
-              },
-              {
-                "field": "visitors",
-                "type": "quantitative",
-                "title": "International visitors, 2025",
-                "format": ",.0f"
-              },
-              {
-                "field": "rank",
-                "type": "quantitative",
-                "title": "Rank in New South Wales"
-              },
-              {
-                "field": "sample",
-                "type": "quantitative",
-                "title": "Survey responses",
-                "format": ",.0f"
-              }
-            ]
-          }
+          "encoding": {}
         },
         {
           "data": {
@@ -1636,6 +1534,9 @@
             }
           },
           "transform": [
+            {
+              "filter": "year == 2025"
+            },
             {
               "filter": "(datum.year == 2024 || datum.year == 2025) && datum.visitors != null"
             },
@@ -1752,6 +1653,9 @@
           },
           "transform": [
             {
+              "filter": "year == 2025"
+            },
+            {
               "filter": "(datum.year == 2024 || datum.year == 2025) && datum.visitors != null"
             },
             {
@@ -1864,6 +1768,9 @@
           },
           "transform": [
             {
+              "filter": "year == 2025"
+            },
+            {
               "filter": "(datum.year == 2024 || datum.year == 2025) && datum.visitors != null"
             },
             {
@@ -1970,5 +1877,26 @@
       "stroke": null
     },
     "background": "#F7F4EE"
-  }
+  },
+  "params": [
+    {
+      "name": "year",
+      "value": 2025,
+      "bind": {
+        "input": "select",
+        "options": [
+          2014,
+          2015,
+          2016,
+          2017,
+          2018,
+          2019,
+          2023,
+          2024,
+          2025
+        ],
+        "name": "Survey year "
+      }
+    }
+  ]
 }

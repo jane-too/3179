@@ -100,7 +100,10 @@
         "type": "rect",
         "fill": "#DDDDDD",
         "stroke": "#F7F4EE",
-        "strokeWidth": 1
+        "strokeWidth": 1,
+        "tooltip": {
+          "expr": "{'Country': datum.country, 'Visitors': format(datum.visitors, ',.0f'), 'Went to a market': format(datum.mkt_visitors, ',.0f') + ' (' + format(datum.mkt_share_pct, '.1f') + '%' + ')'}"
+        }
       },
       "encoding": {
         "x": {
@@ -181,37 +184,7 @@
         },
         "y2": {
           "datum": 100
-        },
-        "tooltip": [
-          {
-            "field": "country",
-            "title": "Country of residence"
-          },
-          {
-            "field": "visitors",
-            "type": "quantitative",
-            "title": "Visitors",
-            "format": ","
-          },
-          {
-            "field": "mkt_visitors",
-            "type": "quantitative",
-            "title": "Went to a market",
-            "format": ","
-          },
-          {
-            "field": "mkt_share_pct",
-            "type": "quantitative",
-            "title": "Share who went (%)",
-            "format": ".1f"
-          },
-          {
-            "field": "mkt_sample",
-            "type": "quantitative",
-            "title": "Survey responses behind the share",
-            "format": ","
-          }
-        ]
+        }
       }
     },
     {
@@ -219,7 +192,10 @@
         "type": "rect",
         "fill": "#A07C0A",
         "stroke": "#F7F4EE",
-        "strokeWidth": 1
+        "strokeWidth": 1,
+        "tooltip": {
+          "expr": "{'Country': datum.country, 'Visitors': format(datum.visitors, ',.0f'), 'Went to a market': format(datum.mkt_visitors, ',.0f') + ' (' + format(datum.mkt_share_pct, '.1f') + '%' + ')'}"
+        }
       },
       "encoding": {
         "x": {
@@ -235,37 +211,7 @@
         },
         "y2": {
           "datum": 0
-        },
-        "tooltip": [
-          {
-            "field": "country",
-            "title": "Country of residence"
-          },
-          {
-            "field": "visitors",
-            "type": "quantitative",
-            "title": "Visitors",
-            "format": ","
-          },
-          {
-            "field": "mkt_visitors",
-            "type": "quantitative",
-            "title": "Went to a market",
-            "format": ","
-          },
-          {
-            "field": "mkt_share_pct",
-            "type": "quantitative",
-            "title": "Share who went (%)",
-            "format": ".1f"
-          },
-          {
-            "field": "mkt_sample",
-            "type": "quantitative",
-            "title": "Survey responses behind the share",
-            "format": ","
-          }
-        ]
+        }
       }
     },
     {

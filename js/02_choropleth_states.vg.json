@@ -3,7 +3,12 @@
   "width": "container",
   "height": 600,
   "background": "#F7F4EE",
-  "padding": 5,
+  "padding": {
+    "left": 5,
+    "top": 5,
+    "right": 5,
+    "bottom": 2
+  },
   "title": {
     "text": "Markets draw a steady slice of day trips, wherever you are",
     "subtitle": [
@@ -82,7 +87,10 @@
       "mark": {
         "type": "geoshape",
         "stroke": "#F7F4EE",
-        "strokeWidth": 1.4
+        "strokeWidth": 1.4,
+        "tooltip": {
+          "expr": "{'State': datum.state, 'Share of day trips': format(datum.share_pct, '.1f') + '%', 'Survey responses': format(datum.sample, ',.0f')}"
+        }
       },
       "encoding": {
         "shape": {
@@ -131,26 +139,7 @@
             "titleFontWeight": 600,
             "titlePadding": 10
           }
-        },
-        "tooltip": [
-          {
-            "field": "state",
-            "type": "nominal",
-            "title": "State or territory"
-          },
-          {
-            "field": "share_pct",
-            "type": "quantitative",
-            "title": "Share of day trips (%)",
-            "format": ".2f"
-          },
-          {
-            "field": "sample",
-            "type": "quantitative",
-            "title": "Survey responses",
-            "format": ".0f"
-          }
-        ]
+        }
       }
     },
     {
@@ -180,31 +169,16 @@
         "type": "geoshape",
         "fill": "#F7F4EE",
         "stroke": "#DFD9CC",
-        "strokeWidth": 1
+        "strokeWidth": 1,
+        "tooltip": {
+          "expr": "{'Territory': datum.state, 'Share of day trips': 'Too few responses to report'}"
+        }
       },
       "encoding": {
         "shape": {
           "field": "geo",
           "type": "geojson"
-        },
-        "tooltip": [
-          {
-            "field": "state",
-            "type": "nominal",
-            "title": "State or territory"
-          },
-          {
-            "field": "sample",
-            "type": "quantitative",
-            "title": "Survey responses",
-            "format": ".0f"
-          },
-          {
-            "field": "label",
-            "type": "nominal",
-            "title": "Estimate"
-          }
-        ]
+        }
       }
     },
     {
